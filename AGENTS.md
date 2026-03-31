@@ -4,6 +4,194 @@ This is a web application written using the Phoenix web framework.
 
 - Use `mix precommit` alias when you are done with all changes and fix any pending issues
 - Use the already included and available `:req` (`Req`) library for HTTP requests, **avoid** `:httpoison`, `:tesla`, and `:httpc`. Req is included by default and is the preferred HTTP client for Phoenix apps
+- Use the HexDoc mcp server to read the documentation about project dependencies
+- When you add a new dependency or update an existing dependency run `mix usage_rules.sync` to update the AGENTS.md file and phoenix-framework Skill
+- Always provide translations of all text that is visible in the UI
+- Never put Ecto queries directly in LiveViews. Instead always put them in the appropriate context module
+
+### Module design and complexity
+
+**IMPORTANT**: When working with modules that are becoming too large or complex:
+
+- **Monitor module size and complexity**: If a module exceeds ~500-600 lines or contains deeply nested logic with high cyclomatic complexity, consider refactoring
+- **Break out logical concerns**: Extract related functionality into separate, focused modules that handle a single responsibility
+- **Use helper modules**: For complex domains (like task management), consider creating dedicated modules for specific sub-concerns:
+  - Positioning logic (e.g., `Tasks.Positioning`)
+  - Dependency management (e.g., `Tasks.Dependencies`)
+  - Validation logic (e.g., `Tasks.Validation`)
+  - Query builders (e.g., `Tasks.Queries`)
+- **Extract helper functions**: When a function becomes complex (cyclomatic complexity > 9), extract complex conditional logic into smaller, well-named helper functions
+- **Maintain clear module boundaries**: Each module should have a clear, single purpose with a well-defined public API
+- **Document module organization**: When splitting modules, update documentation to explain the new structure and how modules relate to each other
+
+This approach improves:
+- Code maintainability and readability
+- Test isolation and coverage
+- Collaboration between developers
+- Ability to reason about individual components
+- Credo compliance and code quality metrics
+
+### UI/UX guidelines
+
+- **Always follow existing application styles and patterns** when adding new UI elements
+- Before creating custom styles, check `core_components.ex` for existing components like `<.input>`, `<.button>`, `<.form>`, etc.
+- When adding form fields, use the standard component structure with `fieldset`, `label`, and `span.label` classes to match existing forms
+- New buttons should use the `<.button>` component without custom classes unless specifically requested
+- Maintain consistency with existing color schemes, spacing, and typography throughout the application
+
+### Dark Mode Verification Guidelines
+
+**CRITICAL**: Always verify UI changes work in BOTH light and dark modes before considering a task complete.
+
+#### When to Verify Dark Mode
+- After adding or modifying any UI component
+- After changing CSS styles or Tailwind classes
+- After updating modal, form, or layout components
+- When users report visibility issues
+- Before marking any UI-related task as complete
+
+#### Common Dark Mode Issues and Fixes
+
+**1. Hardcoded Colors**
+- **Issue**: Using hardcoded Tailwind colors like `text-gray-900`, `bg-white`, `border-gray-200`
+- **Fix**: Replace with theme-aware daisyUI colors:
+  - `text-gray-900` → `text-base-content`
+  - `text-gray-600` → `text-base-content opacity-70`
+  - `text-gray-500` → `text-base-content opacity-60`
+  - `bg-white` → `bg-base-100`
+  - `bg-gray-50` → `bg-base-200`
+  - `border-gray-200` → `border-base-300`
+
+**2. Form Elements**
+- **Issue**: Labels and inputs invisible in dark mode
+- **Fix**: Ensure labels use `text-base-content` with full opacity
+- **Fix**: Ensure inputs have `bg-base-100` background and `text-base-content` text
+- Add visible borders with `border-base-300`
+
+**3. Buttons and Links**
+- **Issue**: Low contrast buttons/links in dark mode
+- **Fix**: Use `btn-primary` classes or override with `var(--color-primary)` background
+- **Fix**: Ensure button text uses `var(--color-primary-content)`
+- **Fix**: Links should use `var(--color-primary)` for visibility
+
+**4. Modal Backgrounds**
+- **Issue**: White modal backgrounds in dark mode
+- **Fix**: Use `bg-base-100` instead of `bg-white`
+- **Fix**: Modal backdrop should use `bg-base-200/90` for proper overlay
+
+#### Dark Mode Verification Process
+
+**Step 1: Use browser_eval to test both modes**
+```elixir
+# Test in dark mode
+await page.eval(() => {
+  localStorage.setItem('phx:theme', 'dark');
+  document.documentElement.setAttribute('data-theme', 'dark');
+});
+
+# Check element visibility
+await page.eval(() => {
+  const el = document.querySelector('.your-element');
+  const style = window.getComputedStyle(el);
+  console.log('Color:', style.color);
+  console.log('Background:', style.backgroundColor);
+});
+
+# Test in light mode
+await page.eval(() => {
+  localStorage.setItem('phx:theme', 'light');
+  document.documentElement.setAttribute('data-theme', 'light');
+});
+```
+
+**Step 2: Verify contrast**
+- Light mode: Dark text (oklch ~0.21) on light backgrounds (oklch ~0.98)
+- Dark mode: Light text (oklch ~0.97) on dark backgrounds (oklch ~0.30)
+- Buttons: High contrast in both modes using primary colors
+
+**Step 3: Test all sections**
+- Headers/titles
+- Form labels and inputs
+- Buttons and links
+- Text content
+- Borders and dividers
+- Modal overlays
+
+#### CSS Patterns for Dark Mode Support
+
+**In assets/css/app.css:**
+```css
+@layer components {
+  /* Labels with full opacity */
+  .label {
+    color: var(--color-base-content) !important;
+    opacity: 1 !important;
+  }
+
+  /* Inputs with theme-aware backgrounds */
+  input.input,
+  textarea.textarea,
+  select.select {
+    background-color: var(--color-base-100) !important;
+    color: var(--color-base-content) !important;
+    border-color: var(--color-base-300) !important;
+  }
+
+  /* High contrast buttons */
+  .btn-primary {
+    background-color: var(--color-primary) !important;
+    color: var(--color-primary-content) !important;
+  }
+
+  /* Visible links */
+  a {
+    color: var(--color-primary) !important;
+  }
+}
+```
+
+**In templates:**
+```heex
+<!-- Use theme-aware classes -->
+<h1 class="text-base-content">Title</h1>
+<p class="text-base-content opacity-70">Subtitle</p>
+<div class="bg-base-100 border-base-300">Content</div>
+```
+
+#### Remember: Session Summary
+
+During this session, the following dark mode fixes were applied:
+1. Modal container backgrounds (`bg-white` → `bg-base-100`)
+2. Form labels (added full opacity and `text-base-content`)
+3. Text inputs (added `bg-base-100` and `text-base-content`)
+4. Headers and subtitles (`text-gray-900` → `text-base-content`)
+5. Task History section (all text and borders)
+6. Comments section (backgrounds and text)
+7. Buttons and links (increased contrast with primary colors)
+
+**Files modified:**
+- `lib/kanban_web/components/delayed_modal.ex`
+- `lib/kanban_web/components/core_components.ex`
+- `lib/kanban_web/live/task_live/form_component.html.heex`
+- `assets/css/app.css`
+
+### Quality guidelines  
+
+**ALWAYS** follow these quality guidelines:
+
+- **IMPORTANT**: When you complete a task that has new functions write unit tests for the new function
+- **IMPORTANT**: When you complete a task that updates code make sure all existing unit tests pass and write new tests if needed
+- Each time you write or update a unit test run them with `mix test` and ensure they pass
+- **IMPORTANT**: When you complete a task run `mix test --cover` and ensure coverage is above the threshold.
+- **IMPORTANT**: When you complete a task run `mix credo --strict` to check for code quality issues and fix them
+
+### Security guidelines
+
+**ALWAYS** follow these security guidelines:
+
+- **IMPORTANT**: When you add or update a dependency run `mix deps.audit` and `mix hex.audit` to check for security issues
+- **IMPORTANT**: When you add or update a dependency run `mix hex.outdated` to check for outdated dependencies
+- **IMPORTANT**: When you complete a task run `mix sobelow --config` to check for security issues and fix any issue
 
 ### Phoenix v1.8 guidelines
 
