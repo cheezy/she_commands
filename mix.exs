@@ -11,7 +11,9 @@ defmodule SheCommands.MixProject do
       aliases: aliases(),
       deps: deps(),
       compilers: [:phoenix_live_view] ++ Mix.compilers(),
-      listeners: [Phoenix.CodeReloader]
+      listeners: [Phoenix.CodeReloader],
+      test_coverage: test_coverage(),
+      usage_rules: usage_rules()
     ]
   end
 
@@ -65,7 +67,14 @@ defmodule SheCommands.MixProject do
       {:gettext, "~> 1.0"},
       {:jason, "~> 1.2"},
       {:dns_cluster, "~> 0.2.0"},
-      {:bandit, "~> 1.5"}
+      {:bandit, "~> 1.5"},
+      {:ecto_psql_extras, "~> 0.8"},
+      {:credo, "~> 1.7", only: [:dev, :test], runtime: false},
+      {:mix_audit, "~> 2.1", only: [:dev, :test], runtime: false},
+      {:usage_rules, "~> 1.0", only: [:dev]},
+      {:igniter, "~> 0.6", only: [:dev]},
+      {:sobelow, "~> 0.13", only: [:dev, :test], runtime: false},
+      {:tidewave, "~> 0.5", only: :dev}
     ]
   end
 
@@ -91,4 +100,57 @@ defmodule SheCommands.MixProject do
       precommit: ["compile --warnings-as-errors", "deps.unlock --unused", "format", "test"]
     ]
   end
+
+    defp test_coverage do
+    [
+      ignore_modules: [
+        SheCommands.AccountsFixtures,
+        SheCommands.Application,
+        SheCommands.BoardsFixtures,
+        SheCommands.DataCase,
+        SheCommands.Release,
+        SheCommands.Repo,
+        SheCommands.TasksFixtures,
+        SheCommandsWeb.API.ErrorJSON,
+        SheCommandsWeb.API.FallbackController,
+        SheCommandsWeb.BoardLive.FormComponent,
+        SheCommandsWeb.ConnCase,
+        SheCommandsWeb.CoreComponents,
+        SheCommandsWeb.ErrorHTML,
+        SheCommandsWeb.ErrorJSON,
+        SheCommandsWeb.Layouts,
+        SheCommandsWeb.NavComponents,
+        SheCommandsWeb.PageController,
+        SheCommandsWeb.PageHTML,
+        SheCommandsWeb.Plugs.Locale,
+        SheCommandsWeb.Router,
+        SheCommandsWeb.Telemetry,
+        SheCommandsWeb.Telemetry.UserActivityPage
+      ]
+    ]
+  end
+
+  defp usage_rules do
+    [
+      file: "AGENTS.md",
+      usage_rules: [
+        ~r/^usage_rules/
+      ],
+
+      # or use skills
+      skills: [
+        location: ".claude/skills",
+        # build skills that combine multiple usage rules
+        build: [
+          "phoenix-framework": [
+            description:
+              "Use this skill working with Phoenix Framework. Consult this when working with the web layer, controllers, views, liveviews etc.",
+            # Include all Phoenix dependencies
+            usage_rules: [:phoenix, ~r/^phoenix\//]
+          ]
+        ]
+      ]
+    ]
+  end
+
 end
