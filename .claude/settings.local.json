@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "mcp__Tidewave__get_logs"
+      "mcp__Tidewave__get_logs",
+      "WebFetch(domain:www.shecommands.ca)"
     ]
   }
 }

@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="csrf-token" content={get_csrf_token()} />
-    <.live_title default="SheCommands" suffix=" · Phoenix Framework">
+    <.live_title default="She Commands" suffix=" · She Doesn't Ask. She Commands.">
       {assigns[:page_title]}
     </.live_title>
     <link phx-track-static rel="stylesheet" href={~p"/assets/css/app.css"} />
@@ -31,15 +31,47 @@
     </script>
   </head>
   <body>
-    <header class="navbar px-4 sm:px-6 lg:px-8">
+    <header class="navbar px-6 sm:px-10 lg:px-16 py-6">
       <div class="flex-1">
-        <a href="/" class="text-2xl font-bold tracking-tight">
+        <a href="/" class="text-xl font-black uppercase tracking-[0.2em]">
           She Commands
         </a>
       </div>
-      <div class="flex-none">
-        <Layouts.theme_toggle />
-      </div>
+      <nav class="flex-none">
+        <ul class="flex items-center gap-6 text-sm font-semibold uppercase tracking-wider">
+          <li><a href="#mission" class="hover:opacity-60 transition-opacity">Mission</a></li>
+          <li><a href="#pillars" class="hover:opacity-60 transition-opacity">Pillars</a></li>
+          <li><a href="#connect" class="hover:opacity-60 transition-opacity">Connect</a></li>
+          <%= if @current_scope do %>
+            <li class="opacity-70">{@current_scope.user.email}</li>
+            <li>
+              <.link href={~p"/users/settings"} class="hover:opacity-60 transition-opacity">
+                Settings
+              </.link>
+            </li>
+            <li>
+              <.link
+                href={~p"/users/log-out"}
+                method="delete"
+                class="hover:opacity-60 transition-opacity"
+              >
+                Log out
+              </.link>
+            </li>
+          <% else %>
+            <li>
+              <.link href={~p"/users/register"} class="hover:opacity-60 transition-opacity">
+                Register
+              </.link>
+            </li>
+            <li>
+              <.link href={~p"/users/log-in"} class="hover:opacity-60 transition-opacity">
+                Log in
+              </.link>
+            </li>
+          <% end %>
+        </ul>
+      </nav>
     </header>
     {@inner_content}
   </body>
