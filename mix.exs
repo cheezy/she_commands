@@ -108,6 +108,7 @@ defmodule SheCommands.MixProject do
         SheCommands.AccountsFixtures,
         SheCommands.Application,
         SheCommands.DataCase,
+        SheCommands.IntakeFixtures,
         SheCommands.Repo,
         SheCommandsWeb.ConnCase,
         SheCommandsWeb.CoreComponents,

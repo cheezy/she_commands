@@ -62,6 +62,10 @@ defmodule SheCommandsWeb.Router do
   scope "/", SheCommandsWeb do
     pipe_through [:browser, :require_authenticated_user]
 
+    live_session :authenticated, on_mount: [{SheCommandsWeb.UserAuth, :ensure_authenticated}] do
+      live "/intake", IntakeLive.Index, :index
+    end
+
     get "/users/settings", UserSettingsController, :edit
     put "/users/settings", UserSettingsController, :update
     get "/users/settings/email", UserSettingsController, :edit_email

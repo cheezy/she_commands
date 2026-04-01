@@ -1,0 +1,521 @@
+<Layouts.app flash={@flash} current_scope={@current_scope}>
+  <div class="max-w-lg mx-auto px-4">
+    <%!-- Progress Bar --%>
+    <%= if @current_step <= @total_steps do %>
+      <div class="mb-8">
+        <div class="flex justify-between text-sm text-base-content opacity-60 mb-2">
+          <span>
+            {gettext("Step %{current} of %{total}", current: @current_step, total: @total_steps)}
+          </span>
+          <span>{progress_percentage(@current_step, @total_steps)}%</span>
+        </div>
+        <div class="w-full bg-base-300 rounded-full h-2">
+          <div
+            class="bg-primary h-2 rounded-full transition-all duration-500 ease-out"
+            style={"width: #{progress_percentage(@current_step, @total_steps)}%"}
+          >
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+    <%!-- Step Content --%>
+    <div class="min-h-[400px]">
+      <%= case @current_step do %>
+        <% 1 -> %>
+          <%!-- Step 1: Goal Intent --%>
+          <div class="space-y-6">
+            <div>
+              <h2 class="text-2xl font-bold text-base-content">
+                {gettext("What's your goal?")}
+              </h2>
+              <p class="mt-2 text-base-content opacity-70">
+                {gettext(
+                  "Tell us what you want to achieve. This helps us build a plan that's truly yours."
+                )}
+              </p>
+            </div>
+
+            <form phx-submit="next" class="space-y-4">
+              <textarea
+                name="goal_intent"
+                rows="4"
+                class="textarea textarea-bordered w-full bg-base-100 text-base-content border-base-300"
+                placeholder={
+                  gettext("e.g., I want to command any room I walk into with confidence...")
+                }
+                phx-debounce="500"
+              >{@response.goal_intent}</textarea>
+
+              <div class="flex justify-end">
+                <button type="submit" class="btn btn-primary">
+                  {gettext("Continue")}
+                </button>
+              </div>
+            </form>
+          </div>
+        <% 2 -> %>
+          <%!-- Step 2: Goal Category --%>
+          <div class="space-y-6">
+            <div>
+              <h2 class="text-2xl font-bold text-base-content">
+                {gettext("Which area resonates most?")}
+              </h2>
+              <p class="mt-2 text-base-content opacity-70">
+                {gettext(
+                  "Select the category that best fits your goal. This helps us match you with the right experts and protocols."
+                )}
+              </p>
+            </div>
+
+            <%!-- Reinforcement after goal --%>
+            <div class="bg-primary/10 border border-primary/20 rounded-lg p-4">
+              <p class="text-base-content font-medium">
+                {gettext("That's a meaningful goal — here's how we'll approach it.")}
+              </p>
+            </div>
+
+            <div class="space-y-3">
+              <%= for category <- @goal_categories do %>
+                <button
+                  phx-click="select_category"
+                  phx-value-id={category.id}
+                  class={"w-full text-left p-4 rounded-lg border transition-all duration-200 #{if @response.goal_category_id == category.id, do: "border-primary bg-primary/10", else: "border-base-300 bg-base-100 hover:border-primary/50"}"}
+                >
+                  <p class="font-semibold text-base-content">{category.name}</p>
+                  <%= if category.description do %>
+                    <p class="text-sm text-base-content opacity-70 mt-1">
+                      {category.description}
+                    </p>
+                  <% end %>
+                </button>
+              <% end %>
+            </div>
+
+            <div class="flex justify-between">
+              <button phx-click="back" class="btn btn-ghost">{gettext("Back")}</button>
+              <button
+                phx-click="next"
+                class="btn btn-primary"
+                disabled={is_nil(@response.goal_category_id)}
+              >
+                {gettext("Continue")}
+              </button>
+            </div>
+          </div>
+        <% 3 -> %>
+          <%!-- Step 3: Lead Time --%>
+          <div class="space-y-6">
+            <div>
+              <h2 class="text-2xl font-bold text-base-content">
+                {gettext("When do you need to be ready?")}
+              </h2>
+              <p class="mt-2 text-base-content opacity-70">
+                {gettext("Your timeline shapes the pace and structure of your plan.")}
+              </p>
+            </div>
+
+            <div class="space-y-3">
+              <.option_button
+                label={gettext("2 weeks or less")}
+                sublabel={gettext("Quick impact — focused, high-intensity protocols")}
+                selected={option_selected?(@response.lead_time, :short)}
+                click="select_option"
+                field="lead_time"
+                value="short"
+              />
+              <.option_button
+                label={gettext("3 to 6 weeks")}
+                sublabel={gettext("Steady build — progression-based with room to grow")}
+                selected={option_selected?(@response.lead_time, :medium)}
+                click="select_option"
+                field="lead_time"
+                value="medium"
+              />
+              <.option_button
+                label={gettext("7 weeks or more")}
+                sublabel={gettext("Deep transformation — full progressions with add-ons")}
+                selected={option_selected?(@response.lead_time, :long)}
+                click="select_option"
+                field="lead_time"
+                value="long"
+              />
+            </div>
+
+            <div class="flex justify-between">
+              <button phx-click="back" class="btn btn-ghost">{gettext("Back")}</button>
+              <button
+                phx-click="next"
+                class="btn btn-primary"
+                disabled={is_nil(@response.lead_time)}
+              >
+                {gettext("Continue")}
+              </button>
+            </div>
+          </div>
+        <% 4 -> %>
+          <%!-- Step 4: Availability & Intensity --%>
+          <div class="space-y-6">
+            <div>
+              <h2 class="text-2xl font-bold text-base-content">
+                {gettext("What does your schedule look like?")}
+              </h2>
+              <p class="mt-2 text-base-content opacity-70">
+                {gettext(
+                  "We'll build your plan around the time you actually have — no guilt, no guessing."
+                )}
+              </p>
+            </div>
+
+            <%!-- Halfway reinforcement --%>
+            <div class="bg-primary/10 border border-primary/20 rounded-lg p-4">
+              <p class="text-base-content font-medium">
+                {gettext("You're halfway there. The plan is already taking shape.")}
+              </p>
+            </div>
+
+            <div class="space-y-6">
+              <div>
+                <label class="text-base-content font-semibold block mb-3">
+                  {gettext("Days per week you can commit")}
+                </label>
+                <div class="flex items-center gap-4">
+                  <input
+                    type="range"
+                    min="1"
+                    max="7"
+                    value={@response.days_per_week || 3}
+                    phx-change="update_days"
+                    name="days"
+                    class="range range-primary flex-1"
+                  />
+                  <span class="text-2xl font-bold text-base-content min-w-[2ch] text-center">
+                    {@response.days_per_week || 3}
+                  </span>
+                </div>
+              </div>
+
+              <div>
+                <label class="text-base-content font-semibold block mb-3">
+                  {gettext("Time per session")}
+                </label>
+                <div class="space-y-2">
+                  <.option_button
+                    label={gettext("Less than 30 minutes")}
+                    selected={option_selected?(@response.hours_per_day, :under_30)}
+                    click="select_option"
+                    field="hours_per_day"
+                    value="under_30"
+                  />
+                  <.option_button
+                    label={gettext("30 to 60 minutes")}
+                    selected={option_selected?(@response.hours_per_day, :thirty_to_sixty)}
+                    click="select_option"
+                    field="hours_per_day"
+                    value="thirty_to_sixty"
+                  />
+                  <.option_button
+                    label={gettext("More than 60 minutes")}
+                    selected={option_selected?(@response.hours_per_day, :over_sixty)}
+                    click="select_option"
+                    field="hours_per_day"
+                    value="over_sixty"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label class="text-base-content font-semibold block mb-3">
+                  {gettext("Preferred intensity")}
+                </label>
+                <div class="space-y-2">
+                  <.option_button
+                    label={gettext("Low")}
+                    sublabel={gettext("Gentle pace, minimal physical demand")}
+                    selected={option_selected?(@response.intensity, :low)}
+                    click="select_option"
+                    field="intensity"
+                    value="low"
+                  />
+                  <.option_button
+                    label={gettext("Moderate")}
+                    sublabel={gettext("Challenging but sustainable")}
+                    selected={option_selected?(@response.intensity, :moderate)}
+                    click="select_option"
+                    field="intensity"
+                    value="moderate"
+                  />
+                  <.option_button
+                    label={gettext("High")}
+                    sublabel={gettext("Push your limits")}
+                    selected={option_selected?(@response.intensity, :high)}
+                    click="select_option"
+                    field="intensity"
+                    value="high"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="flex justify-between">
+              <button phx-click="back" class="btn btn-ghost">{gettext("Back")}</button>
+              <button phx-click="next" class="btn btn-primary">
+                {gettext("Continue")}
+              </button>
+            </div>
+          </div>
+        <% 5 -> %>
+          <%!-- Step 5: Limitations --%>
+          <div class="space-y-6">
+            <div>
+              <h2 class="text-2xl font-bold text-base-content">
+                {gettext("Anything we should know?")}
+              </h2>
+              <p class="mt-2 text-base-content opacity-70">
+                {gettext(
+                  "Select any that apply. This helps us tailor protocols to work for your body and life."
+                )}
+              </p>
+            </div>
+
+            <div class="space-y-2">
+              <%= for limitation <- ["menopause", "joint_issues", "back_pain", "knee_injury", "dietary_restrictions", "anxiety", "insomnia", "pregnancy", "postpartum"] do %>
+                <button
+                  phx-click="toggle_limitation"
+                  phx-value-value={limitation}
+                  class={"w-full text-left p-3 rounded-lg border transition-all duration-200 #{if limitation_selected?(@response.limitations, limitation), do: "border-primary bg-primary/10", else: "border-base-300 bg-base-100 hover:border-primary/50"}"}
+                >
+                  <span class="text-base-content">{format_limitation(limitation)}</span>
+                </button>
+              <% end %>
+            </div>
+
+            <form phx-submit="next" class="space-y-4">
+              <textarea
+                name="limitations_notes"
+                rows="2"
+                class="textarea textarea-bordered w-full bg-base-100 text-base-content border-base-300"
+                placeholder={gettext("Anything else we should know? (optional)")}
+              >{@response.limitations_notes}</textarea>
+
+              <div class="flex justify-between">
+                <button type="button" phx-click="back" class="btn btn-ghost">
+                  {gettext("Back")}
+                </button>
+                <button type="submit" class="btn btn-primary">{gettext("Continue")}</button>
+              </div>
+            </form>
+          </div>
+        <% 6 -> %>
+          <%!-- Step 6: Coaching Preference --%>
+          <div class="space-y-6">
+            <div>
+              <h2 class="text-2xl font-bold text-base-content">
+                {gettext("How do you like to work?")}
+              </h2>
+              <p class="mt-2 text-base-content opacity-70">
+                {gettext(
+                  "This helps us decide how much coaching support to build into your plan."
+                )}
+              </p>
+            </div>
+
+            <div class="space-y-3">
+              <.option_button
+                label={gettext("Self-directed")}
+                sublabel={gettext("I'll follow the plan on my own with AI support")}
+                selected={option_selected?(@response.coaching_preference, :self_directed)}
+                click="select_option"
+                field="coaching_preference"
+                value="self_directed"
+              />
+              <.option_button
+                label={gettext("Coach-guided")}
+                sublabel={gettext("I want access to human coach support alongside the plan")}
+                selected={option_selected?(@response.coaching_preference, :coach_guided)}
+                click="select_option"
+                field="coaching_preference"
+                value="coach_guided"
+              />
+            </div>
+
+            <div class="flex justify-between">
+              <button phx-click="back" class="btn btn-ghost">{gettext("Back")}</button>
+              <button phx-click="next" class="btn btn-primary">
+                {gettext("Continue")}
+              </button>
+            </div>
+          </div>
+        <% 7 -> %>
+          <%!-- Step 7: Current Regimen --%>
+          <div class="space-y-6">
+            <div>
+              <h2 class="text-2xl font-bold text-base-content">
+                {gettext("Where are you starting from?")}
+              </h2>
+              <p class="mt-2 text-base-content opacity-70">
+                {gettext("No judgment — we just want to meet you where you are.")}
+              </p>
+            </div>
+
+            <div class="space-y-6">
+              <div>
+                <label class="text-base-content font-semibold block mb-3">
+                  {gettext("Current fitness level")}
+                </label>
+                <div class="space-y-2">
+                  <%= for {value, label} <- [{"none", gettext("None")}, {"light", gettext("Light")}, {"moderate", gettext("Moderate")}, {"active", gettext("Active")}] do %>
+                    <.option_button
+                      label={label}
+                      selected={option_selected?(@response.fitness_regimen, value)}
+                      click="select_option"
+                      field="fitness_regimen"
+                      value={value}
+                    />
+                  <% end %>
+                </div>
+              </div>
+
+              <div>
+                <label class="text-base-content font-semibold block mb-3">
+                  {gettext("Personal development practice")}
+                </label>
+                <div class="space-y-2">
+                  <%= for {value, label} <- [{"none", gettext("None")}, {"some", gettext("Some")}, {"active", gettext("Active")}] do %>
+                    <.option_button
+                      label={label}
+                      selected={option_selected?(@response.personal_dev_regimen, value)}
+                      click="select_option"
+                      field="personal_dev_regimen"
+                      value={value}
+                    />
+                  <% end %>
+                </div>
+              </div>
+            </div>
+
+            <form phx-submit="next" class="space-y-4">
+              <input
+                type="hidden"
+                name="fitness_regimen_notes"
+                value={@response.fitness_regimen_notes || ""}
+              />
+              <input
+                type="hidden"
+                name="personal_dev_regimen_notes"
+                value={@response.personal_dev_regimen_notes || ""}
+              />
+
+              <div class="flex justify-between">
+                <button type="button" phx-click="back" class="btn btn-ghost">
+                  {gettext("Back")}
+                </button>
+                <button type="submit" class="btn btn-primary">{gettext("Continue")}</button>
+              </div>
+            </form>
+          </div>
+        <% 8 -> %>
+          <%!-- Step 8: Location & Feedback --%>
+          <div class="space-y-6">
+            <div>
+              <h2 class="text-2xl font-bold text-base-content">
+                {gettext("Almost there!")}
+              </h2>
+              <p class="mt-2 text-base-content opacity-70">
+                {gettext(
+                  "A few final details to help us connect you with local events and the right community."
+                )}
+              </p>
+            </div>
+
+            <%!-- Pre-completion reinforcement --%>
+            <div class="bg-primary/10 border border-primary/20 rounded-lg p-4">
+              <p class="text-base-content font-medium">
+                {gettext(
+                  "You've shown real clarity about what you want. Your plan is going to reflect that."
+                )}
+              </p>
+            </div>
+
+            <form phx-submit="complete" class="space-y-4">
+              <div>
+                <label class="text-base-content font-semibold block mb-1">
+                  {gettext("City")}
+                </label>
+                <input
+                  type="text"
+                  name="city"
+                  value={@response.city || ""}
+                  class="input input-bordered w-full bg-base-100 text-base-content border-base-300"
+                />
+              </div>
+
+              <div>
+                <label class="text-base-content font-semibold block mb-1">
+                  {gettext("Province / State")}
+                </label>
+                <input
+                  type="text"
+                  name="province"
+                  value={@response.province || ""}
+                  class="input input-bordered w-full bg-base-100 text-base-content border-base-300"
+                />
+              </div>
+
+              <div>
+                <label class="text-base-content font-semibold block mb-1">
+                  {gettext("Country")}
+                </label>
+                <input
+                  type="text"
+                  name="country"
+                  value={@response.country || ""}
+                  class="input input-bordered w-full bg-base-100 text-base-content border-base-300"
+                />
+              </div>
+
+              <div class="flex items-center gap-3">
+                <input
+                  type="checkbox"
+                  name="feedback_interest"
+                  value="true"
+                  checked={@response.feedback_interest}
+                  class="checkbox checkbox-primary"
+                />
+                <label class="text-base-content">
+                  {gettext(
+                    "I'm interested in providing ongoing feedback to help improve the platform"
+                  )}
+                </label>
+              </div>
+
+              <div class="flex justify-between pt-4">
+                <button type="button" phx-click="back" class="btn btn-ghost">
+                  {gettext("Back")}
+                </button>
+                <button type="submit" class="btn btn-primary">
+                  {gettext("Generate My Plan")}
+                </button>
+              </div>
+            </form>
+          </div>
+        <% _ -> %>
+          <%!-- Completion State --%>
+          <div class="text-center space-y-6 py-12">
+            <div class="text-6xl">✨</div>
+            <h2 class="text-3xl font-bold text-base-content">
+              {gettext("You're all set.")}
+            </h2>
+            <p class="text-lg text-base-content opacity-70 max-w-md mx-auto">
+              {gettext(
+                "Your personalized Command Centre plan is being assembled by our expert team. We'll notify you when it's ready."
+              )}
+            </p>
+            <.link navigate={~p"/"} class="btn btn-primary btn-lg">
+              {gettext("Return Home")}
+            </.link>
+          </div>
+      <% end %>
+    </div>
+  </div>
+</Layouts.app>

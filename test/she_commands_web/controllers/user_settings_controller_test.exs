@@ -30,6 +30,22 @@ defmodule SheCommandsWeb.UserSettingsControllerTest do
     end
   end
 
+  describe "GET /users/settings/email" do
+    test "renders change email page", %{conn: conn} do
+      conn = get(conn, ~p"/users/settings/email")
+      response = html_response(conn, 200)
+      assert response =~ "Change Email"
+    end
+  end
+
+  describe "GET /users/settings/password" do
+    test "renders change password page", %{conn: conn} do
+      conn = get(conn, ~p"/users/settings/password")
+      response = html_response(conn, 200)
+      assert response =~ "Change Password"
+    end
+  end
+
   describe "PUT /users/settings (update profile form)" do
     test "updates the user name", %{conn: conn} do
       conn =
@@ -222,6 +238,36 @@ defmodule SheCommandsWeb.UserSettingsControllerTest do
   end
 
   describe "PUT /users/settings (update coach profile)" do
+    test "updates coach profile for coach user", %{conn: conn, user: user} do
+      {:ok, _user} = Accounts.update_user_role(user, :coach)
+
+      conn =
+        put(conn, ~p"/users/settings", %{
+          "action" => "update_coach_profile",
+          "user" => %{"bio" => "My bio", "specialty" => "Leadership", "credential" => "PCC"}
+        })
+
+      assert redirected_to(conn) == ~p"/users/settings"
+
+      assert Phoenix.Flash.get(conn.assigns.flash, :info) =~
+               "Coach profile updated successfully"
+    end
+
+    test "updates coach profile for admin user", %{conn: conn, user: user} do
+      {:ok, _user} = Accounts.update_user_role(user, :admin)
+
+      conn =
+        put(conn, ~p"/users/settings", %{
+          "action" => "update_coach_profile",
+          "user" => %{"bio" => "Admin bio"}
+        })
+
+      assert redirected_to(conn) == ~p"/users/settings"
+
+      assert Phoenix.Flash.get(conn.assigns.flash, :info) =~
+               "Coach profile updated successfully"
+    end
+
     test "rejects coach profile update for member role", %{conn: conn} do
       conn =
         put(conn, ~p"/users/settings", %{

@@ -32,6 +32,18 @@ const liveSocket = new LiveSocket("/live", Socket, {
   hooks: {...colocatedHooks},
 })
 
+// Auto-dismiss flash messages after the specified delay
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("[data-auto-dismiss]").forEach(el => {
+    const delay = parseInt(el.getAttribute("data-auto-dismiss"), 10)
+    setTimeout(() => {
+      el.style.transition = "opacity 0.3s ease-out"
+      el.style.opacity = "0"
+      setTimeout(() => el.remove(), 300)
+    }, delay)
+  })
+})
+
 // Show progress bar on live navigation and form submits
 topbar.config({barColors: {0: "#29d"}, shadowColor: "rgba(0, 0, 0, .3)"})
 window.addEventListener("phx:page-loading-start", _info => topbar.show(300))
