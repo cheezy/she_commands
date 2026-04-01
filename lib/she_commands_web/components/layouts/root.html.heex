@@ -39,24 +39,21 @@
       </div>
       <nav class="flex-none">
         <ul class="flex items-center gap-6 text-sm font-semibold uppercase tracking-wider">
-          <li><a href="#mission" class="hover:opacity-60 transition-opacity">Mission</a></li>
-          <li><a href="#pillars" class="hover:opacity-60 transition-opacity">Pillars</a></li>
-          <li><a href="#connect" class="hover:opacity-60 transition-opacity">Connect</a></li>
           <%= if @current_scope do %>
-            <li class="opacity-70">{@current_scope.user.email}</li>
             <li>
-              <.link href={~p"/users/settings"} class="hover:opacity-60 transition-opacity">
-                Settings
-              </.link>
-            </li>
-            <li>
-              <.link
-                href={~p"/users/log-out"}
-                method="delete"
-                class="hover:opacity-60 transition-opacity"
-              >
-                Log out
-              </.link>
+              <details class="dropdown dropdown-end">
+                <summary class="cursor-pointer hover:opacity-60 transition-opacity">
+                  {@current_scope.user.name || @current_scope.user.email}
+                </summary>
+                <ul class="dropdown-content menu bg-base-200 rounded-box z-50 w-52 p-2 shadow-lg mt-2">
+                  <li>
+                    <.link href={~p"/users/settings"}>Settings</.link>
+                  </li>
+                  <li>
+                    <.link href={~p"/users/log-out"} method="delete">Log out</.link>
+                  </li>
+                </ul>
+              </details>
             </li>
           <% else %>
             <li>
