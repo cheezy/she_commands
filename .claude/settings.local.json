@@ -6,5 +6,9 @@
       "mcp__Tidewave-Web__restart_app_server",
       "mcp__Tidewave__project_eval"
     ]
-  }
+  },
+  "enabledMcpjsonServers": [
+    "stitch"
+  ],
+  "enableAllProjectMcpServers": true
 }
