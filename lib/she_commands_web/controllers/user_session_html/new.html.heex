@@ -17,17 +17,7 @@
       </.header>
     </div>
 
-    <div :if={local_mail_adapter?()} class="alert alert-info">
-      <.icon name="hero-information-circle" class="size-6 shrink-0" />
-      <div>
-        <p>{gettext("You are running the local mail adapter.")}</p>
-        <p>
-          {gettext("To see sent emails, visit")} <.link href="/dev/mailbox" class="underline">{gettext("the mailbox page")}</.link>.
-        </p>
-      </div>
-    </div>
-
-    <.form :let={f} for={@form} as={:user} id="login_form_magic" action={~p"/users/log-in"}>
+    <.form :let={f} for={@form} as={:user} id="login_form_password" action={~p"/users/log-in"}>
       <.input
         readonly={!!@current_scope}
         field={f[:email]}
@@ -38,29 +28,13 @@
         required
         phx-mounted={JS.focus()}
       />
-      <.button class="btn btn-primary w-full">
-        {gettext("Log in with email")} <span aria-hidden="true">&rarr;</span>
-      </.button>
-    </.form>
-
-    <div class="divider">{gettext("or")}</div>
-
-    <.form :let={f} for={@form} as={:user} id="login_form_password" action={~p"/users/log-in"}>
-      <.input
-        readonly={!!@current_scope}
-        field={f[:email]}
-        type="email"
-        label={gettext("Email")}
-        autocomplete="username"
-        spellcheck="false"
-        required
-      />
       <.input
         field={f[:password]}
         type="password"
         label={gettext("Password")}
         autocomplete="current-password"
         spellcheck="false"
+        required
       />
       <.button class="btn btn-primary w-full" name={@form[:remember_me].name} value="true">
         {gettext("Log in and stay logged in")} <span aria-hidden="true">&rarr;</span>

@@ -107,26 +107,20 @@ defmodule SheCommands.MixProject do
       ignore_modules: [
         SheCommands.AccountsFixtures,
         SheCommands.Application,
-        SheCommands.BoardsFixtures,
         SheCommands.DataCase,
-        SheCommands.Release,
         SheCommands.Repo,
-        SheCommands.TasksFixtures,
-        SheCommandsWeb.API.ErrorJSON,
-        SheCommandsWeb.API.FallbackController,
-        SheCommandsWeb.BoardLive.FormComponent,
         SheCommandsWeb.ConnCase,
         SheCommandsWeb.CoreComponents,
         SheCommandsWeb.ErrorHTML,
         SheCommandsWeb.ErrorJSON,
         SheCommandsWeb.Layouts,
-        SheCommandsWeb.NavComponents,
         SheCommandsWeb.PageController,
         SheCommandsWeb.PageHTML,
-        SheCommandsWeb.Plugs.Locale,
         SheCommandsWeb.Router,
         SheCommandsWeb.Telemetry,
-        SheCommandsWeb.Telemetry.UserActivityPage
+        SheCommandsWeb.UserRegistrationHTML,
+        SheCommandsWeb.UserSessionHTML,
+        SheCommandsWeb.UserSettingsHTML
       ]
     ]
   end

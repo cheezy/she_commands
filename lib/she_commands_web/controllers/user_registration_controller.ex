@@ -3,6 +3,7 @@ defmodule SheCommandsWeb.UserRegistrationController do
 
   alias SheCommands.Accounts
   alias SheCommands.Accounts.User
+  alias SheCommandsWeb.UserAuth
 
   def new(conn, _params) do
     changeset = Accounts.change_user_registration(%User{})
@@ -12,18 +13,9 @@ defmodule SheCommandsWeb.UserRegistrationController do
   def create(conn, %{"user" => user_params}) do
     case Accounts.register_user(user_params) do
       {:ok, user} ->
-        {:ok, _} =
-          Accounts.deliver_login_instructions(
-            user,
-            &url(~p"/users/log-in/#{&1}")
-          )
-
         conn
-        |> put_flash(
-          :info,
-          "An email was sent to #{user.email}, please access it to confirm your account."
-        )
-        |> redirect(to: ~p"/users/log-in")
+        |> put_flash(:info, "Account created successfully.")
+        |> UserAuth.log_in_user(user)
 
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, :new, changeset: changeset)

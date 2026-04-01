@@ -26,19 +26,22 @@ defmodule SheCommands.Accounts.User do
   @doc """
   A user changeset for registration.
 
-  It requires the name and email fields.
+  It requires the name, email, and password fields.
 
   ## Options
 
     * `:validate_unique` - Validates the uniqueness of the email.
       Defaults to `true`.
+    * `:hash_password` - Hashes the password so it can be stored securely.
+      Defaults to `true`.
   """
   def registration_changeset(user, attrs, opts \\ []) do
     user
-    |> cast(attrs, [:name, :email])
+    |> cast(attrs, [:name, :email, :password])
     |> validate_required([:name])
     |> validate_length(:name, min: 1, max: 100)
     |> validate_email(opts)
+    |> validate_password(opts)
   end
 
   @doc """
@@ -133,14 +136,6 @@ defmodule SheCommands.Accounts.User do
     else
       changeset
     end
-  end
-
-  @doc """
-  Confirms the account by setting `confirmed_at`.
-  """
-  def confirm_changeset(user) do
-    now = DateTime.utc_now(:second)
-    change(user, confirmed_at: now)
   end
 
   @doc """

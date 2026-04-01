@@ -1,10 +1,10 @@
 defmodule SheCommandsWeb.UserSettingsController do
   use SheCommandsWeb, :controller
 
+  import SheCommandsWeb.UserAuth, only: [require_sudo_mode: 2]
+
   alias SheCommands.Accounts
   alias SheCommandsWeb.UserAuth
-
-  import SheCommandsWeb.UserAuth, only: [require_sudo_mode: 2]
 
   plug :require_sudo_mode
   plug :assign_email_and_password_changesets
@@ -34,8 +34,9 @@ defmodule SheCommandsWeb.UserSettingsController do
 
     case Accounts.change_user_email(user, user_params) do
       %{valid?: true} = changeset ->
-        Accounts.deliver_user_update_email_instructions(
-          Ecto.Changeset.apply_action!(changeset, :insert),
+        changeset
+        |> Ecto.Changeset.apply_action!(:insert)
+        |> Accounts.deliver_user_update_email_instructions(
           user.email,
           &url(~p"/users/settings/confirm-email/#{&1}")
         )

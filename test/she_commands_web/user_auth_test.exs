@@ -1,11 +1,11 @@
 defmodule SheCommandsWeb.UserAuthTest do
   use SheCommandsWeb.ConnCase, async: true
 
+  import SheCommands.AccountsFixtures
+
   alias SheCommands.Accounts
   alias SheCommands.Accounts.Scope
   alias SheCommandsWeb.UserAuth
-
-  import SheCommands.AccountsFixtures
 
   @remember_me_cookie "_she_commands_web_user_remember_me"
   @remember_me_cookie_max_age 60 * 60 * 24 * 14

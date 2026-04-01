@@ -1,8 +1,9 @@
 defmodule SheCommandsWeb.UserSettingsControllerTest do
   use SheCommandsWeb.ConnCase, async: true
 
-  alias SheCommands.Accounts
   import SheCommands.AccountsFixtures
+
+  alias SheCommands.Accounts
 
   setup :register_and_log_in_user
 
@@ -19,7 +20,7 @@ defmodule SheCommandsWeb.UserSettingsControllerTest do
       assert redirected_to(conn) == ~p"/users/log-in"
     end
 
-    @tag token_authenticated_at: DateTime.add(DateTime.utc_now(:second), -11, :minute)
+    @tag token_authenticated_at: :second |> DateTime.utc_now() |> DateTime.add(-11, :minute)
     test "redirects if user is not in sudo mode", %{conn: conn} do
       conn = get(conn, ~p"/users/settings")
       assert redirected_to(conn) == ~p"/users/log-in"
