@@ -2,25 +2,70 @@ defmodule SheCommands.Accounts.User do
   use Ecto.Schema
   import Ecto.Changeset
 
+  @roles [:member, :coach, :admin]
+
   schema "users" do
     field :name, :string
     field :email, :string
+    field :role, Ecto.Enum, values: @roles, default: :member
     field :password, :string, virtual: true, redact: true
     field :hashed_password, :string, redact: true
     field :confirmed_at, :utc_datetime
     field :authenticated_at, :utc_datetime, virtual: true
 
+    # Profile fields
+    field :display_name, :string
+    field :city, :string
+    field :province, :string
+    field :country, :string
+
+    # Coach-specific fields
+    field :bio, :string
+    field :specialty, :string
+    field :credential, :string
+
     timestamps(type: :utc_datetime)
   end
 
   @doc """
-  A user changeset for updating the profile (name).
+  Returns the list of valid roles.
+  """
+  def roles, do: @roles
+
+  @doc """
+  A user changeset for updating the profile.
   """
   def profile_changeset(user, attrs) do
     user
-    |> cast(attrs, [:name])
+    |> cast(attrs, [:name, :display_name, :city, :province, :country])
     |> validate_required([:name])
     |> validate_length(:name, min: 1, max: 100)
+    |> validate_length(:display_name, max: 100)
+    |> validate_length(:city, max: 100)
+    |> validate_length(:province, max: 100)
+    |> validate_length(:country, max: 100)
+  end
+
+  @doc """
+  A user changeset for updating coach-specific fields.
+  Only coaches and admins should use this changeset.
+  """
+  def coach_profile_changeset(user, attrs) do
+    user
+    |> cast(attrs, [:bio, :specialty, :credential])
+    |> validate_length(:bio, max: 2000)
+    |> validate_length(:specialty, max: 200)
+    |> validate_length(:credential, max: 200)
+  end
+
+  @doc """
+  A user changeset for updating the role (admin only).
+  """
+  def role_changeset(user, attrs) do
+    user
+    |> cast(attrs, [:role])
+    |> validate_required([:role])
+    |> validate_inclusion(:role, @roles)
   end
 
   @doc """

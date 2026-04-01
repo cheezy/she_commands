@@ -199,4 +199,40 @@ defmodule SheCommandsWeb.UserSettingsControllerTest do
       assert redirected_to(conn) == ~p"/users/log-in"
     end
   end
+
+  describe "PUT /users/settings (update profile with extended fields)" do
+    test "updates profile fields including location", %{conn: conn} do
+      conn =
+        put(conn, ~p"/users/settings", %{
+          "action" => "update_profile",
+          "user" => %{
+            "name" => "Test User",
+            "display_name" => "Testy",
+            "city" => "Toronto",
+            "province" => "Ontario",
+            "country" => "Canada"
+          }
+        })
+
+      assert redirected_to(conn) == ~p"/users/settings"
+
+      assert Phoenix.Flash.get(conn.assigns.flash, :info) =~
+               "Profile updated successfully"
+    end
+  end
+
+  describe "PUT /users/settings (update coach profile)" do
+    test "rejects coach profile update for member role", %{conn: conn} do
+      conn =
+        put(conn, ~p"/users/settings", %{
+          "action" => "update_coach_profile",
+          "user" => %{"bio" => "My bio", "specialty" => "Leadership"}
+        })
+
+      assert redirected_to(conn) == ~p"/users/settings"
+
+      assert Phoenix.Flash.get(conn.assigns.flash, :error) =~
+               "not authorized"
+    end
+  end
 end

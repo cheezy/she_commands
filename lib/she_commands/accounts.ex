@@ -100,13 +100,46 @@ defmodule SheCommands.Accounts do
   end
 
   @doc """
-  Updates the user profile (name).
+  Updates the user profile.
   """
   def update_user_profile(user, attrs) do
     user
     |> User.profile_changeset(attrs)
     |> Repo.update()
   end
+
+  @doc """
+  Returns an `%Ecto.Changeset{}` for tracking coach profile changes.
+  """
+  def change_coach_profile(user, attrs \\ %{}) do
+    User.coach_profile_changeset(user, attrs)
+  end
+
+  @doc """
+  Updates the coach-specific profile fields.
+  """
+  def update_coach_profile(user, attrs) do
+    user
+    |> User.coach_profile_changeset(attrs)
+    |> Repo.update()
+  end
+
+  ## Roles
+
+  @doc """
+  Updates the role of a user. Only admins should call this.
+  """
+  def update_user_role(user, role) do
+    user
+    |> User.role_changeset(%{role: role})
+    |> Repo.update()
+  end
+
+  @doc """
+  Returns true if the user has the given role.
+  """
+  def has_role?(%User{role: role}, role), do: true
+  def has_role?(_user, _role), do: false
 
   ## Account deletion
 

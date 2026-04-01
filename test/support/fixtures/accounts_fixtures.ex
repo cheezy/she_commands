@@ -29,6 +29,18 @@ defmodule SheCommands.AccountsFixtures do
     user
   end
 
+  def admin_fixture(attrs \\ %{}) do
+    user = user_fixture(attrs)
+    {:ok, user} = Accounts.update_user_role(user, :admin)
+    user
+  end
+
+  def coach_fixture(attrs \\ %{}) do
+    user = user_fixture(attrs)
+    {:ok, user} = Accounts.update_user_role(user, :coach)
+    user
+  end
+
   def user_scope_fixture do
     user = user_fixture()
     user_scope_fixture(user)

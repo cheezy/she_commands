@@ -13,6 +13,14 @@ defmodule SheCommandsWeb.UserSettingsController do
     render(conn, :edit)
   end
 
+  def edit_email(conn, _params) do
+    render(conn, :edit_email)
+  end
+
+  def edit_password(conn, _params) do
+    render(conn, :edit_password)
+  end
+
   def update(conn, %{"action" => "update_profile"} = params) do
     %{"user" => user_params} = params
     user = conn.assigns.current_scope.user
@@ -25,6 +33,27 @@ defmodule SheCommandsWeb.UserSettingsController do
 
       {:error, changeset} ->
         render(conn, :edit, profile_changeset: changeset)
+    end
+  end
+
+  def update(conn, %{"action" => "update_coach_profile"} = params) do
+    %{"user" => user_params} = params
+    user = conn.assigns.current_scope.user
+
+    if user.role in [:coach, :admin] do
+      case Accounts.update_coach_profile(user, user_params) do
+        {:ok, _user} ->
+          conn
+          |> put_flash(:info, "Coach profile updated successfully.")
+          |> redirect(to: ~p"/users/settings")
+
+        {:error, changeset} ->
+          render(conn, :edit, coach_changeset: changeset)
+      end
+    else
+      conn
+      |> put_flash(:error, "You are not authorized to update coach profile.")
+      |> redirect(to: ~p"/users/settings")
     end
   end
 
@@ -49,7 +78,7 @@ defmodule SheCommandsWeb.UserSettingsController do
         |> redirect(to: ~p"/users/settings")
 
       changeset ->
-        render(conn, :edit, email_changeset: %{changeset | action: :insert})
+        render(conn, :edit_email, email_changeset: %{changeset | action: :insert})
     end
   end
 
@@ -65,7 +94,7 @@ defmodule SheCommandsWeb.UserSettingsController do
         |> UserAuth.log_in_user(user)
 
       {:error, changeset} ->
-        render(conn, :edit, password_changeset: changeset)
+        render(conn, :edit_password, password_changeset: changeset)
     end
   end
 
@@ -106,5 +135,6 @@ defmodule SheCommandsWeb.UserSettingsController do
     |> assign(:profile_changeset, Accounts.change_user_profile(user))
     |> assign(:email_changeset, Accounts.change_user_email(user))
     |> assign(:password_changeset, Accounts.change_user_password(user))
+    |> assign(:coach_changeset, Accounts.change_coach_profile(user))
   end
 end

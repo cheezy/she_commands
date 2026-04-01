@@ -150,6 +150,126 @@ defmodule SheCommands.AccountsTest do
     end
   end
 
+  describe "update_user_profile/2 with profile fields" do
+    test "updates display_name, city, province, country" do
+      user = user_fixture()
+
+      {:ok, updated} =
+        Accounts.update_user_profile(user, %{
+          name: "Updated",
+          display_name: "Display",
+          city: "Toronto",
+          province: "Ontario",
+          country: "Canada"
+        })
+
+      assert updated.display_name == "Display"
+      assert updated.city == "Toronto"
+      assert updated.province == "Ontario"
+      assert updated.country == "Canada"
+    end
+
+    test "validates display_name length" do
+      user = user_fixture()
+
+      {:error, changeset} =
+        Accounts.update_user_profile(user, %{
+          name: "Test",
+          display_name: String.duplicate("a", 101)
+        })
+
+      assert "should be at most 100 character(s)" in errors_on(changeset).display_name
+    end
+  end
+
+  describe "coach profile" do
+    test "update_coach_profile/2 updates coach fields" do
+      user = coach_fixture()
+
+      {:ok, updated} =
+        Accounts.update_coach_profile(user, %{
+          bio: "Expert coach",
+          specialty: "Leadership",
+          credential: "PhD"
+        })
+
+      assert updated.bio == "Expert coach"
+      assert updated.specialty == "Leadership"
+      assert updated.credential == "PhD"
+    end
+
+    test "validates bio length" do
+      user = coach_fixture()
+
+      {:error, changeset} =
+        Accounts.update_coach_profile(user, %{bio: String.duplicate("a", 2001)})
+
+      assert "should be at most 2000 character(s)" in errors_on(changeset).bio
+    end
+
+    test "change_coach_profile/1 returns a changeset" do
+      user = coach_fixture()
+      changeset = Accounts.change_coach_profile(user)
+      assert %Ecto.Changeset{} = changeset
+    end
+  end
+
+  describe "roles" do
+    test "new users default to member role" do
+      user = user_fixture()
+      assert user.role == :member
+    end
+
+    test "update_user_role/2 changes the role" do
+      user = user_fixture()
+      {:ok, updated} = Accounts.update_user_role(user, :admin)
+      assert updated.role == :admin
+    end
+
+    test "update_user_role/2 rejects invalid role" do
+      user = user_fixture()
+      {:error, changeset} = Accounts.update_user_role(user, :superuser)
+      assert errors_on(changeset).role != []
+    end
+
+    test "has_role?/2 returns true for matching role" do
+      user = user_fixture()
+      assert Accounts.has_role?(user, :member)
+    end
+
+    test "has_role?/2 returns false for non-matching role" do
+      user = user_fixture()
+      refute Accounts.has_role?(user, :admin)
+    end
+
+    test "admin_fixture creates an admin user" do
+      user = admin_fixture()
+      assert user.role == :admin
+    end
+
+    test "coach_fixture creates a coach user" do
+      user = coach_fixture()
+      assert user.role == :coach
+    end
+
+    test "role_changeset/2 validates role" do
+      user = user_fixture()
+      changeset = User.role_changeset(user, %{role: :admin})
+      assert changeset.valid?
+    end
+
+    test "role cannot be set via registration" do
+      {:ok, user} =
+        Accounts.register_user(%{
+          name: "Test",
+          email: unique_user_email(),
+          password: valid_user_password()
+        })
+
+      assert user.role == :member
+    end
+  end
+
   describe "delete_user/1" do
     test "deletes the user" do
       user = user_fixture()

@@ -1,0 +1,36 @@
+<Layouts.app flash={@flash} current_scope={@current_scope}>
+  <div class="text-center">
+    <.header>
+      {gettext("Change Email")}
+      <:subtitle>
+        {gettext("A confirmation link will be sent to your new email address.")}
+      </:subtitle>
+    </.header>
+  </div>
+
+  <.form :let={f} for={@email_changeset} action={~p"/users/settings"} id="update_email">
+    <input type="hidden" name="action" value="update_email" />
+
+    <.input
+      field={f[:email]}
+      type="email"
+      label={gettext("New email")}
+      autocomplete="username"
+      spellcheck="false"
+      required
+    />
+
+    <.button variant="primary" phx-disable-with={gettext("Changing...")}>
+      {gettext("Change Email")}
+    </.button>
+  </.form>
+
+  <div class="mt-6">
+    <.link
+      href={~p"/users/settings"}
+      class="text-sm font-semibold hover:opacity-60 transition-opacity"
+    >
+      &larr; {gettext("Back to settings")}
+    </.link>
+  </div>
+</Layouts.app>

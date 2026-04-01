@@ -22,6 +22,14 @@ defmodule SheCommandsWeb.Router do
     plug :accepts, ["json"]
   end
 
+  pipeline :require_coach_or_admin do
+    plug SheCommandsWeb.Plugs.Authorization, [:coach, :admin]
+  end
+
+  pipeline :require_admin do
+    plug SheCommandsWeb.Plugs.Authorization, :admin
+  end
+
   ## Public routes - accessible to all users
 
   scope "/", SheCommandsWeb do
@@ -56,8 +64,22 @@ defmodule SheCommandsWeb.Router do
 
     get "/users/settings", UserSettingsController, :edit
     put "/users/settings", UserSettingsController, :update
+    get "/users/settings/email", UserSettingsController, :edit_email
+    get "/users/settings/password", UserSettingsController, :edit_password
     get "/users/settings/confirm-email/:token", UserSettingsController, :confirm_email
     delete "/users/settings", UserSettingsController, :delete_account
+  end
+
+  ## Coach routes - require coach or admin role
+
+  scope "/coach", SheCommandsWeb do
+    pipe_through [:browser, :require_authenticated_user, :require_coach_or_admin]
+  end
+
+  ## Admin routes - require admin role
+
+  scope "/admin", SheCommandsWeb do
+    pipe_through [:browser, :require_authenticated_user, :require_admin]
   end
 
   ## Development routes

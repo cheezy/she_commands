@@ -18,55 +18,94 @@
       required
     />
 
+    <.input
+      field={f[:display_name]}
+      type="text"
+      label={gettext("Display Name")}
+      spellcheck="false"
+    />
+
+    <.input
+      field={f[:city]}
+      type="text"
+      label={gettext("City")}
+    />
+
+    <.input
+      field={f[:province]}
+      type="text"
+      label={gettext("Province / State")}
+    />
+
+    <.input
+      field={f[:country]}
+      type="text"
+      label={gettext("Country")}
+    />
+
     <.button variant="primary" phx-disable-with={gettext("Saving...")}>
       {gettext("Update Profile")}
     </.button>
   </.form>
 
+  <%= if @current_scope.user.role in [:coach, :admin] do %>
+    <div class="divider" />
+
+    <.form :let={f} for={@coach_changeset} action={~p"/users/settings"} id="update_coach_profile">
+      <input type="hidden" name="action" value="update_coach_profile" />
+
+      <h3 class="text-lg font-semibold text-base-content mb-4">{gettext("Coach Profile")}</h3>
+
+      <.input
+        field={f[:specialty]}
+        type="text"
+        label={gettext("Specialty")}
+      />
+
+      <.input
+        field={f[:credential]}
+        type="text"
+        label={gettext("Credential")}
+      />
+
+      <.input
+        field={f[:bio]}
+        type="textarea"
+        label={gettext("Bio")}
+      />
+
+      <.button variant="primary" phx-disable-with={gettext("Saving...")}>
+        {gettext("Update Coach Profile")}
+      </.button>
+    </.form>
+  <% end %>
+
   <div class="divider" />
 
-  <.form :let={f} for={@email_changeset} action={~p"/users/settings"} id="update_email">
-    <input type="hidden" name="action" value="update_email" />
+  <div class="space-y-4">
+    <.link
+      href={~p"/users/settings/email"}
+      class="flex items-center justify-between py-2 hover:opacity-70 transition-opacity"
+    >
+      <div>
+        <p class="font-semibold">{gettext("Change Email")}</p>
+        <p class="text-sm opacity-60">{@current_scope.user.email}</p>
+      </div>
+      <span class="hero-chevron-right size-5 opacity-50" />
+    </.link>
 
-    <.input
-      field={f[:email]}
-      type="email"
-      label={gettext("Email")}
-      autocomplete="username"
-      spellcheck="false"
-      required
-    />
+    <.link
+      href={~p"/users/settings/password"}
+      class="flex items-center justify-between py-2 hover:opacity-70 transition-opacity"
+    >
+      <div>
+        <p class="font-semibold">{gettext("Change Password")}</p>
+        <p class="text-sm opacity-60">{gettext("Update your password")}</p>
+      </div>
+      <span class="hero-chevron-right size-5 opacity-50" />
+    </.link>
+  </div>
 
-    <.button variant="primary" phx-disable-with={gettext("Changing...")}>
-      {gettext("Change Email")}
-    </.button>
-  </.form>
-
-  <div class="divider" />
-
-  <.form :let={f} for={@password_changeset} action={~p"/users/settings"} id="update_password">
-    <input type="hidden" name="action" value="update_password" />
-
-    <.input
-      field={f[:password]}
-      type="password"
-      label={gettext("New password")}
-      autocomplete="new-password"
-      spellcheck="false"
-      required
-    />
-    <.input
-      field={f[:password_confirmation]}
-      type="password"
-      label={gettext("Confirm new password")}
-      autocomplete="new-password"
-      spellcheck="false"
-      required
-    />
-    <.button variant="primary" phx-disable-with={gettext("Changing...")}>
-      {gettext("Save Password")}
-    </.button>
-  </.form>
   <div class="divider" />
 
   <div class="border border-error/30 rounded-box p-6">
