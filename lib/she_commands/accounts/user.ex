@@ -14,6 +14,16 @@ defmodule SheCommands.Accounts.User do
   end
 
   @doc """
+  A user changeset for updating the profile (name).
+  """
+  def profile_changeset(user, attrs) do
+    user
+    |> cast(attrs, [:name])
+    |> validate_required([:name])
+    |> validate_length(:name, min: 1, max: 100)
+  end
+
+  @doc """
   A user changeset for registration.
 
   It requires the name and email fields.

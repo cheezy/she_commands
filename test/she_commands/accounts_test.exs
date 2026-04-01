@@ -104,6 +104,29 @@ defmodule SheCommands.AccountsTest do
     end
   end
 
+  describe "update_user_profile/2" do
+    test "updates the user name" do
+      user = user_fixture()
+      {:ok, updated_user} = Accounts.update_user_profile(user, %{name: "New Name"})
+      assert updated_user.name == "New Name"
+    end
+
+    test "does not update with empty name" do
+      user = user_fixture()
+      {:error, changeset} = Accounts.update_user_profile(user, %{name: ""})
+      assert %{name: ["can't be blank"]} = errors_on(changeset)
+    end
+
+    test "does not update with too long name" do
+      user = user_fixture()
+
+      {:error, changeset} =
+        Accounts.update_user_profile(user, %{name: String.duplicate("a", 101)})
+
+      assert "should be at most 100 character(s)" in errors_on(changeset).name
+    end
+  end
+
   describe "sudo_mode?/2" do
     test "validates the authenticated_at time" do
       now = DateTime.utc_now()

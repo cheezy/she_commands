@@ -29,6 +29,44 @@ defmodule SheCommandsWeb.UserSettingsControllerTest do
     end
   end
 
+  describe "PUT /users/settings (update profile form)" do
+    test "updates the user name", %{conn: conn} do
+      conn =
+        put(conn, ~p"/users/settings", %{
+          "action" => "update_profile",
+          "user" => %{"name" => "New Name"}
+        })
+
+      assert redirected_to(conn) == ~p"/users/settings"
+
+      assert Phoenix.Flash.get(conn.assigns.flash, :info) =~
+               "Profile updated successfully"
+    end
+
+    test "does not update profile on invalid data", %{conn: conn} do
+      conn =
+        put(conn, ~p"/users/settings", %{
+          "action" => "update_profile",
+          "user" => %{"name" => ""}
+        })
+
+      response = html_response(conn, 200)
+      assert response =~ "Settings"
+      assert response =~ "can&#39;t be blank"
+    end
+
+    test "does not update profile with too long name", %{conn: conn} do
+      conn =
+        put(conn, ~p"/users/settings", %{
+          "action" => "update_profile",
+          "user" => %{"name" => String.duplicate("a", 101)}
+        })
+
+      response = html_response(conn, 200)
+      assert response =~ "should be at most 100 character(s)"
+    end
+  end
+
   describe "PUT /users/settings (change password form)" do
     test "updates the user password and resets tokens", %{conn: conn, user: user} do
       new_password_conn =

@@ -2,9 +2,28 @@
   <div class="text-center">
     <.header>
       {gettext("Account Settings")}
-      <:subtitle>{gettext("Manage your account email address and password settings")}</:subtitle>
+      <:subtitle>{gettext("Manage your profile, email address and password settings")}</:subtitle>
     </.header>
   </div>
+
+  <.form :let={f} for={@profile_changeset} action={~p"/users/settings"} id="update_profile">
+    <input type="hidden" name="action" value="update_profile" />
+
+    <.input
+      field={f[:name]}
+      type="text"
+      label={gettext("Name")}
+      autocomplete="name"
+      spellcheck="false"
+      required
+    />
+
+    <.button variant="primary" phx-disable-with={gettext("Saving...")}>
+      {gettext("Update Profile")}
+    </.button>
+  </.form>
+
+  <div class="divider" />
 
   <.form :let={f} for={@email_changeset} action={~p"/users/settings"} id="update_email">
     <input type="hidden" name="action" value="update_email" />

@@ -87,6 +87,24 @@ defmodule SheCommands.Accounts do
     User.registration_changeset(user, attrs, opts)
   end
 
+  ## Profile
+
+  @doc """
+  Returns an `%Ecto.Changeset{}` for tracking user profile changes.
+  """
+  def change_user_profile(user, attrs \\ %{}) do
+    User.profile_changeset(user, attrs)
+  end
+
+  @doc """
+  Updates the user profile (name).
+  """
+  def update_user_profile(user, attrs) do
+    user
+    |> User.profile_changeset(attrs)
+    |> Repo.update()
+  end
+
   ## Settings
 
   @doc """
