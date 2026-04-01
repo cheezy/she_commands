@@ -67,4 +67,24 @@
       {gettext("Save Password")}
     </.button>
   </.form>
+  <div class="divider" />
+
+  <div class="border border-error/30 rounded-box p-6">
+    <h3 class="text-lg font-bold text-error">{gettext("Danger Zone")}</h3>
+    <p class="text-sm opacity-70 mt-2">
+      {gettext("Once you delete your account, there is no going back. Please be certain.")}
+    </p>
+    <div class="mt-4">
+      <.link
+        href={~p"/users/settings"}
+        method="delete"
+        data-confirm={
+          gettext("Are you sure you want to delete your account? This action cannot be undone.")
+        }
+        class="btn btn-error btn-outline"
+      >
+        {gettext("Delete Account")}
+      </.link>
+    </div>
+  </div>
 </Layouts.app>

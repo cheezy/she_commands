@@ -137,6 +137,21 @@ defmodule SheCommandsWeb.UserSettingsControllerTest do
     end
   end
 
+  describe "DELETE /users/settings (delete account)" do
+    test "deletes the user account", %{conn: conn, user: user} do
+      conn = delete(conn, ~p"/users/settings")
+      assert redirected_to(conn) == ~p"/"
+      assert Phoenix.Flash.get(conn.assigns.flash, :info) =~ "deleted"
+      refute Accounts.get_user_by_email(user.email)
+    end
+
+    test "redirects if user is not logged in" do
+      conn = build_conn()
+      conn = delete(conn, ~p"/users/settings")
+      assert redirected_to(conn) == ~p"/users/log-in"
+    end
+  end
+
   describe "GET /users/settings/confirm-email/:token" do
     setup %{user: user} do
       email = unique_user_email()

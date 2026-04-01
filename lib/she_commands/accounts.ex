@@ -105,6 +105,15 @@ defmodule SheCommands.Accounts do
     |> Repo.update()
   end
 
+  ## Account deletion
+
+  @doc """
+  Deletes a user and all associated tokens.
+  """
+  def delete_user(user) do
+    Repo.delete(user)
+  end
+
   ## Settings
 
   @doc """

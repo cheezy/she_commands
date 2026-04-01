@@ -127,6 +127,21 @@ defmodule SheCommands.AccountsTest do
     end
   end
 
+  describe "delete_user/1" do
+    test "deletes the user" do
+      user = user_fixture()
+      assert {:ok, _} = Accounts.delete_user(user)
+      refute Accounts.get_user_by_email(user.email)
+    end
+
+    test "deletes associated tokens" do
+      user = user_fixture()
+      {_encoded_token, _raw_token} = generate_user_magic_link_token(user)
+      assert {:ok, _} = Accounts.delete_user(user)
+      refute Accounts.get_user_by_email(user.email)
+    end
+  end
+
   describe "sudo_mode?/2" do
     test "validates the authenticated_at time" do
       now = DateTime.utc_now()

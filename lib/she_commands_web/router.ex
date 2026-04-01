@@ -58,6 +58,7 @@ defmodule SheCommandsWeb.Router do
     get "/users/settings", UserSettingsController, :edit
     put "/users/settings", UserSettingsController, :update
     get "/users/settings/confirm-email/:token", UserSettingsController, :confirm_email
+    delete "/users/settings", UserSettingsController, :delete_account
   end
 
   ## Development routes

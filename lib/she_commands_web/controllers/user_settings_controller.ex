@@ -68,6 +68,22 @@ defmodule SheCommandsWeb.UserSettingsController do
     end
   end
 
+  def delete_account(conn, _params) do
+    user = conn.assigns.current_scope.user
+
+    case Accounts.delete_user(user) do
+      {:ok, _user} ->
+        conn
+        |> put_flash(:info, "Your account has been deleted.")
+        |> redirect(to: ~p"/")
+
+      {:error, _changeset} ->
+        conn
+        |> put_flash(:error, "Unable to delete account. Please try again.")
+        |> redirect(to: ~p"/users/settings")
+    end
+  end
+
   def confirm_email(conn, %{"token" => token}) do
     case Accounts.update_user_email(conn.assigns.current_scope.user, token) do
       {:ok, _user} ->
