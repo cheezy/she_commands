@@ -35,18 +35,7 @@ defmodule SheCommandsWeb.Layouts do
 
   def app(assigns) do
     ~H"""
-    <header class="navbar px-4 sm:px-6 lg:px-8">
-      <div class="flex-1">
-        <a href="/" class="text-2xl font-bold tracking-tight">
-          She Commands
-        </a>
-      </div>
-      <div class="flex-none">
-        <.theme_toggle />
-      </div>
-    </header>
-
-    <main class="px-4 py-20 sm:px-6 lg:px-8">
+    <main class="px-6 py-20 sm:px-10 lg:px-16">
       <div class="mx-auto max-w-2xl space-y-4">
         {render_slot(@inner_block)}
       </div>
