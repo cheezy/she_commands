@@ -39,9 +39,21 @@
       </div>
       <nav class="flex-none">
         <ul class="flex items-center gap-6 text-sm font-semibold uppercase tracking-wider">
-          <li><a href="#mission" class="hover:opacity-60 transition-opacity">Mission</a></li>
-          <li><a href="#pillars" class="hover:opacity-60 transition-opacity">Pillars</a></li>
-          <li><a href="#connect" class="hover:opacity-60 transition-opacity">Connect</a></li>
+          <li>
+            <a href="#mission" class="hover:opacity-60 transition-opacity">
+              {gettext("Mission")}
+            </a>
+          </li>
+          <li>
+            <a href="#pillars" class="hover:opacity-60 transition-opacity">
+              {gettext("Pillars")}
+            </a>
+          </li>
+          <li>
+            <a href="#connect" class="hover:opacity-60 transition-opacity">
+              {gettext("Connect")}
+            </a>
+          </li>
           <%= if @current_scope do %>
             <li>
               <details class="dropdown dropdown-end">
@@ -50,10 +62,10 @@
                 </summary>
                 <ul class="dropdown-content menu bg-base-200 rounded-box z-50 w-52 p-2 shadow-lg mt-2">
                   <li>
-                    <.link href={~p"/users/settings"}>Settings</.link>
+                    <.link href={~p"/users/settings"}>{gettext("Settings")}</.link>
                   </li>
                   <li>
-                    <.link href={~p"/users/log-out"} method="delete">Log out</.link>
+                    <.link href={~p"/users/log-out"} method="delete">{gettext("Log out")}</.link>
                   </li>
                 </ul>
               </details>
@@ -61,12 +73,12 @@
           <% else %>
             <li>
               <.link href={~p"/users/register"} class="hover:opacity-60 transition-opacity">
-                Register
+                {gettext("Register")}
               </.link>
             </li>
             <li>
               <.link href={~p"/users/log-in"} class="hover:opacity-60 transition-opacity">
-                Log in
+                {gettext("Log in")}
               </.link>
             </li>
           <% end %>
