@@ -1,18 +1,53 @@
-# SheCommands
+# She Commands
 
-To start your Phoenix server:
+She Doesn't Ask. She Commands.
 
-* Run `mix setup` to install and setup dependencies
-* Start Phoenix endpoint with `mix phx.server` or inside IEx with `iex -S mix phx.server`
+A women-focused empowerment platform built to elevate mental resilience, physical readiness, and executive clarity.
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+## Features
 
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
+- User authentication (registration, login, magic links, password-based login)
+- User profiles with display name
+- Account settings (profile, email, password management)
+- Account deletion with confirmation
+- Internationalization (i18n) ready with Gettext
+- Dark mode support with daisyUI theming
+- Bold black & white design inspired by [shecommands.ca](https://www.shecommands.ca)
 
-## Learn more
+## Tech Stack
 
-* Official website: https://www.phoenixframework.org/
-* Guides: https://hexdocs.pm/phoenix/overview.html
-* Docs: https://hexdocs.pm/phoenix
-* Forum: https://elixirforum.com/c/phoenix-forum
-* Source: https://github.com/phoenixframework/phoenix
+- Elixir / Phoenix 1.8
+- PostgreSQL
+- Tailwind CSS v4 + daisyUI
+- Phoenix LiveView
+
+## Getting Started
+
+### Prerequisites
+
+- Elixir 1.19+
+- PostgreSQL
+
+### Setup
+
+```bash
+mix setup          # Install deps, create DB, run migrations
+mix phx.server     # Start the server
+```
+
+Visit [localhost:4000](http://localhost:4000) from your browser.
+
+## Running Tests
+
+```bash
+mix test           # Run all tests
+mix test --cover   # Run tests with coverage report
+```
+
+## Code Quality
+
+```bash
+mix format --check-formatted
+mix credo --strict
+mix sobelow --config .sobelow-conf
+```
