@@ -14,6 +14,7 @@ defmodule SheCommands.AccountsFixtures do
 
   def valid_user_attributes(attrs \\ %{}) do
     Enum.into(attrs, %{
+      name: "Test User",
       email: unique_user_email()
     })
   end

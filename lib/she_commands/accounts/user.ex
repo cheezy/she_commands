@@ -3,6 +3,7 @@ defmodule SheCommands.Accounts.User do
   import Ecto.Changeset
 
   schema "users" do
+    field :name, :string
     field :email, :string
     field :password, :string, virtual: true, redact: true
     field :hashed_password, :string, redact: true
@@ -10,6 +11,24 @@ defmodule SheCommands.Accounts.User do
     field :authenticated_at, :utc_datetime, virtual: true
 
     timestamps(type: :utc_datetime)
+  end
+
+  @doc """
+  A user changeset for registration.
+
+  It requires the name and email fields.
+
+  ## Options
+
+    * `:validate_unique` - Validates the uniqueness of the email.
+      Defaults to `true`.
+  """
+  def registration_changeset(user, attrs, opts \\ []) do
+    user
+    |> cast(attrs, [:name, :email])
+    |> validate_required([:name])
+    |> validate_length(:name, min: 1, max: 100)
+    |> validate_email(opts)
   end
 
   @doc """
