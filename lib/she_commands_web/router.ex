@@ -36,6 +36,7 @@ defmodule SheCommandsWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :home
+    get "/brand", PageController, :brand
   end
 
   ## Authentication routes - guest-only (redirect if already logged in)

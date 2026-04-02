@@ -1,0 +1,217 @@
+<Layouts.flash_group flash={@flash} />
+
+<%!-- Hero Section --%>
+<section class="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
+  <img
+    src={~p"/images/pexels-polina-kovaleva-6019877.jpg"}
+    alt={gettext("The Brand")}
+    class="absolute inset-0 w-full h-full object-cover grayscale brightness-50"
+  />
+  <div class="absolute inset-0 bg-gradient-to-b from-black/30 to-black/60"></div>
+  <div class="relative z-10 text-center">
+    <h1 class="text-white text-6xl md:text-8xl font-serif">{gettext("The Brand")}</h1>
+  </div>
+</section>
+
+<%!-- Ticker Banner --%>
+<div class="bg-black text-white py-8 overflow-hidden border-y border-white/20">
+  <div class="animate-marquee whitespace-nowrap inline-flex gap-16 items-center text-xl md:text-2xl uppercase tracking-[0.2em] font-bold">
+    <%= for _i <- 1..2 do %>
+      <span>{gettext("Power starts here")}</span>
+      <span class="opacity-30">&mdash;</span>
+      <span>{gettext("Execute relentlessly")}</span>
+      <span class="opacity-30">&mdash;</span>
+      <span>{gettext("Results not rhetoric")}</span>
+      <span class="opacity-30">&mdash;</span>
+      <span>{gettext("Live your potential")}</span>
+      <span class="opacity-30">&mdash;</span>
+      <span>{gettext("Mission-ready")}</span>
+      <span class="opacity-30">&mdash;</span>
+      <span>{gettext("Don't hesitate")}</span>
+      <span class="opacity-30">&mdash;</span>
+    <% end %>
+  </div>
+</div>
+
+<%!-- Identity Content --%>
+<section class="bg-white text-black py-24 px-6">
+  <div class="max-w-4xl mx-auto space-y-4">
+    <div class="grid md:grid-cols-12 gap-8">
+      <div class="md:col-span-8 md:col-start-3">
+        <p class="text-[#374151] leading-relaxed text-lg">
+          {gettext(
+            "She Commands is an identity — a declaration that you're done waiting, doubting yourself and being overwhelmed by your own high expectations. Built for women who are wired for action, She Commands fuses fitness, nutrition, mindfulness and leadership into one system."
+          )}
+        </p>
+        <ul class="mt-8 space-y-4 list-disc list-inside text-[#374151] text-base font-medium">
+          <li>{gettext("Instruction. Not inspiration.")}</li>
+          <li>{gettext("Tactical execution. Not vague empowerment.")}</li>
+          <li>{gettext("Curated for your goals. Not generic content.")}</li>
+          <li>{gettext("Applicable to work and life. Not compartmentalized self-help.")}</li>
+          <li>{gettext("Integrated strategy. Not one-dimensional advice.")}</li>
+        </ul>
+        <p class="mt-8 text-[#374151] leading-relaxed text-base">
+          {gettext(
+            "You will always know what you're going to get with She Commands. We value clarity and precision. Our vision is to become a global movement with digital tools, community touchpoints, and retreat experiences that help women command their routines, careers, and identities."
+          )}
+        </p>
+      </div>
+    </div>
+
+    <%!-- The O Symbol Section --%>
+    <div class="grid md:grid-cols-12 gap-12 items-center py-6">
+      <div class="md:col-span-4 flex justify-center md:justify-end">
+        <span class="text-[10rem] leading-none font-serif text-[#2D5A54]">O</span>
+      </div>
+      <div class="md:col-span-6">
+        <p class="text-sm text-[#374151] leading-relaxed">
+          {gettext(
+            "In She Commands, the \"O\" isn't just a letter — it's our symbol of everything the brand stands for. The circle has been a consistent symbol across human history to represent unity, renewal and wholeness: from ancient goddess symbols to the phases of the moon. For us, the \"O\" is also a target for Objectives set and Outcomes achieved. It reminds us that progress is not always linear. It's feminine. It's functional. It's yours."
+          )}
+        </p>
+      </div>
+    </div>
+
+    <%!-- Strategic Pillars Visual --%>
+    <div class="grid md:grid-cols-12 gap-12 items-center py-6">
+      <div class="md:col-span-4 flex justify-center md:justify-end">
+        <div class="grid grid-cols-2 gap-4">
+          <img src={~p"/images/power-up.png"} alt="Power Up" class="w-20 h-20 brand-icon-teal" />
+          <img src={~p"/images/power-through.png"} alt="Power Through" class="w-20 h-20 brand-icon-teal" />
+          <img src={~p"/images/power-down.png"} alt="Power Down" class="w-20 h-20 brand-icon-teal" />
+          <img src={~p"/images/empower.png"} alt="Empower" class="w-20 h-20 brand-icon-teal" />
+        </div>
+      </div>
+      <div class="md:col-span-6">
+        <p class="text-sm text-[#374151] leading-relaxed">
+          {gettext(
+            "At the heart of She Commands are four strategic pillars — Power Up, Power Through, Power Down and Empower — each representing a critical element in the journey toward becoming a woman who feels in command when it matters the most."
+          )}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%!-- Our Mission --%>
+<section class="bg-black text-white py-24 px-6">
+  <div class="max-w-4xl mx-auto">
+    <h2 class="text-4xl md:text-5xl font-serif mb-10">{gettext("Our Mission")}</h2>
+    <div class="space-y-6 text-white/70 leading-relaxed text-sm">
+      <p>
+        {gettext(
+          "She Commands is a women's leadership and lifestyle company that helps growth-minded women take clear and consistent action toward their personal and professional goals."
+        )}
+      </p>
+      <p>
+        {gettext(
+          "We know you are already bursting with ambition, knowledge and potential. We trust that you've already invested in doing the work to understand what a healthy diet looks like, the latest fitness trends and the professional leadership competencies required of your role. She Commands is here to lessen the burden of the mental exercise that is prioritizing what you need to care about today based on what you want to accomplish tomorrow."
+        )}
+      </p>
+      <p>
+        {gettext(
+          "We don't have a predisposition for what your goals should be. Whether you want to ace a pitch to a new investor or achieve a personal record in your next race, our goal execution engine will meet you where you are so you show up for both work and life's biggest moments with maximum confidence and impact. This is your operating system for life."
+        )}
+      </p>
+    </div>
+  </div>
+</section>
+
+<%!-- Power Pillar Framework --%>
+<section class="bg-white text-black py-24 px-6">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-3xl md:text-4xl font-serif mb-2">{gettext("Power Pillar\u2122 Framework")}</h2>
+    <p class="text-[#707070] text-sm mb-16 uppercase tracking-wider">
+      {gettext(
+        "Every plan is modular, measurable, and built for real life using She Commands' proprietary Power Pillar\u2122 framework:"
+      )}
+    </p>
+    <div class="grid md:grid-cols-4 border-t border-black/10">
+      <div class="p-8 border-b md:border-b-0 md:border-r border-black/10">
+        <div class="w-12 h-12 mb-6">
+          <img src={~p"/images/power-up.png"} alt="Power Up" class="w-full h-full object-contain invert" />
+        </div>
+        <h3 class="font-serif text-xl mb-4">{gettext("Power Up")}</h3>
+        <p class="text-sm text-[#707070] leading-relaxed">
+          {gettext("Fuel your mind and body for high performance")}
+        </p>
+      </div>
+      <div class="p-8 border-b md:border-b-0 md:border-r border-black/10">
+        <div class="w-12 h-12 mb-6">
+          <img
+            src={~p"/images/power-through.png"}
+            alt="Power Through"
+            class="w-full h-full object-contain invert"
+          />
+        </div>
+        <h3 class="font-serif text-xl mb-4">{gettext("Power Through")}</h3>
+        <p class="text-sm text-[#707070] leading-relaxed">
+          {gettext("Build mental resilience and physical strength and endurance")}
+        </p>
+      </div>
+      <div class="p-8 border-b md:border-b-0 md:border-r border-black/10">
+        <div class="w-12 h-12 mb-6">
+          <img
+            src={~p"/images/power-down.png"}
+            alt="Power Down"
+            class="w-full h-full object-contain invert"
+          />
+        </div>
+        <h3 class="font-serif text-xl mb-4">{gettext("Power Down")}</h3>
+        <p class="text-sm text-[#707070] leading-relaxed">
+          {gettext("Kill the noise and reset your focus without slowing momentum")}
+        </p>
+      </div>
+      <div class="p-8">
+        <div class="w-12 h-12 mb-6">
+          <img src={~p"/images/empower.png"} alt="Empower" class="w-full h-full object-contain invert" />
+        </div>
+        <h3 class="font-serif text-xl mb-4">{gettext("Empower")}</h3>
+        <p class="text-sm text-[#707070] leading-relaxed">
+          {gettext("Elevate leadership presence, personal brand and execution strategies")}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%!-- The Founder --%>
+<section class="bg-[#F9F9F9] text-black py-24 px-6">
+  <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+    <div class="order-2 md:order-1">
+      <h2 class="text-4xl md:text-5xl font-serif mb-6">{gettext("The Founder")}</h2>
+      <h3 class="text-xl font-bold mb-6">{gettext("Boss Energy | Bench Strength")}</h3>
+      <div class="space-y-4 text-sm text-[#555] leading-relaxed">
+        <p>
+          {gettext(
+            "Myra Reisler is the woman at the helm of She Commands. With over 20 years in leadership roles across communications, public relations, corporate strategy and transformation, and banking operations — and a lifelong passion for pushing physical limits whether in the gym, on a dancefloor or hanging from a trapeze — Myra knows what it feels like to chase high standards in every domain of life. She also knows what it feels like to juggle all of it while trying not to drop the ball at work, at home, or on the training floor."
+          )}
+        </p>
+        <p>
+          {gettext(
+            "She created She Commands not because she had it all figured out, but because she didn't. She wanted to stop having to piece together fitness apps, habit trackers, productivity hacks, and personal development books to determine which activities to prioritize today and how she'd measure their success tomorrow. She wanted a system that matched her ambition and a community of women who weren't afraid of high standards — just tired of being unsupported in meeting them."
+          )}
+        </p>
+        <p>
+          {gettext(
+            "She believes that big wins come from setting bold goals, being crystal clear on what success looks like and having people around you who will hold you accountable to what you've promised yourself. She believes that curiosity fuels progress, failure is full of learnings and words are powerful."
+          )}
+        </p>
+        <p>
+          {gettext(
+            "Myra is raising two daughters while pushing her limits in the gym, in business, and in life — and she knows many of you are doing the same. That's why She Commands exists."
+          )}
+        </p>
+      </div>
+    </div>
+    <div class="order-1 md:order-2">
+      <div class="aspect-[4/5] overflow-hidden shadow-2xl">
+        <img
+          src={~p"/images/Myra4.jpeg"}
+          alt={gettext("Myra Reisler")}
+          class="w-full h-full object-cover"
+        />
+      </div>
+    </div>
+  </div>
+</section>

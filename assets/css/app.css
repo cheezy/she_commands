@@ -121,3 +121,8 @@
 .animate-marquee {
   animation: marquee-scroll 30s linear infinite;
 }
+
+/* Tint white icons to brand teal (#2D5A54) for light backgrounds */
+.brand-icon-teal {
+  filter: brightness(0) saturate(100%) invert(30%) sepia(15%) saturate(1200%) hue-rotate(130deg) brightness(95%) contrast(90%);
+}
