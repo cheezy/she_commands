@@ -37,6 +37,8 @@ defmodule SheCommandsWeb.Router do
 
     get "/", PageController, :home
     get "/brand", PageController, :brand
+    get "/goal-execution", PageController, :goal_execution
+    get "/experiences", PageController, :experiences
   end
 
   ## Authentication routes - guest-only (redirect if already logged in)

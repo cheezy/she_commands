@@ -8,4 +8,12 @@ defmodule SheCommandsWeb.PageController do
   def brand(conn, _params) do
     render(conn, :brand)
   end
+
+  def goal_execution(conn, _params) do
+    render(conn, :goal_execution)
+  end
+
+  def experiences(conn, _params) do
+    render(conn, :experiences)
+  end
 end
