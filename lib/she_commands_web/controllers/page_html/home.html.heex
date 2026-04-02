@@ -1,110 +1,303 @@
 <Layouts.flash_group flash={@flash} />
 
 <%!-- Hero Section --%>
-<section class="flex flex-col items-center justify-center min-h-[85vh] px-6 text-center">
-  <h1 class="text-5xl sm:text-7xl lg:text-8xl font-black uppercase tracking-tight leading-none">
-    She Doesn't Ask. <br />
-    <span class="text-primary">She Commands.</span>
-  </h1>
-  <p class="mt-8 text-lg sm:text-xl font-light tracking-wide opacity-70 max-w-2xl">
-    Power starts here. Don't hesitate. Execute relentlessly. Live your potential.
-  </p>
-</section>
-
-<%!-- Divider --%>
-<div class="border-t border-base-300 mx-6 sm:mx-10 lg:mx-16"></div>
-
-<%!-- Mission Section --%>
-<section id="mission" class="py-24 sm:py-32 px-6 sm:px-10 lg:px-16">
-  <div class="max-w-4xl mx-auto">
-    <h2 class="text-sm font-bold uppercase tracking-[0.3em] opacity-50 mb-8">Our Mission</h2>
-    <p class="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight tracking-tight">
-      Elevate women's mental resilience, physical readiness and executive clarity so they can show up
-      for both work and life's biggest moments with maximum confidence and impact.
-    </p>
+<section class="relative h-screen flex items-center justify-center overflow-hidden">
+  <div class="absolute inset-0 z-0">
+    <img
+      src={~p"/images/reza-gholami-aWVfEz0j2r8-unsplash.jpg"}
+      alt={gettext("She Commands")}
+      class="w-full h-full object-cover"
+    />
+    <div class="absolute inset-0 bg-black/30"></div>
+  </div>
+  <div class="relative z-10 text-center text-white px-4">
+    <h1 class="text-[4rem] sm:text-[5rem] lg:text-[6rem] font-serif italic leading-[1.1] tracking-[-0.02em] mb-2">
+      {gettext("She Doesn't Ask.")}
+    </h1>
+    <h1 class="text-[4rem] sm:text-[5rem] lg:text-[6rem] font-serif leading-[1.1] tracking-[-0.02em]">
+      {gettext("She Commands.")}
+    </h1>
   </div>
 </section>
 
-<%!-- Divider --%>
-<div class="border-t border-base-300 mx-6 sm:mx-10 lg:mx-16"></div>
+<%!-- Marquee Ticker --%>
+<div class="bg-black text-white overflow-hidden py-4">
+  <div class="animate-marquee whitespace-nowrap inline-flex gap-12 items-center">
+    <%= for _i <- 1..2 do %>
+      <span class="text-xl font-bold uppercase">{gettext("Power starts here")}</span>
+      <span class="text-xl font-bold uppercase">{gettext("Live your potential")}</span>
+      <span class="text-xl font-bold uppercase">{gettext("Power starts here")}</span>
+      <span class="text-xl font-bold uppercase">{gettext("Don't hesitate")}</span>
+      <span class="text-xl font-bold uppercase">{gettext("Power starts here")}</span>
+      <span class="text-xl font-bold uppercase">{gettext("Execute relentlessly")}</span>
+    <% end %>
+  </div>
+</div>
 
-<%!-- Power Pillars Section --%>
-<section id="pillars" class="py-24 sm:py-32 px-6 sm:px-10 lg:px-16">
-  <div class="max-w-6xl mx-auto">
-    <h2 class="text-sm font-bold uppercase tracking-[0.3em] opacity-50 mb-16">
-      The Power Pillar&trade; Framework
+<%!-- Mission Section --%>
+<section id="mission" class="bg-white text-black py-24 px-6 md:px-12 lg:px-24">
+  <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+    <div class="order-2 md:order-1">
+      <h2 class="text-4xl font-serif mb-8 text-black">
+        {gettext("Our Mission")}
+      </h2>
+      <p class="text-sm leading-relaxed mb-10 max-w-md text-[#707070]">
+        {gettext(
+          "Our mission is to elevate women's mental resilience, physical readiness and executive clarity so they can show up for both work and life's biggest moments with maximum confidence and impact."
+        )}
+      </p>
+      <a
+        href="https://www.shecommands.ca"
+        class="inline-block border border-black px-12 py-3 rounded-full text-xs uppercase tracking-widest hover:bg-black hover:text-white transition"
+      >
+        {gettext("Learn More")}
+      </a>
+    </div>
+    <div class="order-1 md:order-2">
+      <img
+        src={~p"/images/Myra1.jpeg"}
+        alt={gettext("Our Mission")}
+        class="w-full object-cover aspect-[4/5]"
+      />
+    </div>
+  </div>
+</section>
+
+<div class="bg-white">
+  <hr class="border-t-2 border-black/20" />
+</div>
+
+<%!-- Goal Execution Section --%>
+<section class="bg-white text-black py-24 px-6 md:px-12 lg:px-24">
+  <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+    <div>
+      <div class="relative">
+        <img
+          src={~p"/images/Myra5.jpeg"}
+          alt={gettext("Goal Execution")}
+          class="w-full object-cover aspect-[4/5]"
+        />
+        <div class="absolute bottom-4 left-4 text-white font-serif text-lg max-w-xs leading-tight">
+          {gettext("those big ambitions that can't wait. You can and you will.")}
+        </div>
+      </div>
+    </div>
+    <div class="pl-0 md:pl-8">
+      <h2 class="text-4xl font-serif mb-8">{gettext("Goal Execution")}</h2>
+      <p class="text-sm text-[#707070] leading-relaxed mb-10 max-w-md">
+        {gettext(
+          "The core of She Commands is a goal execution engine — curated daily and weekly plans that blend fitness, nutrition, mindset, habits, and leadership into a single mission-ready system to maximize readiness for the most important moments in your life."
+        )}
+      </p>
+      <a
+        href="https://www.shecommands.ca"
+        class="inline-block border border-black px-12 py-3 rounded-full text-xs uppercase tracking-widest hover:bg-black hover:text-white transition"
+      >
+        {gettext("Learn More")}
+      </a>
+    </div>
+  </div>
+</section>
+
+<%!-- Power Pillar Framework --%>
+<section id="pillars" class="bg-black text-white py-28 px-6 md:px-12 lg:px-24">
+  <div class="max-w-7xl mx-auto">
+    <h2 class="text-5xl md:text-6xl font-serif mb-6">
+      {gettext("Power Pillar™ Framework")}
     </h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-base-300">
-      <div class="bg-base-100 p-8 sm:p-10">
-        <h3 class="text-2xl font-black uppercase tracking-tight mb-4">Power Up</h3>
-        <p class="text-base opacity-70 leading-relaxed">
-          Fuel your mind and body for high performance.
+    <p class="text-base text-white/70 mb-20">
+      {gettext(
+        "Every plan is modular, measurable, and built for real life using She Commands' proprietary Power Pillar™ framework:"
+      )}
+    </p>
+    <div class="grid md:grid-cols-4 gap-10">
+      <div class="pb-10">
+        <div class="w-14 h-14 mb-8">
+          <img src={~p"/images/power-up.png"} alt="Power Up" class="w-full h-full object-contain" />
+        </div>
+        <h3 class="text-2xl font-serif tracking-[-0.01em] mb-4">{gettext("Power Up")}</h3>
+        <p class="text-sm text-white/50 leading-relaxed mb-10">
+          {gettext("Fuel your mind and body for high performance")}
         </p>
+        <div class="border-b border-white/20"></div>
       </div>
-      <div class="bg-base-100 p-8 sm:p-10">
-        <h3 class="text-2xl font-black uppercase tracking-tight mb-4">Power Through</h3>
-        <p class="text-base opacity-70 leading-relaxed">
-          Build mental resilience and physical strength and endurance.
+      <div class="pb-10">
+        <div class="w-14 h-14 mb-8">
+          <img src={~p"/images/power-through.png"} alt="Power Through" class="w-full h-full object-contain" />
+        </div>
+        <h3 class="text-2xl font-serif tracking-[-0.01em] mb-4">{gettext("Power Through")}</h3>
+        <p class="text-sm text-white/50 leading-relaxed mb-10">
+          {gettext("Build mental resilience and physical strength and endurance")}
         </p>
+        <div class="border-b border-white/20"></div>
       </div>
-      <div class="bg-base-100 p-8 sm:p-10">
-        <h3 class="text-2xl font-black uppercase tracking-tight mb-4">Power Down</h3>
-        <p class="text-base opacity-70 leading-relaxed">
-          Kill the noise and reset your focus without slowing momentum.
+      <div class="pb-10">
+        <div class="w-14 h-14 mb-8">
+          <img src={~p"/images/power-down.png"} alt="Power Down" class="w-full h-full object-contain" />
+        </div>
+        <h3 class="text-2xl font-serif tracking-[-0.01em] mb-4">{gettext("Power Down")}</h3>
+        <p class="text-sm text-white/50 leading-relaxed mb-10">
+          {gettext("Kill the noise and reset your focus without slowing momentum")}
         </p>
+        <div class="border-b border-white/20"></div>
       </div>
-      <div class="bg-base-100 p-8 sm:p-10">
-        <h3 class="text-2xl font-black uppercase tracking-tight mb-4">Empower</h3>
-        <p class="text-base opacity-70 leading-relaxed">
-          Elevate leadership presence, personal brand and execution strategies.
+      <div class="pb-10">
+        <div class="w-14 h-14 mb-8">
+          <img src={~p"/images/empower.png"} alt="Empower" class="w-full h-full object-contain" />
+        </div>
+        <h3 class="text-2xl font-serif tracking-[-0.01em] mb-4">{gettext("Empower")}</h3>
+        <p class="text-sm text-white/50 leading-relaxed mb-10">
+          {gettext("Elevate leadership presence, personal brand and execution strategies")}
+        </p>
+        <div class="border-b border-white/20"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%!-- Experiences Section --%>
+<section class="py-24 bg-[#F5F2ED] text-black">
+  <%!-- Image Banner with Scrolling Overlay --%>
+  <div class="px-4 sm:px-6 mb-16">
+    <div class="relative rounded-3xl overflow-hidden h-[700px]">
+      <img
+        src={~p"/images/pexels-ketut-subiyanto-4909001.jpg"}
+        alt={gettext("She Commands experience")}
+        class="w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 flex items-center justify-center">
+        <div class="bg-black w-full py-6 overflow-hidden whitespace-nowrap">
+          <div class="animate-marquee inline-flex gap-8 items-center text-white">
+            <%= for _i <- 1..4 do %>
+              <span class="text-4xl md:text-6xl font-bold uppercase tracking-tighter">
+                {gettext("Upcoming Experiences")}
+              </span>
+              <span class="text-4xl md:text-6xl font-bold uppercase tracking-tighter opacity-40">
+                &bull;
+              </span>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%!-- Experience Detail --%>
+  <div class="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 pt-8">
+    <div class="grid md:grid-cols-2 gap-16 items-start">
+      <div>
+        <h3 class="text-3xl md:text-4xl font-serif mb-6">
+          {gettext("From Capable to Commanding — March 28, 2026 (FULL)")}
+        </h3>
+        <p class="text-sm text-[#707070] mb-12 uppercase tracking-widest">
+          {gettext("Toronto")}
+        </p>
+        <a
+          href="https://www.shecommands.ca"
+          class="inline-block border-2 border-black px-14 py-4 rounded-full text-xs uppercase tracking-widest hover:bg-black hover:text-white transition"
+        >
+          {gettext("Learn More")}
+        </a>
+      </div>
+      <div>
+        <p class="text-base font-bold mb-2">
+          {gettext(
+            "Be one of the first to experience the She Commands Power Pillar framework in action."
+          )}
+        </p>
+        <p class="text-base text-[#707070] leading-relaxed">
+          {gettext(
+            "This one-day retreat will bring together a curated circle of ambitious women to build habits that fuel long-term change, overcome preconceived personal and professional performance limits and connect in a real and unfiltered environment. You'll work directly with our fitness, nutrition and leadership experts to push your physical and mental limits and you'll expand your network in a space that's raw, grounded, and energizing."
+          )}
         </p>
       </div>
     </div>
   </div>
 </section>
 
-<%!-- Divider --%>
-<div class="border-t border-base-300 mx-6 sm:mx-10 lg:mx-16"></div>
+<%!-- Footer with Newsletter & Gallery --%>
+<footer id="connect" class="bg-[#2D5A54] text-white py-24 px-6 md:px-12 lg:px-24">
+  <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-24">
+    <%!-- Newsletter & Social --%>
+    <div>
+      <h2 class="text-3xl md:text-4xl font-serif italic mb-4">
+        {gettext("Join our mailing list for what's coming.")}
+      </h2>
+      <p class="text-sm text-white/70 mb-8">
+        {gettext("Exclusive events. Expert coaches. Exceptional network.")}
+      </p>
+      <form class="mb-8">
+        <div class="flex flex-col gap-6">
+          <input
+            type="email"
+            placeholder={gettext("Email Address")}
+            class="bg-white text-black px-4 py-3 border-none rounded-sm w-full focus:ring-2 focus:ring-white/50"
+          />
+          <button
+            type="submit"
+            class="border-2 border-white/50 px-10 py-4 rounded-full text-xs uppercase tracking-widest hover:bg-white hover:text-[#2D5A54] transition self-start"
+          >
+            {gettext("Join the Community")}
+          </button>
+        </div>
+      </form>
+      <%!-- Social Icons --%>
+      <div class="flex gap-4 mb-8">
+        <a href="#" class="hover:opacity-70 transition" aria-label="Instagram">
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+          </svg>
+        </a>
+        <a href="#" class="hover:opacity-70 transition" aria-label="LinkedIn">
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+          </svg>
+        </a>
+        <a href="#" class="hover:opacity-70 transition" aria-label="Facebook">
+          <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+            <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
+          </svg>
+        </a>
+      </div>
+      <a
+        href="#"
+        class="text-xs text-white/50 underline hover:text-white transition block mb-2"
+      >
+        {gettext("Privacy Policy")}
+      </a>
+      <a
+        href="#"
+        class="text-xs text-white/50 underline hover:text-white transition block"
+      >
+        {gettext("Terms of Service")}
+      </a>
+    </div>
 
-<%!-- Goal Execution Section --%>
-<section class="py-24 sm:py-32 px-6 sm:px-10 lg:px-16">
-  <div class="max-w-4xl mx-auto text-center">
-    <h2 class="text-sm font-bold uppercase tracking-[0.3em] opacity-50 mb-8">Goal Execution</h2>
-    <p class="text-3xl sm:text-4xl font-bold leading-tight tracking-tight mb-6">
-      Your goal execution engine.
-    </p>
-    <p class="text-lg opacity-70 max-w-2xl mx-auto leading-relaxed">
-      Daily and weekly plans integrating fitness, nutrition, mindset, habits, and leadership
-      into one powerful system designed to help you execute relentlessly.
-    </p>
+    <%!-- Image Grid --%>
+    <div class="grid grid-cols-4 gap-2">
+      <img src={~p"/images/Myra1.jpeg"} alt="" class="aspect-square object-cover w-full" />
+      <img src={~p"/images/Myra2.jpeg"} alt="" class="aspect-square object-cover w-full" />
+      <img src={~p"/images/Myra3.jpeg"} alt="" class="aspect-square object-cover w-full" />
+      <img src={~p"/images/Myra4.jpeg"} alt="" class="aspect-square object-cover w-full" />
+      <img src={~p"/images/Myra5.jpeg"} alt="" class="aspect-square object-cover w-full" />
+      <img src={~p"/images/Myra6.jpeg"} alt="" class="aspect-square object-cover w-full" />
+      <img
+        src={~p"/images/jason-grant-RXMreQN2G0c-unsplash.jpg"}
+        alt=""
+        class="aspect-square object-cover w-full"
+      />
+      <img
+        src={~p"/images/pexels-polina-kovaleva-6019877.jpg"}
+        alt=""
+        class="aspect-square object-cover w-full"
+      />
+    </div>
   </div>
-</section>
 
-<%!-- Divider --%>
-<div class="border-t border-base-300 mx-6 sm:mx-10 lg:mx-16"></div>
-
-<%!-- Connect Section --%>
-<section id="connect" class="py-24 sm:py-32 px-6 sm:px-10 lg:px-16">
-  <div class="max-w-4xl mx-auto text-center">
-    <h2 class="text-sm font-bold uppercase tracking-[0.3em] opacity-50 mb-8">Connect</h2>
-    <p class="text-3xl sm:text-4xl font-bold leading-tight tracking-tight mb-10">
-      Ready to command your next chapter?
-    </p>
-    <a
-      href="https://www.shecommands.ca"
-      class="inline-block px-10 py-4 bg-primary text-primary-content font-bold uppercase tracking-wider text-sm hover:opacity-80 transition-opacity"
-    >
-      Learn More
-    </a>
-  </div>
-</section>
-
-<%!-- Footer --%>
-<footer class="border-t border-base-300 py-12 px-6 sm:px-10 lg:px-16">
-  <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-    <p class="text-sm font-bold uppercase tracking-[0.2em]">She Commands</p>
-    <p class="text-sm opacity-50">
-      &copy; {DateTime.utc_now().year} She Commands. All rights reserved.
-    </p>
+  <div class="max-w-7xl mx-auto mt-24 border-t border-white/10 pt-8 flex justify-between items-center text-[10px] uppercase tracking-widest text-white/40">
+    <span>&copy; {DateTime.utc_now().year} {gettext("She Commands Inc. All rights reserved.")}</span>
+    <div class="w-8 h-8">
+      <img src={~p"/images/she_commands_logo.webp"} alt="She Commands" class="w-full h-full object-contain opacity-40" />
+    </div>
   </div>
 </footer>

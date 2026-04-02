@@ -7,6 +7,10 @@
     <.live_title default="She Commands" suffix=" · She Doesn't Ask. She Commands.">
       {assigns[:page_title]}
     </.live_title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;700&family=Space+Grotesk:wght@400;500;700&family=Work+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
     <link phx-track-static rel="stylesheet" href={~p"/assets/css/app.css"} />
     <script defer phx-track-static type="text/javascript" src={~p"/assets/js/app.js"}>
     </script>
@@ -31,66 +35,55 @@
     </script>
   </head>
   <body>
-    <header class="navbar px-6 sm:px-10 lg:px-16 py-6">
-      <div class="flex-1">
-        <a href="/" class="flex items-center gap-2">
-          <div class="h-12 w-10 overflow-hidden shrink-0">
-            <img
-              src={~p"/images/she_commands_logo.webp"}
-              alt=""
-              class="h-12 max-w-none"
-              style="object-fit: cover; object-position: 16% center;"
-            />
-          </div>
-          <span class="text-xl font-light uppercase tracking-[0.25em]">She Commands</span>
+    <header class="absolute top-0 left-0 w-full z-50 bg-transparent text-white">
+      <nav class="container mx-auto px-6 py-4 flex flex-col items-center">
+        <a href="/" class="flex items-center gap-2 mb-4">
+          <img
+            src={~p"/images/she_commands_logo.webp"}
+            alt="She Commands"
+            class="h-14"
+          />
         </a>
-      </div>
-      <nav class="flex-none">
-        <ul class="flex items-center gap-6 text-sm font-semibold uppercase tracking-wider">
-          <li>
-            <a href="#mission" class="hover:opacity-60 transition-opacity">
-              {gettext("Mission")}
+        <div class="flex justify-between w-full items-center">
+          <div class="flex gap-8 mx-auto text-[0.75rem] uppercase tracking-[0.05em] font-medium">
+            <a href="#mission" class="hover:opacity-70 transition">
+              {gettext("The Brand")}
             </a>
-          </li>
-          <li>
-            <a href="#pillars" class="hover:opacity-60 transition-opacity">
-              {gettext("Pillars")}
+            <a href="#pillars" class="hover:opacity-70 transition">
+              {gettext("Goal Execution")}
             </a>
-          </li>
-          <li>
-            <a href="#connect" class="hover:opacity-60 transition-opacity">
+            <a href="#connect" class="hover:opacity-70 transition">
+              {gettext("Experiences")}
+            </a>
+            <a href="#connect" class="hover:opacity-70 transition">
               {gettext("Connect")}
             </a>
-          </li>
-          <%= if @current_scope do %>
-            <li>
-              <details class="dropdown dropdown-end">
-                <summary class="cursor-pointer hover:opacity-60 transition-opacity">
+            <%= if @current_scope do %>
+              <details class="dropdown dropdown-end relative">
+                <summary class="cursor-pointer hover:opacity-70 transition">
                   {@current_scope.user.name || @current_scope.user.email}
                 </summary>
-                <ul class="dropdown-content menu bg-base-200 rounded-box z-50 w-52 p-2 shadow-lg mt-2">
+                <ul class="dropdown-content menu bg-base-200 text-base-content rounded-box z-50 w-52 p-2 shadow-lg mt-2">
                   <li>
                     <.link href={~p"/users/settings"}>{gettext("Settings")}</.link>
                   </li>
                   <li>
-                    <.link href={~p"/users/log-out"} method="delete">{gettext("Log out")}</.link>
+                    <.link href={~p"/users/log-out"} method="delete">
+                      {gettext("Log out")}
+                    </.link>
                   </li>
                 </ul>
               </details>
-            </li>
-          <% else %>
-            <li>
-              <.link href={~p"/users/register"} class="hover:opacity-60 transition-opacity">
+            <% else %>
+              <.link href={~p"/users/register"} class="hover:opacity-70 transition">
                 {gettext("Register")}
               </.link>
-            </li>
-            <li>
-              <.link href={~p"/users/log-in"} class="hover:opacity-60 transition-opacity">
+              <.link href={~p"/users/log-in"} class="hover:opacity-70 transition">
                 {gettext("Log in")}
               </.link>
-            </li>
-          <% end %>
-        </ul>
+            <% end %>
+          </div>
+        </div>
       </nav>
     </header>
     {@inner_content}

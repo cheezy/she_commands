@@ -50,7 +50,7 @@ msgstr ""
 msgid "Confirm new password"
 msgstr ""
 
-#: lib/she_commands_web/components/layouts/root.html.heex:62
+#: lib/she_commands_web/components/layouts/root.html.heex:66
 #, elixir-autogen, elixir-format
 msgid "Connect"
 msgstr ""
@@ -76,7 +76,7 @@ msgstr ""
 msgid "Email"
 msgstr ""
 
-#: lib/she_commands_web/components/layouts/root.html.heex:89
+#: lib/she_commands_web/components/layouts/root.html.heex:93
 #: lib/she_commands_web/controllers/user_registration_html/new.html.heex:9
 #: lib/she_commands_web/controllers/user_session_html/new.html.heex:5
 #, elixir-autogen, elixir-format
@@ -93,12 +93,12 @@ msgstr ""
 msgid "Log in only this time"
 msgstr ""
 
-#: lib/she_commands_web/components/layouts/root.html.heex:76
+#: lib/she_commands_web/components/layouts/root.html.heex:80
 #, elixir-autogen, elixir-format
 msgid "Log out"
 msgstr ""
 
-#: lib/she_commands_web/components/layouts/root.html.heex:52
+#: lib/she_commands_web/components/layouts/root.html.heex:56
 #, elixir-autogen, elixir-format
 msgid "Mission"
 msgstr ""
@@ -120,12 +120,12 @@ msgstr ""
 msgid "Password"
 msgstr ""
 
-#: lib/she_commands_web/components/layouts/root.html.heex:57
+#: lib/she_commands_web/components/layouts/root.html.heex:61
 #, elixir-autogen, elixir-format
 msgid "Pillars"
 msgstr ""
 
-#: lib/she_commands_web/components/layouts/root.html.heex:84
+#: lib/she_commands_web/components/layouts/root.html.heex:88
 #, elixir-autogen, elixir-format
 msgid "Register"
 msgstr ""
@@ -140,7 +140,7 @@ msgstr ""
 msgid "Save Password"
 msgstr ""
 
-#: lib/she_commands_web/components/layouts/root.html.heex:73
+#: lib/she_commands_web/components/layouts/root.html.heex:77
 #, elixir-autogen, elixir-format
 msgid "Settings"
 msgstr ""
@@ -609,4 +609,186 @@ msgstr ""
 #: lib/she_commands_web/live/intake_live/index.html.heex:45
 #, elixir-autogen, elixir-format
 msgid "e.g., I want to command any room I walk into with confidence..."
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/home.html.heex:30
+#, elixir-autogen, elixir-format
+msgid "Don't hesitate"
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/home.html.heex:135
+#, elixir-autogen, elixir-format
+msgid "Empower"
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/home.html.heex:99
+#, elixir-autogen, elixir-format
+msgid "Every plan is modular, measurable, and built for real life using She Commands' proprietary Power Pillar™ framework:"
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/home.html.heex:207
+#, elixir-autogen, elixir-format
+msgid "Exclusive events. Expert coaches. Exceptional network."
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/home.html.heex:32
+#, elixir-autogen, elixir-format
+msgid "Execute relentlessly"
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/home.html.heex:68
+#: lib/she_commands_web/controllers/page_html/home.html.heex:77
+#, elixir-autogen, elixir-format
+msgid "Goal Execution"
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/home.html.heex:204
+#, elixir-autogen, elixir-format
+msgid "Join our mailing list for what's coming."
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/home.html.heex:220
+#, elixir-autogen, elixir-format
+msgid "Join the Community"
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/home.html.heex:50
+#: lib/she_commands_web/controllers/page_html/home.html.heex:87
+#: lib/she_commands_web/controllers/page_html/home.html.heex:179
+#, elixir-autogen, elixir-format
+msgid "Learn More"
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/home.html.heex:28
+#, elixir-autogen, elixir-format
+msgid "Live your potential"
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/home.html.heex:40
+#: lib/she_commands_web/controllers/page_html/home.html.heex:56
+#, elixir-autogen, elixir-format
+msgid "Our Mission"
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/home.html.heex:126
+#, elixir-autogen, elixir-format
+msgid "Power Down"
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/home.html.heex:96
+#, elixir-autogen, elixir-format
+msgid "Power Pillar™ Framework"
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/home.html.heex:117
+#, elixir-autogen, elixir-format
+msgid "Power Through"
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/home.html.heex:108
+#, elixir-autogen, elixir-format
+msgid "Power Up"
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/home.html.heex:27
+#: lib/she_commands_web/controllers/page_html/home.html.heex:29
+#: lib/she_commands_web/controllers/page_html/home.html.heex:31
+#, elixir-autogen, elixir-format
+msgid "Power starts here"
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/home.html.heex:228
+#, elixir-autogen, elixir-format
+msgid "Privacy Policy"
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/home.html.heex:8
+#, elixir-autogen, elixir-format
+msgid "She Commands"
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/home.html.heex:254
+#, elixir-autogen, elixir-format
+msgid "She Commands Inc. All rights reserved."
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/home.html.heex:151
+#, elixir-autogen, elixir-format
+msgid "She Commands experience"
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/home.html.heex:18
+#, elixir-autogen, elixir-format
+msgid "She Commands."
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/home.html.heex:15
+#, elixir-autogen, elixir-format
+msgid "She Doesn't Ask."
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/home.html.heex:79
+#, elixir-autogen, elixir-format
+msgid "The core of She Commands is a goal execution engine — curated daily and weekly plans that blend fitness, nutrition, mindset, habits, and leadership into a single mission-ready system to maximize readiness for the most important moments in your life."
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/home.html.heex:157
+#: lib/she_commands_web/controllers/page_html/home.html.heex:160
+#, elixir-autogen, elixir-format
+msgid "Upcoming Experiences"
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/home.html.heex:184
+#, elixir-autogen, elixir-format
+msgid "Be one of the first to experience the She Commands Power Pillar framework in action."
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/home.html.heex:119
+#, elixir-autogen, elixir-format
+msgid "Build mental resilience and physical strength and endurance"
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/home.html.heex:137
+#, elixir-autogen, elixir-format
+msgid "Elevate leadership presence, personal brand and execution strategies"
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/home.html.heex:213
+#, elixir-autogen, elixir-format
+msgid "Email Address"
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/home.html.heex:170
+#, elixir-autogen, elixir-format
+msgid "From Capable to Commanding — March 28, 2026 (FULL)"
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/home.html.heex:110
+#, elixir-autogen, elixir-format
+msgid "Fuel your mind and body for high performance"
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/home.html.heex:128
+#, elixir-autogen, elixir-format
+msgid "Kill the noise and reset your focus without slowing momentum"
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/home.html.heex:42
+#, elixir-autogen, elixir-format
+msgid "Our mission is to elevate women's mental resilience, physical readiness and executive clarity so they can show up for both work and life's biggest moments with maximum confidence and impact."
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/home.html.heex:189
+#, elixir-autogen, elixir-format
+msgid "This one-day retreat will bring together a curated circle of ambitious women to build habits that fuel long-term change, overcome preconceived personal and professional performance limits and connect in a real and unfiltered environment. You'll work directly with our fitness, nutrition and leadership experts to push your physical and mental limits and you'll expand your network in a space that's raw, grounded, and energizing."
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/home.html.heex:173
+#, elixir-autogen, elixir-format
+msgid "Toronto"
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/home.html.heex:72
+#, elixir-autogen, elixir-format
+msgid "those big ambitions that can't wait. You can and you will."
 msgstr ""
