@@ -4,11 +4,14 @@
       "mcp__Tidewave__get_logs",
       "WebFetch(domain:www.shecommands.ca)",
       "mcp__Tidewave-Web__restart_app_server",
-      "mcp__Tidewave__project_eval"
+      "mcp__Tidewave__project_eval",
+      "mcp__stitch__list_projects",
+      "mcp__Tidewave-Web__browser_eval",
+      "mcp__playwright__browser_take_screenshot"
     ]
   },
+  "enableAllProjectMcpServers": true,
   "enabledMcpjsonServers": [
     "stitch"
-  ],
-  "enableAllProjectMcpServers": true
+  ]
 }
