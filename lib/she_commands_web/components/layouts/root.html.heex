@@ -46,16 +46,28 @@
         </a>
         <div class="flex justify-between w-full items-center">
           <div class="flex gap-8 mx-auto text-[0.75rem] uppercase tracking-[0.05em] font-medium">
-            <a href="/brand" class="hover:opacity-70 transition">
+            <a
+              href="/brand"
+              class={"hover:opacity-70 transition #{if @conn.request_path == "/brand", do: "border-b border-white pb-1"}"}
+            >
               {gettext("The Brand")}
             </a>
-            <a href="/goal-execution" class="hover:opacity-70 transition">
+            <a
+              href="/goal-execution"
+              class={"hover:opacity-70 transition #{if @conn.request_path == "/goal-execution", do: "border-b border-white pb-1"}"}
+            >
               {gettext("Goal Execution")}
             </a>
-            <a href="/experiences" class="hover:opacity-70 transition">
+            <a
+              href="/experiences"
+              class={"hover:opacity-70 transition #{if @conn.request_path == "/experiences", do: "border-b border-white pb-1"}"}
+            >
               {gettext("Experiences")}
             </a>
-            <a href="#connect" class="hover:opacity-70 transition">
+            <a
+              href="/connect"
+              class={"hover:opacity-70 transition #{if @conn.request_path == "/connect", do: "border-b border-white pb-1"}"}
+            >
               {gettext("Connect")}
             </a>
             <%= if @current_scope do %>

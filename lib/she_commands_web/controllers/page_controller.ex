@@ -16,4 +16,8 @@ defmodule SheCommandsWeb.PageController do
   def experiences(conn, _params) do
     render(conn, :experiences)
   end
+
+  def connect(conn, _params) do
+    render(conn, :connect)
+  end
 end
