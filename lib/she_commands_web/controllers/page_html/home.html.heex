@@ -11,10 +11,10 @@
     <div class="absolute inset-0 bg-black/30"></div>
   </div>
   <div class="relative z-10 text-center text-white px-4">
-    <h1 class="text-[4rem] sm:text-[5rem] lg:text-[6rem] font-serif italic leading-[1.1] tracking-[-0.02em] mb-2">
+    <h1 class="text-[2.5rem] sm:text-[4rem] md:text-[5rem] lg:text-[6rem] font-serif italic leading-[1.1] tracking-[-0.02em] mb-2">
       {gettext("She Doesn't Ask.")}
     </h1>
-    <h1 class="text-[4rem] sm:text-[5rem] lg:text-[6rem] font-serif leading-[1.1] tracking-[-0.02em]">
+    <h1 class="text-[2.5rem] sm:text-[4rem] md:text-[5rem] lg:text-[6rem] font-serif leading-[1.1] tracking-[-0.02em]">
       {gettext("She Commands.")}
     </h1>
   </div>
@@ -102,7 +102,7 @@
 <%!-- Power Pillar Framework --%>
 <section id="pillars" class="bg-black text-white py-28 px-6 md:px-12 lg:px-24">
   <div class="max-w-7xl mx-auto">
-    <h2 class="text-5xl md:text-6xl font-serif mb-6">
+    <h2 class="text-3xl sm:text-5xl md:text-6xl font-serif mb-6">
       {gettext("Power Pillar™ Framework")}
     </h2>
     <p class="text-base text-white/70 mb-20">
@@ -110,7 +110,7 @@
         "Every plan is modular, measurable, and built for real life using She Commands' proprietary Power Pillar™ framework:"
       )}
     </p>
-    <div class="grid md:grid-cols-4 gap-10">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
       <div class="pb-10">
         <div class="w-14 h-14 mb-8">
           <img src={~p"/images/power-up.png"} alt="Power Up" class="w-full h-full object-contain" />
@@ -167,7 +167,7 @@
 <section class="py-24 bg-[#F5F2ED] text-black">
   <%!-- Image Banner with Scrolling Overlay --%>
   <div class="px-4 sm:px-6 mb-16">
-    <div class="relative rounded-3xl overflow-hidden h-[700px]">
+    <div class="relative rounded-3xl overflow-hidden h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px]">
       <img
         src={~p"/images/pexels-ketut-subiyanto-4909001.jpg"}
         alt={gettext("She Commands experience")}
@@ -282,7 +282,7 @@
     </div>
 
     <%!-- Image Grid --%>
-    <div class="grid grid-cols-4 gap-2">
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
       <img src={~p"/images/Myra1.jpeg"} alt="" class="aspect-square object-cover w-full" />
       <img src={~p"/images/Myra2.jpeg"} alt="" class="aspect-square object-cover w-full" />
       <img src={~p"/images/Myra3.jpeg"} alt="" class="aspect-square object-cover w-full" />
@@ -302,7 +302,7 @@
     </div>
   </div>
 
-  <div class="max-w-7xl mx-auto mt-24 border-t border-white/10 pt-8 flex justify-between items-center text-[10px] uppercase tracking-widest text-white/40">
+  <div class="max-w-7xl mx-auto mt-24 border-t border-white/10 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-[10px] uppercase tracking-widest text-white/40">
     <span>
       &copy; {DateTime.utc_now().year} {gettext("She Commands Inc. All rights reserved.")}
     </span>
