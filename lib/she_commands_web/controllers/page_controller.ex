@@ -20,4 +20,8 @@ defmodule SheCommandsWeb.PageController do
   def connect(conn, _params) do
     render(conn, :connect)
   end
+
+  def the_journal(conn, _params) do
+    render(conn, :the_journal)
+  end
 end

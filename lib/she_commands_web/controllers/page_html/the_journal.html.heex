@@ -1,125 +1,57 @@
 <Layouts.flash_group flash={@flash} />
 
-<%!-- Hero Section with rounded bottom --%>
-<section
-  class="relative h-[80vh] min-h-[600px] flex items-center justify-center overflow-hidden"
-  style="border-bottom-left-radius: 80px; border-bottom-right-radius: 80px;"
->
-  <div class="absolute inset-0 z-0">
-    <img
-      src={~p"/images/jason-grant-RXMreQN2G0c-unsplash.jpg"}
-      alt={gettext("Goal Execution")}
-      class="w-full h-full object-cover object-top opacity-80"
-    />
-    <div class="absolute inset-0 bg-black/30"></div>
-  </div>
-  <div class="relative z-10 text-center">
-    <h1 class="text-6xl md:text-8xl font-display uppercase tracking-tight text-white">
-      {gettext("Goal Execution")}
-    </h1>
+<%!-- Hero Section --%>
+<section class="relative h-[600px] w-full flex items-center justify-center text-center overflow-hidden">
+  <img
+    src={~p"/images/pexels-ketut-subiyanto-4909001.jpg"}
+    alt={gettext("The Journal")}
+    class="absolute inset-0 w-full h-full object-cover object-center"
+  />
+  <div class="absolute inset-0 bg-black/30"></div>
+  <div class="relative z-10 text-white">
+    <h1 class="text-6xl md:text-7xl font-serif">{gettext("The Journal")}</h1>
   </div>
 </section>
 
-<%!-- Introduction Content --%>
-<section class="bg-black text-white">
-  <div class="max-w-4xl mx-auto px-6 py-20">
-    <div class="space-y-8 text-white/70 leading-relaxed font-light text-lg">
-      <p>
-        {gettext(
-          "At the heart of She Commands is a tactical goal execution engine. Each client journey begins with clarity on what matters most to you. Then we arm you with a curated plan of action. Our multi-disciplinary goal execution plans include protocols (activities/challenges) that incorporate:"
-        )}
-      </p>
-      <ul class="list-disc list-inside space-y-2 pl-4">
-        <li>{gettext("Physical training for vitality and resilience")}</li>
-        <li>{gettext("Nutritional guidance for power and focus")}</li>
-        <li>{gettext("Mindset drills to sharpen execution")}</li>
-        <li>{gettext("Habit systems for consistency")}</li>
-        <li>
-          {gettext("Leadership development to strengthen presence and decision-making")}
-        </li>
-      </ul>
-      <p>
-        {gettext(
-          "Whatever you aspire to — building strength, mastering discipline or leading with greater impact — you already know that you can. She Commands provides the tools to help ensure that you will."
-        )}
-      </p>
-      <p>
-        {gettext(
-          "Every plan is modular, measurable, and built for real life using She Commands' proprietary Power Pillar\u2122 framework:"
-        )}
-      </p>
-    </div>
+<%!-- Marquee Ticker --%>
+<div class="bg-black text-white overflow-hidden py-4">
+  <div class="animate-marquee whitespace-nowrap inline-flex gap-12 items-center">
+    <%= for _i <- 1..2 do %>
+      <span class="text-xl font-serif italic uppercase">{gettext("Execute relentlessly")}</span>
+      <span class="text-xl font-serif italic uppercase">{gettext("Results not rhetoric")}</span>
+      <span class="text-xl font-serif italic uppercase">{gettext("Live your potential")}</span>
+      <span class="text-xl font-serif italic uppercase">{gettext("Mission-ready")}</span>
+      <span class="text-xl font-serif italic uppercase">{gettext("Don't hesitate")}</span>
+    <% end %>
   </div>
-</section>
+</div>
 
-<%!-- Power Pillar Framework --%>
-<section class="bg-black text-white py-12 px-6">
-  <div class="max-w-7xl mx-auto">
-    <h2 class="text-4xl font-display uppercase tracking-tight mb-16">
-      {gettext("Power Pillar\u2122 Framework")}
-    </h2>
-    <div class="grid md:grid-cols-4 gap-8">
-      <div>
-        <div class="w-10 h-10 mb-6">
-          <img src={~p"/images/power-up.png"} alt="Power Up" class="w-full h-full object-contain" />
-        </div>
-        <h3 class="text-2xl font-display uppercase mb-4">{gettext("Power Up")}</h3>
-        <p class="text-sm font-light text-white/60">
-          {gettext("Fuel your mind and body for high performance")}
-        </p>
-        <div class="border-t border-white/20 mt-8"></div>
+<%!-- Journal Entry Section --%>
+<section class="bg-white text-black">
+  <div class="max-w-7xl mx-auto px-6 py-20">
+    <div class="flex flex-col md:flex-row gap-12 items-center">
+      <%!-- Article Image --%>
+      <div class="w-full md:w-1/2">
+        <img
+          src={~p"/images/pexels-polina-kovaleva-6019877.jpg"}
+          alt={gettext("Journal entry")}
+          class="w-full aspect-square object-cover"
+        />
       </div>
-      <div>
-        <div class="w-10 h-10 mb-6">
-          <img
-            src={~p"/images/power-through.png"}
-            alt="Power Through"
-            class="w-full h-full object-contain"
-          />
-        </div>
-        <h3 class="text-2xl font-display uppercase mb-4">{gettext("Power Through")}</h3>
-        <p class="text-sm font-light text-white/60">
-          {gettext("Build mental resilience and physical strength and endurance")}
+      <%!-- Article Excerpt --%>
+      <div class="w-full md:w-1/2 space-y-6 max-w-xl">
+        <span class="text-[#707070] text-sm tracking-widest">2026-01-28</span>
+        <h2 class="text-4xl md:text-5xl leading-tight font-serif">
+          {gettext("That next time you think, \"I know I can…,\" you actually will.")}
+        </h2>
+        <p class="text-[#707070] leading-relaxed text-lg">
+          {gettext(
+            "This is not a brand built on becoming someone else. It's built on helping you to fully realize all that you already are."
+          )}
         </p>
-        <div class="border-t border-white/20 mt-8"></div>
-      </div>
-      <div>
-        <div class="w-10 h-10 mb-6">
-          <img
-            src={~p"/images/power-down.png"}
-            alt="Power Down"
-            class="w-full h-full object-contain"
-          />
-        </div>
-        <h3 class="text-2xl font-display uppercase mb-4">{gettext("Power Down")}</h3>
-        <p class="text-sm font-light text-white/60">
-          {gettext("Kill the noise and reset your focus without slowing momentum")}
-        </p>
-        <div class="border-t border-white/20 mt-8"></div>
-      </div>
-      <div>
-        <div class="w-10 h-10 mb-6">
-          <img
-            src={~p"/images/empower.png"}
-            alt="Empower"
-            class="w-full h-full object-contain"
-          />
-        </div>
-        <h3 class="text-2xl font-display uppercase mb-4">{gettext("Empower")}</h3>
-        <p class="text-sm font-light text-white/60">
-          {gettext("Elevate leadership presence, personal brand and execution strategies")}
-        </p>
-        <div class="border-t border-white/20 mt-8"></div>
       </div>
     </div>
   </div>
-</section>
-
-<%!-- Coming Soon --%>
-<section class="bg-black text-white py-40 text-center">
-  <h2 class="text-6xl md:text-7xl font-display uppercase tracking-wider">
-    {gettext("Coming Soon")}
-  </h2>
 </section>
 
 <%!-- Footer with Newsletter & Gallery --%>
