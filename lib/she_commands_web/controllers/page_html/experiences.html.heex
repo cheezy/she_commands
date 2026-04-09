@@ -1,7 +1,7 @@
 <Layouts.flash_group flash={@flash} />
 
 <%!-- Hero Section --%>
-<section class="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
+<section class="relative h-screen min-h-[400px] sm:min-h-[500px] md:min-h-[600px] flex items-center justify-center overflow-hidden">
   <div class="absolute inset-0 z-0">
     <img
       src={~p"/images/unsplash-image-oBFN1y3d13Y.jpg"}
@@ -11,7 +11,7 @@
     <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/10 to-black/30"></div>
   </div>
   <div class="relative z-10 text-center px-4">
-    <h1 class="text-5xl md:text-6xl font-serif text-white leading-tight tracking-tight">
+    <h1 class="text-3xl sm:text-5xl md:text-6xl font-serif text-white leading-tight tracking-tight">
       {gettext("Upcoming Experiences")}
     </h1>
   </div>
@@ -75,7 +75,7 @@
         {gettext("Terms of Service")}
       </a>
     </div>
-    <div class="grid grid-cols-4 gap-2">
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
       <img src={~p"/images/Myra1.jpeg"} alt="" class="aspect-square object-cover w-full" />
       <img src={~p"/images/Myra2.jpeg"} alt="" class="aspect-square object-cover w-full" />
       <img src={~p"/images/Myra3.jpeg"} alt="" class="aspect-square object-cover w-full" />
@@ -94,7 +94,7 @@
       />
     </div>
   </div>
-  <div class="max-w-7xl mx-auto mt-24 border-t border-white/10 pt-8 flex justify-between items-center text-[10px] uppercase tracking-widest text-white/40">
+  <div class="max-w-7xl mx-auto mt-24 border-t border-white/10 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-[10px] uppercase tracking-widest text-white/40">
     <span>
       &copy; {DateTime.utc_now().year} {gettext("She Commands Inc. All rights reserved.")}
     </span>

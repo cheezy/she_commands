@@ -1,7 +1,7 @@
 <Layouts.flash_group flash={@flash} />
 
 <%!-- Hero Section --%>
-<section class="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
+<section class="relative h-screen min-h-[400px] sm:min-h-[500px] md:min-h-[600px] flex items-center justify-center overflow-hidden">
   <img
     src={~p"/images/pexels-polina-kovaleva-6019877.jpg"}
     alt={gettext("The Brand")}
@@ -9,7 +9,7 @@
   />
   <div class="absolute inset-0 bg-gradient-to-b from-black/30 to-black/60"></div>
   <div class="relative z-10 text-center">
-    <h1 class="text-white text-6xl md:text-8xl font-serif">{gettext("The Brand")}</h1>
+    <h1 class="text-white text-4xl sm:text-6xl md:text-8xl font-serif">{gettext("The Brand")}</h1>
   </div>
 </section>
 
@@ -61,7 +61,7 @@
     <%!-- The O Symbol Section --%>
     <div class="grid md:grid-cols-12 gap-12 items-center py-6">
       <div class="md:col-span-4 flex justify-center md:justify-end">
-        <span class="text-[10rem] leading-none font-serif text-[#2D5A54]">O</span>
+        <span class="text-[6rem] sm:text-[8rem] md:text-[10rem] leading-none font-serif text-[#2D5A54]">O</span>
       </div>
       <div class="md:col-span-6">
         <p class="text-sm text-[#374151] leading-relaxed">
@@ -136,8 +136,8 @@
         "Every plan is modular, measurable, and built for real life using She Commands' proprietary Power Pillar\u2122 framework:"
       )}
     </p>
-    <div class="grid md:grid-cols-4 border-t border-black/10">
-      <div class="p-8 border-b md:border-b-0 md:border-r border-black/10">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 border-t border-black/10">
+      <div class="p-8 border-b sm:border-b md:border-b-0 sm:border-r md:border-r border-black/10">
         <div class="w-12 h-12 mb-6">
           <img
             src={~p"/images/power-up.png"}
@@ -150,7 +150,7 @@
           {gettext("Fuel your mind and body for high performance")}
         </p>
       </div>
-      <div class="p-8 border-b md:border-b-0 md:border-r border-black/10">
+      <div class="p-8 border-b sm:border-b md:border-b-0 sm:border-r-0 md:border-r border-black/10">
         <div class="w-12 h-12 mb-6">
           <img
             src={~p"/images/power-through.png"}
@@ -163,7 +163,7 @@
           {gettext("Build mental resilience and physical strength and endurance")}
         </p>
       </div>
-      <div class="p-8 border-b md:border-b-0 md:border-r border-black/10">
+      <div class="p-8 border-b sm:border-b-0 md:border-b-0 sm:border-r md:border-r border-black/10">
         <div class="w-12 h-12 mb-6">
           <img
             src={~p"/images/power-down.png"}
@@ -283,7 +283,7 @@
         {gettext("Terms of Service")}
       </a>
     </div>
-    <div class="grid grid-cols-4 gap-2">
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
       <img src={~p"/images/Myra1.jpeg"} alt="" class="aspect-square object-cover w-full" />
       <img src={~p"/images/Myra2.jpeg"} alt="" class="aspect-square object-cover w-full" />
       <img src={~p"/images/Myra3.jpeg"} alt="" class="aspect-square object-cover w-full" />
@@ -302,7 +302,7 @@
       />
     </div>
   </div>
-  <div class="max-w-7xl mx-auto mt-24 border-t border-white/10 pt-8 flex justify-between items-center text-[10px] uppercase tracking-widest text-white/40">
+  <div class="max-w-7xl mx-auto mt-24 border-t border-white/10 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-[10px] uppercase tracking-widest text-white/40">
     <span>
       &copy; {DateTime.utc_now().year} {gettext("She Commands Inc. All rights reserved.")}
     </span>

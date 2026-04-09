@@ -1,13 +1,13 @@
 <Layouts.flash_group flash={@flash} />
 
 <%!-- Hero Banner --%>
-<section class="bg-black text-white pt-32 pb-20 px-12 md:px-24">
-  <h1 class="text-5xl md:text-6xl font-serif">{gettext("Contact Us")}</h1>
+<section class="bg-black text-white pt-24 sm:pt-32 pb-16 sm:pb-20 px-6 sm:px-12 md:px-24">
+  <h1 class="text-3xl sm:text-5xl md:text-6xl font-serif">{gettext("Contact Us")}</h1>
 </section>
 
 <%!-- Contact Form & Image --%>
 <section class="bg-white text-black">
-  <div class="max-w-7xl mx-auto px-12 py-20 grid lg:grid-cols-2 gap-16">
+  <div class="max-w-7xl mx-auto px-6 sm:px-12 py-12 sm:py-20 grid lg:grid-cols-2 gap-12 sm:gap-16">
     <%!-- Contact Form --%>
     <div>
       <form class="space-y-8">
@@ -176,7 +176,7 @@
         {gettext("Terms of Service")}
       </a>
     </div>
-    <div class="grid grid-cols-4 gap-2">
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
       <img src={~p"/images/Myra1.jpeg"} alt="" class="aspect-square object-cover w-full" />
       <img src={~p"/images/Myra2.jpeg"} alt="" class="aspect-square object-cover w-full" />
       <img src={~p"/images/Myra3.jpeg"} alt="" class="aspect-square object-cover w-full" />
@@ -195,7 +195,7 @@
       />
     </div>
   </div>
-  <div class="max-w-7xl mx-auto mt-24 border-t border-white/10 pt-8 flex justify-between items-center text-[10px] uppercase tracking-widest text-white/40">
+  <div class="max-w-7xl mx-auto mt-24 border-t border-white/10 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-[10px] uppercase tracking-widest text-white/40">
     <span>
       &copy; {DateTime.utc_now().year} {gettext("She Commands Inc. All rights reserved.")}
     </span>

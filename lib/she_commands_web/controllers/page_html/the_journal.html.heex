@@ -1,7 +1,7 @@
 <Layouts.flash_group flash={@flash} />
 
 <%!-- Hero Section --%>
-<section class="relative h-[600px] w-full flex items-center justify-center text-center overflow-hidden">
+<section class="relative h-[350px] sm:h-[450px] md:h-[600px] w-full flex items-center justify-center text-center overflow-hidden">
   <img
     src={~p"/images/pexels-ketut-subiyanto-4909001.jpg"}
     alt={gettext("The Journal")}
@@ -9,7 +9,7 @@
   />
   <div class="absolute inset-0 bg-black/30"></div>
   <div class="relative z-10 text-white">
-    <h1 class="text-6xl md:text-7xl font-serif">{gettext("The Journal")}</h1>
+    <h1 class="text-4xl sm:text-6xl md:text-7xl font-serif">{gettext("The Journal")}</h1>
   </div>
 </section>
 
@@ -41,7 +41,7 @@
       <%!-- Article Excerpt --%>
       <div class="w-full md:w-1/2 space-y-6 max-w-xl">
         <span class="text-[#707070] text-sm tracking-widest">2026-01-28</span>
-        <h2 class="text-4xl md:text-5xl leading-tight font-serif">
+        <h2 class="text-2xl sm:text-4xl md:text-5xl leading-tight font-serif">
           {gettext("That next time you think, \"I know I can…,\" you actually will.")}
         </h2>
         <p class="text-[#707070] leading-relaxed text-lg">
@@ -103,7 +103,7 @@
         {gettext("Terms of Service")}
       </a>
     </div>
-    <div class="grid grid-cols-4 gap-2">
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
       <img src={~p"/images/Myra1.jpeg"} alt="" class="aspect-square object-cover w-full" />
       <img src={~p"/images/Myra2.jpeg"} alt="" class="aspect-square object-cover w-full" />
       <img src={~p"/images/Myra3.jpeg"} alt="" class="aspect-square object-cover w-full" />
@@ -122,7 +122,7 @@
       />
     </div>
   </div>
-  <div class="max-w-7xl mx-auto mt-24 border-t border-white/10 pt-8 flex justify-between items-center text-[10px] uppercase tracking-widest text-white/40">
+  <div class="max-w-7xl mx-auto mt-24 border-t border-white/10 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-[10px] uppercase tracking-widest text-white/40">
     <span>
       &copy; {DateTime.utc_now().year} {gettext("She Commands Inc. All rights reserved.")}
     </span>
