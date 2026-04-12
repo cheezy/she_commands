@@ -7,7 +7,8 @@
       "mcp__Tidewave__project_eval",
       "mcp__stitch__list_projects",
       "mcp__Tidewave-Web__browser_eval",
-      "mcp__playwright__browser_take_screenshot"
+      "mcp__playwright__browser_take_screenshot",
+      "mcp__Tidewave__execute_sql_query"
     ]
   },
   "enableAllProjectMcpServers": true,

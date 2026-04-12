@@ -1,47 +1,75 @@
 <Layouts.app flash={@flash} current_scope={@current_scope}>
-  <div class="mx-auto max-w-sm space-y-4">
-    <div class="text-center">
-      <.header>
-        <p>{gettext("Log in")}</p>
-        <:subtitle>
+  <div class="flex items-center justify-center min-h-[70vh]">
+    <div class="w-full max-w-md">
+      <%!-- Editorial Header --%>
+      <div class="mb-12">
+        <p class="font-label text-xs uppercase tracking-[0.25em] text-base-content/50 mb-4">
+          {gettext("Welcome Back")}
+        </p>
+        <h1 class="text-4xl sm:text-5xl font-serif italic leading-[1.1] tracking-[-0.02em] text-base-content">
+          {gettext("Log In")}
+        </h1>
+        <div class="mt-6">
           <%= if @current_scope do %>
-            {gettext("You need to reauthenticate to perform sensitive actions on your account.")}
+            <p class="text-sm text-base-content/60 leading-relaxed">
+              {gettext("You need to reauthenticate to perform sensitive actions on your account.")}
+            </p>
           <% else %>
-            {gettext("Don't have an account?")} <.link
-              navigate={~p"/users/register"}
-              class="font-semibold text-primary hover:underline"
-              phx-no-format
-            >{gettext("Sign up")}</.link> {gettext("for an account now.")}
+            <p class="text-sm text-base-content/60 leading-relaxed">
+              {gettext("Don't have an account?")}
+              <.link
+                navigate={~p"/users/register"}
+                class="font-semibold text-base-content underline underline-offset-4 decoration-base-content/30 hover:decoration-base-content transition"
+                phx-no-format
+              >{gettext("Sign up")}</.link>
+              {gettext("for an account now.")}
+            </p>
           <% end %>
-        </:subtitle>
-      </.header>
-    </div>
+        </div>
+      </div>
 
-    <.form :let={f} for={@form} as={:user} id="login_form_password" action={~p"/users/log-in"}>
-      <.input
-        readonly={!!@current_scope}
-        field={f[:email]}
-        type="email"
-        label={gettext("Email")}
-        autocomplete="username"
-        spellcheck="false"
-        required
-        phx-mounted={JS.focus()}
-      />
-      <.input
-        field={f[:password]}
-        type="password"
-        label={gettext("Password")}
-        autocomplete="current-password"
-        spellcheck="false"
-        required
-      />
-      <.button class="btn btn-primary w-full" name={@form[:remember_me].name} value="true">
-        {gettext("Log in and stay logged in")} <span aria-hidden="true">&rarr;</span>
-      </.button>
-      <.button class="btn btn-primary btn-soft w-full mt-2">
-        {gettext("Log in only this time")}
-      </.button>
-    </.form>
+      <%!-- Login Form --%>
+      <.form :let={f} for={@form} as={:user} id="login_form_password" action={~p"/users/log-in"}>
+        <div class="space-y-6">
+          <.input
+            readonly={!!@current_scope}
+            field={f[:email]}
+            type="email"
+            label={gettext("Email")}
+            class="w-full input bg-transparent border-0 border-b-2 border-base-content/20 rounded-none px-0 focus:border-base-content focus:outline-none"
+            autocomplete="username"
+            spellcheck="false"
+            required
+            phx-mounted={JS.focus()}
+          />
+          <.input
+            field={f[:password]}
+            type="password"
+            label={gettext("Password")}
+            class="w-full input bg-transparent border-0 border-b-2 border-base-content/20 rounded-none px-0 focus:border-base-content focus:outline-none"
+            autocomplete="current-password"
+            spellcheck="false"
+            required
+          />
+        </div>
+
+        <div class="mt-10 space-y-3">
+          <button
+            type="submit"
+            name={@form[:remember_me].name}
+            value="true"
+            class="w-full py-4 bg-base-content text-base-100 text-xs font-label uppercase tracking-[0.2em] hover:bg-base-content/90 transition cursor-pointer"
+          >
+            {gettext("Log in and stay logged in")}
+          </button>
+          <button
+            type="submit"
+            class="w-full py-4 border-2 border-base-content/20 text-base-content text-xs font-label uppercase tracking-[0.2em] hover:border-base-content hover:bg-base-content hover:text-base-100 transition bg-transparent cursor-pointer"
+          >
+            {gettext("Log in only this time")}
+          </button>
+        </div>
+      </.form>
+    </div>
   </div>
 </Layouts.app>

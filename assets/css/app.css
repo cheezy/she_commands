@@ -122,6 +122,12 @@
   animation: marquee-scroll 30s linear infinite;
 }
 
+/* Force nav text to white on pages with dark hero backgrounds.
+   Add .nav-dark to the hero section on pages where the nav overlays a dark image. */
+body:has(.nav-dark) > header {
+  color: white !important;
+}
+
 /* Tint white icons to brand teal (#2D5A54) for light backgrounds */
 .brand-icon-teal {
   filter: brightness(0) saturate(100%) invert(30%) sepia(15%) saturate(1200%) hue-rotate(130deg) brightness(95%) contrast(90%);

@@ -35,7 +35,7 @@
     </script>
   </head>
   <body>
-    <header class="absolute top-0 left-0 w-full z-50 bg-transparent text-white">
+    <header class="absolute top-0 left-0 w-full z-50 bg-transparent text-base-content">
       <nav class="container mx-auto px-6 py-4 flex flex-col items-center">
         <a href="/" class="flex items-center gap-2 mb-4">
           <img
@@ -48,31 +48,31 @@
           <div class="flex gap-8 mx-auto text-[0.75rem] uppercase tracking-[0.05em] font-medium">
             <a
               href="/brand"
-              class={"hover:opacity-70 transition #{if @conn.request_path == "/brand", do: "border-b border-white pb-1"}"}
+              class={"hover:opacity-70 transition #{if @conn.request_path == "/brand", do: "border-b border-current pb-1"}"}
             >
               {gettext("The Brand")}
             </a>
             <a
               href="/goal-execution"
-              class={"hover:opacity-70 transition #{if @conn.request_path == "/goal-execution", do: "border-b border-white pb-1"}"}
+              class={"hover:opacity-70 transition #{if @conn.request_path == "/goal-execution", do: "border-b border-current pb-1"}"}
             >
               {gettext("Goal Execution")}
             </a>
             <a
               href="/experiences"
-              class={"hover:opacity-70 transition #{if @conn.request_path == "/experiences", do: "border-b border-white pb-1"}"}
+              class={"hover:opacity-70 transition #{if @conn.request_path == "/experiences", do: "border-b border-current pb-1"}"}
             >
               {gettext("Experiences")}
             </a>
             <a
               href="/connect"
-              class={"hover:opacity-70 transition #{if @conn.request_path == "/connect", do: "border-b border-white pb-1"}"}
+              class={"hover:opacity-70 transition #{if @conn.request_path == "/connect", do: "border-b border-current pb-1"}"}
             >
               {gettext("Connect")}
             </a>
             <a
               href="/the-journal"
-              class={"hover:opacity-70 transition #{if @conn.request_path == "/the-journal", do: "border-b border-white pb-1"}"}
+              class={"hover:opacity-70 transition #{if @conn.request_path == "/the-journal", do: "border-b border-current pb-1"}"}
             >
               {gettext("The Journal")}
             </a>
@@ -93,10 +93,16 @@
                 </ul>
               </details>
             <% else %>
-              <.link href={~p"/users/register"} class="hover:opacity-70 transition">
+              <.link
+                href={~p"/users/register"}
+                class={"hover:opacity-70 transition #{if @conn.request_path == "/users/register", do: "border-b border-current pb-1"}"}
+              >
                 {gettext("Register")}
               </.link>
-              <.link href={~p"/users/log-in"} class="hover:opacity-70 transition">
+              <.link
+                href={~p"/users/log-in"}
+                class={"hover:opacity-70 transition #{if @conn.request_path == "/users/log-in", do: "border-b border-current pb-1"}"}
+              >
                 {gettext("Log in")}
               </.link>
             <% end %>

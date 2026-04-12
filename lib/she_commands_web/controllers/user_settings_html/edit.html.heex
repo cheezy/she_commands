@@ -1,129 +1,176 @@
 <Layouts.app flash={@flash} current_scope={@current_scope}>
-  <div class="text-center">
-    <.header>
-      {gettext("Account Settings")}
-      <:subtitle>{gettext("Manage your profile, email address and password settings")}</:subtitle>
-    </.header>
-  </div>
-
-  <.form :let={f} for={@profile_changeset} action={~p"/users/settings"} id="update_profile">
-    <input type="hidden" name="action" value="update_profile" />
-
-    <.input
-      field={f[:name]}
-      type="text"
-      label={gettext("Name")}
-      autocomplete="name"
-      spellcheck="false"
-      required
-    />
-
-    <.input
-      field={f[:display_name]}
-      type="text"
-      label={gettext("Display Name")}
-      spellcheck="false"
-    />
-
-    <.input
-      field={f[:city]}
-      type="text"
-      label={gettext("City")}
-    />
-
-    <.input
-      field={f[:province]}
-      type="text"
-      label={gettext("Province / State")}
-    />
-
-    <.input
-      field={f[:country]}
-      type="text"
-      label={gettext("Country")}
-    />
-
-    <.button variant="primary" phx-disable-with={gettext("Saving...")}>
-      {gettext("Update Profile")}
-    </.button>
-  </.form>
-
-  <%= if @current_scope.user.role in [:coach, :admin] do %>
-    <div class="divider" />
-
-    <.form :let={f} for={@coach_changeset} action={~p"/users/settings"} id="update_coach_profile">
-      <input type="hidden" name="action" value="update_coach_profile" />
-
-      <h3 class="text-lg font-semibold text-base-content mb-4">{gettext("Coach Profile")}</h3>
-
-      <.input
-        field={f[:specialty]}
-        type="text"
-        label={gettext("Specialty")}
-      />
-
-      <.input
-        field={f[:credential]}
-        type="text"
-        label={gettext("Credential")}
-      />
-
-      <.input
-        field={f[:bio]}
-        type="textarea"
-        label={gettext("Bio")}
-      />
-
-      <.button variant="primary" phx-disable-with={gettext("Saving...")}>
-        {gettext("Update Coach Profile")}
-      </.button>
-    </.form>
-  <% end %>
-
-  <div class="divider" />
-
-  <div class="space-y-4">
-    <.link
-      href={~p"/users/settings/email"}
-      class="flex items-center justify-between py-2 hover:opacity-70 transition-opacity"
-    >
-      <div>
-        <p class="font-semibold">{gettext("Change Email")}</p>
-        <p class="text-sm opacity-60">{@current_scope.user.email}</p>
+  <div class="flex items-center justify-center min-h-[70vh]">
+    <div class="w-full max-w-md">
+      <%!-- Editorial Header --%>
+      <div class="mb-12">
+        <p class="font-label text-xs uppercase tracking-[0.25em] text-base-content/50 mb-4">
+          {gettext("Your Account")}
+        </p>
+        <h1 class="text-4xl sm:text-5xl font-serif italic leading-[1.1] tracking-[-0.02em] text-base-content">
+          {gettext("Settings")}
+        </h1>
+        <div class="mt-6">
+          <p class="text-sm text-base-content/60 leading-relaxed">
+            {gettext("Manage your profile, email address and password settings")}
+          </p>
+        </div>
       </div>
-      <span class="hero-chevron-right size-5 opacity-50" />
-    </.link>
 
-    <.link
-      href={~p"/users/settings/password"}
-      class="flex items-center justify-between py-2 hover:opacity-70 transition-opacity"
-    >
-      <div>
-        <p class="font-semibold">{gettext("Change Password")}</p>
-        <p class="text-sm opacity-60">{gettext("Update your password")}</p>
+      <%!-- Profile Form --%>
+      <.form :let={f} for={@profile_changeset} action={~p"/users/settings"} id="update_profile">
+        <input type="hidden" name="action" value="update_profile" />
+
+        <div class="space-y-6">
+          <.input
+            field={f[:name]}
+            type="text"
+            label={gettext("Name")}
+            class="w-full input bg-transparent border-0 border-b-2 border-base-content/20 rounded-none px-0 focus:border-base-content focus:outline-none"
+            autocomplete="name"
+            spellcheck="false"
+            required
+          />
+          <.input
+            field={f[:display_name]}
+            type="text"
+            label={gettext("Display Name")}
+            class="w-full input bg-transparent border-0 border-b-2 border-base-content/20 rounded-none px-0 focus:border-base-content focus:outline-none"
+            spellcheck="false"
+          />
+          <.input
+            field={f[:city]}
+            type="text"
+            label={gettext("City")}
+            class="w-full input bg-transparent border-0 border-b-2 border-base-content/20 rounded-none px-0 focus:border-base-content focus:outline-none"
+          />
+          <.input
+            field={f[:province]}
+            type="text"
+            label={gettext("Province / State")}
+            class="w-full input bg-transparent border-0 border-b-2 border-base-content/20 rounded-none px-0 focus:border-base-content focus:outline-none"
+          />
+          <.input
+            field={f[:country]}
+            type="text"
+            label={gettext("Country")}
+            class="w-full input bg-transparent border-0 border-b-2 border-base-content/20 rounded-none px-0 focus:border-base-content focus:outline-none"
+          />
+        </div>
+
+        <div class="mt-10">
+          <button
+            type="submit"
+            class="w-full py-4 bg-base-content text-base-100 text-xs font-label uppercase tracking-[0.2em] hover:bg-base-content/90 transition cursor-pointer"
+            phx-disable-with={gettext("Saving...")}
+          >
+            {gettext("Update Profile")}
+          </button>
+        </div>
+      </.form>
+
+      <%= if @current_scope.user.role in [:coach, :admin] do %>
+        <div class="my-16 border-t border-base-content/10"></div>
+
+        <div class="mb-8">
+          <p class="font-label text-xs uppercase tracking-[0.25em] text-base-content/50 mb-4">
+            {gettext("Professional")}
+          </p>
+          <h2 class="text-2xl sm:text-3xl font-serif italic leading-[1.1] tracking-[-0.02em] text-base-content">
+            {gettext("Coach Profile")}
+          </h2>
+        </div>
+
+        <.form
+          :let={f}
+          for={@coach_changeset}
+          action={~p"/users/settings"}
+          id="update_coach_profile"
+        >
+          <input type="hidden" name="action" value="update_coach_profile" />
+
+          <div class="space-y-6">
+            <.input
+              field={f[:specialty]}
+              type="text"
+              label={gettext("Specialty")}
+              class="w-full input bg-transparent border-0 border-b-2 border-base-content/20 rounded-none px-0 focus:border-base-content focus:outline-none"
+            />
+            <.input
+              field={f[:credential]}
+              type="text"
+              label={gettext("Credential")}
+              class="w-full input bg-transparent border-0 border-b-2 border-base-content/20 rounded-none px-0 focus:border-base-content focus:outline-none"
+            />
+            <.input
+              field={f[:bio]}
+              type="textarea"
+              label={gettext("Bio")}
+              class="w-full textarea bg-transparent border-0 border-b-2 border-base-content/20 rounded-none px-0 focus:border-base-content focus:outline-none"
+            />
+          </div>
+
+          <div class="mt-10">
+            <button
+              type="submit"
+              class="w-full py-4 bg-base-content text-base-100 text-xs font-label uppercase tracking-[0.2em] hover:bg-base-content/90 transition cursor-pointer"
+              phx-disable-with={gettext("Saving...")}
+            >
+              {gettext("Update Coach Profile")}
+            </button>
+          </div>
+        </.form>
+      <% end %>
+
+      <div class="my-16 border-t border-base-content/10"></div>
+
+      <%!-- Navigation Links --%>
+      <div class="space-y-4">
+        <.link
+          href={~p"/users/settings/email"}
+          class="flex items-center justify-between py-4 hover:opacity-70 transition-opacity group"
+        >
+          <div>
+            <p class="font-semibold text-base-content">{gettext("Change Email")}</p>
+            <p class="text-sm text-base-content/60">{@current_scope.user.email}</p>
+          </div>
+          <span class="hero-chevron-right size-5 text-base-content/50 group-hover:translate-x-1 transition-transform" />
+        </.link>
+
+        <.link
+          href={~p"/users/settings/password"}
+          class="flex items-center justify-between py-4 hover:opacity-70 transition-opacity group"
+        >
+          <div>
+            <p class="font-semibold text-base-content">{gettext("Change Password")}</p>
+            <p class="text-sm text-base-content/60">{gettext("Update your password")}</p>
+          </div>
+          <span class="hero-chevron-right size-5 text-base-content/50 group-hover:translate-x-1 transition-transform" />
+        </.link>
       </div>
-      <span class="hero-chevron-right size-5 opacity-50" />
-    </.link>
-  </div>
 
-  <div class="divider" />
+      <div class="my-16 border-t border-base-content/10"></div>
 
-  <div class="border border-error/30 rounded-box p-6">
-    <h3 class="text-lg font-bold text-error">{gettext("Danger Zone")}</h3>
-    <p class="text-sm opacity-70 mt-2">
-      {gettext("Once you delete your account, there is no going back. Please be certain.")}
-    </p>
-    <div class="mt-4">
-      <.link
-        href={~p"/users/settings"}
-        method="delete"
-        data-confirm={
-          gettext("Are you sure you want to delete your account? This action cannot be undone.")
-        }
-        class="btn btn-error btn-outline"
-      >
-        {gettext("Delete Account")}
-      </.link>
+      <%!-- Danger Zone --%>
+      <div class="p-6 border border-error/30">
+        <h3 class="text-lg font-serif italic text-error">{gettext("Danger Zone")}</h3>
+        <p class="text-sm text-base-content/60 mt-2 leading-relaxed">
+          {gettext("Once you delete your account, there is no going back. Please be certain.")}
+        </p>
+        <div class="mt-6">
+          <.link
+            href={~p"/users/settings"}
+            method="delete"
+            data-confirm={
+              gettext(
+                "Are you sure you want to delete your account? This action cannot be undone."
+              )
+            }
+            class="inline-block py-3 px-8 border-2 border-error text-error text-xs font-label uppercase tracking-[0.2em] hover:bg-error hover:text-white transition cursor-pointer"
+          >
+            {gettext("Delete Account")}
+          </.link>
+        </div>
+      </div>
     </div>
   </div>
 </Layouts.app>

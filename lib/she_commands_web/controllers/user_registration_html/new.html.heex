@@ -1,48 +1,71 @@
 <Layouts.app flash={@flash} current_scope={@current_scope}>
-  <div class="mx-auto max-w-sm">
-    <div class="text-center">
-      <.header>
-        {gettext("Register for an account")}
-        <:subtitle>
-          {gettext("Already registered?")}
-          <.link navigate={~p"/users/log-in"} class="font-semibold text-primary hover:underline">
-            {gettext("Log in")}
-          </.link>
-          {gettext("to your account now.")}
-        </:subtitle>
-      </.header>
+  <div class="flex items-center justify-center min-h-[70vh]">
+    <div class="w-full max-w-md">
+      <%!-- Editorial Header --%>
+      <div class="mb-12">
+        <p class="font-label text-xs uppercase tracking-[0.25em] text-base-content/50 mb-4">
+          {gettext("Get Started")}
+        </p>
+        <h1 class="text-4xl sm:text-5xl font-serif italic leading-[1.1] tracking-[-0.02em] text-base-content">
+          {gettext("Create Account")}
+        </h1>
+        <div class="mt-6">
+          <p class="text-sm text-base-content/60 leading-relaxed">
+            {gettext("Already registered?")}
+            <.link
+              navigate={~p"/users/log-in"}
+              class="font-semibold text-base-content underline underline-offset-4 decoration-base-content/30 hover:decoration-base-content transition"
+            >
+              {gettext("Log in")}
+            </.link>
+            {gettext("to your account now.")}
+          </p>
+        </div>
+      </div>
+
+      <%!-- Registration Form --%>
+      <.form :let={f} for={@changeset} action={~p"/users/register"}>
+        <div class="space-y-6">
+          <.input
+            field={f[:name]}
+            type="text"
+            label={gettext("Name")}
+            class="w-full input bg-transparent border-0 border-b-2 border-base-content/20 rounded-none px-0 focus:border-base-content focus:outline-none"
+            autocomplete="name"
+            spellcheck="false"
+            required
+            phx-mounted={JS.focus()}
+          />
+          <.input
+            field={f[:email]}
+            type="email"
+            label={gettext("Email")}
+            class="w-full input bg-transparent border-0 border-b-2 border-base-content/20 rounded-none px-0 focus:border-base-content focus:outline-none"
+            autocomplete="username"
+            spellcheck="false"
+            required
+          />
+          <.input
+            field={f[:password]}
+            type="password"
+            label={gettext("Password")}
+            class="w-full input bg-transparent border-0 border-b-2 border-base-content/20 rounded-none px-0 focus:border-base-content focus:outline-none"
+            autocomplete="new-password"
+            spellcheck="false"
+            required
+          />
+        </div>
+
+        <div class="mt-10">
+          <button
+            type="submit"
+            class="w-full py-4 bg-base-content text-base-100 text-xs font-label uppercase tracking-[0.2em] hover:bg-base-content/90 transition cursor-pointer"
+            phx-disable-with={gettext("Creating account...")}
+          >
+            {gettext("Create an account")}
+          </button>
+        </div>
+      </.form>
     </div>
-
-    <.form :let={f} for={@changeset} action={~p"/users/register"}>
-      <.input
-        field={f[:name]}
-        type="text"
-        label={gettext("Name")}
-        autocomplete="name"
-        spellcheck="false"
-        required
-        phx-mounted={JS.focus()}
-      />
-      <.input
-        field={f[:email]}
-        type="email"
-        label={gettext("Email")}
-        autocomplete="username"
-        spellcheck="false"
-        required
-      />
-      <.input
-        field={f[:password]}
-        type="password"
-        label={gettext("Password")}
-        autocomplete="new-password"
-        spellcheck="false"
-        required
-      />
-
-      <.button phx-disable-with={gettext("Creating account...")} class="btn btn-primary w-full">
-        {gettext("Create an account")}
-      </.button>
-    </.form>
   </div>
 </Layouts.app>

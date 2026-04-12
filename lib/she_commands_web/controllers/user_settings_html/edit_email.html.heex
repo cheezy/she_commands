@@ -1,36 +1,56 @@
 <Layouts.app flash={@flash} current_scope={@current_scope}>
-  <div class="text-center">
-    <.header>
-      {gettext("Change Email")}
-      <:subtitle>
-        {gettext("A confirmation link will be sent to your new email address.")}
-      </:subtitle>
-    </.header>
-  </div>
+  <div class="flex items-center justify-center min-h-[70vh]">
+    <div class="w-full max-w-md">
+      <%!-- Editorial Header --%>
+      <div class="mb-12">
+        <p class="font-label text-xs uppercase tracking-[0.25em] text-base-content/50 mb-4">
+          {gettext("Account")}
+        </p>
+        <h1 class="text-4xl sm:text-5xl font-serif italic leading-[1.1] tracking-[-0.02em] text-base-content">
+          {gettext("Change Email")}
+        </h1>
+        <div class="mt-6">
+          <p class="text-sm text-base-content/60 leading-relaxed">
+            {gettext("A confirmation link will be sent to your new email address.")}
+          </p>
+        </div>
+      </div>
 
-  <.form :let={f} for={@email_changeset} action={~p"/users/settings"} id="update_email">
-    <input type="hidden" name="action" value="update_email" />
+      <%!-- Email Form --%>
+      <.form :let={f} for={@email_changeset} action={~p"/users/settings"} id="update_email">
+        <input type="hidden" name="action" value="update_email" />
 
-    <.input
-      field={f[:email]}
-      type="email"
-      label={gettext("New email")}
-      autocomplete="username"
-      spellcheck="false"
-      required
-    />
+        <div class="space-y-6">
+          <.input
+            field={f[:email]}
+            type="email"
+            label={gettext("New email")}
+            class="w-full input bg-transparent border-0 border-b-2 border-base-content/20 rounded-none px-0 focus:border-base-content focus:outline-none"
+            autocomplete="username"
+            spellcheck="false"
+            required
+          />
+        </div>
 
-    <.button variant="primary" phx-disable-with={gettext("Changing...")}>
-      {gettext("Change Email")}
-    </.button>
-  </.form>
+        <div class="mt-10">
+          <button
+            type="submit"
+            class="w-full py-4 bg-base-content text-base-100 text-xs font-label uppercase tracking-[0.2em] hover:bg-base-content/90 transition cursor-pointer"
+            phx-disable-with={gettext("Changing...")}
+          >
+            {gettext("Change Email")}
+          </button>
+        </div>
+      </.form>
 
-  <div class="mt-6">
-    <.link
-      href={~p"/users/settings"}
-      class="text-sm font-semibold hover:opacity-60 transition-opacity"
-    >
-      &larr; {gettext("Back to settings")}
-    </.link>
+      <div class="mt-10">
+        <.link
+          href={~p"/users/settings"}
+          class="text-sm font-label uppercase tracking-[0.15em] text-base-content/60 hover:text-base-content transition"
+        >
+          &larr; {gettext("Back to settings")}
+        </.link>
+      </div>
+    </div>
   </div>
 </Layouts.app>
