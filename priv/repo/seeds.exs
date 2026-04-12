@@ -99,8 +99,7 @@ goal_categories = [
   %{
     name: "Stress & Anxiety",
     slug: "stress-anxiety",
-    description:
-      "Develop tools to manage stress, reduce anxiety, and stay calm under pressure.",
+    description: "Develop tools to manage stress, reduce anxiety, and stay calm under pressure.",
     outcome_power_up: "Nourish your nervous system for resilience",
     outcome_power_through: "Build physical outlets for stress release",
     outcome_power_down: "Master recovery protocols for calm and clarity",
@@ -110,8 +109,7 @@ goal_categories = [
   %{
     name: "Emotional Resilience",
     slug: "emotional-resilience",
-    description:
-      "Strengthen your ability to bounce back, adapt, and thrive through challenges.",
+    description: "Strengthen your ability to bounce back, adapt, and thrive through challenges.",
     outcome_power_up: "Fuel emotional stability through nutrition and habits",
     outcome_power_through: "Build mental toughness through progressive challenges",
     outcome_power_down: "Develop recovery rituals for emotional recharge",
