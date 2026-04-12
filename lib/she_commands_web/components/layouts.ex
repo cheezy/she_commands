@@ -35,7 +35,7 @@ defmodule SheCommandsWeb.Layouts do
 
   def app(assigns) do
     ~H"""
-    <main class="px-6 py-20 sm:px-10 lg:px-16">
+    <main class="px-6 pt-36 pb-20 sm:px-10 lg:px-16">
       <div class="mx-auto max-w-2xl space-y-4">
         {render_slot(@inner_block)}
       </div>

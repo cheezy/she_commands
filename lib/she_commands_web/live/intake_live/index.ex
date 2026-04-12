@@ -84,7 +84,7 @@ defmodule SheCommandsWeb.IntakeLive.Index do
   end
 
   @impl true
-  def handle_event("select_option", %{"field" => field, "value" => value}, socket) do
+  def handle_event("select_option", %{"field" => field, "option" => value}, socket) do
     response = socket.assigns.response
 
     {:ok, response} =
@@ -115,7 +115,7 @@ defmodule SheCommandsWeb.IntakeLive.Index do
   end
 
   @impl true
-  def handle_event("toggle_limitation", %{"value" => value}, socket) do
+  def handle_event("toggle_limitation", %{"option" => value}, socket) do
     response = socket.assigns.response
     current = response.limitations || []
 
@@ -222,12 +222,12 @@ defmodule SheCommandsWeb.IntakeLive.Index do
     <button
       phx-click={@click}
       phx-value-field={@field}
-      phx-value-value={@value}
-      class={"w-full text-left p-4 rounded-lg border transition-all duration-200 #{if @selected, do: "border-primary bg-primary/10", else: "border-base-300 bg-base-100 hover:border-primary/50"}"}
+      phx-value-option={@value}
+      class={"w-full text-left py-4 px-5 border transition-all duration-200 cursor-pointer #{if @selected, do: "border-base-content bg-base-content/5", else: "border-base-content/10 hover:border-base-content/30"}"}
     >
-      <p class="font-semibold text-base-content">{@label}</p>
+      <p class="text-sm font-semibold text-base-content">{@label}</p>
       <%= if @sublabel do %>
-        <p class="text-sm text-base-content opacity-70 mt-1">{@sublabel}</p>
+        <p class="text-xs text-base-content/60 mt-1">{@sublabel}</p>
       <% end %>
     </button>
     """

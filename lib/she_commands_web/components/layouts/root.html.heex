@@ -77,6 +77,12 @@
               {gettext("The Journal")}
             </a>
             <%= if @current_scope do %>
+              <a
+                href="/intake"
+                class={"hover:opacity-70 transition #{if @conn.request_path == "/intake", do: "border-b border-current pb-1"}"}
+              >
+                {gettext("Intake")}
+              </a>
               <details class="dropdown dropdown-end relative">
                 <summary class="cursor-pointer hover:opacity-70 transition">
                   {@current_scope.user.name || @current_scope.user.email}

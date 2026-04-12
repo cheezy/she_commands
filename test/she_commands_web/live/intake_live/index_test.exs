@@ -63,7 +63,7 @@ defmodule SheCommandsWeb.IntakeLive.IndexTest do
 
       {:ok, view, _html} = live(conn, ~p"/intake")
       html = render_click(view, "select_category", %{"id" => category.id})
-      assert html =~ "border-primary"
+      assert html =~ "border-base-content bg-base-content/5"
     end
   end
 
@@ -75,9 +75,9 @@ defmodule SheCommandsWeb.IntakeLive.IndexTest do
       {:ok, view, _html} = live(conn, ~p"/intake")
 
       html =
-        render_click(view, "select_option", %{"field" => "lead_time", "value" => "short"})
+        render_click(view, "select_option", %{"field" => "lead_time", "option" => "short"})
 
-      assert html =~ "border-primary"
+      assert html =~ "border-base-content bg-base-content/5"
     end
 
     test "selecting hours_per_day updates the response", %{conn: conn, user: user} do
@@ -88,10 +88,10 @@ defmodule SheCommandsWeb.IntakeLive.IndexTest do
       html =
         render_click(view, "select_option", %{
           "field" => "hours_per_day",
-          "value" => "thirty_to_sixty"
+          "option" => "thirty_to_sixty"
         })
 
-      assert html =~ "border-primary"
+      assert html =~ "border-base-content bg-base-content/5"
     end
 
     test "selecting intensity updates the response", %{conn: conn, user: user} do
@@ -100,9 +100,9 @@ defmodule SheCommandsWeb.IntakeLive.IndexTest do
       {:ok, view, _html} = live(conn, ~p"/intake")
 
       html =
-        render_click(view, "select_option", %{"field" => "intensity", "value" => "high"})
+        render_click(view, "select_option", %{"field" => "intensity", "option" => "high"})
 
-      assert html =~ "border-primary"
+      assert html =~ "border-base-content bg-base-content/5"
     end
 
     test "selecting coaching_preference updates the response", %{conn: conn, user: user} do
@@ -113,10 +113,10 @@ defmodule SheCommandsWeb.IntakeLive.IndexTest do
       html =
         render_click(view, "select_option", %{
           "field" => "coaching_preference",
-          "value" => "coach_guided"
+          "option" => "coach_guided"
         })
 
-      assert html =~ "border-primary"
+      assert html =~ "border-base-content bg-base-content/5"
     end
 
     test "selecting fitness_regimen updates the response", %{conn: conn, user: user} do
@@ -127,10 +127,10 @@ defmodule SheCommandsWeb.IntakeLive.IndexTest do
       html =
         render_click(view, "select_option", %{
           "field" => "fitness_regimen",
-          "value" => "moderate"
+          "option" => "moderate"
         })
 
-      assert html =~ "border-primary"
+      assert html =~ "border-base-content bg-base-content/5"
     end
 
     test "selecting personal_dev_regimen updates the response", %{conn: conn, user: user} do
@@ -141,10 +141,10 @@ defmodule SheCommandsWeb.IntakeLive.IndexTest do
       html =
         render_click(view, "select_option", %{
           "field" => "personal_dev_regimen",
-          "value" => "active"
+          "option" => "active"
         })
 
-      assert html =~ "border-primary"
+      assert html =~ "border-base-content bg-base-content/5"
     end
 
     test "selecting unknown field is a no-op", %{conn: conn, user: user} do
@@ -153,7 +153,7 @@ defmodule SheCommandsWeb.IntakeLive.IndexTest do
       {:ok, view, _html} = live(conn, ~p"/intake")
 
       html =
-        render_click(view, "select_option", %{"field" => "unknown_field", "value" => "foo"})
+        render_click(view, "select_option", %{"field" => "unknown_field", "option" => "foo"})
 
       # Should not crash, still on step 4
       assert html =~ "Step 4 of 8"
@@ -226,18 +226,18 @@ defmodule SheCommandsWeb.IntakeLive.IndexTest do
       intake_response_fixture(user, %{current_step: 5})
 
       {:ok, view, _html} = live(conn, ~p"/intake")
-      html = render_click(view, "toggle_limitation", %{"value" => "menopause"})
-      assert html =~ "border-primary"
+      html = render_click(view, "toggle_limitation", %{"option" => "menopause"})
+      assert html =~ "border-base-content bg-base-content/5"
     end
 
     test "toggling a selected limitation deselects it", %{conn: conn, user: user} do
       intake_response_fixture(user, %{current_step: 5, limitations: ["menopause"]})
 
       {:ok, view, _html} = live(conn, ~p"/intake")
-      html = render_click(view, "toggle_limitation", %{"value" => "menopause"})
+      html = render_click(view, "toggle_limitation", %{"option" => "menopause"})
 
       refute html =~
-               "border-primary bg-primary/10\" >\n      <span class=\"text-base-content\">Menopause"
+               "border-base-content bg-base-content/5\"><span class=\"text-sm text-base-content\">Menopause"
     end
   end
 
