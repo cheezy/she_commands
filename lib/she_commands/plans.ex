@@ -9,9 +9,62 @@ defmodule SheCommands.Plans do
 
   import Ecto.Query, warn: false
 
+  alias SheCommands.Intake
+  alias SheCommands.Plans.Engine
   alias SheCommands.Plans.Plan
   alias SheCommands.Plans.PlanModule
   alias SheCommands.Repo
+
+  ## Plan Generation
+
+  @doc """
+  Generates a plan from an intake response.
+
+  Uses the logic engine to select modules, ensure Power Pillar coverage,
+  and build the plan with goal statement and expected outcomes.
+
+  Returns `{:ok, plan}` or `{:error, reason}`.
+  """
+  def generate_plan(intake_response) do
+    goal_category = Intake.get_goal_category!(intake_response.goal_category_id)
+
+    case Engine.generate(intake_response, goal_category) do
+      {:ok, plan_attrs} ->
+        create_plan_with_modules(intake_response, goal_category, plan_attrs)
+
+      {:error, reason} ->
+        {:error, reason}
+    end
+  end
+
+  defp create_plan_with_modules(intake_response, goal_category, plan_attrs) do
+    Repo.transaction(fn ->
+      {:ok, plan} =
+        create_plan(%{
+          user_id: intake_response.user_id,
+          intake_response_id: intake_response.id,
+          goal_category_id: goal_category.id,
+          plan_type: plan_attrs.plan_type,
+          status: :active,
+          goal_statement: plan_attrs.goal_statement,
+          expected_outcomes: plan_attrs.expected_outcomes
+        })
+
+      plan_attrs.selected_modules
+      |> Enum.with_index(1)
+      |> Enum.each(fn {%{module: module, power_pillar: pillar}, position} ->
+        {:ok, _} =
+          add_plan_module(%{
+            plan_id: plan.id,
+            module_id: module.id,
+            power_pillar: pillar,
+            position: position
+          })
+      end)
+
+      get_plan!(plan.id)
+    end)
+  end
 
   ## Plans
 

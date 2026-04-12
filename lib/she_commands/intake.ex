@@ -28,6 +28,11 @@ defmodule SheCommands.Intake do
   def get_goal_category(id), do: Repo.get(GoalCategory, id)
 
   @doc """
+  Gets a single goal category by id. Raises if not found.
+  """
+  def get_goal_category!(id), do: Repo.get!(GoalCategory, id)
+
+  @doc """
   Gets a single goal category by slug.
   """
   def get_goal_category_by_slug(slug) when is_binary(slug) do

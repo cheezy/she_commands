@@ -2,6 +2,7 @@ defmodule SheCommands.PlansTest do
   use SheCommands.DataCase, async: true
 
   import SheCommands.AccountsFixtures
+  import SheCommands.IntakeFixtures
   import SheCommands.ModulesFixtures
   import SheCommands.PlansFixtures
 
@@ -180,6 +181,83 @@ defmodule SheCommands.PlansTest do
     test "returns a changeset" do
       plan = plan_fixture()
       assert %Ecto.Changeset{} = Plans.change_plan(plan)
+    end
+  end
+
+  describe "generate_plan/1" do
+    test "generates a plan from intake response with modules" do
+      user = user_fixture()
+
+      category =
+        goal_category_fixture(%{
+          name: "Gen Test",
+          slug: "gen-test-#{System.unique_integer()}",
+          outcome_power_up: "PU",
+          outcome_power_through: "PT",
+          outcome_power_down: "PD",
+          outcome_empower: "EM"
+        })
+
+      # Modules covering all 4 pillars
+      module_with_categories_fixture(
+        %{power_pillar_1: :power_up, intensity: :moderate, daily_time: 15},
+        [category]
+      )
+
+      module_with_categories_fixture(
+        %{power_pillar_1: :power_through, intensity: :moderate, daily_time: 15},
+        [category]
+      )
+
+      module_with_categories_fixture(
+        %{power_pillar_1: :power_down, intensity: :moderate, daily_time: 15},
+        [category]
+      )
+
+      module_with_categories_fixture(
+        %{power_pillar_1: :empower, intensity: :moderate, daily_time: 15},
+        [category]
+      )
+
+      intake =
+        intake_response_fixture(user, %{
+          goal_category_id: category.id,
+          goal_intent: "Lead with confidence",
+          lead_time: :short,
+          days_per_week: 5,
+          hours_per_day: :thirty_to_sixty,
+          intensity: :moderate
+        })
+
+      assert {:ok, plan} = Plans.generate_plan(intake)
+      assert plan.plan_type == :weekly
+      assert plan.status == :active
+      assert plan.goal_statement =~ "Lead with confidence"
+      assert plan.expected_outcomes =~ "PU"
+      assert length(plan.plan_modules) >= 4
+    end
+
+    test "returns error when pillar coverage is impossible" do
+      user = user_fixture()
+
+      category =
+        goal_category_fixture(%{slug: "sparse-gen-#{System.unique_integer()}"})
+
+      module_with_categories_fixture(
+        %{power_pillar_1: :power_up, intensity: :low, daily_time: 10},
+        [category]
+      )
+
+      intake =
+        intake_response_fixture(user, %{
+          goal_category_id: category.id,
+          lead_time: :short,
+          days_per_week: 3,
+          hours_per_day: :thirty_to_sixty,
+          intensity: :low
+        })
+
+      assert {:error, {:insufficient_coverage, _}} = Plans.generate_plan(intake)
     end
   end
 end
