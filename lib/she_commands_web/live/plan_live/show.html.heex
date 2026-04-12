@@ -2,9 +2,18 @@
   <div class="w-full max-w-3xl mx-auto">
     <%!-- Goal Statement --%>
     <div class="mb-12">
-      <p class="font-label text-xs uppercase tracking-[0.25em] text-base-content/50 mb-4">
-        {gettext("Your Plan")}
-      </p>
+      <div class="flex items-start justify-between">
+        <p class="font-label text-xs uppercase tracking-[0.25em] text-base-content/50 mb-4">
+          {gettext("Your Plan")}
+        </p>
+        <.link
+          href={~p"/plans/#{@plan.id}/print"}
+          target="_blank"
+          class="text-xs font-label uppercase tracking-[0.15em] text-base-content/50 hover:text-base-content transition border border-base-content/20 px-4 py-2"
+        >
+          {gettext("Print / PDF")}
+        </.link>
+      </div>
       <h1 class="text-3xl sm:text-4xl font-serif italic leading-[1.1] tracking-[-0.02em] text-base-content">
         {@plan.goal_statement}
       </h1>

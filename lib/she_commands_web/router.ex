@@ -72,6 +72,8 @@ defmodule SheCommandsWeb.Router do
       live "/my-plan", PlanLive.Show, :show
     end
 
+    get "/plans/:id/print", PlanController, :print
+
     get "/users/settings", UserSettingsController, :edit
     put "/users/settings", UserSettingsController, :update
     get "/users/settings/email", UserSettingsController, :edit_email

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{@plan.goal_statement} — She Commands</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;700&family=Work+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { font-family: 'Inter', sans-serif; color: #1b1c1a; background: #fff; padding: 40px; max-width: 800px; margin: 0 auto; font-size: 14px; line-height: 1.6; }
+      h1 { font-family: 'Bodoni Moda', serif; font-style: italic; font-size: 28px; margin-bottom: 8px; }
+      h2 { font-family: 'Work Sans', sans-serif; font-size: 10px; text-transform: uppercase; letter-spacing: 2px; color: #747878; margin-bottom: 16px; }
+      h3 { font-family: 'Bodoni Moda', serif; font-style: italic; font-size: 18px; margin-bottom: 12px; }
+      .section { margin-bottom: 32px; }
+      .divider { border-top: 1px solid #e3e2df; margin: 32px 0; }
+      .outcome { border-left: 2px solid #c4c7c7; padding-left: 12px; margin-bottom: 8px; font-size: 13px; color: #444748; }
+      .pillar-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+      .pillar-card { border: 1px solid #e3e2df; padding: 12px; }
+      .pillar-name { font-weight: 600; font-size: 13px; margin-bottom: 4px; }
+      .pillar-count { font-size: 11px; color: #747878; }
+      .module { border-left: 2px solid #e3e2df; padding-left: 16px; margin-bottom: 24px; }
+      .module-title { font-weight: 600; font-size: 14px; }
+      .module-contributor { font-size: 11px; color: #747878; }
+      .protocol { margin-left: 16px; margin-top: 8px; }
+      .protocol-label { font-family: 'Work Sans', sans-serif; font-size: 9px; text-transform: uppercase; letter-spacing: 1.5px; color: #747878; }
+      .protocol-purpose { font-weight: 500; font-size: 13px; color: #444748; }
+      .protocol-detail { font-size: 12px; color: #747878; margin-top: 2px; }
+      .coach-tip { border-left: 2px solid #444748; padding-left: 12px; margin-top: 12px; font-style: italic; font-family: 'Bodoni Moda', serif; font-size: 13px; color: #444748; }
+      .coach-attr { font-size: 11px; color: #747878; margin-top: 4px; font-style: normal; }
+      .modifications { font-size: 12px; color: #747878; margin-top: 8px; }
+      .mod-label { font-family: 'Work Sans', sans-serif; font-size: 9px; text-transform: uppercase; letter-spacing: 1.5px; color: #747878; }
+      .plan-type { font-family: 'Work Sans', sans-serif; font-size: 10px; text-transform: uppercase; letter-spacing: 2px; color: #747878; }
+      .footer { text-align: center; font-size: 10px; color: #c4c7c7; margin-top: 48px; text-transform: uppercase; letter-spacing: 2px; }
+      @media print { body { padding: 20px; } .no-print { display: none; } }
+    </style>
+  </head>
+  <body>
+    <div class="no-print" style="margin-bottom: 24px; text-align: right;">
+      <button
+        onclick="window.print()"
+        style="background: #1b1c1a; color: #fff; border: none; padding: 10px 24px; font-family: 'Work Sans', sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; cursor: pointer;"
+      >
+        Print / Save as PDF
+      </button>
+      <a
+        href="/my-plan"
+        style="margin-left: 12px; font-size: 12px; color: #747878; text-decoration: none;"
+      >
+        ← Back to plan
+      </a>
+    </div>
+
+    <div class="section">
+      <h2>{gettext("Your Plan")}</h2>
+      <h1>{@plan.goal_statement}</h1>
+      <p class="plan-type">
+        {@plan.plan_type |> to_string() |> String.capitalize()} {gettext("Plan")}
+      </p>
+    </div>
+
+    <%= if @plan.expected_outcomes do %>
+      <div class="section">
+        <h2>{gettext("Expected Outcomes")}</h2>
+        <%= for line <- String.split(@plan.expected_outcomes, "\n") do %>
+          <%= if String.trim(line) != "" do %>
+            <div class="outcome">{line}</div>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+
+    <div class="divider"></div>
+
+    <div class="section">
+      <h2>{gettext("Your Modules")}</h2>
+      <% modules_by_pillar =
+        @plan.plan_modules
+        |> Enum.group_by(& &1.power_pillar)
+        |> Enum.sort_by(fn {p, _} ->
+          case p do
+            :power_up -> 0
+            :power_through -> 1
+            :power_down -> 2
+            :empower -> 3
+            _ -> 4
+          end
+        end) %>
+      <%= for {pillar, plan_modules} <- modules_by_pillar do %>
+        <h3>
+          {pillar
+          |> to_string()
+          |> String.replace("_", " ")
+          |> String.split(" ")
+          |> Enum.map_join(" ", &String.capitalize/1)}
+        </h3>
+        <%= for pm <- plan_modules do %>
+          <div class="module">
+            <div class="module-title">{pm.module.title}</div>
+            <div class="module-contributor">{pm.module.contributor}</div>
+            <%= if pm.module.overview do %>
+              <p style="font-size: 13px; color: #444748; margin-top: 6px;">
+                {pm.module.overview}
+              </p>
+            <% end %>
+            <%= for protocol <- Enum.sort_by(pm.module.protocols, & &1.position) do %>
+              <div class="protocol">
+                <div class="protocol-label">
+                  {gettext("Protocol %{num}", num: protocol.position)}
+                </div>
+                <div class="protocol-purpose">{protocol.purpose}</div>
+                <div class="protocol-detail">{protocol.steps}</div>
+                <div class="protocol-detail" style="font-style: italic;">
+                  {protocol.prescription}
+                </div>
+              </div>
+            <% end %>
+            <%= if pm.module.coach_tip do %>
+              <div class="coach-tip">
+                {pm.module.coach_tip}
+                <%= if pm.module.coach_tip_attribution do %>
+                  <div class="coach-attr">— {pm.module.coach_tip_attribution}</div>
+                <% end %>
+              </div>
+            <% end %>
+            <%= if pm.module.modifications do %>
+              <div class="modifications">
+                <span class="mod-label">{gettext("Modifications")}: </span>
+                {pm.module.modifications}
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="footer">
+      &copy; {DateTime.utc_now().year} {gettext("She Commands")} · {gettext(
+        "She Doesn't Ask. She Commands."
+      )}
+    </div>
+  </body>
+</html>
