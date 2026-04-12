@@ -69,6 +69,7 @@ defmodule SheCommandsWeb.Router do
 
     live_session :authenticated, on_mount: [{SheCommandsWeb.UserAuth, :ensure_authenticated}] do
       live "/intake", IntakeLive.Index, :index
+      live "/my-plan", PlanLive.Show, :show
     end
 
     get "/users/settings", UserSettingsController, :edit
