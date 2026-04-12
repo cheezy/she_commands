@@ -13,6 +13,7 @@ defmodule SheCommands.Plans do
   alias SheCommands.Plans.Engine
   alias SheCommands.Plans.Plan
   alias SheCommands.Plans.PlanModule
+  alias SheCommands.Plans.ScheduleBuilder
   alias SheCommands.Repo
 
   ## Plan Generation
@@ -39,6 +40,14 @@ defmodule SheCommands.Plans do
 
   defp create_plan_with_modules(intake_response, goal_category, plan_attrs) do
     Repo.transaction(fn ->
+      # Build schedule from selected modules
+      schedule =
+        ScheduleBuilder.build_schedule(
+          plan_attrs.selected_modules,
+          intake_response.days_per_week || 3,
+          intake_response.hours_per_day
+        )
+
       {:ok, plan} =
         create_plan(%{
           user_id: intake_response.user_id,
@@ -47,7 +56,8 @@ defmodule SheCommands.Plans do
           plan_type: plan_attrs.plan_type,
           status: :active,
           goal_statement: plan_attrs.goal_statement,
-          expected_outcomes: plan_attrs.expected_outcomes
+          expected_outcomes: plan_attrs.expected_outcomes,
+          schedule: schedule
         })
 
       plan_attrs.selected_modules
