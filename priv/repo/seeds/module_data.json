@@ -1,0 +1,1856 @@
+[
+  {
+    "module_id": "DM0011",
+    "contributor": "Paula V",
+    "title": "Staying Composed in High Pressure Moments",
+    "overview": "Maintain composure under stress using breathing control, grounding cues, and stress simulations.",
+    "core_concepts": "1. Breath control triggers parasympathetic response. \n2. Physical anchors return attention to the present. \n3. Simulations build stress recovery capacity.",
+    "power_pillar_1": "power_through",
+    "power_pillar_2": "power_down",
+    "intensity": "low",
+    "daily_time": 5,
+    "weekly_freq": 3,
+    "experience_level": "Beginner",
+    "modifications": "Shorten breath cycles; substitute visualization if physical anchor isn\u2019t accessible.",
+    "coach_tip": "Breathe first, then respond.",
+    "time_to_result": "Quick win (perform <3 times to see results)",
+    "outcomes": "- Demonstrate controlled breathing in stressful scenarios. - Reduce visible nervousness in observed drills. - Respond calmly to simulated pressure events.",
+    "categories": [
+      "Decision Making & Taking Action",
+      "Stress & Anxiety"
+    ],
+    "protocols": [
+      {
+        "purpose": "Lower physiological stress response",
+        "steps": "Inhale 3s, hold 3s, exhale 6s; repeat 5 cycles",
+        "prescription": "Before/during high-pressure moments",
+        "expected_outcome": "Reduced heart rate and tension",
+        "position": 1
+      },
+      {
+        "purpose": "Anchor focus in the present",
+        "steps": "Use a centering cue (touch fingertips or press feet to floor); take one slow breath",
+        "prescription": "Use whenever pressure spikes",
+        "expected_outcome": "Faster grounding and reduced panic",
+        "position": 2
+      },
+      {
+        "purpose": "Train recovery under arousal",
+        "steps": "30s aerobic exercise \u2192 30s See\u2013Hear\u2013Feel \u2192 composure task (e.g., mock Q&A)",
+        "prescription": "3x/week",
+        "expected_outcome": "Improved transition from stress to focus",
+        "position": 3
+      }
+    ]
+  },
+  {
+    "module_id": "DM0012",
+    "contributor": "Paula V",
+    "title": "Command Commitment in the Moment",
+    "overview": "Build decisiveness and all-in follow-through under uncertainty with physical anchors, mini challenges, and purpose alignment.",
+    "core_concepts": "1. Decisiveness is a skill trained through repetition. \n2. Mini challenges shrink hesitation windows. \n3. Purpose alignment sustains commitment.",
+    "power_pillar_1": "empower",
+    "power_pillar_2": "power_through",
+    "intensity": "moderate",
+    "daily_time": 5,
+    "weekly_freq": 3,
+    "experience_level": "Beginner",
+    "modifications": "Scale challenge difficulty up or down; use silent step if jumping is not suitable.",
+    "coach_tip": "Treat commitment like a rep: decide, move, keep going.",
+    "time_to_result": "Quick win (perform <3 times to see results)",
+    "outcomes": "- Initiate action within 10 seconds of a decision point. - Reduce hesitation in uncomfortable tasks. - Report stronger connection to personal values when committing.",
+    "categories": [
+      "Decision Making & Taking Action",
+      "Emotional Resilience"
+    ],
+    "protocols": [
+      {
+        "purpose": "Train decisive action",
+        "steps": "Set a floor marker; inhale 3s, hold 3s, exhale 6s while saying \u201ccommit\u201d; step across",
+        "prescription": "3 reps before major decisions",
+        "expected_outcome": "Faster initiation speed",
+        "position": 1
+      },
+      {
+        "purpose": "Practice snap commitment",
+        "steps": "Pull a random mini challenge from a jar; start within 10 seconds",
+        "prescription": "Daily",
+        "expected_outcome": "Reduced avoidance and rumination",
+        "position": 2
+      },
+      {
+        "purpose": "Anchor to your why",
+        "steps": "Ask why this matters; note how it grows strength, connection, or meaning; proceed with 100% commitment",
+        "prescription": "Before high-stakes commitments",
+        "expected_outcome": "Greater persistence under discomfort",
+        "position": 3
+      }
+    ]
+  },
+  {
+    "module_id": "SA0001",
+    "contributor": "Paula V",
+    "title": "Release the Shock",
+    "overview": "Absorb, label, and discharge the startle response so it does not immobilize action.",
+    "core_concepts": "1. Startle can trigger a freeze response. \n2. Labeling interrupts fear amplification. \n3. Movement and sensory expansion restore control.",
+    "power_pillar_1": "power_through",
+    "power_pillar_2": "power_down",
+    "intensity": "low",
+    "daily_time": 5,
+    "weekly_freq": 3,
+    "experience_level": "Beginner",
+    "modifications": "Lower alarm volume for sensitivity; do seated versions.",
+    "coach_tip": "Name it, move it, then return to the task.",
+    "time_to_result": "Quick win (perform <3 times to see results)",
+    "outcomes": "- Label and release shock within 10 seconds. - Shorten freeze duration in drills. - Return to task focus after a startle cue.",
+    "categories": [
+      "Stress & Anxiety",
+      "Emotional Resilience"
+    ],
+    "protocols": [
+      {
+        "purpose": "Build awareness of shock response",
+        "steps": "Use a random alarm; pause 3s; label See\u2013Hear\u2013Feel; then 2\u20133 slow breaths",
+        "prescription": "Daily",
+        "expected_outcome": "Faster emotional recovery",
+        "position": 1
+      },
+      {
+        "purpose": "Discharge tension",
+        "steps": "Shake hands, arms, and legs for 15s; breathe 3 rounds; repeat x3",
+        "prescription": "As needed",
+        "expected_outcome": "Reduced muscular bracing",
+        "position": 2
+      },
+      {
+        "purpose": "Ground and transcend",
+        "steps": "Feet planted; explore See\u2013Hear\u2013Feel qualities (hard/soft, warm/cool, pleasant/unpleasant); soften resistance",
+        "prescription": "3x/week",
+        "expected_outcome": "Greater tolerance for discomfort",
+        "position": 3
+      }
+    ]
+  },
+  {
+    "module_id": "ER0001",
+    "contributor": "Paula V",
+    "title": "Focus on the Positive",
+    "overview": "Train the mind to generate adaptive appraisals in challenging scenarios to improve mood stability and performance.",
+    "core_concepts": "1. Cognitive appraisal shapes stress response. \n2. Positive imagery enhances motivation. \n3. Gratitude broadens attention and builds resilience.",
+    "power_pillar_1": "empower",
+    "power_pillar_2": "power_up",
+    "intensity": "low",
+    "daily_time": 5,
+    "weekly_freq": 3,
+    "experience_level": "Beginner",
+    "modifications": "Allow voice notes instead of writing; pair with a walk for activation.",
+    "coach_tip": "Find the micro-win so your attention stays constructive.",
+    "time_to_result": "Quick win (perform <3 times to see results)",
+    "outcomes": "- Generate 3 positive outcomes for upcoming challenges within 2 minutes. - Increase daily positive affect reports. - Decrease rumination on setbacks.",
+    "categories": [
+      "Emotional Resilience",
+      "Life Force Reclamation"
+    ],
+    "protocols": [
+      {
+        "purpose": "Build optimistic alternatives",
+        "steps": "Identify a future challenge; write 3 plausible positive outcomes in 2 minutes",
+        "prescription": "Daily",
+        "expected_outcome": "Faster positive reappraisal",
+        "position": 1
+      },
+      {
+        "purpose": "Align with desired end state",
+        "steps": "Visualize See\u2013Hear\u2013Feel of a successful outcome; identify the value (e.g., excellence, connection); choose one aligned action today",
+        "prescription": "5 min, 5x/week",
+        "expected_outcome": "Increased value-consistent action",
+        "position": 2
+      },
+      {
+        "purpose": "Broaden attention via gratitude",
+        "steps": "5-minute journaling on \u201cWhat made it possible for me to be here today?\u201d; list 5\u201310 items",
+        "prescription": "3x/week",
+        "expected_outcome": "Improved mood stability",
+        "position": 3
+      }
+    ]
+  },
+  {
+    "module_id": "DM0013",
+    "contributor": "Paula V",
+    "title": "Build Capacity for Uncertainty",
+    "overview": "Increase tolerance for ambiguity by delaying closure, rehearsing uncertainty, and training recovery from disruptions.",
+    "core_concepts": "1. Uncertainty tolerance can be trained. \n2. Pendulation between safety and fear builds capacity. \n3. Micro disruptions teach flexible attention.",
+    "power_pillar_1": "power_up",
+    "power_pillar_2": "power_through",
+    "intensity": "moderate",
+    "daily_time": 5,
+    "weekly_freq": 3,
+    "experience_level": "Intermediate",
+    "modifications": "Shorten delay window initially; do seated versions for accessibility.",
+    "coach_tip": "Stay with uncertainty long enough to learn from it.",
+    "time_to_result": "Medium win (perform 3-6 times to see results)",
+    "outcomes": "- Extend comfort with undecided states by 20 minutes. - Reduce urgency to close loops prematurely. - Recover focus within 60 seconds after deliberate disruption.",
+    "categories": [
+      "Decision Making & Taking Action",
+      "Impact & Influence"
+    ],
+    "protocols": [
+      {
+        "purpose": "Practice non-closure",
+        "steps": "Choose a low-stakes decision; delay 20 minutes; take 3 three-part breaths (belly, ribs, chest); relax resistance; note safety",
+        "prescription": "Daily",
+        "expected_outcome": "Greater ease with uncertainty",
+        "position": 1
+      },
+      {
+        "purpose": "Rehearse uncertainty",
+        "steps": "Write 5 \u201cwhat ifs\u201d; pick one; imagine it for 2 minutes; pendulate attention between a safe body area and the fear site; breathe long and slow",
+        "prescription": "3x/week",
+        "expected_outcome": "Lower threat reactivity",
+        "position": 2
+      },
+      {
+        "purpose": "Train disruption recovery",
+        "steps": "Add a deliberate disruption to a routine task (switch order, random alarm); apply See\u2013Hear\u2013Feel to re-anchor",
+        "prescription": "3x/week",
+        "expected_outcome": "Faster cognitive recovery",
+        "position": 3
+      }
+    ]
+  },
+  {
+    "module_id": "II0011",
+    "contributor": "Paula V",
+    "title": "Command Outcomes When You Don\u2019t Own the Room",
+    "overview": "Create value without full control by training interruption recovery, attention in chaos, and strategic reframing.",
+    "core_concepts": "1. Influence is not control. \n2. Attention management under noise preserves clarity. \n3. Reframing defines winnable outcomes.",
+    "power_pillar_1": "empower",
+    "power_pillar_2": "power_down",
+    "intensity": "moderate",
+    "daily_time": 5,
+    "weekly_freq": 3,
+    "experience_level": "Intermediate",
+    "modifications": "Use recorded ambient noise if a busy space isn\u2019t available.",
+    "coach_tip": "You may not control the room, but you always control your energy.",
+    "time_to_result": "Medium win (perform 3-6 times to see results)",
+    "outcomes": "- Recover talking flow within 10 seconds after interruptions. - Maintain task clarity in noisy environments for 5 minutes. - Identify at least one value-creating move when plans change.",
+    "categories": [
+      "Impact & Influence",
+      "Critical Thinking"
+    ],
+    "protocols": [
+      {
+        "purpose": "Recover from interruption",
+        "steps": "Practice speaking; when music interrupts, pause 10s; run See\u2013Hear\u2013Feel; continue",
+        "prescription": "3x/week",
+        "expected_outcome": "Faster recovery of composure",
+        "position": 1
+      },
+      {
+        "purpose": "Build comfort in chaos",
+        "steps": "Sit in a busy space; sustain See\u2013Hear\u2013Feel for 5 minutes",
+        "prescription": "3x/week",
+        "expected_outcome": "Maintained clarity amid noise",
+        "position": 2
+      },
+      {
+        "purpose": "Redefine the win",
+        "steps": "Pick a scenario; ask \u201cGiven where this is going, how can I still create value?\u201d; choose and execute one move",
+        "prescription": "Weekly",
+        "expected_outcome": "Productive outcomes despite low control",
+        "position": 3
+      }
+    ]
+  },
+  {
+    "module_id": "CT0001",
+    "contributor": "Paula V",
+    "title": "Concentration Power",
+    "overview": "Strengthen focused and open attention to improve task performance and reduce distraction cost.",
+    "core_concepts": "1. Attention can be trained like a muscle. \n2. Alternating focused and open modes builds flexibility. \n3. Time-boxed sprints reduce switching costs.",
+    "power_pillar_1": "power_down",
+    "power_pillar_2": "power_through",
+    "intensity": "moderate",
+    "daily_time": 5,
+    "weekly_freq": null,
+    "experience_level": "Beginner",
+    "modifications": "Start with 60\u201390 seconds if needed; use earplugs for noise sensitivity.",
+    "coach_tip": "Protect your attention like a resource.",
+    "time_to_result": "Quick win (perform <3 times to see results)",
+    "outcomes": "- Hold focused attention on an anchor for 2 minutes without switching. - Increase productive time via time-boxed sprints. - Reduce perceived distraction frequency.",
+    "categories": [
+      "Critical Thinking",
+      "Decision Making & Taking Action"
+    ],
+    "protocols": [
+      {
+        "purpose": "Train focused attention",
+        "steps": "Choose an anchor (breath/object/mantra/sound); sustain attention for 2 minutes; when distracted, gently return",
+        "prescription": "Daily",
+        "expected_outcome": "Longer focus windows",
+        "position": 1
+      },
+      {
+        "purpose": "Train open awareness",
+        "steps": "Sit comfortably; allow thoughts/images/sensations to pass; drop the urge to fix",
+        "prescription": "Daily, 2\u20135 minutes",
+        "expected_outcome": "Lower reactivity to thoughts",
+        "position": 2
+      },
+      {
+        "purpose": "Execute a sprint",
+        "steps": "Pick the next task; set a 25-minute timer; silence notifications; work solely on it; break and celebrate",
+        "prescription": "2\u20134 sprints/day",
+        "expected_outcome": "Higher task completion",
+        "position": 3
+      }
+    ]
+  },
+  {
+    "module_id": "CT0002",
+    "contributor": "Paula V",
+    "title": "Mental Reset Micro-Breaks for a Demanding Day",
+    "overview": "Short, targeted resets to clear mental clutter and restore productive energy during heavy days.",
+    "core_concepts": "1. Brief state shifts restore cognitive resources. \n2. Sensory re-anchoring interrupts fatigue loops. \n3. Guided imagery and journaling clarify priorities.",
+    "power_pillar_1": "power_down",
+    "power_pillar_2": "power_through",
+    "intensity": "low",
+    "daily_time": 5,
+    "weekly_freq": null,
+    "experience_level": "Beginner",
+    "modifications": "Do seated/standing as needed; pair with a short walk if possible.",
+    "coach_tip": "Reset before you force productivity.",
+    "time_to_result": "Quick win (perform <3 times to see results)",
+    "outcomes": "- Insert at least two micro-breaks on demanding days. - Report improved clarity post-reset. - Reduce error rate during long work blocks.",
+    "categories": [
+      "Critical Thinking",
+      "Habit Mastery & Self-Discipline"
+    ],
+    "protocols": [
+      {
+        "purpose": "Step out to reset",
+        "steps": "Leave the task space; run See\u2013Hear\u2013Feel (far gaze, non-task sound, one tactile sensation)",
+        "prescription": "As needed during long blocks",
+        "expected_outcome": "Quick state refresh",
+        "position": 1
+      },
+      {
+        "purpose": "Shift state with imagery",
+        "steps": "Close eyes 1 minute; visualize a calm place; add See\u2013Hear\u2013Feel inside the scene; bring one quality back into work",
+        "prescription": "1\u20132x/day",
+        "expected_outcome": "Improved calm and focus",
+        "position": 2
+      },
+      {
+        "purpose": "Clarify the day",
+        "steps": "5-minute brain dump; ask \u201cWhat is the most important thing today?\u201d; write the answer; revisit it",
+        "prescription": "Daily",
+        "expected_outcome": "Better prioritization",
+        "position": 3
+      }
+    ]
+  },
+  {
+    "module_id": "PV0001",
+    "contributor": "Andrea F",
+    "title": "Better Breakfasts: Maximize Nutrition and Energy",
+    "overview": "Use breakfast to stabilize energy, focus, and digestion through protein targeting, hydration, and balanced portions.",
+    "core_concepts": "1. Protein supports satiety and glycemic stability. \n2. Morning hydration improves mood and attention. \n3. Balanced macros regulate blood sugar and energy release.",
+    "power_pillar_1": "power_up",
+    "power_pillar_2": "power_through",
+    "intensity": "low",
+    "daily_time": 5,
+    "weekly_freq": 5,
+    "experience_level": "Beginner",
+    "modifications": "Swap proteins (tofu, Greek yogurt, eggs, fish); use grab-and-go options (overnight oats, egg muffins, smoothies).",
+    "coach_tip": "Build breakfast around protein first, then add balance.",
+    "time_to_result": "Quick win (perform <3 times to see results)",
+    "outcomes": "- Eat 20g protein at breakfast 5 days/week. - Report 30% fewer mid-morning energy crashes. - Reduce digestive discomfort by 25% over 4 weeks.",
+    "categories": [
+      "Physical Vitality & Strength",
+      "Habit Mastery & Self-Discipline"
+    ],
+    "protocols": [
+      {
+        "purpose": "Build sustained energy",
+        "steps": "Within 30 minutes of waking, include 20g protein; pair with fiber-rich carbs and healthy fats; log energy 2 hours later (1\u201310)",
+        "prescription": "Daily",
+        "expected_outcome": "Fewer pre-lunch cravings and steadier energy",
+        "position": 1
+      },
+      {
+        "purpose": "Enhance focus via hydration",
+        "steps": "Drink 500 ml water upon waking; add electrolytes if training",
+        "prescription": "Daily before first meal",
+        "expected_outcome": "Reduced morning sluggishness",
+        "position": 2
+      },
+      {
+        "purpose": "Balance portions for steady digestion",
+        "steps": "Plate \u00bd fruit/veg, \u00bc protein, \u00bc whole grains; add small healthy fats; eat slowly and rate fullness at +15 min",
+        "prescription": "Daily",
+        "expected_outcome": "Fewer dips and less bloating",
+        "position": 3
+      }
+    ]
+  },
+  {
+    "module_id": "PV0002",
+    "contributor": "Andrea F",
+    "title": "Anti-Inflammatory Eating for Mood Stability",
+    "overview": "Apply anti-inflammatory nutrition patterns to support mood stability through the day.",
+    "core_concepts": "1. Dietary patterns influence inflammatory markers linked to mood. \n2. Omega-3s, polyphenols, and fiber are protective. \n3. Reducing ultra-processed foods lowers inflammatory load.",
+    "power_pillar_1": "power_up",
+    "power_pillar_2": "power_through",
+    "intensity": "low",
+    "daily_time": 5,
+    "weekly_freq": 3,
+    "experience_level": "Intermediate",
+    "modifications": "For sensitive digestion, start with cooked plants and gradual fiber increases.",
+    "coach_tip": "Choose foods that help your mood stay steadier over time.",
+    "time_to_result": "Medium win (perform 3-6 times to see results)",
+    "outcomes": "- Increase weekly servings of fatty fish/omega-3 sources. - Include polyphenol-rich plants daily. - Reduce ultra-processed foods to 3 servings/week.",
+    "categories": [
+      "Physical Vitality & Strength",
+      "Emotional Resilience"
+    ],
+    "protocols": [
+      {
+        "purpose": "Elevate omega-3 intake",
+        "steps": "Plan 2\u20133 fatty fish meals/week or supplement per clinician guidance; add flax/chia/walnuts on non-fish days",
+        "prescription": "Weekly meal planning plus daily additions",
+        "expected_outcome": "More stable mood over weeks",
+        "position": 1
+      },
+      {
+        "purpose": "Boost polyphenols and fiber",
+        "steps": "Add two colors of plants at each meal (berries, leafy greens, herbs, legumes)",
+        "prescription": "Every meal",
+        "expected_outcome": "Reduced inflammation signals",
+        "position": 2
+      },
+      {
+        "purpose": "Cut ultra-processed load",
+        "steps": "Identify top 3 trigger foods; swap each for a minimally processed option; track cravings and energy for 2 weeks",
+        "prescription": "Daily swaps",
+        "expected_outcome": "Fewer energy swings",
+        "position": 3
+      }
+    ]
+  },
+  {
+    "module_id": "PV0003",
+    "contributor": "Andrea F",
+    "title": "Eating for Cognitive Clarity",
+    "overview": "Nutrition strategies to sharpen attention, working memory, and verbal fluency for high-stakes work.",
+    "core_concepts": "1. Stable blood sugar underpins cognitive performance. \n2. Hydration and electrolytes affect attention and mood. \n3. Specific nutrients support brain function.",
+    "power_pillar_1": "empower",
+    "power_pillar_2": "power_through",
+    "intensity": "high",
+    "daily_time": 5,
+    "weekly_freq": null,
+    "experience_level": "Intermediate",
+    "modifications": "Use a simple habit tracker (water, protein-first, post-meal walk).",
+    "coach_tip": "Feed focus before you ask your brain to perform.",
+    "time_to_result": "Medium win (perform 3-6 times to see results)",
+    "outcomes": "- Reduce afternoon brain-fog incidents by 30%. - Improve post-meal focus ratings by 20%. - Hit daily hydration targets for 14 consecutive days.",
+    "categories": [
+      "Physical Vitality & Strength",
+      "Critical Thinking"
+    ],
+    "protocols": [
+      {
+        "purpose": "Stabilize glucose",
+        "steps": "Prioritize protein and vegetables first at meals; add whole-grain carbs last; consider a 10-minute post-meal walk",
+        "prescription": "Every main meal",
+        "expected_outcome": "Fewer post-meal dips",
+        "position": 1
+      },
+      {
+        "purpose": "Hit hydration targets",
+        "steps": "Set a 2\u20132.5 L/day baseline; add 300\u2013500 ml around workouts; include electrolytes when needed",
+        "prescription": "Daily",
+        "expected_outcome": "Improved sustained attention",
+        "position": 2
+      },
+      {
+        "purpose": "Cover cognition-supportive nutrients",
+        "steps": "Plan weekly: eggs for choline, leafy greens for folate, legumes for B-vitamins, fatty fish for omega-3",
+        "prescription": "Weekly meal map",
+        "expected_outcome": "Sharper mental clarity",
+        "position": 3
+      }
+    ]
+  },
+  {
+    "module_id": "CP0001",
+    "contributor": "Jenna M",
+    "title": "Walk with Command - Confidence in Heels",
+    "overview": "Enhance body awareness, reduce the risk of injury, and create a smoother, more assured gait, essential for commanding presence in professional and social environments.",
+    "core_concepts": "1. Ankle and calf strength provide the foundation for confident heel-wearing. \n2. Single-leg balance enables smoother movement. \n3. Mind and body awareness, intentional alignment of posture and stride, projects confidence. \n4. Muscular endurance sustains comfort and control over long-duration events.",
+    "power_pillar_1": "empower",
+    "power_pillar_2": "power_up",
+    "intensity": "moderate",
+    "daily_time": null,
+    "weekly_freq": null,
+    "experience_level": "",
+    "modifications": "",
+    "coach_tip": "",
+    "time_to_result": "",
+    "outcomes": "- Improve ankle stability, demonstrated by holding a single-leg balance for 30 seconds without support. - Increase calf and ankle endurance, reducing fatigue when wearing heels for extended periods. - Report a 30% increase in perceived comfort when standing or walking in heels during meetings or events. - Demonstrate more fluid, confident gait with a 40% reduction in instability or the feeling of being unbalanced during movement in heels.",
+    "categories": [
+      "Commanding Presence",
+      "Physical Vitality & Strength"
+    ],
+    "protocols": [
+      {
+        "purpose": "Strengthen the calves and Achilles tendon to stabilize the ankle when elevated in heels",
+        "steps": "1. Stand with feet hip-width apart, near a wall or chair for light support. 2. Rise up onto the balls of your feet, lifting heels as high as possible. 3. Hold for 2 seconds, then lower slowly. 4. Focus on engaging calves evenly and maintaining tall posture",
+        "prescription": "3 sets of 12\u201315 reps, 3x/week. Progress to single-leg raises when stronger",
+        "position": 1
+      },
+      {
+        "purpose": "Improve balance and ankle proprioception for confident movement in heels",
+        "steps": "1. Stand tall and shift weight onto one foot. 2. Slightly elevate heel as if mimicking standing in heels. 3. Hold balance for 20\u201330 seconds, maintaining posture. 4. Switch sides. For added challenge, close eyes or move arms slowly",
+        "prescription": "3\u20134 rounds per leg, daily practice",
+        "position": 2
+      },
+      {
+        "purpose": "Integrate posture, core stability, and gait mechanics for walking smoothly and confidently in heels",
+        "steps": "1. Stand tall, shoulders back, core gently engaged. 2. Walk slowly across a room, placing heel down first, then rolling through the ball of the foot. 3. Focus on controlled, even strides with minimal sway. 4. Repeat for 5\u20137 minutes, maintaining presence and upright posture",
+        "prescription": "Daily practice, particularly before important meetings or events",
+        "position": 3
+      },
+      {
+        "purpose": "Build endurance in ankle stabilizers while engaging posterior chain, including posture muscles, glutes, and hamstrings, providing awareness for all-day confidence",
+        "steps": "1. Lie on the floor on your back with legs almost fully straight and feet hip-width apart, place the balls of the feet on the yoga block or step. 2. Lift heels off the ground, placing body weight into the yoga block or step as though standing in heels. 3. Extend arms back and into the ground and squeeze shoulder blades together. 4. Lift hips and glutes into the air to add resistance to the exercise. 5. Hold the elevated body position for 10\u201330 seconds, focusing on steady breathing. 6. Lower slowly",
+        "prescription": "2\u20133 sets, 3x/week",
+        "position": 4
+      }
+    ]
+  },
+  {
+    "module_id": "CP0002",
+    "contributor": "Jenna M",
+    "title": "Embodying Authority Without Saying a Word",
+    "overview": "Use posture and stance to carry yourself with authority, reduce nervous energy, and sustain physical presence throughout meetings and presentations.",
+    "core_concepts": "1. Body alignment signals confidence, energy, and leadership credibility. \n2. A grounded, upright posture increases stability and reduces nervous fidgeting. \n3. Proper stance reduces stress load on muscles, conserving energy for cognitive performance.",
+    "power_pillar_1": "empower",
+    "power_pillar_2": "power_up",
+    "intensity": "moderate",
+    "daily_time": null,
+    "weekly_freq": null,
+    "experience_level": "",
+    "modifications": "",
+    "coach_tip": "",
+    "time_to_result": "",
+    "outcomes": "- Demonstrate improved posture and stance in 80% of observed interactions. - Hold upright, confident posture for the duration of a meeting or presentation with perceived exertion 4 or less on Borg\u2019s Scale. - Reduce fidgeting or nervous body language during speaking by 50%.",
+    "categories": [
+      "Commanding Presence",
+      "Stress & Anxiety"
+    ],
+    "protocols": [
+      {
+        "purpose": "Train awareness of neutral posture and create a reliable reset before meetings",
+        "steps": "Stand with feet hip-width apart, knees soft. Roll shoulders up, back, and down, opening the chest. Imagine a string lifting from the crown of your head to elongate the spine. Breathe deeply, holding posture for 30 seconds",
+        "prescription": "Repeat before every meeting or presentation",
+        "position": 1
+      },
+      {
+        "purpose": "Reduce fidgeting and increase physical stability",
+        "steps": "Place feet firmly on the ground, shoulder-width apart if standing; flat on the floor if seated. Shift weight evenly into both feet. On inhale, feel feet rooted; on exhale, release excess tension. Practice for 2 minutes before or during meetings",
+        "prescription": "Use anytime nerves rise to anchor presence",
+        "position": 2
+      },
+      {
+        "purpose": "Condition endurance for posture under stress",
+        "steps": "Assume Power Stance (feet grounded, chest open, head tall, arms relaxed at sides). Hold posture for 2 minutes while practicing calm, steady breathing. Increase to 5 minutes over time. Rate effort on Borg\u2019s Scale; should remain 4 or less",
+        "prescription": "Train daily to build posture stamina for presentations",
+        "position": 3
+      },
+      {
+        "purpose": "Strengthen spinal extensors and improve awareness of upright posture to reduce fatigue during long meetings or presentations",
+        "steps": "Lie face down on a mat, arms by your sides, palms down. Engage your core gently by pulling the navel slightly toward the spine. On inhale, lift your chest a few inches off the floor while keeping your gaze down; neck neutral. Squeeze shoulder blades together, opening the chest. Hold for 5\u201310 seconds while breathing steadily. Slowly lower back down",
+        "prescription": "Beginner: 2\u20133 sets, 3x/week. Progress to holding for 20\u201330 seconds per rep. Cue participants to feel the alignment between back muscle activation and upright posture",
+        "position": 4
+      }
+    ]
+  },
+  {
+    "module_id": "PV0004",
+    "contributor": "Jenna M",
+    "title": "Train with Intention, Perform with Precision",
+    "overview": "Boost safety and effectiveness of workouts, enhance movement confidence, and connect to your physical ability by tuning in to muscular activation and increasing proprioception.",
+    "core_concepts": "1. Build awareness of body position and movement to enhance control and safety. \n2. Emphasize quality and focus over speed or quantity. \n3. Use breathing patterns to stabilize posture and support efficient muscular activation. \n4. Prioritize correct technique and alignment to prevent injury and ensure effective training.",
+    "power_pillar_1": "power_through",
+    "power_pillar_2": "empower",
+    "intensity": "moderate",
+    "daily_time": null,
+    "weekly_freq": null,
+    "experience_level": "",
+    "modifications": "",
+    "coach_tip": "",
+    "time_to_result": "",
+    "outcomes": "- Higher quality reps, not just quantity. - Improved form and reduced injury risk. - Hold a single-leg balance for 30 seconds with proper form.",
+    "categories": [
+      "Physical Vitality & Strength",
+      "Commanding Presence"
+    ],
+    "protocols": []
+  },
+  {
+    "module_id": "II0012",
+    "contributor": "Myra",
+    "title": "Communicate with impact",
+    "overview": "Use clear, purposeful communication to create engagement, build trust, and drive action.",
+    "core_concepts": "1. Find your motivation so your passion is genuine. \n2. Make shared interest visible so others know why they should care. \n3. Say what you mean so your audience does not have to read between the lines.",
+    "power_pillar_1": "empower",
+    "power_pillar_2": "empower",
+    "intensity": "moderate",
+    "daily_time": 5,
+    "weekly_freq": 3,
+    "experience_level": "Beginner",
+    "modifications": "",
+    "coach_tip": "Keep your message simple, direct, and outcome-focused.",
+    "time_to_result": "Quick win (perform <3 times to see results)",
+    "outcomes": "- Increased engagement during your presentations. - Your opinions and recommendations are clear and build confidence. - Action is taken as a result of your words.",
+    "categories": [
+      "Impact & Influence",
+      "Commanding Presence"
+    ],
+    "protocols": []
+  },
+  {
+    "module_id": "II0013",
+    "contributor": "Myra",
+    "title": "Storytelling to influence decisions",
+    "overview": "Use stories to make ideas memorable, create meaning, and help others see why a decision matters.",
+    "core_concepts": "1. Stories make ideas easier to remember. \n2. Relevance increases influence. \n3. Emotion helps people connect to the message.",
+    "power_pillar_1": "empower",
+    "power_pillar_2": "empower",
+    "intensity": "moderate",
+    "daily_time": 5,
+    "weekly_freq": 3,
+    "experience_level": "Intermediate",
+    "modifications": "",
+    "coach_tip": "Use a story to make the point feel real, not just logical.",
+    "time_to_result": "Medium win (perform 3-6 times to see results)",
+    "outcomes": "- People remember the message more easily. - Your ideas feel more relevant and persuasive. - Decisions feel clearer and more human.",
+    "categories": [
+      "Impact & Influence",
+      "Emotional Resilience"
+    ],
+    "protocols": []
+  },
+  {
+    "module_id": "TL0001",
+    "contributor": "Myra",
+    "title": "Mobilize a team",
+    "overview": "Bring people into the process, remove barriers, and create shared ownership of the outcome.",
+    "core_concepts": "1. Engage all levels in solution and plan development; do not dictate. 2. Practice servant leadership and empower by removing barriers. 3. Celebrate incremental wins and reward positive leadership behaviours as much as results.",
+    "power_pillar_1": "empower",
+    "power_pillar_2": "empower",
+    "intensity": "moderate",
+    "daily_time": 5,
+    "weekly_freq": 3,
+    "experience_level": "Intermediate",
+    "modifications": "",
+    "coach_tip": "Build momentum by involving people early and often.",
+    "time_to_result": "Medium win (perform 3-6 times to see results)",
+    "outcomes": "- Team members have a sense of ownership and accountability. - Issues and blockers are surfaced quickly. - Engagement and productivity improve.",
+    "categories": [
+      "Team Leadership",
+      "Impact & Influence"
+    ],
+    "protocols": []
+  },
+  {
+    "module_id": "CP0003",
+    "contributor": "Myra",
+    "title": "Cool the tension and put people at ease",
+    "overview": "Create a calm, open tone so people feel safe, grounded, and able to engage constructively.",
+    "core_concepts": "1. Ease changes the tone of the room. \n2. Calm presence helps others settle. \n3. People respond better when tension is reduced.",
+    "power_pillar_1": "empower",
+    "power_pillar_2": "power_down",
+    "intensity": "low",
+    "daily_time": 5,
+    "weekly_freq": 3,
+    "experience_level": "Beginner",
+    "modifications": "",
+    "coach_tip": "Slow your pace and soften your tone before you try to solve anything.",
+    "time_to_result": "Quick win (perform <3 times to see results)",
+    "outcomes": "- The room feels less tense. - People are more open and cooperative. - Your presence reduces friction.",
+    "categories": [
+      "Commanding Presence",
+      "Emotional Resilience"
+    ],
+    "protocols": []
+  },
+  {
+    "module_id": "CP0004",
+    "contributor": "Myra",
+    "title": "Measured reactions in unexpected situations",
+    "overview": "Stay grounded, scan the moment objectively, and choose a constructive response when something catches you off guard.",
+    "core_concepts": "1. Remain objective; feedback is fruitful, do not take it personally. \n2. Stay focused on what matters most. \n3. Know when to lean in and when to park it.",
+    "power_pillar_1": "empower",
+    "power_pillar_2": "power_down",
+    "intensity": "moderate",
+    "daily_time": 5,
+    "weekly_freq": 3,
+    "experience_level": "Intermediate",
+    "modifications": "",
+    "coach_tip": "Pause first, then respond with intention.",
+    "time_to_result": "Medium win (perform 3-6 times to see results)",
+    "outcomes": "- Heart rate and stress levels remain level during difficult conversations. - You bounce back quickly after challenging interactions. - Disruption is brief and closure is quick for all parties.",
+    "categories": [
+      "Commanding Presence",
+      "Emotional Resilience"
+    ],
+    "protocols": []
+  },
+  {
+    "module_id": "DM0014",
+    "contributor": "Myra",
+    "title": "Make decisions with confidence",
+    "overview": "Decide clearly under pressure and follow through without getting stuck in hesitation.",
+    "core_concepts": "1. Confidence grows through practice. \n2. Clear decisions reduce hesitation. \n3. Follow-through builds trust in yourself.",
+    "power_pillar_1": "power_through",
+    "power_pillar_2": "empower",
+    "intensity": "moderate",
+    "daily_time": 5,
+    "weekly_freq": 3,
+    "experience_level": "Beginner",
+    "modifications": "",
+    "coach_tip": "Decide on the next right step instead of waiting for perfect certainty.",
+    "time_to_result": "Quick win (perform <3 times to see results)",
+    "outcomes": "- Decisions happen faster. - You spend less time second-guessing. - Follow-through becomes more consistent.",
+    "categories": [
+      "Decision Making & Taking Action",
+      "Emotional Resilience"
+    ],
+    "protocols": []
+  },
+  {
+    "module_id": "II0014",
+    "contributor": "Myra",
+    "title": "Increase your gravitational pull with colleagues",
+    "overview": "Build presence that draws people in, strengthens trust, and makes collaboration feel easier.",
+    "core_concepts": "1. Presence influences connection. \n2. Consistency builds trust. \n3. People are drawn to clarity and steadiness.",
+    "power_pillar_1": "empower",
+    "power_pillar_2": "empower",
+    "intensity": "moderate",
+    "daily_time": 5,
+    "weekly_freq": 3,
+    "experience_level": "Intermediate",
+    "modifications": "",
+    "coach_tip": "Be steady, warm, and easy to read.",
+    "time_to_result": "Medium win (perform 3-6 times to see results)",
+    "outcomes": "- People seek your input more often. - Collaboration feels easier. - Your presence builds trust.",
+    "categories": [
+      "Impact & Influence",
+      "Team Leadership"
+    ],
+    "protocols": []
+  },
+  {
+    "module_id": "CT0003",
+    "contributor": "Myra",
+    "title": "Focus on what matters most",
+    "overview": "Direct your attention toward what truly moves the needle and reduce distraction from low-value noise.",
+    "core_concepts": "1. Focus creates momentum. \n2. Not everything deserves attention. \n3. Clarity improves follow-through.",
+    "power_pillar_1": "power_up",
+    "power_pillar_2": "power_through",
+    "intensity": "moderate",
+    "daily_time": 5,
+    "weekly_freq": null,
+    "experience_level": "Beginner",
+    "modifications": "",
+    "coach_tip": "Keep asking, \u201cWhat matters most right now?\u201d",
+    "time_to_result": "Quick win (perform <3 times to see results)",
+    "outcomes": "- You spend more time on high-value priorities. - Distraction feels less controlling. - Follow-through improves.",
+    "categories": [
+      "Critical Thinking",
+      "Habit Mastery & Self-Discipline"
+    ],
+    "protocols": []
+  },
+  {
+    "module_id": "II0015",
+    "contributor": "TBD",
+    "title": "Build your personal brand",
+    "overview": "Present yourself with clarity and consistency so others understand your value and remember your voice.",
+    "core_concepts": "1. Repetition builds recognition. \n2. Clarity creates credibility. \n3. Your brand should reflect what you want to be known for.",
+    "power_pillar_1": "empower",
+    "power_pillar_2": "empower",
+    "intensity": "moderate",
+    "daily_time": 5,
+    "weekly_freq": 3,
+    "experience_level": "Intermediate",
+    "modifications": "",
+    "coach_tip": "Be consistent in how you show up, speak, and follow through.",
+    "time_to_result": "Medium win (perform 3-6 times to see results)",
+    "outcomes": "- People understand what you stand for. - Your message feels more consistent. - Your presence becomes more memorable.",
+    "categories": [
+      "Impact & Influence",
+      "Personal Relationships"
+    ],
+    "protocols": []
+  },
+  {
+    "module_id": "II0016",
+    "contributor": "Myra",
+    "title": "Control the conversation",
+    "overview": "Guide discussions toward clarity, outcomes, and mutual respect without becoming rigid or dominating.",
+    "core_concepts": "1. Know what motivates your audience. \n2. Facilitate, do not dictate, so defenses come down and the room stays open to your lead. \n3. Use bridging techniques to bring the conversation back from tangents.",
+    "power_pillar_1": "empower",
+    "power_pillar_2": "empower",
+    "intensity": "moderate",
+    "daily_time": 5,
+    "weekly_freq": 3,
+    "experience_level": "Beginner",
+    "modifications": "",
+    "coach_tip": "Lead with structure, not force.",
+    "time_to_result": "Quick win (perform <3 times to see results)",
+    "outcomes": "- You set and achieve specific meeting objectives. - People align on next steps. - Your key messages are remembered afterward.",
+    "categories": [
+      "Impact & Influence",
+      "Commanding Presence"
+    ],
+    "protocols": []
+  },
+  {
+    "module_id": "II0017",
+    "contributor": "Myra",
+    "title": "Trust your interpersonal instincts",
+    "overview": "Notice what is happening in the room and respond in a way that strengthens connection and credibility.",
+    "core_concepts": "1. Read the room. \n2. Trust what you sense. \n3. Use judgment and timing well.",
+    "power_pillar_1": "empower",
+    "power_pillar_2": "power_down",
+    "intensity": "low",
+    "daily_time": 5,
+    "weekly_freq": 3,
+    "experience_level": "Beginner",
+    "modifications": "",
+    "coach_tip": "Pay attention to the energy, not just the words.",
+    "time_to_result": "Quick win (perform <3 times to see results)",
+    "outcomes": "- You respond more naturally in conversations. - Your timing feels more intuitive. - Connection feels easier to build.",
+    "categories": [
+      "Impact & Influence",
+      "Personal Relationships"
+    ],
+    "protocols": []
+  },
+  {
+    "module_id": "II0001",
+    "contributor": "Myra",
+    "title": "Prime the Message",
+    "overview": "Clarify the message, outcome, and audience before an important conversation.",
+    "core_concepts": "1. Influence starts with clarity.\n2. People move when the ask is simple.\n3. Preparation reduces overexplaining.",
+    "power_pillar_1": "power_up",
+    "power_pillar_2": "empower",
+    "intensity": "low",
+    "daily_time": 5,
+    "weekly_freq": 3,
+    "experience_level": "Beginner",
+    "modifications": "Use voice notes instead of writing if needed.",
+    "coach_tip": "Clear beats clever. Start with one point, one ask, and one reason it matters.",
+    "time_to_result": "Short",
+    "outcomes": "\u2022 Speak with a clear main point.\n\u2022 State the desired outcome early.\n\u2022 Reduce rambling in important conversations.",
+    "categories": [
+      "Impact & Influence",
+      "Commanding Presence"
+    ],
+    "protocols": [
+      {
+        "purpose": "Clarify the main point",
+        "steps": "Write the message in one sentence; cut extra words; say it out loud once",
+        "prescription": "Before important conversations",
+        "expected_outcome": "Clearer communication",
+        "position": 1
+      },
+      {
+        "purpose": "Name the outcome",
+        "steps": "Finish the sentence \u201cBy the end of this conversation, I want\u2026\u201d; pick one outcome only",
+        "prescription": "Before meetings or asks",
+        "expected_outcome": "Stronger direction",
+        "position": 2
+      },
+      {
+        "purpose": "Match the audience",
+        "steps": "Note what matters most to the other person; adjust your first example to fit that priority",
+        "prescription": "Before key conversations",
+        "expected_outcome": "Better buy-in",
+        "position": 3
+      }
+    ]
+  },
+  {
+    "module_id": "II0002",
+    "contributor": "Andrea F",
+    "title": "Fuel for Long Conversations",
+    "overview": "Support steady energy and verbal clarity for meetings, pitches, and decision conversations.",
+    "core_concepts": "1. Stable energy supports better communication.\n2. Hydration helps focus.\n3. Light fueling beats showing up depleted.",
+    "power_pillar_1": "power_up",
+    "power_pillar_2": "power_through",
+    "intensity": "low",
+    "daily_time": 5,
+    "weekly_freq": 3,
+    "experience_level": "Beginner",
+    "modifications": "Adjust food choices for dietary needs.",
+    "coach_tip": "Do not try to influence on an empty tank.",
+    "time_to_result": "Short",
+    "outcomes": "\u2022 Fewer energy dips in long meetings.\n\u2022 Better focus and verbal control.\n\u2022 More steady presence through the day.",
+    "categories": [
+      "Impact & Influence",
+      "Commanding Presence"
+    ],
+    "protocols": [
+      {
+        "purpose": "Build steady energy",
+        "steps": "Eat a protein-forward meal or snack before a long conversation; avoid arriving hungry",
+        "prescription": "Before heavy work blocks",
+        "expected_outcome": "Fewer crashes",
+        "position": 1
+      },
+      {
+        "purpose": "Support mental clarity",
+        "steps": "Drink water before the conversation; refill once during long sessions",
+        "prescription": "Daily",
+        "expected_outcome": "Better focus and steadier pace",
+        "position": 2
+      },
+      {
+        "purpose": "Prevent jittery energy",
+        "steps": "Pair caffeine with food and set a cutoff time that protects sleep",
+        "prescription": "Use on high-demand days",
+        "expected_outcome": "More even energy",
+        "position": 3
+      }
+    ]
+  },
+  {
+    "module_id": "II0003",
+    "contributor": "Jenna M",
+    "title": "Speak with Your Body",
+    "overview": "Use posture, stance, and breath to support a more credible and confident delivery.",
+    "core_concepts": "1. Body language affects how messages land.\n2. Posture shapes breathing and voice.\n3. Small physical shifts change presence fast.",
+    "power_pillar_1": "power_through",
+    "power_pillar_2": "empower",
+    "intensity": "low",
+    "daily_time": 5,
+    "weekly_freq": 3,
+    "experience_level": "Beginner",
+    "modifications": "Can be done seated.",
+    "coach_tip": "Your body speaks before you do.",
+    "time_to_result": "Short",
+    "outcomes": "\u2022 Stronger physical presence.\n\u2022 More controlled voice and pace.\n\u2022 Less visible stress in meetings.",
+    "categories": [
+      "Impact & Influence",
+      "Commanding Presence"
+    ],
+    "protocols": [
+      {
+        "purpose": "Find a steady stance",
+        "steps": "Stand or sit tall; plant feet; relax jaw and shoulders",
+        "prescription": "Before and during important conversations",
+        "expected_outcome": "More grounded delivery",
+        "position": 1
+      },
+      {
+        "purpose": "Use breath to steady voice",
+        "steps": "Inhale through the nose; long exhale; speak on the next calm breath",
+        "prescription": "When pressure rises",
+        "expected_outcome": "Less rushing",
+        "position": 2
+      },
+      {
+        "purpose": "Build physical command",
+        "steps": "Practice one minute of stillness with eye line up and shoulders open before a meeting",
+        "prescription": "Daily on workdays",
+        "expected_outcome": "More visible confidence",
+        "position": 3
+      }
+    ]
+  },
+  {
+    "module_id": "II0004",
+    "contributor": "Paula V",
+    "title": "Stay Steady Through Pushback",
+    "overview": "Handle resistance without getting reactive, defensive, or thrown off course.",
+    "core_concepts": "1. Pushback is information.\n2. Regulation protects credibility.\n3. Calm keeps the door open.",
+    "power_pillar_1": "power_through",
+    "power_pillar_2": "power_down",
+    "intensity": "low",
+    "daily_time": 5,
+    "weekly_freq": 3,
+    "experience_level": "Beginner",
+    "modifications": "Use a written script for practice.",
+    "coach_tip": "Pushback does not mean stop.",
+    "time_to_result": "Short/Medium",
+    "outcomes": "\u2022 Respond more calmly to resistance.\n\u2022 Recover faster from challenge.\n\u2022 Keep the conversation productive.",
+    "categories": [
+      "Impact & Influence",
+      "Stress & Anxiety"
+    ],
+    "protocols": [
+      {
+        "purpose": "Slow the reaction",
+        "steps": "Pause; take one slow breath; relax shoulders before answering",
+        "prescription": "In live pushback moments",
+        "expected_outcome": "Less reactivity",
+        "position": 1
+      },
+      {
+        "purpose": "Find overlap",
+        "steps": "Name the concern you heard; identify one shared goal; answer from there",
+        "prescription": "During objections",
+        "expected_outcome": "More productive dialogue",
+        "position": 2
+      },
+      {
+        "purpose": "Protect your tone",
+        "steps": "Lower your pace; shorten your answer; end with one clear next point",
+        "prescription": "When emotions rise",
+        "expected_outcome": "Stronger trust and control",
+        "position": 3
+      }
+    ]
+  },
+  {
+    "module_id": "II0005",
+    "contributor": "Myra",
+    "title": "Build Buy-In Over Time",
+    "overview": "Treat influence as a series of touches, not a one-time pitch.",
+    "core_concepts": "1. Big shifts take repetition.\n2. Trust builds over time.\n3. Follow-up is part of influence.",
+    "power_pillar_1": "power_through",
+    "power_pillar_2": "empower",
+    "intensity": "low",
+    "daily_time": 10,
+    "weekly_freq": 1,
+    "experience_level": "Beginner",
+    "modifications": "Use a note template if helpful.",
+    "coach_tip": "Influence is built in layers.",
+    "time_to_result": "Medium/Long",
+    "outcomes": "\u2022 Better follow-up rhythm.\n\u2022 Stronger relationship-based influence.\n\u2022 More progress after initial conversations.",
+    "categories": [
+      "Impact & Influence",
+      "Team Leadership"
+    ],
+    "protocols": [
+      {
+        "purpose": "Plan the arc",
+        "steps": "Break one important influence goal into three touches: introduce, reinforce, follow up",
+        "prescription": "Weekly",
+        "expected_outcome": "Better pacing",
+        "position": 1
+      },
+      {
+        "purpose": "Keep momentum",
+        "steps": "After the conversation, send one simple recap with the ask or next step",
+        "prescription": "Within 24 hours",
+        "expected_outcome": "Greater clarity and follow-through",
+        "position": 2
+      },
+      {
+        "purpose": "Track trust",
+        "steps": "Note what matters to the other person and one way to support that priority next time",
+        "prescription": "After each key conversation",
+        "expected_outcome": "Better relationship-based influence",
+        "position": 3
+      }
+    ]
+  },
+  {
+    "module_id": "II0006",
+    "contributor": "Paula V",
+    "title": "Pause Before the Ask",
+    "overview": "Reset emotions before important influence moments so delivery stays intentional.",
+    "core_concepts": "1. A short pause changes quality of response.\n2. Regulation improves clarity.\n3. Intentionality beats urgency.",
+    "power_pillar_1": "power_down",
+    "power_pillar_2": "power_up",
+    "intensity": "low",
+    "daily_time": 5,
+    "weekly_freq": 3,
+    "experience_level": "Beginner",
+    "modifications": "Can be done silently.",
+    "coach_tip": "A short pause protects quality.",
+    "time_to_result": "Short",
+    "outcomes": "\u2022 More intentional starts to hard conversations.\n\u2022 Less emotional leakage.\n\u2022 Better focus on the real ask.",
+    "categories": [
+      "Impact & Influence",
+      "Stress & Anxiety"
+    ],
+    "protocols": [
+      {
+        "purpose": "Reset before speaking",
+        "steps": "Stop for 60 seconds; breathe slowly; name the purpose of the conversation",
+        "prescription": "Before difficult asks",
+        "expected_outcome": "Calmer entry",
+        "position": 1
+      },
+      {
+        "purpose": "Clear emotional noise",
+        "steps": "Write one sentence starting with \u201cWhat I do not need to carry into this conversation is\u2026\u201d",
+        "prescription": "Before the conversation",
+        "expected_outcome": "Less reactivity",
+        "position": 2
+      },
+      {
+        "purpose": "Re-enter with choice",
+        "steps": "Decide how you want to sound: calm, clear, firm; say those words once before starting",
+        "prescription": "Before key interactions",
+        "expected_outcome": "More intentional delivery",
+        "position": 3
+      }
+    ]
+  },
+  {
+    "module_id": "II0007",
+    "contributor": "Myra",
+    "title": "Know Your Non-Negotiables",
+    "overview": "Separate what must hold from what can flex in an important conversation.",
+    "core_concepts": "1. Clarity creates steadiness.\n2. Flexibility is easier when boundaries are known.\n3. Influence improves when priorities are explicit.",
+    "power_pillar_1": "power_down",
+    "power_pillar_2": "empower",
+    "intensity": "low",
+    "daily_time": 5,
+    "weekly_freq": 2,
+    "experience_level": "Beginner",
+    "modifications": "Use scripts if boundaries feel hard.",
+    "coach_tip": "Know what must hold.",
+    "time_to_result": "Short",
+    "outcomes": "\u2022 Better boundary clarity.\n\u2022 Faster choices in live conversation.\n\u2022 Less overcompromising.",
+    "categories": [
+      "Impact & Influence",
+      "Decision Making & Taking Action"
+    ],
+    "protocols": [
+      {
+        "purpose": "Identify the line",
+        "steps": "Write one non-negotiable, one preference, and one trade you can make",
+        "prescription": "Before negotiations or asks",
+        "expected_outcome": "Clearer boundaries",
+        "position": 1
+      },
+      {
+        "purpose": "Hold the line calmly",
+        "steps": "Practice one simple sentence that states your boundary without apology",
+        "prescription": "Rehearse before the conversation",
+        "expected_outcome": "More confidence",
+        "position": 2
+      },
+      {
+        "purpose": "Stay flexible where it helps",
+        "steps": "List two ways the plan could flex without losing the real outcome",
+        "prescription": "Before key meetings",
+        "expected_outcome": "More adaptable influence",
+        "position": 3
+      }
+    ]
+  },
+  {
+    "module_id": "II0008",
+    "contributor": "Myra",
+    "title": "Read the Room Fast",
+    "overview": "Notice cues in tone, energy, timing, and attention so you can adjust without losing direction.",
+    "core_concepts": "1. Influence requires awareness.\n2. Timing matters.\n3. Adjustment is a strength, not a retreat.",
+    "power_pillar_1": "empower",
+    "power_pillar_2": "power_through",
+    "intensity": "low",
+    "daily_time": 5,
+    "weekly_freq": 2,
+    "experience_level": "Beginner",
+    "modifications": "Use 3 cue categories only if too much detail is overwhelming.",
+    "coach_tip": "Reading the room helps it land better.",
+    "time_to_result": "Medium",
+    "outcomes": "\u2022 Better real-time adjustment.\n\u2022 Stronger situational awareness.\n\u2022 More effective timing.",
+    "categories": [
+      "Impact & Influence",
+      "Critical Thinking"
+    ],
+    "protocols": [
+      {
+        "purpose": "Scan before speaking",
+        "steps": "Note energy level, attention, urgency, and openness in the room",
+        "prescription": "At the start of meetings",
+        "expected_outcome": "Better read on context",
+        "position": 1
+      },
+      {
+        "purpose": "Adjust the approach",
+        "steps": "Decide whether to push, pause, or simplify based on what you observe",
+        "prescription": "In live conversations",
+        "expected_outcome": "Better message fit",
+        "position": 2
+      },
+      {
+        "purpose": "Learn from results",
+        "steps": "After the meeting, note one cue you read well and one you missed",
+        "prescription": "After key conversations",
+        "expected_outcome": "Better pattern recognition",
+        "position": 3
+      }
+    ]
+  },
+  {
+    "module_id": "II0009",
+    "contributor": "Myra",
+    "title": "Follow Through Builds Influence",
+    "overview": "Reputation grows when words and actions stay aligned after the meeting ends.",
+    "core_concepts": "1. Reliability builds trust.\n2. Clear follow-through strengthens credibility.\n3. Influence compounds over time.",
+    "power_pillar_1": "empower",
+    "power_pillar_2": "power_through",
+    "intensity": "low",
+    "daily_time": 5,
+    "weekly_freq": 2,
+    "experience_level": "Beginner",
+    "modifications": "Use calendar reminders.",
+    "coach_tip": "Your word must mean something.",
+    "time_to_result": "Short/Medium",
+    "outcomes": "\u2022 Better reliability.\n\u2022 Clearer next steps after meetings.\n\u2022 Stronger reputation over time.",
+    "categories": [
+      "Impact & Influence",
+      "Habit Mastery & Self-Discipline"
+    ],
+    "protocols": [
+      {
+        "purpose": "Close the loop",
+        "steps": "Write the next step, owner, and date immediately after a key conversation",
+        "prescription": "After each key meeting",
+        "expected_outcome": "Better execution",
+        "position": 1
+      },
+      {
+        "purpose": "Build credibility",
+        "steps": "Send the follow-up when you said you would",
+        "prescription": "Same day or next day",
+        "expected_outcome": "Stronger trust",
+        "position": 2
+      },
+      {
+        "purpose": "Track your pattern",
+        "steps": "Review open loops twice a week and close one",
+        "prescription": "2x/week",
+        "expected_outcome": "Fewer dropped commitments",
+        "position": 3
+      }
+    ]
+  },
+  {
+    "module_id": "II0010",
+    "contributor": "Andrea F",
+    "title": "Protect Focus for High-Stakes Conversations",
+    "overview": "Reduce noise and support attention before important conversations.",
+    "core_concepts": "1. Focus is easier when basics are handled.\n2. Blood sugar and hydration affect attention.\n3. Less noise improves message quality.",
+    "power_pillar_1": "power_up",
+    "power_pillar_2": "power_down",
+    "intensity": "low",
+    "daily_time": 5,
+    "weekly_freq": 3,
+    "experience_level": "Beginner",
+    "modifications": "Adjust based on work context.",
+    "coach_tip": "Protect attention before you need it.",
+    "time_to_result": "Short",
+    "outcomes": "\u2022 Better attention before key meetings.\n\u2022 Fewer avoidable distractions.\n\u2022 More mental steadiness.",
+    "categories": [
+      "Impact & Influence",
+      "Critical Thinking"
+    ],
+    "protocols": [
+      {
+        "purpose": "Remove easy friction",
+        "steps": "Eat, hydrate, and clear one distraction before the meeting starts",
+        "prescription": "Before important conversations",
+        "expected_outcome": "Better focus",
+        "position": 1
+      },
+      {
+        "purpose": "Protect mental bandwidth",
+        "steps": "Silence notifications and keep one page of notes only",
+        "prescription": "During prep",
+        "expected_outcome": "Less split attention",
+        "position": 2
+      },
+      {
+        "purpose": "Re-enter quickly after interruption",
+        "steps": "Use one grounding breath and restate your main point in six words or fewer",
+        "prescription": "When interrupted",
+        "expected_outcome": "Faster recovery",
+        "position": 3
+      }
+    ]
+  },
+  {
+    "module_id": "DM0001",
+    "contributor": "Myra",
+    "title": "Name the Real Decision",
+    "overview": "Define the decision clearly before spending energy on it.",
+    "core_concepts": "1. Clear questions improve decisions.\n2. Vague problems create delay.\n3. Naming the decision reduces noise.",
+    "power_pillar_1": "power_up",
+    "power_pillar_2": "empower",
+    "intensity": "low",
+    "daily_time": 5,
+    "weekly_freq": 3,
+    "experience_level": "Beginner",
+    "modifications": "Use voice notes if needed.",
+    "coach_tip": "A good decision starts with the right question.",
+    "time_to_result": "Short",
+    "outcomes": "\u2022 Clearer decision framing.\n\u2022 Less wasted time.\n\u2022 Faster movement to action.",
+    "categories": [
+      "Decision Making & Taking Action",
+      "Critical Thinking"
+    ],
+    "protocols": [
+      {
+        "purpose": "Frame the choice",
+        "steps": "Complete \u201cThe decision I need to make is\u2026\u201d in one sentence",
+        "prescription": "At the start of a decision process",
+        "expected_outcome": "Better clarity",
+        "position": 1
+      },
+      {
+        "purpose": "Set the outcome",
+        "steps": "Define what success looks like in one line",
+        "prescription": "Before reviewing options",
+        "expected_outcome": "Better evaluation",
+        "position": 2
+      },
+      {
+        "purpose": "Bound the decision",
+        "steps": "Name what this decision is not about so you do not solve three problems at once",
+        "prescription": "During planning",
+        "expected_outcome": "Less confusion",
+        "position": 3
+      }
+    ]
+  },
+  {
+    "module_id": "DM0002",
+    "contributor": "Andrea F",
+    "title": "Eat for Clear Thinking",
+    "overview": "Use food and hydration to support alertness and faster thinking.",
+    "core_concepts": "1. Fuel affects cognition.\n2. Stable energy supports better choices.\n3. Light, balanced intake helps attention.",
+    "power_pillar_1": "power_up",
+    "power_pillar_2": "power_through",
+    "intensity": "low",
+    "daily_time": 5,
+    "weekly_freq": 3,
+    "experience_level": "Beginner",
+    "modifications": "Adjust for dietary needs.",
+    "coach_tip": "Clear thinking is easier when your brain is fed.",
+    "time_to_result": "Short",
+    "outcomes": "\u2022 Better focus for decisions.\n\u2022 Fewer energy crashes.\n\u2022 More consistent mental sharpness.",
+    "categories": [
+      "Decision Making & Taking Action",
+      "Physical Vitality & Strength"
+    ],
+    "protocols": [
+      {
+        "purpose": "Reduce the dip",
+        "steps": "Pair protein with fibre before long thinking blocks",
+        "prescription": "Before work requiring decisions",
+        "expected_outcome": "More steady thinking",
+        "position": 1
+      },
+      {
+        "purpose": "Support alertness",
+        "steps": "Hydrate before caffeine and maintain water intake",
+        "prescription": "Daily",
+        "expected_outcome": "Better concentration",
+        "position": 2
+      },
+      {
+        "purpose": "Avoid heavy fog",
+        "steps": "Choose a lighter meal before important decisions and note how your energy responds",
+        "prescription": "On decision-heavy days",
+        "expected_outcome": "Better mental clarity",
+        "position": 3
+      }
+    ]
+  },
+  {
+    "module_id": "DM0003",
+    "contributor": "Jenna M",
+    "title": "React Fast, Then Think",
+    "overview": "Train the body to get comfortable choosing and moving quickly under pressure.",
+    "core_concepts": "1. Physical drills improve response speed.\n2. Action reduces freeze.\n3. The body can train decisiveness.",
+    "power_pillar_1": "power_up",
+    "power_pillar_2": "power_through",
+    "intensity": "low",
+    "daily_time": 5,
+    "weekly_freq": 3,
+    "experience_level": "Beginner",
+    "modifications": "Use seated versions if needed.",
+    "coach_tip": "Speed is trained.",
+    "time_to_result": "Short/Medium",
+    "outcomes": "\u2022 Faster response under pressure.\n\u2022 Less hesitation.\n\u2022 Better comfort with quick action.",
+    "categories": [
+      "Decision Making & Taking Action",
+      "Commanding Presence"
+    ],
+    "protocols": [
+      {
+        "purpose": "Train fast choice",
+        "steps": "Use a simple reaction drill like left/right cue response for 60 seconds",
+        "prescription": "3x/week",
+        "expected_outcome": "Faster physical response",
+        "position": 1
+      },
+      {
+        "purpose": "Build action tolerance",
+        "steps": "Set a timer; choose between two options within 10 seconds; move immediately",
+        "prescription": "Daily",
+        "expected_outcome": "Less hesitation",
+        "position": 2
+      },
+      {
+        "purpose": "Pair movement and decision",
+        "steps": "Do 20 seconds of brisk movement then answer one short prompt fast",
+        "prescription": "3x/week",
+        "expected_outcome": "Better choice under pressure",
+        "position": 3
+      }
+    ]
+  },
+  {
+    "module_id": "DM0004",
+    "contributor": "Myra",
+    "title": "Decide and Name the Next Step",
+    "overview": "Turn decisions into immediate action.",
+    "core_concepts": "1. Execution starts with a next step.\n2. Delay grows when ownership is vague.\n3. Small action protects momentum.",
+    "power_pillar_1": "power_through",
+    "power_pillar_2": "empower",
+    "intensity": "low",
+    "daily_time": 5,
+    "weekly_freq": 3,
+    "experience_level": "Beginner",
+    "modifications": "Use templates for action planning.",
+    "coach_tip": "A decision is not complete until action starts.",
+    "time_to_result": "Short",
+    "outcomes": "\u2022 Faster start after decisions.\n\u2022 Better follow-through.\n\u2022 More visible momentum.",
+    "categories": [
+      "Decision Making & Taking Action",
+      "Habit Mastery & Self-Discipline"
+    ],
+    "protocols": [
+      {
+        "purpose": "Start movement",
+        "steps": "After making the decision, write the next physical action",
+        "prescription": "Every time a decision is made",
+        "expected_outcome": "Quicker action",
+        "position": 1
+      },
+      {
+        "purpose": "Assign ownership",
+        "steps": "Name who owns the next step and by when",
+        "prescription": "In solo or team contexts",
+        "expected_outcome": "Better accountability",
+        "position": 2
+      },
+      {
+        "purpose": "Remove drag",
+        "steps": "Make the first action take less than five minutes",
+        "prescription": "When resistance is high",
+        "expected_outcome": "Lower procrastination",
+        "position": 3
+      }
+    ]
+  },
+  {
+    "module_id": "DM0005",
+    "contributor": "Paula V",
+    "title": "Move Through Decision Discomfort",
+    "overview": "Stay in motion when the answer is unclear or uncomfortable.",
+    "core_concepts": "1. Discomfort is part of deciding.\n2. Avoidance grows with overthinking.\n3. Smaller steps lower resistance.",
+    "power_pillar_1": "power_through",
+    "power_pillar_2": "power_down",
+    "intensity": "low",
+    "daily_time": 5,
+    "weekly_freq": 3,
+    "experience_level": "Beginner",
+    "modifications": "Use shorter timers if needed.",
+    "coach_tip": "You do not need perfect certainty to move.",
+    "time_to_result": "Short/Medium",
+    "outcomes": "\u2022 Less freezing when choices feel hard.\n\u2022 Better tolerance for discomfort.\n\u2022 More movement through uncertainty.",
+    "categories": [
+      "Decision Making & Taking Action",
+      "Emotional Resilience"
+    ],
+    "protocols": [
+      {
+        "purpose": "Lower overwhelm",
+        "steps": "Break the next move into one smaller action",
+        "prescription": "When stuck",
+        "expected_outcome": "More movement",
+        "position": 1
+      },
+      {
+        "purpose": "Stay with the discomfort",
+        "steps": "Set a 5-minute timer and work only on the first step",
+        "prescription": "When avoiding",
+        "expected_outcome": "Reduced resistance",
+        "position": 2
+      },
+      {
+        "purpose": "Normalize uncertainty",
+        "steps": "Say: \u201cI do not need perfect certainty to take the next step.\u201d Then act",
+        "prescription": "During difficult choices",
+        "expected_outcome": "More self-trust",
+        "position": 3
+      }
+    ]
+  },
+  {
+    "module_id": "DM0006",
+    "contributor": "Myra",
+    "title": "Use a Simple Decision Framework",
+    "overview": "Sort options without overthinking.",
+    "core_concepts": "1. Frameworks reduce mental clutter.\n2. Trade-offs become clearer when named.\n3. Structure builds confidence.",
+    "power_pillar_1": "empower",
+    "power_pillar_2": "power_down",
+    "intensity": "low",
+    "daily_time": 10,
+    "weekly_freq": 1,
+    "experience_level": "Beginner",
+    "modifications": "Keep the framework to one page.",
+    "coach_tip": "A simple structure beats spinning.",
+    "time_to_result": "Short/Medium",
+    "outcomes": "\u2022 Better structured decisions.\n\u2022 Clearer trade-offs.\n\u2022 Less circular thinking.",
+    "categories": [
+      "Decision Making & Taking Action",
+      "Critical Thinking"
+    ],
+    "protocols": [
+      {
+        "purpose": "Compare options",
+        "steps": "List the decision, top 3 options, key risks, and likely upside",
+        "prescription": "For medium to high-stakes choices",
+        "expected_outcome": "Better structured thinking",
+        "position": 1
+      },
+      {
+        "purpose": "Limit overanalysis",
+        "steps": "Use only three evaluation criteria and score each option quickly",
+        "prescription": "During option review",
+        "expected_outcome": "Faster decisions",
+        "position": 2
+      },
+      {
+        "purpose": "End the loop",
+        "steps": "Choose a review date after the decision instead of reopening it daily",
+        "prescription": "After deciding",
+        "expected_outcome": "Less rumination",
+        "position": 3
+      }
+    ]
+  },
+  {
+    "module_id": "DM0007",
+    "contributor": "Myra",
+    "title": "Reduce Decision Fatigue",
+    "overview": "Save mental energy for high-value decisions.",
+    "core_concepts": "1. Too many small choices drain focus.\n2. Defaults protect energy.\n3. Fewer trivial decisions improve better ones.",
+    "power_pillar_1": "power_down",
+    "power_pillar_2": "power_up",
+    "intensity": "low",
+    "daily_time": 5,
+    "weekly_freq": 2,
+    "experience_level": "Beginner",
+    "modifications": "Use one default first, not ten.",
+    "coach_tip": "Protect your brain for what matters most.",
+    "time_to_result": "Short",
+    "outcomes": "\u2022 More energy for important choices.\n\u2022 Fewer low-value decisions.\n\u2022 Better focus on priorities.",
+    "categories": [
+      "Decision Making & Taking Action",
+      "Prioritization & Time Mngmt."
+    ],
+    "protocols": [
+      {
+        "purpose": "Cut trivial choices",
+        "steps": "Identify three repeat decisions you can simplify this week",
+        "prescription": "Weekly",
+        "expected_outcome": "Less decision load",
+        "position": 1
+      },
+      {
+        "purpose": "Create defaults",
+        "steps": "Pre-decide one routine for meals, clothes, or planning blocks",
+        "prescription": "Weekly review",
+        "expected_outcome": "Better mental bandwidth",
+        "position": 2
+      },
+      {
+        "purpose": "Protect the best time",
+        "steps": "Schedule your hardest decision work during your sharpest hours",
+        "prescription": "Daily or weekly",
+        "expected_outcome": "Better quality decisions",
+        "position": 3
+      }
+    ]
+  },
+  {
+    "module_id": "DM0008",
+    "contributor": "Paula V",
+    "title": "Reset Before You Decide",
+    "overview": "Use a brief reset so decisions are made from clarity, not stress.",
+    "core_concepts": "1. Stress narrows thinking.\n2. Short resets improve perspective.\n3. Clarity improves after regulation.",
+    "power_pillar_1": "power_down",
+    "power_pillar_2": "power_up",
+    "intensity": "low",
+    "daily_time": 5,
+    "weekly_freq": 3,
+    "experience_level": "Beginner",
+    "modifications": "Can be done seated or walking.",
+    "coach_tip": "Reset first.",
+    "time_to_result": "Short",
+    "outcomes": "\u2022 Better emotional control before deciding.\n\u2022 More grounded choices.\n\u2022 Less reactive decision-making.",
+    "categories": [
+      "Decision Making & Taking Action",
+      "Stress & Anxiety"
+    ],
+    "protocols": [
+      {
+        "purpose": "Stop the spiral",
+        "steps": "Step away for 60 seconds; take slow breaths; unclench jaw and shoulders",
+        "prescription": "Before important decisions",
+        "expected_outcome": "Lower stress",
+        "position": 1
+      },
+      {
+        "purpose": "Re-enter with clarity",
+        "steps": "Ask: \u201cWhat matters most here?\u201d and write one answer",
+        "prescription": "After the reset",
+        "expected_outcome": "Better focus",
+        "position": 2
+      },
+      {
+        "purpose": "Check timing",
+        "steps": "Decide whether this choice needs action now or after sleep",
+        "prescription": "For emotionally charged decisions",
+        "expected_outcome": "Better pacing",
+        "position": 3
+      }
+    ]
+  },
+  {
+    "module_id": "DM0009",
+    "contributor": "Myra",
+    "title": "Lead the Decision Out Loud",
+    "overview": "Communicate a decision clearly so others know the direction, owner, and measure of success.",
+    "core_concepts": "1. Clarity drives action.\n2. Team execution needs explicit ownership.\n3. Good decisions are easier to follow when well communicated.",
+    "power_pillar_1": "empower",
+    "power_pillar_2": "power_through",
+    "intensity": "low",
+    "daily_time": 5,
+    "weekly_freq": 1,
+    "experience_level": "Beginner",
+    "modifications": "Use a standard closing script.",
+    "coach_tip": "Direction and ownership matter.",
+    "time_to_result": "Short",
+    "outcomes": "\u2022 Clearer decision communication.\n\u2022 Better team execution.\n\u2022 Stronger accountability.",
+    "categories": [
+      "Decision Making & Taking Action",
+      "Team Leadership"
+    ],
+    "protocols": [
+      {
+        "purpose": "State the decision",
+        "steps": "Say what has been decided in one sentence",
+        "prescription": "In meetings",
+        "expected_outcome": "Less ambiguity",
+        "position": 1
+      },
+      {
+        "purpose": "Name ownership",
+        "steps": "Identify who owns the next step and by when",
+        "prescription": "In real time",
+        "expected_outcome": "Better accountability",
+        "position": 2
+      },
+      {
+        "purpose": "Define success",
+        "steps": "State how progress or success will be measured",
+        "prescription": "At decision close",
+        "expected_outcome": "Easier follow-through",
+        "position": 3
+      }
+    ]
+  },
+  {
+    "module_id": "DM0010",
+    "contributor": "Jenna M",
+    "title": "Action Through a Physical Start",
+    "overview": "Use movement to break hesitation and create a stronger action state.",
+    "core_concepts": "1. Movement changes state quickly.\n2. The body can cue action.\n3. A physical start helps beat inertia.",
+    "power_pillar_1": "power_through",
+    "power_pillar_2": "power_up",
+    "intensity": "low",
+    "daily_time": 5,
+    "weekly_freq": 3,
+    "experience_level": "Beginner",
+    "modifications": "Use low-impact versions as needed.",
+    "coach_tip": "Sometimes the body gets you moving first.",
+    "time_to_result": "Short",
+    "outcomes": "\u2022 Faster transition from thinking to doing.\n\u2022 Lower avoidance.\n\u2022 More energy at action start.",
+    "categories": [
+      "Decision Making & Taking Action",
+      "Habit Mastery & Self-Discipline"
+    ],
+    "protocols": [
+      {
+        "purpose": "Start the body",
+        "steps": "Do 30-60 seconds of brisk movement before the first task",
+        "prescription": "Before action on avoided tasks",
+        "expected_outcome": "Better activation",
+        "position": 1
+      },
+      {
+        "purpose": "Pair movement with commitment",
+        "steps": "Say the task out loud and begin it immediately after the movement set",
+        "prescription": "Daily as needed",
+        "expected_outcome": "Less hesitation",
+        "position": 2
+      },
+      {
+        "purpose": "Build the pattern",
+        "steps": "Repeat the same start cue for one week so the body learns the routine",
+        "prescription": "Daily",
+        "expected_outcome": "Stronger action habit",
+        "position": 3
+      }
+    ]
+  },
+  {
+    "module_id": "CP0005",
+    "contributor": "Andrea F",
+    "title": "Fuel the Moment",
+    "overview": "Support steady energy, hydration, and focus before high-stakes interactions so presence does not drop when the moment gets real.",
+    "core_concepts": "1. Energy stability supports communication quality. \n2. Hydration helps attention and pace. \n3. Light fueling prevents crash-and-burn energy.",
+    "power_pillar_1": "power_up",
+    "power_pillar_2": "power_through",
+    "intensity": "moderate",
+    "daily_time": 3,
+    "weekly_freq": 1,
+    "experience_level": "Low",
+    "modifications": "Short",
+    "coach_tip": "No",
+    "time_to_result": "Beginner",
+    "outcomes": "- Fewer energy dips before meetings. - Better focus and verbal control. - More even presence through long days.",
+    "categories": [
+      "Commanding Presence",
+      "Critical Thinking"
+    ],
+    "protocols": []
+  },
+  {
+    "module_id": "CP0006",
+    "contributor": "Jenna M",
+    "title": "Speak with Your Body",
+    "overview": "Use posture, stance, and breath to support a more credible and confident delivery in meetings, presentations, and introductions.",
+    "core_concepts": "1. Body language affects how messages land. \n2. Posture shapes breathing and voice. \n3. Small physical shifts change presence fast.",
+    "power_pillar_1": "power_through",
+    "power_pillar_2": "empower",
+    "intensity": "moderate",
+    "daily_time": 3,
+    "weekly_freq": 1,
+    "experience_level": "Low",
+    "modifications": "Short",
+    "coach_tip": "No",
+    "time_to_result": "Beginner",
+    "outcomes": "- Stronger physical presence. - More controlled voice and pace. - Less visible stress in meetings.",
+    "categories": [
+      "Commanding Presence",
+      "Physical Vitality & Strength"
+    ],
+    "protocols": []
+  },
+  {
+    "module_id": "CP0007",
+    "contributor": "Myra",
+    "title": "Prime the Message",
+    "overview": "Clarify the message, audience, and desired outcome before an important conversation so the point lands quickly and cleanly.",
+    "core_concepts": "1. Influence starts with clarity. \n2. People move when the ask is simple. \n3. Preparation reduces overexplaining.",
+    "power_pillar_1": "power_up",
+    "power_pillar_2": "empower",
+    "intensity": "moderate",
+    "daily_time": 3,
+    "weekly_freq": 1,
+    "experience_level": "Low",
+    "modifications": "Short",
+    "coach_tip": "No",
+    "time_to_result": "Beginner",
+    "outcomes": "- Speak with a clearer main point. - State the desired outcome earlier. - Reduce rambling in important conversations.",
+    "categories": [
+      "Commanding Presence",
+      "Impact Influence"
+    ],
+    "protocols": []
+  },
+  {
+    "module_id": "CP0008",
+    "contributor": "Paula V",
+    "title": "Stay Steady Through Pushback",
+    "overview": "Handle resistance without getting reactive, defensive, or thrown off course so the conversation stays productive.",
+    "core_concepts": "1. Pushback is information. \n2. Regulation protects credibility. \n3. Calm keeps the door open.",
+    "power_pillar_1": "power_through",
+    "power_pillar_2": "power_down",
+    "intensity": "moderate",
+    "daily_time": 3,
+    "weekly_freq": null,
+    "experience_level": "Low-Moderate",
+    "modifications": "Short",
+    "coach_tip": "No",
+    "time_to_result": "Beginner",
+    "outcomes": "- Respond more calmly to resistance. - Recover faster from challenge. - Keep the conversation productive.",
+    "categories": [
+      "Commanding Presence",
+      "Stress Anxiety"
+    ],
+    "protocols": []
+  },
+  {
+    "module_id": "CP0009",
+    "contributor": "Myra",
+    "title": "Control the Conversation",
+    "overview": "Guide discussions toward clarity, outcomes, and mutual respect without becoming rigid or dominating.",
+    "core_concepts": "1. Know what motivates your audience. \n2. Facilitate, do not dictate, so defenses come down. 3. Use bridging techniques to bring the conversation back from tangents.",
+    "power_pillar_1": "power_through",
+    "power_pillar_2": "empower",
+    "intensity": "moderate",
+    "daily_time": 3,
+    "weekly_freq": 1,
+    "experience_level": "Low",
+    "modifications": "Short",
+    "coach_tip": "No",
+    "time_to_result": "Beginner",
+    "outcomes": "- Set and achieve specific meeting objectives. - People align on next steps. - Your key messages are remembered afterward.",
+    "categories": [
+      "Commanding Presence",
+      "Impact Influence"
+    ],
+    "protocols": []
+  },
+  {
+    "module_id": "CP0010",
+    "contributor": "Jenna M",
+    "title": "Carry the Room",
+    "overview": "Use posture, movement, and spatial awareness to enter a room with steadiness and visible confidence.",
+    "core_concepts": "1. Room entry shapes first impressions. \n2. Slow movement signals control. \n3. Awareness helps you claim space without force.",
+    "power_pillar_1": "power_through",
+    "power_pillar_2": "empower",
+    "intensity": "moderate",
+    "daily_time": 3,
+    "weekly_freq": null,
+    "experience_level": "Low",
+    "modifications": "Short",
+    "coach_tip": "No",
+    "time_to_result": "Beginner",
+    "outcomes": "- Slower, steadier room entry. - More deliberate movement. - Stronger first impression in live settings.",
+    "categories": [
+      "Commanding Presence",
+      "Physical Vitality & Strength"
+    ],
+    "protocols": []
+  }
+]
