@@ -2,6 +2,7 @@ defmodule SheCommandsWeb.IntakeLive.Index do
   use SheCommandsWeb, :live_view
 
   alias SheCommands.Intake
+  alias SheCommands.Plans
 
   @total_steps 8
 
@@ -59,11 +60,14 @@ defmodule SheCommandsWeb.IntakeLive.Index do
 
     case Intake.complete_intake_response(socket.assigns.response) do
       {:ok, response} ->
-        {:noreply,
-         socket
-         |> assign(:response, response)
-         |> assign(:current_step, @total_steps + 1)
-         |> put_flash(:info, gettext("Your intake is complete! Your plan is being generated."))}
+        socket =
+          socket
+          |> assign(:response, response)
+          |> assign(:current_step, @total_steps + 1)
+
+        socket = try_generate_plan(socket, response)
+
+        {:noreply, socket}
 
       {:error, _changeset} ->
         {:noreply,
@@ -190,6 +194,20 @@ defmodule SheCommandsWeb.IntakeLive.Index do
 
     {:ok, response} = Intake.update_intake_location(socket.assigns.response, attrs)
     assign(socket, :response, response)
+  end
+
+  defp try_generate_plan(socket, response) do
+    case Plans.generate_plan(response) do
+      {:ok, _plan} ->
+        put_flash(socket, :info, gettext("Your plan has been generated!"))
+
+      {:error, _reason} ->
+        put_flash(
+          socket,
+          :info,
+          gettext("Your intake is complete! Your plan is being assembled by our expert team.")
+        )
+    end
   end
 
   defp progress_percentage(current_step, total_steps) do
