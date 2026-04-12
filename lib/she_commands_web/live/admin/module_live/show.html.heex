@@ -1,0 +1,302 @@
+<Layouts.app flash={@flash} current_scope={@current_scope}>
+  <div class="w-full max-w-3xl mx-auto">
+    <%!-- Back Link --%>
+    <div class="mb-8">
+      <.link
+        navigate={~p"/admin/modules"}
+        class="text-xs font-label uppercase tracking-[0.15em] text-base-content/60 hover:text-base-content transition"
+      >
+        &larr; {gettext("Back to modules")}
+      </.link>
+    </div>
+
+    <%!-- Header --%>
+    <div class="mb-10">
+      <p class="font-label text-xs uppercase tracking-[0.25em] text-base-content/50 mb-4">
+        {@module.module_id} · {@module.contributor}
+      </p>
+      <h1 class="text-3xl sm:text-4xl font-serif italic leading-[1.1] tracking-[-0.02em] text-base-content">
+        {@module.title}
+      </h1>
+
+      <%!-- Completeness --%>
+      <div class="mt-4 flex items-center gap-3">
+        <span class="text-sm text-base-content/60">
+          {gettext("Completeness:")}
+        </span>
+        <span class={"text-sm font-semibold #{completeness_color(@completeness)}"}>
+          {@completeness}%
+        </span>
+        <%= if @missing_fields != [] do %>
+          <span class="text-xs text-base-content/40">
+            ({gettext("Missing: %{fields}", fields: Enum.join(@missing_fields, ", "))})
+          </span>
+        <% end %>
+      </div>
+    </div>
+
+    <%!-- Module Details --%>
+    <div class="space-y-8">
+      <%!-- Overview --%>
+      <%= if @module.overview do %>
+        <div>
+          <h2 class="font-label text-xs uppercase tracking-[0.15em] text-base-content/50 mb-3">
+            {gettext("Overview")}
+          </h2>
+          <p class="text-sm text-base-content/80 leading-relaxed">{@module.overview}</p>
+        </div>
+      <% end %>
+
+      <%!-- Core Concepts --%>
+      <%= if @module.core_concepts do %>
+        <div>
+          <h2 class="font-label text-xs uppercase tracking-[0.15em] text-base-content/50 mb-3">
+            {gettext("Core Concepts")}
+          </h2>
+          <p class="text-sm text-base-content/80 leading-relaxed whitespace-pre-line">
+            {@module.core_concepts}
+          </p>
+        </div>
+      <% end %>
+
+      <%!-- Metadata Grid --%>
+      <div>
+        <h2 class="font-label text-xs uppercase tracking-[0.15em] text-base-content/50 mb-3">
+          {gettext("Metadata")}
+        </h2>
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+          <div>
+            <p class="text-[10px] font-label uppercase tracking-[0.1em] text-base-content/40 mb-1">
+              {gettext("Power Pillar")}
+            </p>
+            <p class="text-sm text-base-content">
+              {format_power_pillar(@module.power_pillar_1)}
+              <%= if @module.power_pillar_2 do %>
+                <span class="text-base-content/40"> + </span>
+                {format_power_pillar(@module.power_pillar_2)}
+              <% end %>
+            </p>
+          </div>
+          <div>
+            <p class="text-[10px] font-label uppercase tracking-[0.1em] text-base-content/40 mb-1">
+              {gettext("Intensity")}
+            </p>
+            <p class="text-sm text-base-content">
+              {@module.intensity |> to_string() |> String.capitalize()}
+            </p>
+          </div>
+          <div>
+            <p class="text-[10px] font-label uppercase tracking-[0.1em] text-base-content/40 mb-1">
+              {gettext("Module Type")}
+            </p>
+            <p class="text-sm text-base-content">
+              {@module.module_type |> to_string() |> String.capitalize()}
+            </p>
+          </div>
+          <div>
+            <p class="text-[10px] font-label uppercase tracking-[0.1em] text-base-content/40 mb-1">
+              {gettext("Lead Time Fit")}
+            </p>
+            <p class="text-sm text-base-content">
+              {@module.lead_time_fit |> to_string() |> String.capitalize()}
+            </p>
+          </div>
+          <%= if @module.daily_time do %>
+            <div>
+              <p class="text-[10px] font-label uppercase tracking-[0.1em] text-base-content/40 mb-1">
+                {gettext("Daily Time")}
+              </p>
+              <p class="text-sm text-base-content">
+                {ngettext("%{count} min", "%{count} mins", @module.daily_time,
+                  count: @module.daily_time
+                )}
+              </p>
+            </div>
+          <% end %>
+          <%= if @module.weekly_freq do %>
+            <div>
+              <p class="text-[10px] font-label uppercase tracking-[0.1em] text-base-content/40 mb-1">
+                {gettext("Weekly Freq")}
+              </p>
+              <p class="text-sm text-base-content">{@module.weekly_freq}x</p>
+            </div>
+          <% end %>
+          <%= if @module.experience_level do %>
+            <div>
+              <p class="text-[10px] font-label uppercase tracking-[0.1em] text-base-content/40 mb-1">
+                {gettext("Experience Level")}
+              </p>
+              <p class="text-sm text-base-content">{@module.experience_level}</p>
+            </div>
+          <% end %>
+          <%= if @module.time_to_result do %>
+            <div>
+              <p class="text-[10px] font-label uppercase tracking-[0.1em] text-base-content/40 mb-1">
+                {gettext("Time to Result")}
+              </p>
+              <p class="text-sm text-base-content">{@module.time_to_result}</p>
+            </div>
+          <% end %>
+          <div>
+            <p class="text-[10px] font-label uppercase tracking-[0.1em] text-base-content/40 mb-1">
+              {gettext("Video")}
+            </p>
+            <p class="text-sm text-base-content">
+              {if @module.video_available, do: gettext("Yes"), else: gettext("No")}
+            </p>
+          </div>
+          <div>
+            <p class="text-[10px] font-label uppercase tracking-[0.1em] text-base-content/40 mb-1">
+              {gettext("Reward Eligible")}
+            </p>
+            <p class="text-sm text-base-content">
+              {if @module.reward_eligible, do: gettext("Yes"), else: gettext("No")}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <%!-- Goal Categories --%>
+      <%= if @module.goal_categories != [] do %>
+        <div>
+          <h2 class="font-label text-xs uppercase tracking-[0.15em] text-base-content/50 mb-3">
+            {gettext("Goal Categories")}
+          </h2>
+          <div class="flex gap-2">
+            <%= for cat <- @module.goal_categories do %>
+              <span class="text-xs font-label uppercase tracking-[0.1em] text-base-content/60 border border-base-content/15 px-3 py-1.5">
+                {cat.name}
+              </span>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+
+      <%!-- Outcomes --%>
+      <%= if @module.outcomes do %>
+        <div>
+          <h2 class="font-label text-xs uppercase tracking-[0.15em] text-base-content/50 mb-3">
+            {gettext("Outcomes")}
+          </h2>
+          <p class="text-sm text-base-content/80 leading-relaxed whitespace-pre-line">
+            {@module.outcomes}
+          </p>
+        </div>
+      <% end %>
+
+      <%!-- Outcome Keywords --%>
+      <%= if @module.outcome_keywords != [] do %>
+        <div>
+          <h2 class="font-label text-xs uppercase tracking-[0.15em] text-base-content/50 mb-3">
+            {gettext("Outcome Keywords")}
+          </h2>
+          <div class="flex gap-2 flex-wrap">
+            <%= for keyword <- @module.outcome_keywords do %>
+              <span class="text-xs text-base-content/60 border border-base-content/10 px-2 py-1">
+                {keyword}
+              </span>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+
+      <%!-- Protocols --%>
+      <%= if @module.protocols != [] do %>
+        <div>
+          <h2 class="font-label text-xs uppercase tracking-[0.15em] text-base-content/50 mb-3">
+            {gettext("Protocols")}
+          </h2>
+          <div class="space-y-6">
+            <%= for protocol <- Enum.sort_by(@module.protocols, & &1.position) do %>
+              <div class="border-l-2 border-base-content/15 pl-5">
+                <p class="font-label text-[10px] uppercase tracking-[0.15em] text-base-content/40 mb-2">
+                  {gettext("Protocol %{num}", num: protocol.position)}
+                </p>
+                <p class="text-sm font-semibold text-base-content mb-2">{protocol.purpose}</p>
+                <div class="space-y-2">
+                  <div>
+                    <p class="text-[10px] font-label uppercase tracking-[0.1em] text-base-content/40 mb-1">
+                      {gettext("Steps")}
+                    </p>
+                    <p class="text-sm text-base-content/70 leading-relaxed whitespace-pre-line">
+                      {protocol.steps}
+                    </p>
+                  </div>
+                  <div>
+                    <p class="text-[10px] font-label uppercase tracking-[0.1em] text-base-content/40 mb-1">
+                      {gettext("Prescription")}
+                    </p>
+                    <p class="text-sm text-base-content/70">{protocol.prescription}</p>
+                  </div>
+                  <%= if protocol.expected_outcome do %>
+                    <div>
+                      <p class="text-[10px] font-label uppercase tracking-[0.1em] text-base-content/40 mb-1">
+                        {gettext("Expected Outcome")}
+                      </p>
+                      <p class="text-sm text-base-content/70">{protocol.expected_outcome}</p>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+
+      <%!-- Modifications --%>
+      <%= if @module.modifications do %>
+        <div>
+          <h2 class="font-label text-xs uppercase tracking-[0.15em] text-base-content/50 mb-3">
+            {gettext("Modifications")}
+          </h2>
+          <p class="text-sm text-base-content/80 leading-relaxed">{@module.modifications}</p>
+        </div>
+      <% end %>
+
+      <%!-- Coach Tip --%>
+      <%= if @module.coach_tip do %>
+        <div>
+          <h2 class="font-label text-xs uppercase tracking-[0.15em] text-base-content/50 mb-3">
+            {gettext("Coach Tip")}
+          </h2>
+          <div class="border-l-2 border-base-content/30 pl-4">
+            <p class="text-sm text-base-content/70 italic font-serif leading-relaxed">
+              {@module.coach_tip}
+            </p>
+            <%= if @module.coach_tip_attribution do %>
+              <p class="text-xs text-base-content/40 mt-2">
+                — {@module.coach_tip_attribution}
+              </p>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+
+      <%!-- Sources --%>
+      <%= if @module.sources do %>
+        <div>
+          <h2 class="font-label text-xs uppercase tracking-[0.15em] text-base-content/50 mb-3">
+            {gettext("Sources")}
+          </h2>
+          <p class="text-sm text-base-content/70">{@module.sources}</p>
+        </div>
+      <% end %>
+
+      <%!-- Missing Fields --%>
+      <%= if @missing_fields != [] do %>
+        <div class="border border-warning/30 p-5 mt-8">
+          <h2 class="font-label text-xs uppercase tracking-[0.15em] text-warning mb-3">
+            {gettext("Missing Fields")}
+          </h2>
+          <div class="flex flex-wrap gap-2">
+            <%= for field <- @missing_fields do %>
+              <span class="text-xs text-warning/70 border border-warning/20 px-2 py-1">
+                {format_field_name(field)}
+              </span>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</Layouts.app>

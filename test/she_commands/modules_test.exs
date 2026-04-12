@@ -411,4 +411,67 @@ defmodule SheCommands.ModulesTest do
       assert Modules.list_protocols_for_module(module.id) == []
     end
   end
+
+  describe "module_completeness/1" do
+    test "returns 100% for a complete module" do
+      module =
+        module_fixture(%{
+          overview: "Overview",
+          core_concepts: "Concepts",
+          power_pillar_1: :power_up,
+          outcomes: "Outcomes",
+          modifications: "Modifications",
+          coach_tip: "Tip",
+          intensity: :high,
+          daily_time: 30,
+          weekly_freq: 3,
+          lead_time_fit: :short,
+          module_type: :foundational
+        })
+
+      {pct, missing} = Modules.module_completeness(module)
+      assert pct == 100
+      assert missing == []
+    end
+
+    test "returns correct percentage for partial module" do
+      module = module_fixture(%{overview: nil, core_concepts: nil, outcomes: nil})
+      {pct, missing} = Modules.module_completeness(module)
+      assert pct < 100
+      assert "overview" in missing
+      assert "core_concepts" in missing
+      assert "outcomes" in missing
+    end
+
+    test "returns 0% missing fields for minimal module" do
+      module =
+        module_fixture(%{
+          overview: nil,
+          core_concepts: nil,
+          outcomes: nil,
+          modifications: nil,
+          coach_tip: nil,
+          daily_time: nil,
+          weekly_freq: nil
+        })
+
+      {_pct, missing} = Modules.module_completeness(module)
+      assert missing != []
+    end
+  end
+
+  describe "list_contributors/0" do
+    test "returns unique contributor names" do
+      module_fixture(%{contributor: "Paula V"})
+      module_fixture(%{contributor: "Andrea F"})
+      module_fixture(%{contributor: "Paula V"})
+
+      contributors = Modules.list_contributors()
+      assert contributors == ["Andrea F", "Paula V"]
+    end
+
+    test "returns empty list when no modules" do
+      assert Modules.list_contributors() == []
+    end
+  end
 end

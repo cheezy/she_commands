@@ -126,6 +126,7 @@ defmodule SheCommands.Modules do
   - `:weekly_freq` - filter by max weekly frequency
   - `:lead_time_fit` - filter by lead time fit
   - `:module_type` - filter by module type
+  - `:contributor` - filter by contributor name
   """
   def filter_modules(criteria \\ %{}) do
     Module
@@ -135,54 +136,123 @@ defmodule SheCommands.Modules do
     |> Repo.all()
   end
 
+  @filter_handlers %{
+    goal_category_id: &__MODULE__.by_goal_category/2,
+    power_pillar: &__MODULE__.by_power_pillar/2,
+    intensity: &__MODULE__.by_intensity/2,
+    daily_time: &__MODULE__.by_max_daily_time/2,
+    weekly_freq: &__MODULE__.by_max_weekly_freq/2,
+    lead_time_fit: &__MODULE__.by_lead_time_fit/2,
+    module_type: &__MODULE__.by_module_type/2,
+    contributor: &__MODULE__.by_contributor/2
+  }
+
   defp apply_filters(query, criteria) do
-    Enum.reduce(criteria, query, fn
-      {:goal_category_id, id}, q -> by_goal_category(q, id)
-      {:power_pillar, pillar}, q -> by_power_pillar(q, pillar)
-      {:intensity, intensity}, q -> by_intensity(q, intensity)
-      {:daily_time, max_time}, q -> by_max_daily_time(q, max_time)
-      {:weekly_freq, max_freq}, q -> by_max_weekly_freq(q, max_freq)
-      {:lead_time_fit, fit}, q -> by_lead_time_fit(q, fit)
-      {:module_type, type}, q -> by_module_type(q, type)
-      _, q -> q
+    Enum.reduce(criteria, query, fn {key, value}, q ->
+      case Map.get(@filter_handlers, key) do
+        nil -> q
+        handler -> handler.(q, value)
+      end
     end)
   end
 
-  defp by_goal_category(query, goal_category_id) do
+  @doc false
+  def by_goal_category(query, goal_category_id) do
     from m in query,
       join: mgc in "modules_goal_categories",
       on: mgc.module_id == m.id,
       where: mgc.goal_category_id == ^goal_category_id
   end
 
-  defp by_power_pillar(query, power_pillar) do
+  @doc false
+  def by_power_pillar(query, power_pillar) do
     pillar_string = to_string(power_pillar)
 
     from m in query,
       where: m.power_pillar_1 == ^pillar_string or m.power_pillar_2 == ^pillar_string
   end
 
-  defp by_intensity(query, intensity) do
+  @doc false
+  def by_intensity(query, intensity) do
     intensity_string = to_string(intensity)
     from m in query, where: m.intensity == ^intensity_string
   end
 
-  defp by_max_daily_time(query, max_time) do
+  @doc false
+  def by_max_daily_time(query, max_time) do
     from m in query, where: is_nil(m.daily_time) or m.daily_time <= ^max_time
   end
 
-  defp by_max_weekly_freq(query, max_freq) do
+  @doc false
+  def by_max_weekly_freq(query, max_freq) do
     from m in query, where: is_nil(m.weekly_freq) or m.weekly_freq <= ^max_freq
   end
 
-  defp by_lead_time_fit(query, fit) do
+  @doc false
+  def by_lead_time_fit(query, fit) do
     fit_string = to_string(fit)
     from m in query, where: m.lead_time_fit == ^fit_string
   end
 
-  defp by_module_type(query, type) do
+  @doc false
+  def by_module_type(query, type) do
     type_string = to_string(type)
     from m in query, where: m.module_type == ^type_string
+  end
+
+  @doc false
+  def by_contributor(query, contributor) do
+    from m in query, where: m.contributor == ^contributor
+  end
+
+  ## Completeness
+
+  @completeness_fields [
+    :overview,
+    :core_concepts,
+    :power_pillar_1,
+    :outcomes,
+    :modifications,
+    :coach_tip,
+    :intensity,
+    :daily_time,
+    :weekly_freq,
+    :lead_time_fit,
+    :module_type
+  ]
+
+  @doc """
+  Returns a completeness percentage and list of missing fields for a module.
+  """
+  def module_completeness(%Module{} = module) do
+    total = length(@completeness_fields)
+
+    filled =
+      Enum.count(@completeness_fields, fn field ->
+        value = Map.get(module, field)
+        value != nil and value != ""
+      end)
+
+    missing =
+      @completeness_fields
+      |> Enum.reject(fn field ->
+        value = Map.get(module, field)
+        value != nil and value != ""
+      end)
+      |> Enum.map(&to_string/1)
+
+    {round(filled / total * 100), missing}
+  end
+
+  @doc """
+  Returns the list of unique contributors across all modules.
+  """
+  def list_contributors do
+    Module
+    |> select([m], m.contributor)
+    |> distinct(true)
+    |> order_by(:contributor)
+    |> Repo.all()
   end
 
   ## Protocols

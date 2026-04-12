@@ -89,6 +89,12 @@ defmodule SheCommandsWeb.Router do
 
   scope "/admin", SheCommandsWeb do
     pipe_through [:browser, :require_authenticated_user, :require_admin]
+
+    live_session :admin,
+      on_mount: [{SheCommandsWeb.UserAuth, :ensure_admin}] do
+      live "/modules", Admin.ModuleLive.Index, :index
+      live "/modules/:id", Admin.ModuleLive.Show, :show
+    end
   end
 
   ## Development routes
