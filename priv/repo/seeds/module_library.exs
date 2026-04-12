@@ -18,151 +18,203 @@ goal_categories = [
   %{
     name: "Commanding Presence",
     slug: "commanding-presence",
-    description: "Build confidence, executive presence, and the ability to command any room you walk into.",
-    outcome_power_up: "Fuel your body and mind for high-visibility moments",
-    outcome_power_through: "Build physical and mental stamina for sustained performance",
-    outcome_power_down: "Manage pre-event nerves and post-performance recovery",
-    outcome_empower: "Develop your leadership voice and personal brand",
+    description:
+      "You build confidence, executive presence, and speak with authority and clarity.",
+    outcome_power_up:
+      "Hone focus, anti-slump nutrition, caffeine control, hydration, self-motivation",
+    outcome_power_through: "Posture, body language, maintain composure",
+    outcome_power_down: "Eliminate distractions, breath control, anxiety release",
+    outcome_empower:
+      "Project confidence, communicate with clarity, authentic leadership, overcoming imposter syndrome",
     position: 1
   },
   %{
-    name: "Critical Thinking",
-    slug: "critical-thinking",
-    description: "Strengthen analytical reasoning, challenge assumptions, and make better judgments under complexity.",
-    outcome_power_up: "Optimize cognitive fuel for sharper analysis",
-    outcome_power_through: "Build mental endurance for sustained focus",
-    outcome_power_down: "Clear mental fog and reduce cognitive overload",
-    outcome_empower: "Develop frameworks for structured thinking",
+    name: "Habit Mastery & Self-Discipline",
+    slug: "habit-mastery",
+    description: "You build and sustain habits that serve long-term goals.",
+    outcome_power_up:
+      "Morning fuel, consistent meals, sugar discipline, hydration, mindful eating, self-motivation",
+    outcome_power_through: "Daily movement, healthy food alternatives, self-motivation",
+    outcome_power_down: "Bedtime routine, digital detox, daily micro breaks, affirmations",
+    outcome_empower: "Self-accountability, habit tracking, goal setting",
     position: 2
   },
   %{
     name: "Decision Making & Taking Action",
     slug: "decision-making-action",
-    description: "Sharpen your ability to make bold decisions quickly and execute without hesitation.",
-    outcome_power_up: "Optimize cognitive performance and mental clarity",
-    outcome_power_through: "Build resilience to push through decision fatigue",
-    outcome_power_down: "Clear mental clutter and reduce analysis paralysis",
-    outcome_empower: "Strengthen strategic thinking and execution habits",
+    description:
+      "You think clearly under pressure and take outcome-driven, confident action.",
+    outcome_power_up:
+      "Mood-stabilizing foods, hone focus, anti-slump nutrition, caffeine control, hydration",
+    outcome_power_through:
+      "Hand-eye coordination, quick reasoning, performance under pressure, anti-analysis paralysis, mental endurance",
+    outcome_power_down:
+      "Emotional regulation, deep sleep, anxiety release, eliminate distractions",
+    outcome_empower: "Bias awareness, results orientation, reading the room",
     position: 3
   },
   %{
     name: "Emotional Resilience",
     slug: "emotional-resilience",
-    description: "Strengthen your ability to bounce back, adapt, and thrive through challenges.",
-    outcome_power_up: "Fuel emotional stability through nutrition and habits",
-    outcome_power_through: "Build mental toughness through progressive challenges",
-    outcome_power_down: "Develop recovery rituals for emotional recharge",
-    outcome_empower: "Cultivate a growth mindset and self-compassion practice",
+    description:
+      "You navigate stress, setbacks, and internal narratives with strength and recovery.",
+    outcome_power_up: "Mood-stabilizing foods, caffeine control",
+    outcome_power_through:
+      "Tension release movement, performance under pressure, mental endurance",
+    outcome_power_down:
+      "Nervous system recovery, emotional reset, anxiety release, grounding and perspective",
+    outcome_empower: "Mental agility, leading with empathy, goal setting",
     position: 4
   },
   %{
-    name: "Habit Mastery & Self-Discipline",
-    slug: "habit-mastery",
-    description: "Build lasting habits and the discipline to maintain them under pressure.",
-    outcome_power_up: "Fuel consistency through optimal nutrition and energy management",
-    outcome_power_through: "Build willpower and resistance to temptation",
-    outcome_power_down: "Design recovery routines that reinforce habits",
-    outcome_empower: "Create systems that make discipline automatic",
+    name: "Physical Vitality & Strength",
+    slug: "physical-vitality",
+    description: "You boost energy, strength, and physical capacity.",
+    outcome_power_up:
+      "Protein optimization, fueling for performance, hydration, joint-support nutrition",
+    outcome_power_through:
+      "Core strength, mobility, endurance training, explosive movement, pushing your limits",
+    outcome_power_down:
+      "Stretching, deep sleep, recovery and injury prevention, body awareness",
+    outcome_empower:
+      "Motivation maintenance, goal setting, overcoming imposter syndrome",
     position: 5
   },
   %{
     name: "Impact & Influence",
     slug: "impact-influence",
-    description: "Amplify your professional impact and build authentic influence with colleagues and stakeholders.",
-    outcome_power_up: "Fuel the energy and vitality that draws people in",
-    outcome_power_through: "Build the consistency and follow-through that earns trust",
-    outcome_power_down: "Manage your energy to show up fully in key moments",
-    outcome_empower: "Develop strategic communication and visibility habits",
+    description:
+      "You shape decisions, lead initiatives, and grow credibility in your domain.",
+    outcome_power_up:
+      "Hone focus, fueling for long days, mood-stabilizing foods, self-motivation, nurture curiosity",
+    outcome_power_through:
+      "Posture, body language, performance under pressure, resilience under pressure",
+    outcome_power_down:
+      "Boundary setting, emotional reset, eliminate distractions, affirmations",
+    outcome_empower:
+      "Persuasive storytelling, leadership communication, knowledge/learning hacks, constructive disruption",
     position: 6
-  },
-  %{
-    name: "Life Force Reclamation",
-    slug: "life-force-reclamation",
-    description: "Reclaim your energy, vitality, and zest for life after periods of depletion or burnout.",
-    outcome_power_up: "Rebuild nutritional and physical foundations",
-    outcome_power_through: "Progressively increase capacity and endurance",
-    outcome_power_down: "Master deep rest and nervous system regulation",
-    outcome_empower: "Realign priorities with what truly energizes you",
-    position: 7
-  },
-  %{
-    name: "Physical Vitality",
-    slug: "physical-vitality",
-    description: "Elevate your energy, strength, and physical readiness for life's biggest moments.",
-    outcome_power_up: "Optimize nutrition and supplementation for peak energy",
-    outcome_power_through: "Build functional strength and cardiovascular endurance",
-    outcome_power_down: "Prioritize sleep, mobility, and active recovery",
-    outcome_empower: "Align physical goals with your broader life mission",
-    position: 8
-  },
-  %{
-    name: "Stress & Anxiety",
-    slug: "stress-anxiety",
-    description: "Develop tools to manage stress, reduce anxiety, and stay calm under pressure.",
-    outcome_power_up: "Nourish your nervous system for resilience",
-    outcome_power_through: "Build physical outlets for stress release",
-    outcome_power_down: "Master recovery protocols for calm and clarity",
-    outcome_empower: "Reframe stress as a performance tool",
-    position: 9
-  },
-  %{
-    name: "Team Leadership",
-    slug: "team-leadership",
-    description: "Lead teams with clarity, empathy, and decisive action that inspires ownership.",
-    outcome_power_up: "Fuel the energy needed to lead by example",
-    outcome_power_through: "Build resilience to lead through uncertainty",
-    outcome_power_down: "Manage leadership fatigue and prevent burnout",
-    outcome_empower: "Develop the habits that inspire and mobilize teams",
-    position: 10
-  },
-  %{
-    name: "Physical Endurance",
-    slug: "physical-endurance",
-    description: "Build the stamina and grit to go longer, recover faster, and perform under fatigue.",
-    outcome_power_up: "Fuel endurance with targeted nutrition and hydration",
-    outcome_power_through: "Progressively build cardiovascular and muscular endurance",
-    outcome_power_down: "Optimize recovery between sessions",
-    outcome_empower: "Connect physical endurance to mental toughness",
-    position: 11
-  },
-  %{
-    name: "Flexibility & Mobility",
-    slug: "flexibility-mobility",
-    description: "Improve range of motion, reduce stiffness, and move with confidence and ease.",
-    outcome_power_up: "Support joint health through anti-inflammatory nutrition",
-    outcome_power_through: "Build progressive flexibility through daily practice",
-    outcome_power_down: "Release tension and restore mobility through stretching",
-    outcome_empower: "Move with confidence and physical self-assurance",
-    position: 12
   },
   %{
     name: "Personal Relationships",
     slug: "personal-relationships",
-    description: "Show up fully in your personal relationships while managing work demands.",
-    outcome_power_up: "Fuel emotional availability through self-care",
-    outcome_power_through: "Build resilience to navigate relationship challenges",
-    outcome_power_down: "Create space for rest and genuine connection",
-    outcome_empower: "Develop presence and communication habits for deeper bonds",
-    position: 13
+    description:
+      "You show up more grounded, present, and intentional in your closest relationships.",
+    outcome_power_up: "",
+    outcome_power_through: "",
+    outcome_power_down: "",
+    outcome_empower: "",
+    position: 7
+  },
+  %{
+    name: "Stress & Anxiety",
+    slug: "stress-anxiety",
+    description:
+      "You manage stress with tools and regain a sense of calm, clarity, and control on demand.",
+    outcome_power_up: "Caffeine control, blood sugar regulation, hydration",
+    outcome_power_through:
+      "Tension release movement, breath control, performance under pressure, mental endurance",
+    outcome_power_down:
+      "Nervous system reset, mindfulness habits, sleep optimization, deep relaxation, stress journaling",
+    outcome_empower:
+      "Thought reframing, reframing pressure, perspective shift, self-trust, letting go of perfectionism",
+    position: 8
   },
   %{
     name: "Prioritization & Time Mngmt.",
     slug: "prioritization-time",
-    description: "Cut through noise and protect the work that moves the needle.",
-    outcome_power_up: "Align energy peaks with highest-value work",
-    outcome_power_through: "Build discipline to resist distraction and urgency bias",
-    outcome_power_down: "Design transitions that prevent reactive spiraling",
-    outcome_empower: "Create systems for strategic focus and accountability",
-    position: 14
+    description:
+      "You start executing what matters most with goal setting and time tracking tools.",
+    outcome_power_up:
+      "Energy mapping, meal prep efficiency, nutrition planning, cognitive clarity foods",
+    outcome_power_through:
+      "Morning activation routine, micro-workouts, focus intervals, productivity movement breaks",
+    outcome_power_down:
+      "Evening decompression, sleep scheduling, boundary rituals, tech cut-off",
+    outcome_empower:
+      "Decision hierarchy, value alignment, time blocking mindset, focus discipline, eliminating noise",
+    position: 9
+  },
+  %{
+    name: "Flexibility & Mobility",
+    slug: "flexibility-mobility",
+    description:
+      "You release stiffness to move with greater agility and confidence.",
+    outcome_power_up:
+      "Hydration for joints, anti-inflammatory nutrition, magnesium balance, recovery fuel",
+    outcome_power_through:
+      "Stretching circuits, functional mobility, dynamic warmups, balance drills, full-range movement",
+    outcome_power_down:
+      "Relaxation stretch routines, restorative yoga, fascia release, breath-stretch link",
+    outcome_empower:
+      "Adaptability mindset, patience in progress, movement confidence, releasing rigidity, self-acceptance",
+    position: 10
   },
   %{
     name: "Relationship Boundaries",
     slug: "relationship-boundaries",
-    description: "Identify, communicate, and maintain boundaries that protect your energy.",
-    outcome_power_up: "Fuel the confidence to set boundaries without guilt",
-    outcome_power_through: "Build the courage to hold boundaries under pressure",
-    outcome_power_down: "Recover from boundary violations without resentment",
-    outcome_empower: "Develop clear communication frameworks for limits",
+    description:
+      "You set clear boundaries, speak your needs, and navigate conflict with confidence.",
+    outcome_power_up: "",
+    outcome_power_through: "",
+    outcome_power_down: "",
+    outcome_empower: "",
+    position: 11
+  },
+  %{
+    name: "Team Leadership",
+    slug: "team-leadership",
+    description:
+      "You lead others with clarity, cohesion, and momentum — aligning values, roles, and energy toward shared goals.",
+    outcome_power_up:
+      "Energy management for teams, brain food for focus, meeting stamina, hydration for alertness",
+    outcome_power_through:
+      "Presence in meetings, team energizers, movement for focus, micro-break activation",
+    outcome_power_down:
+      "Post-meeting reflection, mindfulness under pressure, calm leadership reset",
+    outcome_empower:
+      "Leading with clarity, empowering others, decision authority, feedback with empathy, vision alignment",
+    position: 12
+  },
+  %{
+    name: "Life Force Reclamation",
+    slug: "life-force-reclamation",
+    description:
+      "You reignite your spark and reclaim a rhythm that feels inspired — not just functional.",
+    outcome_power_up: "",
+    outcome_power_through: "",
+    outcome_power_down: "",
+    outcome_empower: "",
+    position: 13
+  },
+  %{
+    name: "Critical Thinking",
+    slug: "critical-thinking",
+    description:
+      "You cut through noise and make decisions that are strategic, sound, and defendable.",
+    outcome_power_up:
+      "Brain-boosting foods, hydration clarity, energy for focus, sustained mental stamina",
+    outcome_power_through:
+      "Concentration training, brain-body connection, endurance for focus, mental stamina workouts",
+    outcome_power_down:
+      "Rest for cognition, digital detox, breathing for clarity, meditation for insight",
+    outcome_empower:
+      "Perspective analysis, logic vs emotion, bias awareness, strategic reflection, curiosity mindset",
+    position: 14
+  },
+  %{
+    name: "Physical Endurance",
+    slug: "physical-endurance",
+    description:
+      "You build stamina — physical and mental — so you can go longer, recover faster, and meet the moment with strength.",
+    outcome_power_up:
+      "Endurance fueling, electrolytes, carb timing, hydration balance, recovery nutrition",
+    outcome_power_through:
+      "Progressive endurance training, breathing control, pacing strategy, mobility support, mental grit drills",
+    outcome_power_down:
+      "Recovery and rest days, active recovery, sleep optimization, stretching for repair",
+    outcome_empower:
+      "Mental endurance, commitment mindset, goal resilience, grit, perseverance training",
     position: 15
   }
 ]
