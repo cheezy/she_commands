@@ -78,6 +78,12 @@
             </a>
             <%= if @current_scope do %>
               <a
+                href="/my-plan"
+                class={"hover:opacity-70 transition #{if @conn.request_path == "/my-plan", do: "border-b border-current pb-1"}"}
+              >
+                {gettext("My Plan")}
+              </a>
+              <a
                 href="/intake"
                 class={"hover:opacity-70 transition #{if @conn.request_path == "/intake", do: "border-b border-current pb-1"}"}
               >
