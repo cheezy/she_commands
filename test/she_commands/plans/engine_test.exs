@@ -311,5 +311,99 @@ defmodule SheCommands.Plans.EngineTest do
       result = Engine.maybe_add_complementary(modules, 8, 5)
       assert length(result) == 5
     end
+
+    test "skips when no complementary module ids" do
+      m1 = module_fixture(%{complementary_module_ids: []})
+      selected = [%{module: m1, power_pillar: :power_up}]
+      result = Engine.maybe_add_complementary(selected, 8, 5)
+      assert length(result) == 1
+    end
+  end
+
+  describe "generate/2 edge cases" do
+    test "medium lead time generates biweekly plan" do
+      user = user_fixture()
+
+      category =
+        goal_category_fixture(%{slug: "biweekly-#{System.unique_integer()}"})
+
+      mod_attrs = %{intensity: :low, daily_time: 10}
+
+      for pillar <- [:power_up, :power_through, :power_down, :empower] do
+        module_with_categories_fixture(
+          Map.put(mod_attrs, :power_pillar_1, pillar),
+          [category]
+        )
+      end
+
+      intake =
+        intake_response_fixture(user, %{
+          goal_category_id: category.id,
+          lead_time: :medium,
+          days_per_week: 5,
+          hours_per_day: :thirty_to_sixty,
+          intensity: :low
+        })
+
+      {:ok, plan_attrs} = Engine.generate(intake, category)
+      assert plan_attrs.plan_type == :biweekly
+    end
+
+    test "long lead time generates monthly plan" do
+      user = user_fixture()
+
+      category =
+        goal_category_fixture(%{slug: "monthly-#{System.unique_integer()}"})
+
+      mod_attrs = %{intensity: :high, daily_time: 20}
+
+      for pillar <- [:power_up, :power_through, :power_down, :empower] do
+        module_with_categories_fixture(
+          Map.put(mod_attrs, :power_pillar_1, pillar),
+          [category]
+        )
+      end
+
+      intake =
+        intake_response_fixture(user, %{
+          goal_category_id: category.id,
+          lead_time: :long,
+          days_per_week: 5,
+          hours_per_day: :over_sixty,
+          intensity: :high
+        })
+
+      {:ok, plan_attrs} = Engine.generate(intake, category)
+      assert plan_attrs.plan_type == :monthly
+    end
+
+    test "user with very limited time still gets 4 pillars covered" do
+      user = user_fixture()
+
+      category =
+        goal_category_fixture(%{slug: "limited-#{System.unique_integer()}"})
+
+      mod_attrs = %{intensity: :low, daily_time: 5}
+
+      for pillar <- [:power_up, :power_through, :power_down, :empower] do
+        module_with_categories_fixture(
+          Map.put(mod_attrs, :power_pillar_1, pillar),
+          [category]
+        )
+      end
+
+      intake =
+        intake_response_fixture(user, %{
+          goal_category_id: category.id,
+          lead_time: :short,
+          days_per_week: 1,
+          hours_per_day: :under_30,
+          intensity: :low
+        })
+
+      {:ok, plan_attrs} = Engine.generate(intake, category)
+      pillars = Enum.map(plan_attrs.selected_modules, & &1.power_pillar)
+      assert length(Enum.uniq(pillars)) == 4
+    end
   end
 end
