@@ -11,6 +11,10 @@ defmodule SheCommands.Chat do
   alias SheCommands.Chat.ChatMessage
   alias SheCommands.Repo
 
+  @default_max_message_length 2000
+  @default_rate_limit_count 20
+  @default_rate_limit_window_seconds 300
+
   @doc """
   Creates a chat message.
 
@@ -50,5 +54,54 @@ defmodule SheCommands.Chat do
     ChatMessage
     |> where([m], m.plan_id == ^plan_id and m.user_id == ^user_id)
     |> Repo.delete_all()
+  end
+
+  @doc """
+  Validates message content length.
+
+  Returns `:ok` if within limits, `{:error, :message_too_long}` otherwise.
+  """
+  def validate_message_length(content) when is_binary(content) do
+    max =
+      Application.get_env(:she_commands, :chat_max_message_length, @default_max_message_length)
+
+    if String.length(content) <= max do
+      :ok
+    else
+      {:error, :message_too_long}
+    end
+  end
+
+  def validate_message_length(_), do: {:error, :message_too_long}
+
+  @doc """
+  Checks if a user has exceeded the rate limit for sending messages.
+
+  Returns `:ok` if under the limit, `{:error, :rate_limited}` otherwise.
+  Counts user messages (role: :user) within the configured time window.
+  """
+  def check_rate_limit(user_id) do
+    max_count =
+      Application.get_env(:she_commands, :chat_rate_limit_count, @default_rate_limit_count)
+
+    window_seconds =
+      Application.get_env(
+        :she_commands,
+        :chat_rate_limit_window_seconds,
+        @default_rate_limit_window_seconds
+      )
+
+    cutoff = DateTime.add(DateTime.utc_now(), -window_seconds, :second)
+
+    count =
+      ChatMessage
+      |> where([m], m.user_id == ^user_id and m.role == :user and m.inserted_at >= ^cutoff)
+      |> Repo.aggregate(:count)
+
+    if count < max_count do
+      :ok
+    else
+      {:error, :rate_limited}
+    end
   end
 end

@@ -228,6 +228,92 @@ defmodule SheCommands.ChatTest do
     end
   end
 
+  describe "validate_message_length/1" do
+    test "accepts message within limit" do
+      assert :ok = Chat.validate_message_length("Hello")
+    end
+
+    test "accepts message at exact limit" do
+      content = String.duplicate("a", 2000)
+      assert :ok = Chat.validate_message_length(content)
+    end
+
+    test "rejects message over limit" do
+      content = String.duplicate("a", 2001)
+      assert {:error, :message_too_long} = Chat.validate_message_length(content)
+    end
+
+    test "rejects non-binary input" do
+      assert {:error, :message_too_long} = Chat.validate_message_length(nil)
+    end
+  end
+
+  describe "check_rate_limit/1" do
+    test "allows messages under threshold" do
+      user = user_fixture()
+      plan = plan_fixture(%{user: user})
+
+      Chat.create_message(%{
+        user_id: user.id,
+        plan_id: plan.id,
+        role: :user,
+        content: "Hello"
+      })
+
+      assert :ok = Chat.check_rate_limit(user.id)
+    end
+
+    test "blocks messages over threshold" do
+      user = user_fixture()
+      plan = plan_fixture(%{user: user})
+
+      # Set a low rate limit for testing
+      Application.put_env(:she_commands, :chat_rate_limit_count, 2)
+
+      on_exit(fn ->
+        Application.delete_env(:she_commands, :chat_rate_limit_count)
+      end)
+
+      for _ <- 1..2 do
+        Chat.create_message(%{
+          user_id: user.id,
+          plan_id: plan.id,
+          role: :user,
+          content: "Message"
+        })
+      end
+
+      assert {:error, :rate_limited} = Chat.check_rate_limit(user.id)
+    end
+
+    test "does not count assistant messages" do
+      user = user_fixture()
+      plan = plan_fixture(%{user: user})
+
+      Application.put_env(:she_commands, :chat_rate_limit_count, 2)
+
+      on_exit(fn ->
+        Application.delete_env(:she_commands, :chat_rate_limit_count)
+      end)
+
+      Chat.create_message(%{
+        user_id: user.id,
+        plan_id: plan.id,
+        role: :user,
+        content: "User msg"
+      })
+
+      Chat.create_message(%{
+        user_id: user.id,
+        plan_id: plan.id,
+        role: :assistant,
+        content: "Assistant msg"
+      })
+
+      assert :ok = Chat.check_rate_limit(user.id)
+    end
+  end
+
   describe "chat_message_fixture/1" do
     test "creates a message with defaults" do
       message = chat_message_fixture()

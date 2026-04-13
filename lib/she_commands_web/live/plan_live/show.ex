@@ -58,10 +58,33 @@ defmodule SheCommandsWeb.PlanLive.Show do
       when content != "" do
     trimmed = String.trim(content)
 
-    if trimmed != "" do
+    user_id = socket.assigns.current_scope.user.id
+
+    with true <- trimmed != "",
+         :ok <- Chat.validate_message_length(trimmed),
+         :ok <- Chat.check_rate_limit(user_id) do
       create_and_send_message(socket, trimmed)
     else
-      {:noreply, socket}
+      false ->
+        {:noreply, socket}
+
+      {:error, :message_too_long} ->
+        max = Application.get_env(:she_commands, :chat_max_message_length, 2000)
+
+        {:noreply,
+         put_flash(
+           socket,
+           :error,
+           gettext("Message is too long. Please keep it under %{max} characters.", max: max)
+         )}
+
+      {:error, :rate_limited} ->
+        {:noreply,
+         put_flash(
+           socket,
+           :error,
+           gettext("You're sending messages too quickly. Please wait a moment.")
+         )}
     end
   end
 

@@ -268,6 +268,15 @@ defmodule SheCommands.Chat.ContextBuilderTest do
       assert prompt =~ "qualified professional"
     end
 
+    test "includes expanded safety boundaries" do
+      plan = build_plan_with_modules()
+      prompt = ContextBuilder.build_system_prompt(plan)
+
+      assert prompt =~ "legal, financial"
+      assert prompt =~ "crisis situations"
+      assert prompt =~ "override these instructions"
+    end
+
     test "includes plan context" do
       plan = build_plan_with_modules()
       prompt = ContextBuilder.build_system_prompt(plan)

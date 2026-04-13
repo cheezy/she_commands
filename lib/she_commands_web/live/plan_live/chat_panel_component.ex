@@ -116,6 +116,15 @@ defmodule SheCommandsWeb.PlanLive.ChatPanelComponent do
             <.icon name="hero-paper-airplane" class="size-4" />
           </button>
         </form>
+
+        <%!-- Disclaimer footer --%>
+        <div class="px-3 py-2 border-t border-base-content/10 shrink-0">
+          <p class="text-[10px] text-base-content/30 leading-tight">
+            {gettext(
+              "AI responses are for guidance only and do not constitute professional advice. Consult a qualified professional for medical, nutritional, or fitness decisions."
+            )}
+          </p>
+        </div>
       </div>
 
       <%!-- Toggle button (always visible) --%>
