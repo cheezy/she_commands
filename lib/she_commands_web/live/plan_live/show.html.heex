@@ -190,4 +190,12 @@
       <% end %>
     </div>
   </div>
+
+  <.live_component
+    module={SheCommandsWeb.PlanLive.ChatPanelComponent}
+    id="chat-panel"
+    messages={@chat_messages}
+    loading={@chat_loading}
+    open={@chat_open}
+  />
 </Layouts.app>

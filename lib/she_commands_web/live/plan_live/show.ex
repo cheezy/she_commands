@@ -1,6 +1,7 @@
 defmodule SheCommandsWeb.PlanLive.Show do
   use SheCommandsWeb, :live_view
 
+  alias SheCommands.Chat
   alias SheCommands.Plans
 
   @impl true
@@ -13,13 +14,81 @@ defmodule SheCommandsWeb.PlanLive.Show do
        socket
        |> assign(:page_title, gettext("My Plan"))
        |> assign(:plan, plan)
-       |> assign(:modules_by_pillar, group_by_pillar(plan.plan_modules))}
+       |> assign(:modules_by_pillar, group_by_pillar(plan.plan_modules))
+       |> assign(:chat_open, false)
+       |> assign(:chat_messages, [])
+       |> assign(:chat_loading, false)}
     else
       {:ok,
        socket
        |> put_flash(:info, gettext("Complete your intake to generate a plan."))
        |> redirect(to: ~p"/intake")}
     end
+  end
+
+  @impl true
+  def handle_event("toggle_chat", _params, socket) do
+    open = !socket.assigns.chat_open
+    socket = assign(socket, :chat_open, open)
+
+    socket =
+      if open && socket.assigns.chat_messages == [] do
+        messages =
+          Chat.list_messages_for_plan(
+            socket.assigns.plan.id,
+            socket.assigns.current_scope.user.id
+          )
+
+        assign(socket, :chat_messages, messages)
+      else
+        socket
+      end
+
+    {:noreply, socket}
+  end
+
+  def handle_event("send_message", %{"message" => content}, socket)
+      when content != "" do
+    user = socket.assigns.current_scope.user
+    plan = socket.assigns.plan
+    trimmed = String.trim(content)
+
+    if trimmed != "" do
+      case Chat.create_message(%{
+             user_id: user.id,
+             plan_id: plan.id,
+             role: :user,
+             content: trimmed
+           }) do
+        {:ok, user_msg} ->
+          {:noreply, assign(socket, :chat_messages, socket.assigns.chat_messages ++ [user_msg])}
+
+        {:error, _changeset} ->
+          {:noreply, put_flash(socket, :error, gettext("Failed to send message."))}
+      end
+    else
+      {:noreply, socket}
+    end
+  end
+
+  def handle_event("send_message", _params, socket), do: {:noreply, socket}
+
+  def handle_event("suggest_question", %{"question" => question}, socket) do
+    handle_event("send_message", %{"message" => question}, socket)
+  end
+
+  def handle_event("clear_chat", _params, socket) do
+    Chat.clear_conversation(
+      socket.assigns.plan.id,
+      socket.assigns.current_scope.user.id
+    )
+
+    {:noreply, assign(socket, :chat_messages, [])}
+  end
+
+  @impl true
+  def handle_info({:set_chat_loading, loading}, socket) do
+    {:noreply, assign(socket, :chat_loading, loading)}
   end
 
   defp group_by_pillar(plan_modules) do
