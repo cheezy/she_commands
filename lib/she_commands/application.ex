@@ -12,8 +12,7 @@ defmodule SheCommands.Application do
       SheCommands.Repo,
       {DNSCluster, query: Application.get_env(:she_commands, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: SheCommands.PubSub},
-      # Start a worker by calling: SheCommands.Worker.start_link(arg)
-      # {SheCommands.Worker, arg},
+      {Task.Supervisor, name: SheCommands.TaskSupervisor},
       # Start to serve requests, typically the last entry
       SheCommandsWeb.Endpoint
     ]

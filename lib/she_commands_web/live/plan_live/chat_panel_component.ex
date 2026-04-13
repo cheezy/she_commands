@@ -78,6 +78,19 @@ defmodule SheCommandsWeb.PlanLive.ChatPanelComponent do
             <span class="size-1.5 bg-base-content/30 rounded-full animate-bounce [animation-delay:150ms]" />
             <span class="size-1.5 bg-base-content/30 rounded-full animate-bounce [animation-delay:300ms]" />
           </div>
+
+          <%!-- Error state --%>
+          <div :if={@error} class="mr-8 p-3 border border-error/20 bg-error/5">
+            <p class="text-sm text-error/80 mb-2">
+              {gettext("Something went wrong. Please try again.")}
+            </p>
+            <button
+              phx-click="retry_message"
+              class="text-xs text-error/70 underline hover:no-underline cursor-pointer"
+            >
+              {gettext("Retry")}
+            </button>
+          </div>
         </div>
 
         <%!-- Input form --%>

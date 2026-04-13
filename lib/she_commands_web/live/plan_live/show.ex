@@ -2,6 +2,8 @@ defmodule SheCommandsWeb.PlanLive.Show do
   use SheCommandsWeb, :live_view
 
   alias SheCommands.Chat
+  alias SheCommands.Chat.ClaudeClient
+  alias SheCommands.Chat.ContextBuilder
   alias SheCommands.Plans
 
   @impl true
@@ -17,7 +19,8 @@ defmodule SheCommandsWeb.PlanLive.Show do
        |> assign(:modules_by_pillar, group_by_pillar(plan.plan_modules))
        |> assign(:chat_open, false)
        |> assign(:chat_messages, [])
-       |> assign(:chat_loading, false)}
+       |> assign(:chat_loading, false)
+       |> assign(:chat_error, false)}
     else
       {:ok,
        socket
@@ -47,25 +50,16 @@ defmodule SheCommandsWeb.PlanLive.Show do
     {:noreply, socket}
   end
 
+  def handle_event("send_message", _params, %{assigns: %{chat_loading: true}} = socket) do
+    {:noreply, socket}
+  end
+
   def handle_event("send_message", %{"message" => content}, socket)
       when content != "" do
-    user = socket.assigns.current_scope.user
-    plan = socket.assigns.plan
     trimmed = String.trim(content)
 
     if trimmed != "" do
-      case Chat.create_message(%{
-             user_id: user.id,
-             plan_id: plan.id,
-             role: :user,
-             content: trimmed
-           }) do
-        {:ok, user_msg} ->
-          {:noreply, assign(socket, :chat_messages, socket.assigns.chat_messages ++ [user_msg])}
-
-        {:error, _changeset} ->
-          {:noreply, put_flash(socket, :error, gettext("Failed to send message."))}
-      end
+      create_and_send_message(socket, trimmed)
     else
       {:noreply, socket}
     end
@@ -77,18 +71,101 @@ defmodule SheCommandsWeb.PlanLive.Show do
     handle_event("send_message", %{"message" => question}, socket)
   end
 
+  def handle_event("retry_message", _params, socket) do
+    send_to_ai(socket)
+  end
+
   def handle_event("clear_chat", _params, socket) do
     Chat.clear_conversation(
       socket.assigns.plan.id,
       socket.assigns.current_scope.user.id
     )
 
-    {:noreply, assign(socket, :chat_messages, [])}
+    {:noreply,
+     socket
+     |> assign(:chat_messages, [])
+     |> assign(:chat_loading, false)
+     |> assign(:chat_error, false)}
   end
 
   @impl true
+  def handle_info({ref, {:ok, content}}, socket) when is_reference(ref) do
+    Process.demonitor(ref, [:flush])
+
+    case Chat.create_message(%{
+           user_id: socket.assigns.current_scope.user.id,
+           plan_id: socket.assigns.plan.id,
+           role: :assistant,
+           content: content
+         }) do
+      {:ok, assistant_msg} ->
+        {:noreply,
+         socket
+         |> assign(:chat_messages, socket.assigns.chat_messages ++ [assistant_msg])
+         |> assign(:chat_loading, false)
+         |> assign(:chat_error, false)}
+
+      {:error, _changeset} ->
+        {:noreply,
+         socket
+         |> assign(:chat_loading, false)
+         |> assign(:chat_error, true)}
+    end
+  end
+
+  def handle_info({ref, {:error, _reason}}, socket) when is_reference(ref) do
+    Process.demonitor(ref, [:flush])
+
+    {:noreply,
+     socket
+     |> assign(:chat_loading, false)
+     |> assign(:chat_error, true)}
+  end
+
+  def handle_info({:DOWN, _ref, :process, _pid, _reason}, socket) do
+    {:noreply,
+     socket
+     |> assign(:chat_loading, false)
+     |> assign(:chat_error, true)}
+  end
+
   def handle_info({:set_chat_loading, loading}, socket) do
     {:noreply, assign(socket, :chat_loading, loading)}
+  end
+
+  defp create_and_send_message(socket, content) do
+    user = socket.assigns.current_scope.user
+    plan = socket.assigns.plan
+
+    case Chat.create_message(%{
+           user_id: user.id,
+           plan_id: plan.id,
+           role: :user,
+           content: content
+         }) do
+      {:ok, user_msg} ->
+        socket
+        |> assign(:chat_messages, socket.assigns.chat_messages ++ [user_msg])
+        |> send_to_ai()
+
+      {:error, _changeset} ->
+        {:noreply, put_flash(socket, :error, gettext("Failed to send message."))}
+    end
+  end
+
+  defp send_to_ai(socket) do
+    plan = socket.assigns.plan
+    messages = socket.assigns.chat_messages
+    system_prompt = ContextBuilder.build_system_prompt(plan)
+
+    Task.Supervisor.async_nolink(SheCommands.TaskSupervisor, fn ->
+      ClaudeClient.send_message(messages, system: system_prompt)
+    end)
+
+    {:noreply,
+     socket
+     |> assign(:chat_loading, true)
+     |> assign(:chat_error, false)}
   end
 
   defp group_by_pillar(plan_modules) do

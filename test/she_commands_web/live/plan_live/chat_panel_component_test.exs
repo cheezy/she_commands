@@ -1,5 +1,5 @@
 defmodule SheCommandsWeb.PlanLive.ChatPanelComponentTest do
-  use SheCommandsWeb.ConnCase, async: true
+  use SheCommandsWeb.ConnCase, async: false
 
   import Phoenix.LiveViewTest
   import SheCommands.ChatFixtures
@@ -27,6 +27,13 @@ defmodule SheCommandsWeb.PlanLive.ChatPanelComponentTest do
     })
 
     plan_module_fixture(plan, %{module: module, power_pillar: :power_up, position: 1})
+
+    # Stub the Claude API so async tasks don't crash in the background
+    Req.Test.stub(SheCommands.Chat.ClaudeClient, fn conn ->
+      Req.Test.json(conn, %{
+        "content" => [%{"type" => "text", "text" => "Test response"}]
+      })
+    end)
 
     %{plan: plan}
   end
