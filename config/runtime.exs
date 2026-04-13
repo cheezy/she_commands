@@ -20,6 +20,11 @@ if System.get_env("PHX_SERVER") do
   config :she_commands, SheCommandsWeb.Endpoint, server: true
 end
 
+# Anthropic Claude API key for chatbot
+if api_key = System.get_env("ANTHROPIC_API_KEY") do
+  config :she_commands, :anthropic_api_key, api_key
+end
+
 config :she_commands, SheCommandsWeb.Endpoint,
   http: [port: String.to_integer(System.get_env("PORT", "4000"))]
 

@@ -257,7 +257,10 @@ defmodule SheCommands.PlansTest do
           intensity: :low
         })
 
-      assert {:error, {:insufficient_coverage, _}} = Plans.generate_plan(intake)
+      # Best-effort: generates a plan with available modules, partial coverage
+      assert {:ok, plan} = Plans.generate_plan(intake)
+      assert plan.status == :active
+      assert length(plan.plan_modules) >= 1
     end
   end
 end

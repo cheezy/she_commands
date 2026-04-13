@@ -65,7 +65,7 @@ defmodule SheCommands.Plans.EngineTest do
       m3 = module_fixture(%{power_pillar_1: :power_down})
       m4 = module_fixture(%{power_pillar_1: :empower})
 
-      {:ok, selected} =
+      {:ok, selected, _uncovered} =
         Engine.select_modules_with_pillar_coverage([m1, m2, m3, m4], 4)
 
       pillars = Enum.map(selected, & &1.power_pillar)
@@ -75,11 +75,11 @@ defmodule SheCommands.Plans.EngineTest do
       assert :empower in pillars
     end
 
-    test "returns error when pillar cannot be covered" do
+    test "returns uncovered pillars when partial coverage" do
       m1 = module_fixture(%{power_pillar_1: :power_up})
       m2 = module_fixture(%{power_pillar_1: :power_up})
 
-      assert {:error, {:insufficient_coverage, uncovered}} =
+      assert {:ok, _selected, uncovered} =
                Engine.select_modules_with_pillar_coverage([m1, m2], 4)
 
       assert :power_through in uncovered
@@ -93,7 +93,7 @@ defmodule SheCommands.Plans.EngineTest do
       m3 = module_fixture(%{power_pillar_1: :empower})
       m4 = module_fixture(%{power_pillar_1: :power_through})
 
-      {:ok, selected} =
+      {:ok, selected, _uncovered} =
         Engine.select_modules_with_pillar_coverage([m1, m2, m3, m4], 4)
 
       pillars = Enum.map(selected, & &1.power_pillar)
@@ -110,14 +110,14 @@ defmodule SheCommands.Plans.EngineTest do
       m4 = module_fixture(%{power_pillar_1: :empower})
       m5 = module_fixture(%{power_pillar_1: :power_up})
 
-      {:ok, selected} =
+      {:ok, selected, _uncovered} =
         Engine.select_modules_with_pillar_coverage([m1, m2, m3, m4, m5], 8)
 
       assert length(selected) == 5
     end
 
-    test "returns empty list when no candidates" do
-      assert {:error, {:insufficient_coverage, _}} =
+    test "returns error when no candidates at all" do
+      assert {:error, {:no_modules_available, _}} =
                Engine.select_modules_with_pillar_coverage([], 4)
     end
   end
@@ -276,7 +276,10 @@ defmodule SheCommands.Plans.EngineTest do
           intensity: :low
         })
 
-      assert {:error, {:insufficient_coverage, _}} = Engine.generate(intake, category)
+      # With only 1 pillar covered, plan is generated best-effort with uncovered pillars noted
+      assert {:ok, plan_attrs} = Engine.generate(intake, category)
+      assert length(plan_attrs.selected_modules) >= 1
+      assert plan_attrs.uncovered_pillars != []
     end
   end
 

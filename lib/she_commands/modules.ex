@@ -174,9 +174,14 @@ defmodule SheCommands.Modules do
 
   @doc false
   def by_intensity(query, intensity) do
-    intensity_string = to_string(intensity)
-    from m in query, where: m.intensity == ^intensity_string
+    allowed = allowed_intensities(intensity)
+    from m in query, where: m.intensity in ^allowed
   end
+
+  defp allowed_intensities(:low), do: ["low"]
+  defp allowed_intensities(:moderate), do: ["low", "moderate"]
+  defp allowed_intensities(:high), do: ["low", "moderate", "high"]
+  defp allowed_intensities(other), do: [to_string(other)]
 
   @doc false
   def by_max_daily_time(query, max_time) do

@@ -227,13 +227,18 @@ defmodule SheCommands.ModulesTest do
   end
 
   describe "filter_modules/1" do
-    test "filters by intensity" do
+    test "filters by intensity — includes lower intensities" do
       m1 = module_fixture(%{intensity: :high})
-      _m2 = module_fixture(%{intensity: :low})
+      m2 = module_fixture(%{intensity: :low})
 
+      # High includes all: low, moderate, high
       result = Modules.filter_modules(%{intensity: :high})
+      assert length(result) == 2
+
+      # Low only includes low
+      result = Modules.filter_modules(%{intensity: :low})
       assert length(result) == 1
-      assert hd(result).id == m1.id
+      assert hd(result).id == m2.id
     end
 
     test "filters by daily_time" do
@@ -282,13 +287,14 @@ defmodule SheCommands.ModulesTest do
     end
 
     test "combines multiple filters" do
-      m1 = module_fixture(%{intensity: :high, lead_time_fit: :short, daily_time: 30})
-      _m2 = module_fixture(%{intensity: :high, lead_time_fit: :long, daily_time: 30})
-      _m3 = module_fixture(%{intensity: :low, lead_time_fit: :short, daily_time: 30})
+      m1 = module_fixture(%{intensity: :low, lead_time_fit: :short, daily_time: 30})
+      _m2 = module_fixture(%{intensity: :low, lead_time_fit: :long, daily_time: 30})
+      _m3 = module_fixture(%{intensity: :high, lead_time_fit: :short, daily_time: 30})
 
+      # low intensity + short lead time → only m1 (m3 is high, excluded by low filter)
       result =
         Modules.filter_modules(%{
-          intensity: :high,
+          intensity: :low,
           lead_time_fit: :short
         })
 
@@ -305,9 +311,9 @@ defmodule SheCommands.ModulesTest do
     end
 
     test "returns empty list when no modules match" do
-      module_fixture(%{intensity: :low})
+      module_fixture(%{intensity: :high})
 
-      result = Modules.filter_modules(%{intensity: :high})
+      result = Modules.filter_modules(%{intensity: :low})
       assert result == []
     end
 

@@ -40,7 +40,7 @@ defmodule SheCommands.Plans.Engine do
       })
 
     case select_modules_with_pillar_coverage(candidate_modules, max_modules) do
-      {:ok, selected_modules} ->
+      {:ok, selected_modules, uncovered_pillars} ->
         selected_with_complementary =
           maybe_add_complementary(
             selected_modules,
@@ -52,7 +52,8 @@ defmodule SheCommands.Plans.Engine do
           plan_type: plan_type,
           goal_statement: build_goal_statement(intake_response, goal_category),
           expected_outcomes: build_expected_outcomes(goal_category),
-          selected_modules: selected_with_complementary
+          selected_modules: selected_with_complementary,
+          uncovered_pillars: uncovered_pillars
         }
 
         {:ok, plan_attrs}
@@ -111,12 +112,12 @@ defmodule SheCommands.Plans.Engine do
         Map.get(pillar_candidates, pillar, []) == []
       end)
 
-    if uncovered != [] do
-      {:error, {:insufficient_coverage, uncovered}}
-    else
-      selected = select_one_per_pillar(pillar_candidates)
+    # Best-effort: cover what we can, warn about gaps
+    selected = select_one_per_pillar(pillar_candidates)
 
-      # Fill remaining capacity with best remaining candidates
+    if selected == [] and candidates == [] do
+      {:error, {:no_modules_available, @power_pillars}}
+    else
       selected =
         if length(selected) < max_modules do
           fill_remaining(selected, candidates, max_modules)
@@ -124,7 +125,7 @@ defmodule SheCommands.Plans.Engine do
           selected
         end
 
-      {:ok, selected}
+      {:ok, selected, uncovered}
     end
   end
 

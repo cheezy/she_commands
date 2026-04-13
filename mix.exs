@@ -121,7 +121,9 @@ defmodule SheCommands.MixProject do
         SheCommandsWeb.Telemetry,
         SheCommandsWeb.UserRegistrationHTML,
         SheCommandsWeb.UserSessionHTML,
-        SheCommandsWeb.UserSettingsHTML
+        SheCommandsWeb.UserSettingsHTML,
+        Mix.Tasks.ImportModules,
+        SheCommandsWeb.PlanHTML
       ]
     ]
   end

@@ -29,6 +29,10 @@ config :she_commands, SheCommands.Mailer, adapter: Swoosh.Adapters.Test
 # Disable swoosh api client as it is only required for production adapters
 config :swoosh, :api_client, false
 
+# Use Req.Test plug for Claude API in tests
+config :she_commands, :claude_req_options, plug: {Req.Test, SheCommands.Chat.ClaudeClient}
+config :she_commands, :anthropic_api_key, "test-api-key"
+
 # Print only warnings and errors during test
 config :logger, level: :warning
 
