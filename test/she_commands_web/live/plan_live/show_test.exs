@@ -7,6 +7,7 @@ defmodule SheCommandsWeb.PlanLive.ShowTest do
   import SheCommands.PlansFixtures
 
   alias SheCommands.Chat
+  alias SheCommands.Repo
 
   setup :register_and_log_in_user
 
@@ -105,6 +106,37 @@ defmodule SheCommandsWeb.PlanLive.ShowTest do
       {:ok, _view, html} = live(conn, ~p"/my-plan")
       assert html =~ "Overview Module"
       assert html =~ "A detailed overview text"
+    end
+
+    test "renders all four power pillars in pillar order", %{conn: conn, user: user} do
+      plan = plan_fixture(%{user: user, status: :active, goal_statement: "Four pillars goal"})
+
+      for {pillar, idx} <- Enum.with_index([:empower, :power_down, :power_through, :power_up]) do
+        module = module_fixture(%{title: "Module #{pillar}"})
+        plan_module_fixture(plan, %{module: module, power_pillar: pillar, position: idx + 1})
+      end
+
+      {:ok, _view, html} = live(conn, ~p"/my-plan")
+
+      assert html =~ "Power Up"
+      assert html =~ "Power Through"
+      assert html =~ "Power Down"
+      assert html =~ "Empower"
+
+      assert html =~ "Fuel your body and mind"
+      assert html =~ "Build strength and endurance"
+      assert html =~ "Rest, recover, and reset"
+      assert html =~ "Lead, influence, and grow"
+
+      # Pillar order: power_up (0) → power_through (1) → power_down (2) → empower (3)
+      power_up_idx = :binary.match(html, "Power Up") |> elem(0)
+      power_through_idx = :binary.match(html, "Power Through") |> elem(0)
+      power_down_idx = :binary.match(html, "Power Down") |> elem(0)
+      empower_idx = :binary.match(html, "Empower") |> elem(0)
+
+      assert power_up_idx < power_through_idx
+      assert power_through_idx < power_down_idx
+      assert power_down_idx < empower_idx
     end
   end
 
@@ -305,6 +337,39 @@ defmodule SheCommandsWeb.PlanLive.ShowTest do
 
       send(view.pid, {:set_chat_loading, true})
       send(view.pid, {:DOWN, make_ref(), :process, self(), :killed})
+
+      html = render(view)
+      refute html =~ "animate-bounce"
+      assert html =~ "Something went wrong"
+    end
+
+    test "send_message shows flash when user message persistence fails", %{
+      conn: conn,
+      plan: plan
+    } do
+      {:ok, view, _html} = live(conn, ~p"/my-plan")
+      render_click(view, "toggle_chat")
+
+      # Cascade-deletes plan_modules and chat_messages, leaving the LiveView's
+      # assigns referencing a stale plan_id so the FK constraint trips on insert.
+      Repo.delete!(plan)
+
+      view |> element("form") |> render_submit(%{"message" => "Hello"})
+
+      assert render(view) =~ "Failed to send message"
+    end
+
+    test "assistant response handler surfaces error when DB insert fails", %{
+      conn: conn,
+      plan: plan
+    } do
+      {:ok, view, _html} = live(conn, ~p"/my-plan")
+      render_click(view, "toggle_chat")
+      send(view.pid, {:set_chat_loading, true})
+
+      Repo.delete!(plan)
+
+      send(view.pid, {make_ref(), {:ok, "AI says hi"}})
 
       html = render(view)
       refute html =~ "animate-bounce"
