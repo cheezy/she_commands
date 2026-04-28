@@ -278,7 +278,7 @@ defmodule SheCommands.Plans.EngineTest do
 
       # With only 1 pillar covered, plan is generated best-effort with uncovered pillars noted
       assert {:ok, plan_attrs} = Engine.generate(intake, category)
-      assert length(plan_attrs.selected_modules) >= 1
+      assert plan_attrs.selected_modules != []
       assert plan_attrs.uncovered_pillars != []
     end
   end

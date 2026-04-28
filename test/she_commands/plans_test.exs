@@ -260,7 +260,7 @@ defmodule SheCommands.PlansTest do
       # Best-effort: generates a plan with available modules, partial coverage
       assert {:ok, plan} = Plans.generate_plan(intake)
       assert plan.status == :active
-      assert length(plan.plan_modules) >= 1
+      assert plan.plan_modules != []
     end
   end
 end
