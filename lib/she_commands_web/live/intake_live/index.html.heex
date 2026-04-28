@@ -289,7 +289,8 @@
                 </button>
                 <button
                   phx-click="next"
-                  class="py-3 px-10 bg-base-content text-base-100 text-xs font-label uppercase tracking-[0.2em] hover:bg-base-content/90 transition cursor-pointer"
+                  class="py-3 px-10 bg-base-content text-base-100 text-xs font-label uppercase tracking-[0.2em] hover:bg-base-content/90 transition cursor-pointer disabled:opacity-30"
+                  disabled={is_nil(@response.hours_per_day) or is_nil(@response.intensity)}
                 >
                   {gettext("Continue")}
                 </button>

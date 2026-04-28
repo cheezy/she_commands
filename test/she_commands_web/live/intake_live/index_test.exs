@@ -279,7 +279,158 @@ defmodule SheCommandsWeb.IntakeLive.IndexTest do
         |> form("form", %{city: "Toronto"})
         |> render_submit()
 
-      assert html =~ "complete all required fields"
+      assert html =~ "Please complete the following before continuing"
+      # Earlier-step required fields are surfaced by name
+      assert html =~ "Goal"
+      assert html =~ "Focus area"
+      assert html =~ "Timeline"
+    end
+  end
+
+  describe "step-level validation" do
+    test "advancing from step 1 with empty goal_intent shows error and stays on step 1",
+         %{conn: conn} do
+      {:ok, view, _html} = live(conn, ~p"/intake")
+
+      html =
+        view
+        |> form("form", %{goal_intent: ""})
+        |> render_submit()
+
+      assert html =~ "Please complete the following before continuing"
+      assert html =~ "Goal"
+      assert html =~ "Step 1 of 8"
+    end
+
+    test "advancing from step 1 with whitespace-only goal_intent shows error",
+         %{conn: conn} do
+      {:ok, view, _html} = live(conn, ~p"/intake")
+
+      html =
+        view
+        |> form("form", %{goal_intent: "   "})
+        |> render_submit()
+
+      assert html =~ "Please complete the following before continuing"
+      assert html =~ "Step 1 of 8"
+    end
+
+    test "advancing from step 2 without selecting a category shows error",
+         %{conn: conn, user: user} do
+      intake_response_fixture(user, %{current_step: 2, goal_intent: "My goal"})
+
+      {:ok, view, _html} = live(conn, ~p"/intake")
+      html = render_click(view, "next")
+
+      assert html =~ "Please complete the following before continuing"
+      assert html =~ "Focus area"
+      assert html =~ "Step 2 of 8"
+    end
+
+    test "advancing from step 3 without selecting a lead time shows error",
+         %{conn: conn, user: user} do
+      category = goal_category_fixture()
+
+      intake_response_fixture(user, %{
+        current_step: 3,
+        goal_intent: "My goal",
+        goal_category_id: category.id
+      })
+
+      {:ok, view, _html} = live(conn, ~p"/intake")
+      html = render_click(view, "next")
+
+      assert html =~ "Please complete the following before continuing"
+      assert html =~ "Timeline"
+      assert html =~ "Step 3 of 8"
+    end
+
+    test "advancing from step 4 without hours_per_day or intensity shows error",
+         %{conn: conn, user: user} do
+      category = goal_category_fixture()
+
+      intake_response_fixture(user, %{
+        current_step: 4,
+        goal_intent: "My goal",
+        goal_category_id: category.id,
+        lead_time: :short
+      })
+
+      {:ok, view, _html} = live(conn, ~p"/intake")
+      html = render_click(view, "next")
+
+      assert html =~ "Please complete the following before continuing"
+      assert html =~ "Time per session"
+      assert html =~ "Intensity"
+      assert html =~ "Step 4 of 8"
+    end
+
+    test "advancing from step 4 with all availability fields succeeds",
+         %{conn: conn, user: user} do
+      category = goal_category_fixture()
+
+      intake_response_fixture(user, %{
+        current_step: 4,
+        goal_intent: "My goal",
+        goal_category_id: category.id,
+        lead_time: :short,
+        days_per_week: 3,
+        hours_per_day: :thirty_to_sixty,
+        intensity: :moderate
+      })
+
+      {:ok, view, _html} = live(conn, ~p"/intake")
+      html = render_click(view, "next")
+
+      assert html =~ "Step 5 of 8"
+    end
+
+    test "step 4 defaults days_per_week to 3 when user advances without moving slider",
+         %{conn: conn, user: user} do
+      category = goal_category_fixture()
+
+      response =
+        intake_response_fixture(user, %{
+          current_step: 4,
+          goal_intent: "My goal",
+          goal_category_id: category.id,
+          lead_time: :short,
+          hours_per_day: :thirty_to_sixty,
+          intensity: :moderate
+        })
+
+      assert is_nil(response.days_per_week)
+
+      {:ok, view, _html} = live(conn, ~p"/intake")
+      html = render_click(view, "next")
+
+      assert html =~ "Step 5 of 8"
+
+      reloaded = SheCommands.Repo.get!(SheCommands.Intake.IntakeResponse, response.id)
+      assert reloaded.days_per_week == 3
+    end
+
+    test "steps without required fields advance freely", %{conn: conn, user: user} do
+      category = goal_category_fixture()
+
+      intake_response_fixture(user, %{
+        current_step: 5,
+        goal_intent: "My goal",
+        goal_category_id: category.id,
+        lead_time: :short,
+        days_per_week: 3,
+        hours_per_day: :thirty_to_sixty,
+        intensity: :moderate
+      })
+
+      {:ok, view, _html} = live(conn, ~p"/intake")
+
+      html =
+        view
+        |> form("form", %{limitations_notes: ""})
+        |> render_submit()
+
+      assert html =~ "Step 6 of 8"
     end
   end
 end

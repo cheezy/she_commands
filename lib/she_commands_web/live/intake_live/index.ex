@@ -6,6 +6,13 @@ defmodule SheCommandsWeb.IntakeLive.Index do
 
   @total_steps 8
 
+  @step_required_fields %{
+    1 => [:goal_intent],
+    2 => [:goal_category_id],
+    3 => [:lead_time],
+    4 => [:days_per_week, :hours_per_day, :intensity]
+  }
+
   @impl true
   def mount(_params, _session, socket) do
     user = socket.assigns.current_scope.user
@@ -25,17 +32,12 @@ defmodule SheCommandsWeb.IntakeLive.Index do
   def handle_event("next", params, socket) do
     socket = save_step(socket, params)
 
-    if socket.assigns.current_step < @total_steps do
-      next_step = socket.assigns.current_step + 1
+    case validate_step(socket.assigns.response, socket.assigns.current_step) do
+      :ok ->
+        advance_step(socket)
 
-      {:ok, response} = Intake.update_intake_step(socket.assigns.response, next_step)
-
-      {:noreply,
-       socket
-       |> assign(:response, response)
-       |> assign(:current_step, next_step)}
-    else
-      {:noreply, socket}
+      {:error, missing} ->
+        {:noreply, put_flash(socket, :error, missing_fields_message(missing))}
     end
   end
 
@@ -57,26 +59,7 @@ defmodule SheCommandsWeb.IntakeLive.Index do
   @impl true
   def handle_event("complete", params, socket) do
     socket = save_step(socket, params)
-
-    case Intake.complete_intake_response(socket.assigns.response) do
-      {:ok, response} ->
-        socket =
-          socket
-          |> assign(:response, response)
-          |> assign(:current_step, @total_steps + 1)
-
-        socket = try_generate_plan(socket, response)
-
-        {:noreply, socket}
-
-      {:error, _changeset} ->
-        {:noreply,
-         put_flash(
-           socket,
-           :error,
-           gettext("Please complete all required fields before finishing.")
-         )}
-    end
+    finalize_intake(socket)
   end
 
   @impl true
@@ -146,13 +129,97 @@ defmodule SheCommandsWeb.IntakeLive.Index do
     end
   end
 
+  defp finalize_intake(socket) do
+    with :ok <- validate_step(socket.assigns.response, socket.assigns.current_step),
+         {:ok, response} <- Intake.complete_intake_response(socket.assigns.response) do
+      socket =
+        socket
+        |> assign(:response, response)
+        |> assign(:current_step, @total_steps + 1)
+
+      {:noreply, try_generate_plan(socket, response)}
+    else
+      {:error, %Ecto.Changeset{} = changeset} ->
+        {:noreply, put_flash(socket, :error, missing_fields_message(required_errors(changeset)))}
+
+      {:error, missing_fields} when is_list(missing_fields) ->
+        {:noreply, put_flash(socket, :error, missing_fields_message(missing_fields))}
+    end
+  end
+
+  defp required_errors(%Ecto.Changeset{errors: errors}) do
+    errors
+    |> Enum.filter(fn {_field, {_msg, opts}} -> opts[:validation] == :required end)
+    |> Enum.map(fn {field, _} -> field end)
+  end
+
+  defp advance_step(socket) do
+    if socket.assigns.current_step < @total_steps do
+      next_step = socket.assigns.current_step + 1
+
+      {:ok, response} = Intake.update_intake_step(socket.assigns.response, next_step)
+
+      {:noreply,
+       socket
+       |> assign(:response, response)
+       |> assign(:current_step, next_step)}
+    else
+      {:noreply, socket}
+    end
+  end
+
+  defp validate_step(_response, step) when step not in 1..4, do: :ok
+
+  defp validate_step(response, step) do
+    required = Map.fetch!(@step_required_fields, step)
+
+    missing =
+      Enum.filter(required, fn field ->
+        value = Map.get(response, field)
+        is_nil(value) or (is_binary(value) and String.trim(value) == "")
+      end)
+
+    case missing do
+      [] -> :ok
+      fields -> {:error, fields}
+    end
+  end
+
+  defp missing_fields_message(fields) do
+    formatted = Enum.map_join(fields, ", ", &format_required_field/1)
+
+    gettext("Please complete the following before continuing: %{fields}", fields: formatted)
+  end
+
+  defp format_required_field(:goal_intent), do: gettext("Goal")
+  defp format_required_field(:goal_category_id), do: gettext("Focus area")
+  defp format_required_field(:lead_time), do: gettext("Timeline")
+  defp format_required_field(:days_per_week), do: gettext("Days per week")
+  defp format_required_field(:hours_per_day), do: gettext("Time per session")
+  defp format_required_field(:intensity), do: gettext("Intensity")
+  defp format_required_field(field), do: field |> to_string() |> String.replace("_", " ")
+
   defp save_step(socket, params) do
     case socket.assigns.current_step do
       1 -> save_goal_step(socket, params)
+      4 -> save_availability_step(socket)
       5 -> save_limitations_step(socket, params)
       7 -> save_regimen_step(socket, params)
       8 -> save_location_step(socket, params)
       _ -> socket
+    end
+  end
+
+  defp save_availability_step(socket) do
+    response = socket.assigns.response
+
+    if is_nil(response.days_per_week) do
+      {:ok, response} =
+        Intake.update_intake_availability(response, %{days_per_week: 3})
+
+      assign(socket, :response, response)
+    else
+      socket
     end
   end
 
