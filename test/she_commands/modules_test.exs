@@ -233,7 +233,8 @@ defmodule SheCommands.ModulesTest do
 
       # High includes all: low, moderate, high
       result = Modules.filter_modules(%{intensity: :high})
-      assert length(result) == 2
+      ids = Enum.map(result, & &1.id) |> Enum.sort()
+      assert ids == Enum.sort([m1.id, m2.id])
 
       # Low only includes low
       result = Modules.filter_modules(%{intensity: :low})

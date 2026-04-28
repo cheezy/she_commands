@@ -132,6 +132,7 @@ defmodule SheCommandsWeb.PlanLive.ChatPanelComponentTest do
         |> render_submit(%{"message" => "What is my plan about?"})
 
       assert html =~ "What is my plan about?"
+      wait_for_chat_to_settle(view)
     end
 
     test "suggested question click sends message", %{conn: conn} do
@@ -142,6 +143,7 @@ defmodule SheCommandsWeb.PlanLive.ChatPanelComponentTest do
         render_click(view, "suggest_question", %{"question" => "What should I focus on today?"})
 
       assert html =~ "What should I focus on today?"
+      wait_for_chat_to_settle(view)
     end
 
     test "empty message does not create a message", %{conn: conn} do
@@ -203,6 +205,28 @@ defmodule SheCommandsWeb.PlanLive.ChatPanelComponentTest do
       assert html =~ "Chat"
       assert html =~ "Ask about your plan..."
       assert html =~ "your plan assistant"
+    end
+  end
+
+  defp wait_for_chat_to_settle(view, timeout \\ 2_000) do
+    deadline = System.monotonic_time(:millisecond) + timeout
+    do_wait_for_chat_to_settle(view, deadline)
+  end
+
+  defp do_wait_for_chat_to_settle(view, deadline) do
+    cond do
+      not Process.alive?(view.pid) ->
+        :ok
+
+      not (render(view) =~ "animate-bounce") ->
+        :ok
+
+      System.monotonic_time(:millisecond) >= deadline ->
+        :timeout
+
+      true ->
+        Process.sleep(50)
+        do_wait_for_chat_to_settle(view, deadline)
     end
   end
 end

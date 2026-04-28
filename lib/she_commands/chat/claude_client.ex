@@ -97,7 +97,8 @@ defmodule SheCommands.Chat.ClaudeClient do
         {"anthropic-version", @anthropic_version},
         {"content-type", "application/json"}
       ],
-      receive_timeout: 30_000
+      receive_timeout: 30_000,
+      retry: false
     ]
     |> Keyword.merge(req_options)
     |> Req.post()

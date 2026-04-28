@@ -54,7 +54,7 @@ defmodule SheCommandsWeb.PlanLive.ChatIntegrationTest do
       |> element("form")
       |> render_submit(%{"message" => "Help me with my plan"})
 
-      Process.sleep(300)
+      wait_for_chat_to_settle(view)
       html = render(view)
 
       assert html =~ "Help me with my plan"
@@ -79,6 +79,8 @@ defmodule SheCommandsWeb.PlanLive.ChatIntegrationTest do
 
       html = render(view)
       assert html =~ "animate-bounce"
+
+      wait_for_chat_to_settle(view)
     end
 
     test "shows error state on API failure", %{conn: conn} do
@@ -95,7 +97,7 @@ defmodule SheCommandsWeb.PlanLive.ChatIntegrationTest do
       |> element("form")
       |> render_submit(%{"message" => "Hello"})
 
-      Process.sleep(300)
+      wait_for_chat_to_settle(view)
       html = render(view)
 
       assert html =~ "Something went wrong"
@@ -124,13 +126,13 @@ defmodule SheCommandsWeb.PlanLive.ChatIntegrationTest do
 
       # First send fails
       view |> element("form") |> render_submit(%{"message" => "Hello"})
-      Process.sleep(300)
+      wait_for_chat_to_settle(view)
       html = render(view)
       assert html =~ "Something went wrong"
 
       # Retry succeeds
       render_click(view, "retry_message")
-      Process.sleep(300)
+      wait_for_chat_to_settle(view)
       html = render(view)
       assert html =~ "Success after retry!"
     end
@@ -153,6 +155,8 @@ defmodule SheCommandsWeb.PlanLive.ChatIntegrationTest do
       html = render(view)
       assert html =~ "First"
       refute html =~ "Second"
+
+      wait_for_chat_to_settle(view)
     end
 
     test "RAG context includes user plan data", %{conn: conn} do
@@ -175,18 +179,20 @@ defmodule SheCommandsWeb.PlanLive.ChatIntegrationTest do
       assert_receive {:system_prompt, system_prompt}, 1000
       assert system_prompt =~ "Lead with confidence"
       assert system_prompt =~ "Test Module"
+
+      wait_for_chat_to_settle(view)
     end
 
     test "shows error state on API timeout", %{conn: conn} do
-      Req.Test.stub(SheCommands.Chat.ClaudeClient, fn _conn ->
-        raise Req.TransportError, reason: :timeout
+      Req.Test.stub(SheCommands.Chat.ClaudeClient, fn conn ->
+        Req.Test.transport_error(conn, :timeout)
       end)
 
       {:ok, view, _html} = live(conn, ~p"/my-plan")
       render_click(view, "toggle_chat")
 
       view |> element("form") |> render_submit(%{"message" => "Hello"})
-      Process.sleep(300)
+      wait_for_chat_to_settle(view)
       html = render(view)
 
       assert html =~ "Something went wrong"
@@ -208,6 +214,28 @@ defmodule SheCommandsWeb.PlanLive.ChatIntegrationTest do
 
       assert html =~ "Persisted question"
       assert html =~ "Persisted answer"
+    end
+  end
+
+  defp wait_for_chat_to_settle(view, timeout \\ 2_000) do
+    deadline = System.monotonic_time(:millisecond) + timeout
+    do_wait_for_chat_to_settle(view, deadline)
+  end
+
+  defp do_wait_for_chat_to_settle(view, deadline) do
+    cond do
+      not Process.alive?(view.pid) ->
+        :ok
+
+      not (render(view) =~ "animate-bounce") ->
+        :ok
+
+      System.monotonic_time(:millisecond) >= deadline ->
+        :timeout
+
+      true ->
+        Process.sleep(50)
+        do_wait_for_chat_to_settle(view, deadline)
     end
   end
 end
