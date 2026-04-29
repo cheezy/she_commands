@@ -25,7 +25,23 @@ defmodule SheCommandsWeb.IntakeLive.Index do
      |> assign(:current_step, response.current_step)
      |> assign(:total_steps, @total_steps)
      |> assign(:goal_categories, goal_categories)
+     |> assign(:goal_affirmation, Enum.random(goal_affirmations()))
      |> assign(:page_title, gettext("Your Personal Plan"))}
+  end
+
+  defp goal_affirmations do
+    [
+      gettext("That's a meaningful goal — here's how we'll approach it."),
+      gettext("Beautiful clarity. Let's design a plan that honours it."),
+      gettext("That intention matters. We'll build the path that gets you there."),
+      gettext("A goal worth pursuing — let's set the foundation."),
+      gettext("You're choosing growth. We'll meet you with a plan that fits."),
+      gettext("That's the kind of goal that changes a life — let's start."),
+      gettext("Powerful direction. Now let's translate it into protocols."),
+      gettext("You've named what matters. The plan will reflect that."),
+      gettext("That goal deserves a thoughtful approach — here's ours."),
+      gettext("Clear intent, clear next step. Let's get to work.")
+    ]
   end
 
   @impl true

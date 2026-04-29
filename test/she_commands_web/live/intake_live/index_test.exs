@@ -56,6 +56,48 @@ defmodule SheCommandsWeb.IntakeLive.IndexTest do
     end
   end
 
+  describe "step 1 sub-header" do
+    test "includes the BETA caveat", %{conn: conn} do
+      {:ok, _view, html} = live(conn, ~p"/intake")
+      assert html =~ "BETA mode"
+      assert html =~ "presence, confidence, decision making, impact &amp; influence"
+    end
+  end
+
+  describe "step 2 affirmation" do
+    test "renders an affirmation quote on step 2", %{conn: conn, user: user} do
+      intake_response_fixture(user, %{current_step: 2, goal_intent: "My goal"})
+
+      {:ok, _view, html} = live(conn, ~p"/intake")
+      assert html =~ "border-l-2 border-base-content/30"
+    end
+
+    test "step 2 sub-header uses the updated copy", %{conn: conn, user: user} do
+      intake_response_fixture(user, %{current_step: 2, goal_intent: "My goal"})
+
+      {:ok, _view, html} = live(conn, ~p"/intake")
+      assert html =~ "habit-building protocols"
+      assert html =~ "achieving your goal"
+      refute html =~ "match you with the right experts"
+    end
+
+    test "affirmation varies across many mounts", %{conn: conn, user: user} do
+      intake_response_fixture(user, %{current_step: 2, goal_intent: "My goal"})
+
+      seen =
+        for _ <- 1..40, into: MapSet.new() do
+          {:ok, _view, html} = live(conn, ~p"/intake")
+
+          # Pull the italic affirmation paragraph contents
+          [_, contents | _] = Regex.run(~r/font-serif">\s*([^<]+)\s*</, html, capture: :all)
+          String.trim(contents)
+        end
+
+      # 10 options, 40 attempts — extremely likely to see at least 3 distinct strings
+      assert MapSet.size(seen) >= 3
+    end
+  end
+
   describe "goal category selection" do
     test "selecting a category highlights it", %{conn: conn, user: user} do
       category = goal_category_fixture()
