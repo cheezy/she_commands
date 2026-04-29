@@ -71,4 +71,4 @@ else
 end
 
 # Seed goal categories and module library
-Code.require_file("priv/repo/seeds/module_library.exs")
+Code.require_file(Path.join([:code.priv_dir(:she_commands), "repo", "seeds", "module_library.exs"]))
