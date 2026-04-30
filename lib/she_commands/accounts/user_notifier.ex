@@ -36,4 +36,72 @@ defmodule SheCommands.Accounts.UserNotifier do
     ==============================
     """)
   end
+
+  @doc """
+  Notifies a coach that a new escalation needs review.
+
+  `escalation` must have `:user` preloaded so the member's display name
+  can be rendered. `dashboard_url` is the absolute link to the coach
+  queue.
+  """
+  def deliver_new_escalation_notification(coach, escalation, dashboard_url) do
+    member_name = member_display_name(escalation.user)
+    subject_line = humanize_subject(escalation.subject)
+
+    deliver(coach.email, "New escalation: #{subject_line}", """
+
+    ==============================
+
+    Hi #{coach.email},
+
+    A new escalation is waiting for coach review.
+
+    Member: #{member_name}
+    Subject: #{subject_line}
+
+    Open the queue: #{dashboard_url}
+
+    ==============================
+    """)
+  end
+
+  @doc """
+  Confirms receipt of an escalation to the member who submitted it.
+  Includes the SLA timeline and the scope of coach support.
+  """
+  def deliver_escalation_confirmation(member, escalation) do
+    subject_line = humanize_subject(escalation.subject)
+
+    deliver(member.email, "We received your coach review request", """
+
+    ==============================
+
+    Hi #{member.email},
+
+    We received your request for coach review on "#{subject_line}".
+
+    A coach will respond within 48 business hours (weekends excluded).
+
+    Coach support covers plan clarification, motivation, and event
+    prioritization. For medical, nutritional, or fitness questions,
+    please consult a qualified professional.
+
+    ==============================
+    """)
+  end
+
+  defp member_display_name(nil), do: "a member"
+
+  defp member_display_name(user) do
+    cond do
+      user.display_name && user.display_name != "" -> user.display_name
+      user.name && user.name != "" -> user.name
+      true -> "a member"
+    end
+  end
+
+  defp humanize_subject(:plan_clarification), do: "Plan clarification"
+  defp humanize_subject(:motivation_support), do: "Motivation support"
+  defp humanize_subject(:event_prioritization), do: "Event prioritization"
+  defp humanize_subject(other), do: other |> Atom.to_string() |> String.replace("_", " ")
 end

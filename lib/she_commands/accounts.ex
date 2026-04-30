@@ -136,6 +136,16 @@ defmodule SheCommands.Accounts do
   end
 
   @doc """
+  Returns all users with the :coach role, ordered by id.
+  """
+  def list_coaches do
+    User
+    |> where([u], u.role == :coach)
+    |> order_by([u], asc: u.id)
+    |> Repo.all()
+  end
+
+  @doc """
   Returns true if the user has the given role.
   """
   def has_role?(%User{role: role}, role), do: true
