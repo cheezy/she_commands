@@ -290,4 +290,65 @@ defmodule SheCommandsWeb.UserAuthTest do
       refute conn.status
     end
   end
+
+  describe "on_mount/4 :ensure_coach_or_admin" do
+    setup do
+      socket = %Phoenix.LiveView.Socket{
+        endpoint: SheCommandsWeb.Endpoint,
+        assigns: %{__changed__: %{}, flash: %{}}
+      }
+
+      %{socket: socket}
+    end
+
+    test "continues for coach users", %{socket: socket} do
+      user = user_fixture()
+      {:ok, user} = Accounts.update_user_role(user, :coach)
+      token = Accounts.generate_user_session_token(user)
+
+      assert {:cont, %Phoenix.LiveView.Socket{}} =
+               UserAuth.on_mount(
+                 :ensure_coach_or_admin,
+                 %{},
+                 %{"user_token" => token},
+                 socket
+               )
+    end
+
+    test "continues for admin users", %{socket: socket} do
+      user = user_fixture()
+      {:ok, user} = Accounts.update_user_role(user, :admin)
+      token = Accounts.generate_user_session_token(user)
+
+      assert {:cont, %Phoenix.LiveView.Socket{}} =
+               UserAuth.on_mount(
+                 :ensure_coach_or_admin,
+                 %{},
+                 %{"user_token" => token},
+                 socket
+               )
+    end
+
+    test "halts and redirects for member users", %{socket: socket} do
+      user = user_fixture()
+      token = Accounts.generate_user_session_token(user)
+
+      assert {:halt, redirected_socket} =
+               UserAuth.on_mount(
+                 :ensure_coach_or_admin,
+                 %{},
+                 %{"user_token" => token},
+                 socket
+               )
+
+      assert redirected_socket.redirected
+    end
+
+    test "halts and redirects for unauthenticated sessions", %{socket: socket} do
+      assert {:halt, redirected_socket} =
+               UserAuth.on_mount(:ensure_coach_or_admin, %{}, %{}, socket)
+
+      assert redirected_socket.redirected
+    end
+  end
 end
