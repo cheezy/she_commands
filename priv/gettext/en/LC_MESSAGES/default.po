@@ -509,6 +509,7 @@ msgstr ""
 #: lib/she_commands_web/controllers/page_html/brand.html.heex:189
 #: lib/she_commands_web/controllers/page_html/goal_execution.html.heex:108
 #: lib/she_commands_web/controllers/page_html/home.html.heex:156
+#: lib/she_commands_web/live/coach_live/escalation_show.ex:129
 #: lib/she_commands_web/live/plan_live/show.ex:209
 #, elixir-autogen, elixir-format
 msgid "Empower"
@@ -591,6 +592,7 @@ msgstr ""
 #: lib/she_commands_web/controllers/page_html/brand.html.heex:176
 #: lib/she_commands_web/controllers/page_html/goal_execution.html.heex:94
 #: lib/she_commands_web/controllers/page_html/home.html.heex:146
+#: lib/she_commands_web/live/coach_live/escalation_show.ex:128
 #: lib/she_commands_web/live/plan_live/show.ex:208
 #, elixir-autogen, elixir-format
 msgid "Power Down"
@@ -606,6 +608,7 @@ msgstr ""
 #: lib/she_commands_web/controllers/page_html/brand.html.heex:163
 #: lib/she_commands_web/controllers/page_html/goal_execution.html.heex:80
 #: lib/she_commands_web/controllers/page_html/home.html.heex:132
+#: lib/she_commands_web/live/coach_live/escalation_show.ex:127
 #: lib/she_commands_web/live/plan_live/show.ex:207
 #, elixir-autogen, elixir-format
 msgid "Power Through"
@@ -614,6 +617,7 @@ msgstr ""
 #: lib/she_commands_web/controllers/page_html/brand.html.heex:150
 #: lib/she_commands_web/controllers/page_html/goal_execution.html.heex:66
 #: lib/she_commands_web/controllers/page_html/home.html.heex:118
+#: lib/she_commands_web/live/coach_live/escalation_show.ex:126
 #: lib/she_commands_web/live/plan_live/show.ex:206
 #, elixir-autogen, elixir-format
 msgid "Power Up"
@@ -1221,6 +1225,8 @@ msgid "Physical training for vitality and resilience"
 msgstr ""
 
 #: lib/she_commands_web/controllers/plan_html/print.html.heex:60
+#: lib/she_commands_web/live/coach_live/escalation_show.html.heex:73
+#: lib/she_commands_web/live/coach_live/escalation_show.html.heex:107
 #: lib/she_commands_web/live/plan_live/show.html.heex:21
 #, elixir-autogen, elixir-format
 msgid "Plan"
@@ -1638,6 +1644,7 @@ msgstr ""
 msgid "Choose a subject..."
 msgstr ""
 
+#: lib/she_commands_web/live/coach_live/escalation_show.ex:124
 #: lib/she_commands_web/live/escalation_live/member_component.ex:90
 #, elixir-autogen, elixir-format, fuzzy
 msgid "Closed"
@@ -1660,17 +1667,20 @@ msgid "Coach support covers plan clarification, motivation, and event prioritiza
 msgstr ""
 
 #: lib/she_commands_web/live/coach_live/escalation_index.ex:114
+#: lib/she_commands_web/live/coach_live/escalation_show.ex:119
 #: lib/she_commands_web/live/escalation_live/member_component.ex:85
 #, elixir-autogen, elixir-format
 msgid "Event prioritization"
 msgstr ""
 
+#: lib/she_commands_web/live/coach_live/escalation_show.ex:122
 #: lib/she_commands_web/live/escalation_live/member_component.ex:88
 #, elixir-autogen, elixir-format
 msgid "In review"
 msgstr ""
 
 #: lib/she_commands_web/live/coach_live/escalation_index.ex:113
+#: lib/she_commands_web/live/coach_live/escalation_show.ex:118
 #: lib/she_commands_web/live/escalation_live/member_component.ex:84
 #, elixir-autogen, elixir-format
 msgid "Motivation support"
@@ -1681,12 +1691,14 @@ msgstr ""
 msgid "Note (optional)"
 msgstr ""
 
+#: lib/she_commands_web/live/coach_live/escalation_show.ex:121
 #: lib/she_commands_web/live/escalation_live/member_component.ex:87
 #, elixir-autogen, elixir-format
 msgid "Pending"
 msgstr ""
 
 #: lib/she_commands_web/live/coach_live/escalation_index.ex:112
+#: lib/she_commands_web/live/coach_live/escalation_show.ex:117
 #: lib/she_commands_web/live/escalation_live/member_component.ex:83
 #, elixir-autogen, elixir-format
 msgid "Plan clarification"
@@ -1703,6 +1715,7 @@ msgstr ""
 msgid "Request coach review"
 msgstr ""
 
+#: lib/she_commands_web/live/coach_live/escalation_show.ex:123
 #: lib/she_commands_web/live/escalation_live/member_component.ex:89
 #, elixir-autogen, elixir-format
 msgid "Responded"
@@ -1790,6 +1803,9 @@ msgid "Escalations queue"
 msgstr ""
 
 #: lib/she_commands_web/live/coach_live/escalation_index.ex:97
+#: lib/she_commands_web/live/coach_live/escalation_show.ex:107
+#: lib/she_commands_web/live/coach_live/escalation_show.html.heex:29
+#: lib/she_commands_web/live/coach_live/escalation_show.html.heex:131
 #, elixir-autogen, elixir-format
 msgid "Member"
 msgstr ""
@@ -1822,4 +1838,81 @@ msgstr ""
 #: lib/she_commands_web/live/coach_live/escalation_index.ex:81
 #, elixir-autogen, elixir-format
 msgid "under 1 hour"
+msgstr ""
+
+#: lib/she_commands_web/live/coach_live/escalation_show.html.heex:131
+#, elixir-autogen, elixir-format
+msgid "Assistant"
+msgstr ""
+
+#: lib/she_commands_web/live/coach_live/escalation_show.html.heex:8
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Back to queue"
+msgstr ""
+
+#: lib/she_commands_web/live/coach_live/escalation_show.html.heex:119
+#, elixir-autogen, elixir-format
+msgid "Conversation context"
+msgstr ""
+
+#: lib/she_commands_web/live/coach_live/escalation_show.ex:29
+#: lib/she_commands_web/live/coach_live/escalation_show.html.heex:14
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Escalation"
+msgstr ""
+
+#: lib/she_commands_web/live/coach_live/escalation_show.html.heex:59
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Member note"
+msgstr ""
+
+#: lib/she_commands_web/live/coach_live/escalation_show.html.heex:110
+#, elixir-autogen, elixir-format
+msgid "No active plan attached to this escalation."
+msgstr ""
+
+#: lib/she_commands_web/live/coach_live/escalation_show.ex:57
+#, elixir-autogen, elixir-format
+msgid "Please enter a response before submitting."
+msgstr ""
+
+#: lib/she_commands_web/live/coach_live/escalation_show.html.heex:42
+#, elixir-autogen, elixir-format
+msgid "Request details"
+msgstr ""
+
+#: lib/she_commands_web/live/coach_live/escalation_show.ex:64
+#, elixir-autogen, elixir-format
+msgid "Response sent."
+msgstr ""
+
+#: lib/she_commands_web/live/coach_live/escalation_show.html.heex:50
+#, elixir-autogen, elixir-format
+msgid "SLA deadline"
+msgstr ""
+
+#: lib/she_commands_web/live/coach_live/escalation_show.html.heex:156
+#, elixir-autogen, elixir-format
+msgid "Send response"
+msgstr ""
+
+#: lib/she_commands_web/live/coach_live/escalation_show.html.heex:46
+#, elixir-autogen, elixir-format
+msgid "Submitted"
+msgstr ""
+
+#: lib/she_commands_web/live/coach_live/escalation_show.ex:37
+#: lib/she_commands_web/live/coach_live/escalation_show.ex:52
+#, elixir-autogen, elixir-format
+msgid "This escalation is assigned to another coach."
+msgstr ""
+
+#: lib/she_commands_web/live/coach_live/escalation_show.html.heex:149
+#, elixir-autogen, elixir-format
+msgid "Write a thoughtful response..."
+msgstr ""
+
+#: lib/she_commands_web/live/coach_live/escalation_show.html.heex:141
+#, elixir-autogen, elixir-format
+msgid "Your response"
 msgstr ""

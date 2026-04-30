@@ -91,6 +91,7 @@ defmodule SheCommandsWeb.Router do
     live_session :coach,
       on_mount: [{SheCommandsWeb.UserAuth, :ensure_coach_or_admin}] do
       live "/escalations", CoachLive.EscalationIndex, :index
+      live "/escalations/:id", CoachLive.EscalationShow, :show
     end
   end
 
