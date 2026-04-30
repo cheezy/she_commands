@@ -1638,7 +1638,7 @@ msgstr ""
 msgid "Choose a subject..."
 msgstr ""
 
-#: lib/she_commands_web/live/escalation_live/member_component.ex:85
+#: lib/she_commands_web/live/escalation_live/member_component.ex:90
 #, elixir-autogen, elixir-format, fuzzy
 msgid "Closed"
 msgstr ""
@@ -1659,17 +1659,19 @@ msgstr ""
 msgid "Coach support covers plan clarification, motivation, and event prioritization. For medical, nutritional, or fitness questions please consult a qualified professional."
 msgstr ""
 
-#: lib/she_commands_web/live/escalation_live/member_component.ex:80
+#: lib/she_commands_web/live/coach_live/escalation_index.ex:114
+#: lib/she_commands_web/live/escalation_live/member_component.ex:85
 #, elixir-autogen, elixir-format
 msgid "Event prioritization"
 msgstr ""
 
-#: lib/she_commands_web/live/escalation_live/member_component.ex:83
+#: lib/she_commands_web/live/escalation_live/member_component.ex:88
 #, elixir-autogen, elixir-format
 msgid "In review"
 msgstr ""
 
-#: lib/she_commands_web/live/escalation_live/member_component.ex:79
+#: lib/she_commands_web/live/coach_live/escalation_index.ex:113
+#: lib/she_commands_web/live/escalation_live/member_component.ex:84
 #, elixir-autogen, elixir-format
 msgid "Motivation support"
 msgstr ""
@@ -1679,17 +1681,18 @@ msgstr ""
 msgid "Note (optional)"
 msgstr ""
 
-#: lib/she_commands_web/live/escalation_live/member_component.ex:82
+#: lib/she_commands_web/live/escalation_live/member_component.ex:87
 #, elixir-autogen, elixir-format
 msgid "Pending"
 msgstr ""
 
-#: lib/she_commands_web/live/escalation_live/member_component.ex:78
+#: lib/she_commands_web/live/coach_live/escalation_index.ex:112
+#: lib/she_commands_web/live/escalation_live/member_component.ex:83
 #, elixir-autogen, elixir-format
 msgid "Plan clarification"
 msgstr ""
 
-#: lib/she_commands_web/live/escalation_live/member_component.ex:69
+#: lib/she_commands_web/live/escalation_live/member_component.ex:74
 #, elixir-autogen, elixir-format
 msgid "Please choose a subject before submitting."
 msgstr ""
@@ -1700,7 +1703,7 @@ msgstr ""
 msgid "Request coach review"
 msgstr ""
 
-#: lib/she_commands_web/live/escalation_live/member_component.ex:84
+#: lib/she_commands_web/live/escalation_live/member_component.ex:89
 #, elixir-autogen, elixir-format
 msgid "Responded"
 msgstr ""
@@ -1725,7 +1728,98 @@ msgstr ""
 msgid "Your escalations"
 msgstr ""
 
-#: lib/she_commands_web/live/escalation_live/member_component.ex:61
+#: lib/she_commands_web/live/escalation_live/member_component.ex:66
 #, elixir-autogen, elixir-format
 msgid "Your request has been sent to a coach."
+msgstr ""
+
+#: lib/she_commands_web/live/coach_live/escalation_index.ex:90
+#, elixir-autogen, elixir-format, fuzzy
+msgid "%{count} days"
+msgstr ""
+
+#: lib/she_commands_web/live/coach_live/escalation_index.ex:108
+#, elixir-autogen, elixir-format
+msgid "%{count} days ago"
+msgstr ""
+
+#: lib/she_commands_web/live/coach_live/escalation_index.ex:85
+#, elixir-autogen, elixir-format, fuzzy
+msgid "%{count} hours"
+msgstr ""
+
+#: lib/she_commands_web/live/coach_live/escalation_index.ex:107
+#, elixir-autogen, elixir-format, fuzzy
+msgid "%{count} hours ago"
+msgstr ""
+
+#: lib/she_commands_web/live/coach_live/escalation_index.ex:106
+#, elixir-autogen, elixir-format, fuzzy
+msgid "%{count} minutes ago"
+msgstr ""
+
+#: lib/she_commands_web/live/coach_live/escalation_index.html.heex:10
+#, elixir-autogen, elixir-format, fuzzy
+msgid "%{count} pending"
+msgstr ""
+
+#: lib/she_commands_web/live/coach_live/escalation_index.html.heex:16
+#, elixir-autogen, elixir-format
+msgid "All clear"
+msgstr ""
+
+#: lib/she_commands_web/live/coach_live/escalation_index.html.heex:84
+#, elixir-autogen, elixir-format
+msgid "Claim"
+msgstr ""
+
+#: lib/she_commands_web/live/coach_live/escalation_index.html.heex:4
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Coach"
+msgstr ""
+
+#: lib/she_commands_web/live/coach_live/escalation_index.ex:38
+#, elixir-autogen, elixir-format
+msgid "Escalation claimed."
+msgstr ""
+
+#: lib/she_commands_web/live/coach_live/escalation_index.ex:23
+#: lib/she_commands_web/live/coach_live/escalation_index.html.heex:7
+#, elixir-autogen, elixir-format
+msgid "Escalations queue"
+msgstr ""
+
+#: lib/she_commands_web/live/coach_live/escalation_index.ex:97
+#, elixir-autogen, elixir-format
+msgid "Member"
+msgstr ""
+
+#: lib/she_commands_web/live/coach_live/escalation_index.html.heex:19
+#, elixir-autogen, elixir-format
+msgid "No pending escalations. Great work."
+msgstr ""
+
+#: lib/she_commands_web/live/coach_live/escalation_index.html.heex:68
+#, elixir-autogen, elixir-format
+msgid "SLA in %{remaining}"
+msgstr ""
+
+#: lib/she_commands_web/live/coach_live/escalation_index.html.heex:66
+#, elixir-autogen, elixir-format
+msgid "SLA overdue"
+msgstr ""
+
+#: lib/she_commands_web/live/coach_live/escalation_index.ex:105
+#, elixir-autogen, elixir-format
+msgid "just now"
+msgstr ""
+
+#: lib/she_commands_web/live/coach_live/escalation_index.ex:80
+#, elixir-autogen, elixir-format
+msgid "overdue"
+msgstr ""
+
+#: lib/she_commands_web/live/coach_live/escalation_index.ex:81
+#, elixir-autogen, elixir-format
+msgid "under 1 hour"
 msgstr ""

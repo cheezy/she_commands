@@ -87,6 +87,11 @@ defmodule SheCommandsWeb.Router do
 
   scope "/coach", SheCommandsWeb do
     pipe_through [:browser, :require_authenticated_user, :require_coach_or_admin]
+
+    live_session :coach,
+      on_mount: [{SheCommandsWeb.UserAuth, :ensure_coach_or_admin}] do
+      live "/escalations", CoachLive.EscalationIndex, :index
+    end
   end
 
   ## Admin routes - require admin role
