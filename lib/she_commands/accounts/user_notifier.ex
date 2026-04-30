@@ -129,6 +129,30 @@ defmodule SheCommands.Accounts.UserNotifier do
     SheCommandsWeb.Endpoint.url() <> "/coach-review"
   end
 
+  @doc """
+  Delivers a mid-plan or post-plan feedback prompt to the member.
+  """
+  def deliver_feedback_prompt_email(member, prompt) do
+    deliver(member.email, "How is your plan going?", """
+
+    ==============================
+
+    Hi #{member.email},
+
+    A quick check-in on your plan: #{prompt_question(prompt.prompt_type)}
+
+    Reply to this email or open the app to share your feedback.
+
+    ==============================
+    """)
+  end
+
+  defp prompt_question(:mid_plan),
+    do: "How is the plan working for you so far? What's clicking, what isn't?"
+
+  defp prompt_question(:post_plan),
+    do: "Now that your plan has wrapped, how did it go? Any results worth celebrating?"
+
   defp humanize_subject(:plan_clarification), do: "Plan clarification"
   defp humanize_subject(:motivation_support), do: "Motivation support"
   defp humanize_subject(:event_prioritization), do: "Event prioritization"

@@ -105,21 +105,54 @@ defmodule SheCommands.Plans do
 
   @doc """
   Creates a plan.
+
+  When the plan is created with `status: :active` (the path used by
+  generated plans) the feedback scheduler is enqueued.
   """
   def create_plan(attrs \\ %{}) do
-    %Plan{}
-    |> Plan.changeset(attrs)
-    |> Repo.insert()
+    case %Plan{} |> Plan.changeset(attrs) |> Repo.insert() do
+      {:ok, plan} ->
+        enqueue_feedback_jobs(plan, nil)
+        {:ok, plan}
+
+      other ->
+        other
+    end
   end
 
   @doc """
   Updates a plan.
+
+  Side effect: when the plan transitions to `:active` we enqueue the
+  feedback scheduler, and when it transitions to `:completed` we enqueue
+  the post-plan survey. Both jobs are idempotent so retries are safe.
   """
   def update_plan(%Plan{} = plan, attrs) do
-    plan
-    |> Plan.changeset(attrs)
-    |> Repo.update()
+    previous_status = plan.status
+
+    case plan |> Plan.changeset(attrs) |> Repo.update() do
+      {:ok, updated} ->
+        enqueue_feedback_jobs(updated, previous_status)
+        {:ok, updated}
+
+      other ->
+        other
+    end
   end
+
+  defp enqueue_feedback_jobs(%Plan{status: :active, id: id}, prev) when prev != :active do
+    %{plan_id: id}
+    |> SheCommands.Feedback.Workers.FeedbackScheduler.new()
+    |> Oban.insert()
+  end
+
+  defp enqueue_feedback_jobs(%Plan{status: :completed, id: id}, prev) when prev != :completed do
+    %{plan_id: id}
+    |> SheCommands.Feedback.Workers.PlanCompletionSurvey.new()
+    |> Oban.insert()
+  end
+
+  defp enqueue_feedback_jobs(_plan, _prev), do: :ok
 
   @doc """
   Returns an `%Ecto.Changeset{}` for tracking plan changes.

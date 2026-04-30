@@ -26,10 +26,11 @@ config :she_commands, SheCommandsWeb.Endpoint,
 # In test we don't send emails
 config :she_commands, SheCommands.Mailer, adapter: Swoosh.Adapters.Test
 
-# Run Oban jobs inline in tests so async test isolation is preserved.
-# This also disables the queue and plugins, which is the recommended
-# Oban testing setup.
-config :she_commands, Oban, testing: :inline
+# Run Oban in manual testing mode so jobs are inserted but not run
+# automatically — tests use Oban.Testing.assert_enqueued/refute_enqueued
+# to verify enqueueing, and `perform_job/2` or `Oban.drain_queue/1` to
+# exercise worker logic deliberately.
+config :she_commands, Oban, testing: :manual
 
 # Disable swoosh api client as it is only required for production adapters
 config :swoosh, :api_client, false
