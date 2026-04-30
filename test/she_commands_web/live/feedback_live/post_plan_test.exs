@@ -74,6 +74,7 @@ defmodule SheCommandsWeb.FeedbackLive.PostPlanTest do
 
       reloaded = Feedback.get_feedback_survey!(survey.id)
       assert reloaded.completed_at
+
       assert reloaded.responses == %{
                "what_changed" => "More clarity",
                "what_was_hardest" => "Time",

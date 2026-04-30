@@ -44,8 +44,7 @@ defmodule SheCommandsWeb.FeedbackLive.PostPlan do
         {:noreply, socket}
 
       all_blank? ->
-        {:noreply,
-         put_flash(socket, :error, gettext("Please answer at least one question."))}
+        {:noreply, put_flash(socket, :error, gettext("Please answer at least one question."))}
 
       true ->
         {:ok, updated} = Feedback.complete_survey(socket.assigns.survey, responses)
