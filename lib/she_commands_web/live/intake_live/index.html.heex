@@ -344,58 +344,7 @@
               </form>
             </div>
           <% 6 -> %>
-            <%!-- Step 6: Coaching Preference --%>
-            <div class="space-y-8">
-              <div>
-                <p class="font-label text-xs uppercase tracking-[0.25em] text-base-content/50 mb-4">
-                  {gettext("Support Style")}
-                </p>
-                <h2 class="text-3xl sm:text-4xl font-serif italic leading-[1.1] tracking-[-0.02em] text-base-content">
-                  {gettext("How do you like to work?")}
-                </h2>
-                <p class="mt-4 text-sm text-base-content/60 leading-relaxed">
-                  {gettext(
-                    "This helps us decide how much coaching support to build into your plan."
-                  )}
-                </p>
-              </div>
-
-              <div class="space-y-3">
-                <.option_button
-                  label={gettext("Self-directed")}
-                  sublabel={gettext("I'll follow the plan on my own with AI support")}
-                  selected={option_selected?(@response.coaching_preference, :self_directed)}
-                  click="select_option"
-                  field="coaching_preference"
-                  value="self_directed"
-                />
-                <.option_button
-                  label={gettext("Coach-guided")}
-                  sublabel={gettext("I want access to human coach support alongside the plan")}
-                  selected={option_selected?(@response.coaching_preference, :coach_guided)}
-                  click="select_option"
-                  field="coaching_preference"
-                  value="coach_guided"
-                />
-              </div>
-
-              <div class="flex justify-between items-center pt-2">
-                <button
-                  phx-click="back"
-                  class="text-xs font-label uppercase tracking-[0.15em] text-base-content/60 hover:text-base-content transition cursor-pointer"
-                >
-                  &larr; {gettext("Back")}
-                </button>
-                <button
-                  phx-click="next"
-                  class="py-3 px-10 bg-base-content text-base-100 text-xs font-label uppercase tracking-[0.2em] hover:bg-base-content/90 transition cursor-pointer"
-                >
-                  {gettext("Continue")}
-                </button>
-              </div>
-            </div>
-          <% 7 -> %>
-            <%!-- Step 7: Current Regimen --%>
+            <%!-- Step 6: Current Regimen --%>
             <div class="space-y-8">
               <div>
                 <p class="font-label text-xs uppercase tracking-[0.25em] text-base-content/50 mb-4">

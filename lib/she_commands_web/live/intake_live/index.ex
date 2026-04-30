@@ -4,7 +4,7 @@ defmodule SheCommandsWeb.IntakeLive.Index do
   alias SheCommands.Intake
   alias SheCommands.Plans
 
-  @total_steps 7
+  @total_steps 6
 
   @step_required_fields %{
     1 => [:goal_intent],
@@ -100,9 +100,6 @@ defmodule SheCommandsWeb.IntakeLive.Index do
 
         "intensity" ->
           Intake.update_intake_availability(response, %{intensity: value})
-
-        "coaching_preference" ->
-          Intake.update_intake_preferences(response, %{coaching_preference: value})
 
         "fitness_regimen" ->
           Intake.update_intake_regimen(response, %{fitness_regimen: value})
@@ -219,7 +216,7 @@ defmodule SheCommandsWeb.IntakeLive.Index do
     case socket.assigns.current_step do
       1 -> save_goal_step(socket, params)
       4 -> save_availability_step(socket)
-      7 -> save_regimen_step(socket, params)
+      6 -> save_regimen_step(socket, params)
       _ -> socket
     end
   end
