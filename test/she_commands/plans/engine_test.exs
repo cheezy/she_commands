@@ -22,16 +22,16 @@ defmodule SheCommands.Plans.EngineTest do
   end
 
   describe "map_hours_per_day/1" do
-    test "under_30 maps to 30 minutes" do
-      assert Engine.map_hours_per_day(:under_30) == 30
+    test "under_10 maps to 10 minutes" do
+      assert Engine.map_hours_per_day(:under_10) == 10
     end
 
-    test "thirty_to_sixty maps to 60 minutes" do
-      assert Engine.map_hours_per_day(:thirty_to_sixty) == 60
+    test "ten_to_thirty maps to 30 minutes" do
+      assert Engine.map_hours_per_day(:ten_to_thirty) == 30
     end
 
-    test "over_sixty maps to 90 minutes" do
-      assert Engine.map_hours_per_day(:over_sixty) == 90
+    test "over_thirty maps to 60 minutes" do
+      assert Engine.map_hours_per_day(:over_thirty) == 60
     end
   end
 
@@ -230,7 +230,7 @@ defmodule SheCommands.Plans.EngineTest do
           goal_intent: "Be more confident",
           lead_time: :short,
           days_per_week: 5,
-          hours_per_day: :thirty_to_sixty,
+          hours_per_day: :ten_to_thirty,
           intensity: :moderate
         })
 
@@ -272,7 +272,7 @@ defmodule SheCommands.Plans.EngineTest do
           goal_category_id: category.id,
           lead_time: :short,
           days_per_week: 3,
-          hours_per_day: :thirty_to_sixty,
+          hours_per_day: :ten_to_thirty,
           intensity: :low
         })
 
@@ -344,7 +344,7 @@ defmodule SheCommands.Plans.EngineTest do
           goal_category_id: category.id,
           lead_time: :medium,
           days_per_week: 5,
-          hours_per_day: :thirty_to_sixty,
+          hours_per_day: :ten_to_thirty,
           intensity: :low
         })
 
@@ -372,7 +372,7 @@ defmodule SheCommands.Plans.EngineTest do
           goal_category_id: category.id,
           lead_time: :long,
           days_per_week: 5,
-          hours_per_day: :over_sixty,
+          hours_per_day: :over_thirty,
           intensity: :high
         })
 
@@ -400,7 +400,7 @@ defmodule SheCommands.Plans.EngineTest do
           goal_category_id: category.id,
           lead_time: :short,
           days_per_week: 1,
-          hours_per_day: :under_30,
+          hours_per_day: :under_10,
           intensity: :low
         })
 

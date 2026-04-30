@@ -159,13 +159,13 @@ defmodule SheCommands.IntakeTest do
         Intake.update_intake_availability(response, %{
           lead_time: :medium,
           days_per_week: 4,
-          hours_per_day: :thirty_to_sixty,
+          hours_per_day: :ten_to_thirty,
           intensity: :moderate
         })
 
       assert updated.lead_time == :medium
       assert updated.days_per_week == 4
-      assert updated.hours_per_day == :thirty_to_sixty
+      assert updated.hours_per_day == :ten_to_thirty
       assert updated.intensity == :moderate
     end
 
@@ -293,9 +293,9 @@ defmodule SheCommands.IntakeTest do
     end
 
     test "hours_per_day_options/0 returns valid options" do
-      assert :under_30 in Intake.IntakeResponse.hours_per_day_options()
-      assert :thirty_to_sixty in Intake.IntakeResponse.hours_per_day_options()
-      assert :over_sixty in Intake.IntakeResponse.hours_per_day_options()
+      assert :under_10 in Intake.IntakeResponse.hours_per_day_options()
+      assert :ten_to_thirty in Intake.IntakeResponse.hours_per_day_options()
+      assert :over_thirty in Intake.IntakeResponse.hours_per_day_options()
     end
 
     test "intensities/0 returns valid intensities" do
@@ -389,7 +389,7 @@ defmodule SheCommands.IntakeTest do
         goal_category_id: category.id,
         lead_time: :short,
         days_per_week: 3,
-        hours_per_day: :thirty_to_sixty,
+        hours_per_day: :ten_to_thirty,
         intensity: :moderate
       }
 
@@ -416,7 +416,7 @@ defmodule SheCommands.IntakeTest do
         Intake.update_intake_availability(response, %{
           lead_time: :short,
           days_per_week: 3,
-          hours_per_day: :thirty_to_sixty,
+          hours_per_day: :ten_to_thirty,
           intensity: :moderate
         })
 

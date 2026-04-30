@@ -225,7 +225,7 @@ defmodule SheCommands.PlansTest do
           goal_intent: "Lead with confidence",
           lead_time: :short,
           days_per_week: 5,
-          hours_per_day: :thirty_to_sixty,
+          hours_per_day: :ten_to_thirty,
           intensity: :moderate
         })
 
@@ -253,7 +253,7 @@ defmodule SheCommands.PlansTest do
           goal_category_id: category.id,
           lead_time: :short,
           days_per_week: 3,
-          hours_per_day: :thirty_to_sixty,
+          hours_per_day: :ten_to_thirty,
           intensity: :low
         })
 

@@ -15,7 +15,7 @@ defmodule SheCommands.Intake.IntakeResponse do
 
   @statuses [:in_progress, :completed]
   @lead_times [:short, :medium, :long]
-  @hours_per_day [:under_30, :thirty_to_sixty, :over_sixty]
+  @hours_per_day [:under_10, :ten_to_thirty, :over_thirty]
   @intensities [:low, :moderate, :high]
   @coaching_preferences [:self_directed, :coach_guided]
   @fitness_regimens [:none, :light, :moderate, :active]

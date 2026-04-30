@@ -224,25 +224,25 @@
                   </label>
                   <div class="space-y-2">
                     <.option_button
-                      label={gettext("Less than 30 minutes")}
-                      selected={option_selected?(@response.hours_per_day, :under_30)}
+                      label={gettext("Less than 10 min")}
+                      selected={option_selected?(@response.hours_per_day, :under_10)}
                       click="select_option"
                       field="hours_per_day"
-                      value="under_30"
+                      value="under_10"
                     />
                     <.option_button
-                      label={gettext("30 to 60 minutes")}
-                      selected={option_selected?(@response.hours_per_day, :thirty_to_sixty)}
+                      label={gettext("10-30 min")}
+                      selected={option_selected?(@response.hours_per_day, :ten_to_thirty)}
                       click="select_option"
                       field="hours_per_day"
-                      value="thirty_to_sixty"
+                      value="ten_to_thirty"
                     />
                     <.option_button
-                      label={gettext("More than 60 minutes")}
-                      selected={option_selected?(@response.hours_per_day, :over_sixty)}
+                      label={gettext("More than 30 min")}
+                      selected={option_selected?(@response.hours_per_day, :over_thirty)}
                       click="select_option"
                       field="hours_per_day"
-                      value="over_sixty"
+                      value="over_thirty"
                     />
                   </div>
                 </div>

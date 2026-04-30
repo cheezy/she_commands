@@ -130,7 +130,7 @@ defmodule SheCommandsWeb.IntakeLive.IndexTest do
       html =
         render_click(view, "select_option", %{
           "field" => "hours_per_day",
-          "option" => "thirty_to_sixty"
+          "option" => "ten_to_thirty"
         })
 
       assert html =~ "border-base-content bg-base-content/5"
@@ -293,7 +293,7 @@ defmodule SheCommandsWeb.IntakeLive.IndexTest do
         goal_category_id: category.id,
         lead_time: :short,
         days_per_week: 3,
-        hours_per_day: :thirty_to_sixty,
+        hours_per_day: :ten_to_thirty,
         intensity: :moderate
       })
 
@@ -417,7 +417,7 @@ defmodule SheCommandsWeb.IntakeLive.IndexTest do
         goal_category_id: category.id,
         lead_time: :short,
         days_per_week: 3,
-        hours_per_day: :thirty_to_sixty,
+        hours_per_day: :ten_to_thirty,
         intensity: :moderate
       })
 
@@ -437,7 +437,7 @@ defmodule SheCommandsWeb.IntakeLive.IndexTest do
           goal_intent: "My goal",
           goal_category_id: category.id,
           lead_time: :short,
-          hours_per_day: :thirty_to_sixty,
+          hours_per_day: :ten_to_thirty,
           intensity: :moderate
         })
 
@@ -461,7 +461,7 @@ defmodule SheCommandsWeb.IntakeLive.IndexTest do
         goal_category_id: category.id,
         lead_time: :short,
         days_per_week: 3,
-        hours_per_day: :thirty_to_sixty,
+        hours_per_day: :ten_to_thirty,
         intensity: :moderate
       })
 

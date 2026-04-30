@@ -78,10 +78,10 @@ defmodule SheCommands.Plans.Engine do
   @doc """
   Maps the hours_per_day enum to max minutes for filtering.
   """
-  def map_hours_per_day(:under_30), do: 30
-  def map_hours_per_day(:thirty_to_sixty), do: 60
-  def map_hours_per_day(:over_sixty), do: 90
-  def map_hours_per_day(_), do: 60
+  def map_hours_per_day(:under_10), do: 10
+  def map_hours_per_day(:ten_to_thirty), do: 30
+  def map_hours_per_day(:over_thirty), do: 60
+  def map_hours_per_day(_), do: 30
 
   @doc """
   Determines maximum modules based on plan type and days per week.

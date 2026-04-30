@@ -172,11 +172,6 @@ msgstr ""
 msgid "3 to 6 weeks"
 msgstr ""
 
-#: lib/she_commands_web/live/intake_live/index.html.heex:234
-#, elixir-autogen, elixir-format
-msgid "30 to 60 minutes"
-msgstr ""
-
 #: lib/she_commands_web/live/intake_live/index.html.heex:152
 #, elixir-autogen, elixir-format
 msgid "7 weeks or more"
@@ -354,11 +349,6 @@ msgstr ""
 msgid "I'm interested in providing ongoing feedback to help improve the platform"
 msgstr ""
 
-#: lib/she_commands_web/live/intake_live/index.html.heex:227
-#, elixir-autogen, elixir-format
-msgid "Less than 30 minutes"
-msgstr ""
-
 #: lib/she_commands_web/live/intake_live/index.html.heex:425
 #, elixir-autogen, elixir-format
 msgid "Light"
@@ -378,11 +368,6 @@ msgstr ""
 #: lib/she_commands_web/live/intake_live/index.html.heex:425
 #, elixir-autogen, elixir-format
 msgid "Moderate"
-msgstr ""
-
-#: lib/she_commands_web/live/intake_live/index.html.heex:241
-#, elixir-autogen, elixir-format
-msgid "More than 60 minutes"
 msgstr ""
 
 #: lib/she_commands_web/controllers/user_settings_html/edit_email.html.heex:27
@@ -1648,4 +1633,19 @@ msgstr ""
 #: lib/she_commands_web/controllers/page_html/connect.html.heex:57
 #, elixir-autogen, elixir-format
 msgid "required"
+msgstr ""
+
+#: lib/she_commands_web/live/intake_live/index.html.heex:234
+#, elixir-autogen, elixir-format
+msgid "10-30 min"
+msgstr ""
+
+#: lib/she_commands_web/live/intake_live/index.html.heex:227
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Less than 10 min"
+msgstr ""
+
+#: lib/she_commands_web/live/intake_live/index.html.heex:241
+#, elixir-autogen, elixir-format, fuzzy
+msgid "More than 30 min"
 msgstr ""
