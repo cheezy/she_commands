@@ -23,7 +23,8 @@ config :she_commands, :scopes,
 config :she_commands,
   ecto_repos: [SheCommands.Repo],
   generators: [timestamp_type: :utc_datetime],
-  coach_capacity: 10
+  coach_capacity: 10,
+  escalation_capacity_cap: 50
 
 # Configure the endpoint
 config :she_commands, SheCommandsWeb.Endpoint,

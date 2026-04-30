@@ -100,6 +100,35 @@ defmodule SheCommands.Accounts.UserNotifier do
     end
   end
 
+  @doc """
+  Notifies a member that their coach has replied. Includes the coach
+  response excerpt and a link to view the full response.
+  """
+  def deliver_coach_response_notification(member, escalation) do
+    subject_line = humanize_subject(escalation.subject)
+    response = escalation.coach_response || ""
+    link = view_url(escalation)
+
+    deliver(member.email, "Your coach has responded: #{subject_line}", """
+
+    ==============================
+
+    Hi #{member.email},
+
+    Your coach has responded to your "#{subject_line}" request.
+
+    #{response}
+
+    View the full response: #{link}
+
+    ==============================
+    """)
+  end
+
+  defp view_url(_escalation) do
+    SheCommandsWeb.Endpoint.url() <> "/coach-review"
+  end
+
   defp humanize_subject(:plan_clarification), do: "Plan clarification"
   defp humanize_subject(:motivation_support), do: "Motivation support"
   defp humanize_subject(:event_prioritization), do: "Event prioritization"
