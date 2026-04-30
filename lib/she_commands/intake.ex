@@ -80,6 +80,28 @@ defmodule SheCommands.Intake do
   ## Intake Responses
 
   @doc """
+  Returns the onboarding completion rate as a 0.0-1.0 float.
+
+  Numerator: intake responses with status :completed.
+  Denominator: total intake responses created.
+  Returns 0.0 when there are no intake responses (avoids division by zero).
+  """
+  def onboarding_completion_rate do
+    total = Repo.aggregate(IntakeResponse, :count, :id)
+
+    if total == 0 do
+      0.0
+    else
+      completed =
+        IntakeResponse
+        |> where([r], r.status == :completed)
+        |> Repo.aggregate(:count, :id)
+
+      completed / total
+    end
+  end
+
+  @doc """
   Creates a new intake response for the given user.
   """
   def create_intake_response(user) do

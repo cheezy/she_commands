@@ -76,6 +76,48 @@ defmodule SheCommands.Plans do
     end)
   end
 
+  ## Aggregate metrics
+
+  @doc """
+  Returns the plan completion rate as a 0.0-1.0 float — plans with
+  status `:completed` over total plans. 0.0 when there are no plans.
+  """
+  def completion_rate do
+    total = Repo.aggregate(Plan, :count, :id)
+
+    if total == 0 do
+      0.0
+    else
+      completed =
+        Plan
+        |> where([p], p.status == :completed)
+        |> Repo.aggregate(:count, :id)
+
+      completed / total
+    end
+  end
+
+  @doc """
+  Returns the share of plans that have at least one attached
+  PlanModule — a coarse proxy for "module views" since the app does
+  not track view events yet. 0.0 when there are no plans.
+  """
+  def module_engagement_rate do
+    total = Repo.aggregate(Plan, :count, :id)
+
+    if total == 0 do
+      0.0
+    else
+      with_modules =
+        Plan
+        |> join(:inner, [p], pm in PlanModule, on: pm.plan_id == p.id)
+        |> distinct([p], p.id)
+        |> Repo.aggregate(:count, :id)
+
+      with_modules / total
+    end
+  end
+
   ## Plans
 
   @doc """

@@ -120,6 +120,28 @@ defmodule SheCommands.IntakeTest do
     end
   end
 
+  describe "onboarding_completion_rate/0" do
+    test "returns 0.0 when no intake responses exist" do
+      assert Intake.onboarding_completion_rate() == 0.0
+    end
+
+    test "is the share of intake responses with status :completed" do
+      user_a = user_fixture()
+      user_b = user_fixture()
+      user_c = user_fixture()
+
+      {:ok, _open_a} = Intake.create_intake_response(user_a)
+      {:ok, _open_b} = Intake.create_intake_response(user_b)
+      {:ok, ir_c} = Intake.create_intake_response(user_c)
+
+      ir_c
+      |> Ecto.Changeset.change(%{status: :completed})
+      |> SheCommands.Repo.update!()
+
+      assert_in_delta Intake.onboarding_completion_rate(), 1 / 3, 0.001
+    end
+  end
+
   describe "create_intake_response/1" do
     test "creates an in_progress response for the user" do
       user = user_fixture()

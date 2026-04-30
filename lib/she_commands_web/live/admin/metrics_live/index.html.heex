@@ -1,0 +1,58 @@
+<Layouts.app flash={@flash} current_scope={@current_scope}>
+  <div class="w-full max-w-5xl mx-auto py-12">
+    <p class="font-label text-xs uppercase tracking-[0.25em] text-base-content/50 mb-3">
+      {gettext("Administration")}
+    </p>
+    <h1 class="text-3xl sm:text-4xl font-serif italic leading-[1.1] tracking-[-0.02em] text-base-content mb-8">
+      {gettext("Success metrics")}
+    </h1>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div
+        :for={metric <- @metrics}
+        class={
+          "border p-5 bg-base-100 " <>
+            case metric_status(metric) do
+              :on_target -> "border-success/40"
+              :off_target -> "border-error/40"
+            end
+        }
+      >
+        <p class="font-label text-xs uppercase tracking-[0.15em] text-base-content/60 mb-3">
+          {metric.label}
+        </p>
+        <p class={
+          "text-3xl font-serif " <>
+            case metric_status(metric) do
+              :on_target -> "text-success"
+              :off_target -> "text-error"
+            end
+        }>
+          {percent(metric.value)}
+        </p>
+        <p class="mt-2 text-xs text-base-content/60">
+          <%= case metric.direction do %>
+            <% :higher -> %>
+              {gettext("target ≥ %{pct}", pct: percent(metric.target))}
+            <% :lower -> %>
+              {gettext("target ≤ %{pct}", pct: percent(metric.target))}
+          <% end %>
+        </p>
+        <p class={
+          "mt-1 text-xs font-label uppercase tracking-[0.15em] " <>
+            case metric_status(metric) do
+              :on_target -> "text-success"
+              :off_target -> "text-error"
+            end
+        }>
+          <%= case metric_status(metric) do %>
+            <% :on_target -> %>
+              {gettext("On target")}
+            <% :off_target -> %>
+              {gettext("Off target")}
+          <% end %>
+        </p>
+      </div>
+    </div>
+  </div>
+</Layouts.app>

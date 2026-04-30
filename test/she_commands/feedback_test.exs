@@ -223,6 +223,23 @@ defmodule SheCommands.FeedbackTest do
     end
   end
 
+  describe "survey_completion_rate/0" do
+    test "returns 0.0 when no surveys exist" do
+      assert Feedback.survey_completion_rate() == 0.0
+    end
+
+    test "is the share of surveys with completed_at set" do
+      user = user_fixture(%{})
+
+      done = feedback_survey_fixture(%{user: user})
+      _open = feedback_survey_fixture(%{user: user})
+      _open2 = feedback_survey_fixture(%{user: user})
+      {:ok, _} = Feedback.complete_survey(done, %{"q" => "answer"})
+
+      assert_in_delta Feedback.survey_completion_rate(), 1 / 3, 0.001
+    end
+  end
+
   describe "get_feedback_prompt!/1 and get_feedback_survey!/1" do
     test "fetch existing rows" do
       prompt = feedback_prompt_fixture()

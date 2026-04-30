@@ -263,4 +263,32 @@ defmodule SheCommands.PlansTest do
       assert plan.plan_modules != []
     end
   end
+
+  describe "completion_rate/0" do
+    test "returns 0.0 when no plans exist" do
+      assert Plans.completion_rate() == 0.0
+    end
+
+    test "is the share of plans with status :completed" do
+      user = user_fixture()
+      plan_fixture(%{user: user, status: :active})
+      plan_fixture(%{user: user, status: :completed})
+      assert_in_delta Plans.completion_rate(), 0.5, 0.001
+    end
+  end
+
+  describe "module_engagement_rate/0" do
+    test "returns 0.0 when no plans exist" do
+      assert Plans.module_engagement_rate() == 0.0
+    end
+
+    test "is the share of plans that have at least one plan_module" do
+      user = user_fixture()
+      with_module = plan_fixture(%{user: user, status: :active})
+      _without = plan_fixture(%{user: user, status: :active})
+      plan_module_fixture(with_module, %{})
+
+      assert_in_delta Plans.module_engagement_rate(), 0.5, 0.001
+    end
+  end
 end

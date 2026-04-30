@@ -253,6 +253,27 @@ defmodule SheCommands.Escalations do
   defp tap_broadcast(other), do: other
 
   @doc """
+  Returns the share of registered users who have raised at least one
+  escalation, as a 0.0-1.0 float. 0.0 when there are no users.
+  """
+  def escalation_volume_rate do
+    total_users = Repo.aggregate(SheCommands.Accounts.User, :count, :id)
+
+    if total_users == 0 do
+      0.0
+    else
+      escalating =
+        Escalation
+        |> distinct([e], e.user_id)
+        |> select([e], e.user_id)
+        |> Repo.all()
+        |> length()
+
+      escalating / total_users
+    end
+  end
+
+  @doc """
   Counts the distinct users with at least one open (non-closed) escalation.
   """
   def active_client_count do

@@ -356,6 +356,25 @@ defmodule SheCommands.EscalationsTest do
     end
   end
 
+  describe "escalation_volume_rate/0" do
+    test "returns 0.0 when no users exist" do
+      # No users in this test's transaction
+      assert Escalations.escalation_volume_rate() == 0.0
+    end
+
+    test "is the share of distinct users with at least one escalation" do
+      _u1 = user_fixture(%{})
+      u2 = user_fixture(%{})
+      u3 = user_fixture(%{})
+
+      escalation_fixture(%{user: u2})
+      escalation_fixture(%{user: u3})
+      escalation_fixture(%{user: u3})
+
+      assert_in_delta Escalations.escalation_volume_rate(), 2 / 3, 0.01
+    end
+  end
+
   describe "lifecycle integration" do
     test "create -> assign -> respond -> close" do
       user = user_fixture(%{})

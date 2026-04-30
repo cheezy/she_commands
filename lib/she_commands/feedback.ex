@@ -89,6 +89,27 @@ defmodule SheCommands.Feedback do
     |> Repo.update()
   end
 
+  ## Aggregate metrics
+
+  @doc """
+  Returns the post-plan survey completion rate as a 0.0-1.0 float.
+  Returns 0.0 when there are no surveys at all (avoids division by zero).
+  """
+  def survey_completion_rate do
+    total = Repo.aggregate(FeedbackSurvey, :count, :id)
+
+    if total == 0 do
+      0.0
+    else
+      completed =
+        FeedbackSurvey
+        |> where([s], not is_nil(s.completed_at))
+        |> Repo.aggregate(:count, :id)
+
+      completed / total
+    end
+  end
+
   ## FeedbackSurvey
 
   @doc """

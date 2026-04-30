@@ -107,6 +107,7 @@ defmodule SheCommandsWeb.Router do
       live "/modules", Admin.ModuleLive.Index, :index
       live "/modules/:id", Admin.ModuleLive.Show, :show
       live "/goal-categories", Admin.GoalCategoryLive.Index, :index
+      live "/metrics", Admin.MetricsLive.Index, :index
     end
   end
 
