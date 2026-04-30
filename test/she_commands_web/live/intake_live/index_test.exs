@@ -10,7 +10,7 @@ defmodule SheCommandsWeb.IntakeLive.IndexTest do
     test "renders the first step", %{conn: conn} do
       {:ok, _view, html} = live(conn, ~p"/intake")
       assert html =~ "What&#39;s your goal?"
-      assert html =~ "Step 1 of 8"
+      assert html =~ "Step 1 of 7"
     end
 
     test "redirects if not logged in" do
@@ -24,7 +24,7 @@ defmodule SheCommandsWeb.IntakeLive.IndexTest do
       intake_response_fixture(user, %{current_step: 3, lead_time: :short})
 
       {:ok, _view, html} = live(conn, ~p"/intake")
-      assert html =~ "Step 3 of 8"
+      assert html =~ "Step 3 of 7"
     end
   end
 
@@ -38,7 +38,7 @@ defmodule SheCommandsWeb.IntakeLive.IndexTest do
         |> render_submit()
 
       assert html =~ "Which area resonates most?"
-      assert html =~ "Step 2 of 8"
+      assert html =~ "Step 2 of 7"
     end
 
     test "goes back to previous step", %{conn: conn, user: user} do
@@ -46,13 +46,13 @@ defmodule SheCommandsWeb.IntakeLive.IndexTest do
 
       {:ok, view, _html} = live(conn, ~p"/intake")
       html = render_click(view, "back")
-      assert html =~ "Step 2 of 8"
+      assert html =~ "Step 2 of 7"
     end
 
     test "cannot go back from step 1", %{conn: conn} do
       {:ok, view, _html} = live(conn, ~p"/intake")
       html = render_click(view, "back")
-      assert html =~ "Step 1 of 8"
+      assert html =~ "Step 1 of 7"
     end
   end
 
@@ -198,7 +198,7 @@ defmodule SheCommandsWeb.IntakeLive.IndexTest do
         render_click(view, "select_option", %{"field" => "unknown_field", "option" => "foo"})
 
       # Should not crash, still on step 4
-      assert html =~ "Step 4 of 8"
+      assert html =~ "Step 4 of 7"
     end
   end
 
@@ -219,7 +219,7 @@ defmodule SheCommandsWeb.IntakeLive.IndexTest do
       {:ok, view, _html} = live(conn, ~p"/intake")
       html = render_change(view, "update_days", %{"days" => "invalid"})
       # Should not crash, stays on step 4
-      assert html =~ "Step 4 of 8"
+      assert html =~ "Step 4 of 7"
     end
 
     test "ignores out-of-range days value", %{conn: conn, user: user} do
@@ -227,7 +227,7 @@ defmodule SheCommandsWeb.IntakeLive.IndexTest do
 
       {:ok, view, _html} = live(conn, ~p"/intake")
       html = render_change(view, "update_days", %{"days" => "10"})
-      assert html =~ "Step 4 of 8"
+      assert html =~ "Step 4 of 7"
     end
   end
 
@@ -242,12 +242,23 @@ defmodule SheCommandsWeb.IntakeLive.IndexTest do
         |> form("form", %{})
         |> render_submit()
 
-      assert html =~ "Step 6 of 8"
+      assert html =~ "Step 6 of 7"
     end
 
-    test "saves regimen notes when advancing from step 7", %{conn: conn, user: user} do
+    test "saves regimen notes and completes when submitting from step 7", %{
+      conn: conn,
+      user: user
+    } do
+      category = goal_category_fixture()
+
       intake_response_fixture(user, %{
         current_step: 7,
+        goal_intent: "My goal",
+        goal_category_id: category.id,
+        lead_time: :short,
+        days_per_week: 3,
+        hours_per_day: :ten_to_thirty,
+        intensity: :moderate,
         fitness_regimen_notes: "Yoga 3x/week",
         personal_dev_regimen_notes: "Podcasts daily"
       })
@@ -259,7 +270,7 @@ defmodule SheCommandsWeb.IntakeLive.IndexTest do
         |> form("form")
         |> render_submit()
 
-      assert html =~ "Step 8 of 8"
+      assert html =~ "You&#39;re all set."
     end
   end
 
@@ -288,7 +299,7 @@ defmodule SheCommandsWeb.IntakeLive.IndexTest do
       category = goal_category_fixture()
 
       intake_response_fixture(user, %{
-        current_step: 8,
+        current_step: 7,
         goal_intent: "My goal",
         goal_category_id: category.id,
         lead_time: :short,
@@ -301,24 +312,20 @@ defmodule SheCommandsWeb.IntakeLive.IndexTest do
 
       html =
         view
-        |> form("form", %{
-          city: "Toronto",
-          province: "Ontario",
-          country: "Canada"
-        })
+        |> form("form")
         |> render_submit()
 
       assert html =~ "You&#39;re all set."
     end
 
     test "completing with missing required fields shows error", %{conn: conn, user: user} do
-      intake_response_fixture(user, %{current_step: 8})
+      intake_response_fixture(user, %{current_step: 7})
 
       {:ok, view, _html} = live(conn, ~p"/intake")
 
       html =
         view
-        |> form("form", %{city: "Toronto"})
+        |> form("form")
         |> render_submit()
 
       assert html =~ "Please complete the following before continuing"
@@ -341,7 +348,7 @@ defmodule SheCommandsWeb.IntakeLive.IndexTest do
 
       assert html =~ "Please complete the following before continuing"
       assert html =~ "Goal"
-      assert html =~ "Step 1 of 8"
+      assert html =~ "Step 1 of 7"
     end
 
     test "advancing from step 1 with whitespace-only goal_intent shows error",
@@ -354,7 +361,7 @@ defmodule SheCommandsWeb.IntakeLive.IndexTest do
         |> render_submit()
 
       assert html =~ "Please complete the following before continuing"
-      assert html =~ "Step 1 of 8"
+      assert html =~ "Step 1 of 7"
     end
 
     test "advancing from step 2 without selecting a category shows error",
@@ -366,7 +373,7 @@ defmodule SheCommandsWeb.IntakeLive.IndexTest do
 
       assert html =~ "Please complete the following before continuing"
       assert html =~ "Focus area"
-      assert html =~ "Step 2 of 8"
+      assert html =~ "Step 2 of 7"
     end
 
     test "advancing from step 3 without selecting a lead time shows error",
@@ -384,7 +391,7 @@ defmodule SheCommandsWeb.IntakeLive.IndexTest do
 
       assert html =~ "Please complete the following before continuing"
       assert html =~ "Timeline"
-      assert html =~ "Step 3 of 8"
+      assert html =~ "Step 3 of 7"
     end
 
     test "advancing from step 4 without hours_per_day or intensity shows error",
@@ -404,7 +411,7 @@ defmodule SheCommandsWeb.IntakeLive.IndexTest do
       assert html =~ "Please complete the following before continuing"
       assert html =~ "Time per session"
       assert html =~ "Intensity"
-      assert html =~ "Step 4 of 8"
+      assert html =~ "Step 4 of 7"
     end
 
     test "advancing from step 4 with all availability fields succeeds",
@@ -424,7 +431,7 @@ defmodule SheCommandsWeb.IntakeLive.IndexTest do
       {:ok, view, _html} = live(conn, ~p"/intake")
       html = render_click(view, "next")
 
-      assert html =~ "Step 5 of 8"
+      assert html =~ "Step 5 of 7"
     end
 
     test "step 4 defaults days_per_week to 3 when user advances without moving slider",
@@ -446,7 +453,7 @@ defmodule SheCommandsWeb.IntakeLive.IndexTest do
       {:ok, view, _html} = live(conn, ~p"/intake")
       html = render_click(view, "next")
 
-      assert html =~ "Step 5 of 8"
+      assert html =~ "Step 5 of 7"
 
       reloaded = SheCommands.Repo.get!(SheCommands.Intake.IntakeResponse, response.id)
       assert reloaded.days_per_week == 3
@@ -472,7 +479,7 @@ defmodule SheCommandsWeb.IntakeLive.IndexTest do
         |> form("form", %{})
         |> render_submit()
 
-      assert html =~ "Step 6 of 8"
+      assert html =~ "Step 6 of 7"
     end
   end
 end

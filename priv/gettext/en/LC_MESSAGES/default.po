@@ -182,20 +182,10 @@ msgstr ""
 msgid "A confirmation link will be sent to your new email address."
 msgstr ""
 
-#: lib/she_commands_web/live/intake_live/index.html.heex:488
-#, elixir-autogen, elixir-format
-msgid "A few final details to help us connect you with local events and the right community."
-msgstr ""
-
 #: lib/she_commands_web/live/intake_live/index.html.heex:418
 #: lib/she_commands_web/live/intake_live/index.html.heex:435
 #, elixir-autogen, elixir-format
 msgid "Active"
-msgstr ""
-
-#: lib/she_commands_web/live/intake_live/index.html.heex:485
-#, elixir-autogen, elixir-format
-msgid "Almost there!"
 msgstr ""
 
 #: lib/she_commands_web/live/intake_live/index.html.heex:307
@@ -214,7 +204,6 @@ msgstr ""
 #: lib/she_commands_web/live/intake_live/index.html.heex:335
 #: lib/she_commands_web/live/intake_live/index.html.heex:387
 #: lib/she_commands_web/live/intake_live/index.html.heex:466
-#: lib/she_commands_web/live/intake_live/index.html.heex:561
 #, elixir-autogen, elixir-format
 msgid "Back"
 msgstr ""
@@ -242,7 +231,6 @@ msgid "Change Password"
 msgstr ""
 
 #: lib/she_commands_web/controllers/user_settings_html/edit.html.heex:43
-#: lib/she_commands_web/live/intake_live/index.html.heex:506
 #, elixir-autogen, elixir-format
 msgid "City"
 msgstr ""
@@ -263,13 +251,11 @@ msgstr ""
 #: lib/she_commands_web/live/intake_live/index.html.heex:295
 #: lib/she_commands_web/live/intake_live/index.html.heex:341
 #: lib/she_commands_web/live/intake_live/index.html.heex:393
-#: lib/she_commands_web/live/intake_live/index.html.heex:472
 #, elixir-autogen, elixir-format
 msgid "Continue"
 msgstr ""
 
 #: lib/she_commands_web/controllers/user_settings_html/edit.html.heex:55
-#: lib/she_commands_web/live/intake_live/index.html.heex:530
 #, elixir-autogen, elixir-format
 msgid "Country"
 msgstr ""
@@ -309,7 +295,7 @@ msgstr ""
 msgid "Display Name"
 msgstr ""
 
-#: lib/she_commands_web/live/intake_live/index.html.heex:567
+#: lib/she_commands_web/live/intake_live/index.html.heex:472
 #, elixir-autogen, elixir-format
 msgid "Generate My Plan"
 msgstr ""
@@ -337,11 +323,6 @@ msgstr ""
 #: lib/she_commands_web/live/intake_live/index.html.heex:366
 #, elixir-autogen, elixir-format
 msgid "I'll follow the plan on my own with AI support"
-msgstr ""
-
-#: lib/she_commands_web/live/intake_live/index.html.heex:549
-#, elixir-autogen, elixir-format
-msgid "I'm interested in providing ongoing feedback to help improve the platform"
 msgstr ""
 
 #: lib/she_commands_web/live/intake_live/index.html.heex:418
@@ -397,7 +378,6 @@ msgid "Preferred intensity"
 msgstr ""
 
 #: lib/she_commands_web/controllers/user_settings_html/edit.html.heex:49
-#: lib/she_commands_web/live/intake_live/index.html.heex:518
 #, elixir-autogen, elixir-format
 msgid "Province / State"
 msgstr ""
@@ -412,7 +392,7 @@ msgstr ""
 msgid "Quick impact — focused, high-intensity protocols"
 msgstr ""
 
-#: lib/she_commands_web/live/intake_live/index.html.heex:591
+#: lib/she_commands_web/live/intake_live/index.html.heex:496
 #, elixir-autogen, elixir-format
 msgid "Return Home"
 msgstr ""
@@ -519,7 +499,7 @@ msgstr ""
 msgid "Which area resonates most?"
 msgstr ""
 
-#: lib/she_commands_web/live/intake_live/index.html.heex:579
+#: lib/she_commands_web/live/intake_live/index.html.heex:484
 #, elixir-autogen, elixir-format
 msgid "You're all set."
 msgstr ""
@@ -529,17 +509,12 @@ msgstr ""
 msgid "You're halfway there. The plan is already taking shape."
 msgstr ""
 
-#: lib/she_commands_web/live/intake_live/index.html.heex:497
-#, elixir-autogen, elixir-format
-msgid "You've shown real clarity about what you want. Your plan is going to reflect that."
-msgstr ""
-
 #: lib/she_commands_web/live/intake_live/index.ex:29
 #, elixir-autogen, elixir-format
 msgid "Your Personal Plan"
 msgstr ""
 
-#: lib/she_commands_web/live/intake_live/index.html.heex:582
+#: lib/she_commands_web/live/intake_live/index.html.heex:487
 #, elixir-autogen, elixir-format
 msgid "Your personalized Command Centre plan is being assembled by our expert team. We'll notify you when it's ready."
 msgstr ""
@@ -938,7 +913,7 @@ msgstr ""
 msgid "Coming Soon"
 msgstr ""
 
-#: lib/she_commands_web/live/intake_live/index.html.heex:576
+#: lib/she_commands_web/live/intake_live/index.html.heex:481
 #, elixir-autogen, elixir-format
 msgid "Complete"
 msgstr ""
@@ -1032,11 +1007,6 @@ msgstr ""
 #: lib/she_commands_web/live/plan_live/show.ex:175
 #, elixir-autogen, elixir-format
 msgid "Failed to send message."
-msgstr ""
-
-#: lib/she_commands_web/live/intake_live/index.html.heex:482
-#, elixir-autogen, elixir-format
-msgid "Final Details"
 msgstr ""
 
 #: lib/she_commands_web/controllers/page_html/connect.html.heex:19
@@ -1606,12 +1576,12 @@ msgstr ""
 msgid "Your Weekly Schedule"
 msgstr ""
 
-#: lib/she_commands_web/live/intake_live/index.ex:281
+#: lib/she_commands_web/live/intake_live/index.ex:268
 #, elixir-autogen, elixir-format, fuzzy
 msgid "Your intake is complete! Your plan is being assembled by our expert team."
 msgstr ""
 
-#: lib/she_commands_web/live/intake_live/index.ex:275
+#: lib/she_commands_web/live/intake_live/index.ex:262
 #, elixir-autogen, elixir-format
 msgid "Your plan has been generated!"
 msgstr ""

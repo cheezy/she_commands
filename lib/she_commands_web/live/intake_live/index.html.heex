@@ -445,7 +445,7 @@
                 </div>
               </div>
 
-              <form phx-submit="next" class="space-y-4">
+              <form phx-submit="complete" class="space-y-4">
                 <input
                   type="hidden"
                   name="fitness_regimen_notes"
@@ -458,101 +458,6 @@
                 />
 
                 <div class="flex justify-between items-center pt-2">
-                  <button
-                    type="button"
-                    phx-click="back"
-                    class="text-xs font-label uppercase tracking-[0.15em] text-base-content/60 hover:text-base-content transition cursor-pointer"
-                  >
-                    &larr; {gettext("Back")}
-                  </button>
-                  <button
-                    type="submit"
-                    class="py-3 px-10 bg-base-content text-base-100 text-xs font-label uppercase tracking-[0.2em] hover:bg-base-content/90 transition cursor-pointer"
-                  >
-                    {gettext("Continue")}
-                  </button>
-                </div>
-              </form>
-            </div>
-          <% 8 -> %>
-            <%!-- Step 8: Location & Feedback --%>
-            <div class="space-y-8">
-              <div>
-                <p class="font-label text-xs uppercase tracking-[0.25em] text-base-content/50 mb-4">
-                  {gettext("Final Details")}
-                </p>
-                <h2 class="text-3xl sm:text-4xl font-serif italic leading-[1.1] tracking-[-0.02em] text-base-content">
-                  {gettext("Almost there!")}
-                </h2>
-                <p class="mt-4 text-sm text-base-content/60 leading-relaxed">
-                  {gettext(
-                    "A few final details to help us connect you with local events and the right community."
-                  )}
-                </p>
-              </div>
-
-              <%!-- Pre-completion reinforcement --%>
-              <div class="border-l-2 border-base-content/30 pl-4">
-                <p class="text-sm text-base-content/70 italic font-serif">
-                  {gettext(
-                    "You've shown real clarity about what you want. Your plan is going to reflect that."
-                  )}
-                </p>
-              </div>
-
-              <form phx-submit="complete" class="space-y-6">
-                <div>
-                  <label class="font-label text-xs uppercase tracking-[0.15em] text-base-content/70 block mb-2">
-                    {gettext("City")}
-                  </label>
-                  <input
-                    type="text"
-                    name="city"
-                    value={@response.city || ""}
-                    class="w-full input bg-transparent border-0 border-b-2 border-base-content/20 rounded-none px-0 focus:border-base-content focus:outline-none text-base-content"
-                  />
-                </div>
-
-                <div>
-                  <label class="font-label text-xs uppercase tracking-[0.15em] text-base-content/70 block mb-2">
-                    {gettext("Province / State")}
-                  </label>
-                  <input
-                    type="text"
-                    name="province"
-                    value={@response.province || ""}
-                    class="w-full input bg-transparent border-0 border-b-2 border-base-content/20 rounded-none px-0 focus:border-base-content focus:outline-none text-base-content"
-                  />
-                </div>
-
-                <div>
-                  <label class="font-label text-xs uppercase tracking-[0.15em] text-base-content/70 block mb-2">
-                    {gettext("Country")}
-                  </label>
-                  <input
-                    type="text"
-                    name="country"
-                    value={@response.country || ""}
-                    class="w-full input bg-transparent border-0 border-b-2 border-base-content/20 rounded-none px-0 focus:border-base-content focus:outline-none text-base-content"
-                  />
-                </div>
-
-                <div class="flex items-center gap-3 pt-2">
-                  <input
-                    type="checkbox"
-                    name="feedback_interest"
-                    value="true"
-                    checked={@response.feedback_interest}
-                    class="checkbox checkbox-sm border-base-content/30"
-                  />
-                  <label class="text-sm text-base-content/70">
-                    {gettext(
-                      "I'm interested in providing ongoing feedback to help improve the platform"
-                    )}
-                  </label>
-                </div>
-
-                <div class="flex justify-between items-center pt-4">
                   <button
                     type="button"
                     phx-click="back"

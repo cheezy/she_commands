@@ -4,7 +4,7 @@ defmodule SheCommandsWeb.IntakeLive.Index do
   alias SheCommands.Intake
   alias SheCommands.Plans
 
-  @total_steps 8
+  @total_steps 7
 
   @step_required_fields %{
     1 => [:goal_intent],
@@ -220,7 +220,6 @@ defmodule SheCommandsWeb.IntakeLive.Index do
       1 -> save_goal_step(socket, params)
       4 -> save_availability_step(socket)
       7 -> save_regimen_step(socket, params)
-      8 -> save_location_step(socket, params)
       _ -> socket
     end
   end
@@ -254,18 +253,6 @@ defmodule SheCommandsWeb.IntakeLive.Index do
     }
 
     {:ok, response} = Intake.update_intake_regimen(socket.assigns.response, attrs)
-    assign(socket, :response, response)
-  end
-
-  defp save_location_step(socket, params) do
-    attrs = %{
-      city: params["city"] || "",
-      province: params["province"] || "",
-      country: params["country"] || "",
-      feedback_interest: params["feedback_interest"] == "true"
-    }
-
-    {:ok, response} = Intake.update_intake_location(socket.assigns.response, attrs)
     assign(socket, :response, response)
   end
 
