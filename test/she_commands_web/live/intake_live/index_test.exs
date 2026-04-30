@@ -232,14 +232,14 @@ defmodule SheCommandsWeb.IntakeLive.IndexTest do
   end
 
   describe "step save on navigation" do
-    test "saves limitations_notes when advancing from step 5", %{conn: conn, user: user} do
+    test "advances from step 5 to step 6 on submit", %{conn: conn, user: user} do
       intake_response_fixture(user, %{current_step: 5})
 
       {:ok, view, _html} = live(conn, ~p"/intake")
 
       html =
         view
-        |> form("form", %{limitations_notes: "Bad knees from running"})
+        |> form("form", %{})
         |> render_submit()
 
       assert html =~ "Step 6 of 8"
@@ -469,7 +469,7 @@ defmodule SheCommandsWeb.IntakeLive.IndexTest do
 
       html =
         view
-        |> form("form", %{limitations_notes: ""})
+        |> form("form", %{})
         |> render_submit()
 
       assert html =~ "Step 6 of 8"

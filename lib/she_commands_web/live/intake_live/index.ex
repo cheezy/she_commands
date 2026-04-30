@@ -219,7 +219,6 @@ defmodule SheCommandsWeb.IntakeLive.Index do
     case socket.assigns.current_step do
       1 -> save_goal_step(socket, params)
       4 -> save_availability_step(socket)
-      5 -> save_limitations_step(socket, params)
       7 -> save_regimen_step(socket, params)
       8 -> save_location_step(socket, params)
       _ -> socket
@@ -247,15 +246,6 @@ defmodule SheCommandsWeb.IntakeLive.Index do
   end
 
   defp save_goal_step(socket, _params), do: socket
-
-  defp save_limitations_step(socket, params) do
-    notes = params["limitations_notes"] || ""
-
-    {:ok, response} =
-      Intake.update_intake_preferences(socket.assigns.response, %{limitations_notes: notes})
-
-    assign(socket, :response, response)
-  end
 
   defp save_regimen_step(socket, params) do
     attrs = %{
