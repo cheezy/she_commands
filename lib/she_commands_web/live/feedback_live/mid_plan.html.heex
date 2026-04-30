@@ -1,0 +1,67 @@
+<Layouts.app flash={@flash} current_scope={@current_scope}>
+  <div class="w-full max-w-xl mx-auto py-12">
+    <p class="font-label text-xs uppercase tracking-[0.25em] text-base-content/50 mb-3">
+      {gettext("Check-in")}
+    </p>
+    <h1 class="text-3xl sm:text-4xl font-serif italic leading-[1.1] tracking-[-0.02em] text-base-content mb-6">
+      {gettext("Was this week doable?")}
+    </h1>
+
+    <%= if @prompt.status == :responded do %>
+      <div class="border border-base-300 bg-base-100 p-6">
+        <p class="font-label text-xs uppercase tracking-[0.25em] text-base-content/50 mb-3">
+          {gettext("Already submitted")}
+        </p>
+        <p class="text-base-content/80 leading-relaxed whitespace-pre-wrap">
+          {@prompt.response}
+        </p>
+      </div>
+    <% else %>
+      <form phx-submit="submit" class="space-y-6 border border-base-300 bg-base-100 p-6">
+        <fieldset class="space-y-3">
+          <legend class="font-label text-xs uppercase tracking-[0.15em] text-base-content/70 mb-3">
+            {gettext("Your answer")}
+          </legend>
+          <%= for {value, label} <- [
+            {"yes", gettext("Yes")},
+            {"somewhat", gettext("Somewhat")},
+            {"no", gettext("No")}
+          ] do %>
+            <label class="flex items-center gap-3 cursor-pointer">
+              <input
+                type="radio"
+                name="answer"
+                value={value}
+                class="radio border-base-300"
+                required
+              />
+              <span class="text-base-content">{label}</span>
+            </label>
+          <% end %>
+        </fieldset>
+
+        <fieldset class="space-y-2">
+          <label
+            for="mid-plan-comment"
+            class="font-label text-xs uppercase tracking-[0.15em] text-base-content/70 block"
+          >
+            {gettext("Anything to add (optional)")}
+          </label>
+          <textarea
+            id="mid-plan-comment"
+            name="comment"
+            rows="3"
+            class="w-full bg-base-100 border border-base-300 px-3 py-2 text-sm text-base-content focus:outline-none focus:border-base-content resize-none"
+          ></textarea>
+        </fieldset>
+
+        <button
+          type="submit"
+          class="py-3 px-8 bg-base-content text-base-100 text-xs font-label uppercase tracking-[0.2em] hover:bg-base-content/90 transition cursor-pointer"
+        >
+          {gettext("Submit")}
+        </button>
+      </form>
+    <% end %>
+  </div>
+</Layouts.app>

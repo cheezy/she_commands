@@ -130,17 +130,13 @@ defmodule SheCommands.Accounts.UserNotifier do
   end
 
   @doc """
-  Delivers a mid-plan or post-plan feedback prompt to the member.
-
-  Dispatches to `deliver_mid_plan_prompt/2` or `deliver_post_plan_survey/2`
-  based on `prompt.prompt_type` so the FeedbackDelivery worker only has
-  to know one entry point.
+  Delivers a mid-plan feedback prompt email. Used by the
+  FeedbackDelivery Oban worker, which only handles `:mid_plan`
+  prompts; post-plan surveys go through `deliver_post_plan_survey/2`
+  directly from the PlanCompletionSurvey worker with a `FeedbackSurvey`.
   """
   def deliver_feedback_prompt_email(member, %{prompt_type: :mid_plan} = prompt),
     do: deliver_mid_plan_prompt(member, prompt)
-
-  def deliver_feedback_prompt_email(member, %{prompt_type: :post_plan} = prompt),
-    do: deliver_post_plan_survey(member, prompt)
 
   @doc """
   Delivers the mid-plan check-in prompt: "Was this week doable?" with a
@@ -167,11 +163,12 @@ defmodule SheCommands.Accounts.UserNotifier do
 
   @doc """
   Delivers the post-plan survey invitation with three review questions
-  and a link back to the in-app survey form.
+  and a link back to the in-app survey form. Takes a `FeedbackSurvey`
+  (the row created by the PlanCompletionSurvey worker).
   """
-  def deliver_post_plan_survey(member, prompt) do
+  def deliver_post_plan_survey(member, survey) do
     greeting = greeting_name(member)
-    link = feedback_prompt_url(prompt)
+    link = feedback_survey_url(survey)
 
     deliver(member.email, "How did your plan go?", """
 
@@ -190,6 +187,10 @@ defmodule SheCommands.Accounts.UserNotifier do
 
     ==============================
     """)
+  end
+
+  defp feedback_survey_url(survey) do
+    SheCommandsWeb.Endpoint.url() <> "/feedback/surveys/#{survey.id}"
   end
 
   defp greeting_name(%{display_name: dn}) when is_binary(dn) and dn != "", do: dn

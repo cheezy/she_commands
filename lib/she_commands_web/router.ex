@@ -71,6 +71,8 @@ defmodule SheCommandsWeb.Router do
       live "/intake", IntakeLive.Index, :index
       live "/my-plan", PlanLive.Show, :show
       live "/coach-review", EscalationLive.MemberIndex, :index
+      live "/feedback/prompts/:id", FeedbackLive.MidPlan, :show
+      live "/feedback/surveys/:id", FeedbackLive.PostPlan, :show
     end
 
     get "/plans/:id/print", PlanController, :print

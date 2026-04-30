@@ -1185,6 +1185,7 @@ msgstr ""
 
 #: lib/she_commands_web/live/admin/module_live/show.html.heex:145
 #: lib/she_commands_web/live/admin/module_live/show.html.heex:153
+#: lib/she_commands_web/live/feedback_live/mid_plan.html.heex:28
 #, elixir-autogen, elixir-format, fuzzy
 msgid "No"
 msgstr ""
@@ -1494,6 +1495,7 @@ msgstr ""
 
 #: lib/she_commands_web/live/admin/module_live/show.html.heex:145
 #: lib/she_commands_web/live/admin/module_live/show.html.heex:153
+#: lib/she_commands_web/live/feedback_live/mid_plan.html.heex:26
 #, elixir-autogen, elixir-format
 msgid "Yes"
 msgstr ""
@@ -1666,20 +1668,21 @@ msgstr ""
 msgid "Coach support covers plan clarification, motivation, and event prioritization. For medical, nutritional, or fitness questions please consult a qualified professional."
 msgstr ""
 
-#: lib/she_commands_web/live/coach_live/escalation_index.ex:114
+#: lib/she_commands_web/live/coach_live/escalation_index.ex:123
 #: lib/she_commands_web/live/coach_live/escalation_show.ex:119
 #: lib/she_commands_web/live/escalation_live/member_component.ex:85
 #, elixir-autogen, elixir-format
 msgid "Event prioritization"
 msgstr ""
 
+#: lib/she_commands_web/live/coach_live/escalation_index.html.heex:18
 #: lib/she_commands_web/live/coach_live/escalation_show.ex:122
 #: lib/she_commands_web/live/escalation_live/member_component.ex:88
 #, elixir-autogen, elixir-format
 msgid "In review"
 msgstr ""
 
-#: lib/she_commands_web/live/coach_live/escalation_index.ex:113
+#: lib/she_commands_web/live/coach_live/escalation_index.ex:122
 #: lib/she_commands_web/live/coach_live/escalation_show.ex:118
 #: lib/she_commands_web/live/escalation_live/member_component.ex:84
 #, elixir-autogen, elixir-format
@@ -1691,13 +1694,14 @@ msgstr ""
 msgid "Note (optional)"
 msgstr ""
 
+#: lib/she_commands_web/live/coach_live/escalation_index.html.heex:12
 #: lib/she_commands_web/live/coach_live/escalation_show.ex:121
 #: lib/she_commands_web/live/escalation_live/member_component.ex:87
 #, elixir-autogen, elixir-format
 msgid "Pending"
 msgstr ""
 
-#: lib/she_commands_web/live/coach_live/escalation_index.ex:112
+#: lib/she_commands_web/live/coach_live/escalation_index.ex:121
 #: lib/she_commands_web/live/coach_live/escalation_show.ex:117
 #: lib/she_commands_web/live/escalation_live/member_component.ex:83
 #, elixir-autogen, elixir-format
@@ -1746,42 +1750,37 @@ msgstr ""
 msgid "Your request has been sent to a coach."
 msgstr ""
 
-#: lib/she_commands_web/live/coach_live/escalation_index.ex:90
+#: lib/she_commands_web/live/coach_live/escalation_index.ex:99
 #, elixir-autogen, elixir-format, fuzzy
 msgid "%{count} days"
 msgstr ""
 
-#: lib/she_commands_web/live/coach_live/escalation_index.ex:108
+#: lib/she_commands_web/live/coach_live/escalation_index.ex:117
 #, elixir-autogen, elixir-format
 msgid "%{count} days ago"
 msgstr ""
 
-#: lib/she_commands_web/live/coach_live/escalation_index.ex:85
+#: lib/she_commands_web/live/coach_live/escalation_index.ex:94
 #, elixir-autogen, elixir-format, fuzzy
 msgid "%{count} hours"
 msgstr ""
 
-#: lib/she_commands_web/live/coach_live/escalation_index.ex:107
+#: lib/she_commands_web/live/coach_live/escalation_index.ex:116
 #, elixir-autogen, elixir-format, fuzzy
 msgid "%{count} hours ago"
 msgstr ""
 
-#: lib/she_commands_web/live/coach_live/escalation_index.ex:106
+#: lib/she_commands_web/live/coach_live/escalation_index.ex:115
 #, elixir-autogen, elixir-format, fuzzy
 msgid "%{count} minutes ago"
 msgstr ""
 
-#: lib/she_commands_web/live/coach_live/escalation_index.html.heex:10
-#, elixir-autogen, elixir-format, fuzzy
-msgid "%{count} pending"
-msgstr ""
-
-#: lib/she_commands_web/live/coach_live/escalation_index.html.heex:16
+#: lib/she_commands_web/live/coach_live/escalation_index.html.heex:43
 #, elixir-autogen, elixir-format
 msgid "All clear"
 msgstr ""
 
-#: lib/she_commands_web/live/coach_live/escalation_index.html.heex:84
+#: lib/she_commands_web/live/coach_live/escalation_index.html.heex:111
 #, elixir-autogen, elixir-format
 msgid "Claim"
 msgstr ""
@@ -1791,7 +1790,7 @@ msgstr ""
 msgid "Coach"
 msgstr ""
 
-#: lib/she_commands_web/live/coach_live/escalation_index.ex:38
+#: lib/she_commands_web/live/coach_live/escalation_index.ex:39
 #, elixir-autogen, elixir-format
 msgid "Escalation claimed."
 msgstr ""
@@ -1802,7 +1801,7 @@ msgstr ""
 msgid "Escalations queue"
 msgstr ""
 
-#: lib/she_commands_web/live/coach_live/escalation_index.ex:97
+#: lib/she_commands_web/live/coach_live/escalation_index.ex:106
 #: lib/she_commands_web/live/coach_live/escalation_show.ex:107
 #: lib/she_commands_web/live/coach_live/escalation_show.html.heex:29
 #: lib/she_commands_web/live/coach_live/escalation_show.html.heex:131
@@ -1810,32 +1809,32 @@ msgstr ""
 msgid "Member"
 msgstr ""
 
-#: lib/she_commands_web/live/coach_live/escalation_index.html.heex:19
+#: lib/she_commands_web/live/coach_live/escalation_index.html.heex:46
 #, elixir-autogen, elixir-format
 msgid "No pending escalations. Great work."
 msgstr ""
 
-#: lib/she_commands_web/live/coach_live/escalation_index.html.heex:68
+#: lib/she_commands_web/live/coach_live/escalation_index.html.heex:95
 #, elixir-autogen, elixir-format
 msgid "SLA in %{remaining}"
 msgstr ""
 
-#: lib/she_commands_web/live/coach_live/escalation_index.html.heex:66
+#: lib/she_commands_web/live/coach_live/escalation_index.html.heex:93
 #, elixir-autogen, elixir-format
 msgid "SLA overdue"
 msgstr ""
 
-#: lib/she_commands_web/live/coach_live/escalation_index.ex:105
+#: lib/she_commands_web/live/coach_live/escalation_index.ex:114
 #, elixir-autogen, elixir-format
 msgid "just now"
 msgstr ""
 
-#: lib/she_commands_web/live/coach_live/escalation_index.ex:80
+#: lib/she_commands_web/live/coach_live/escalation_index.ex:89
 #, elixir-autogen, elixir-format
 msgid "overdue"
 msgstr ""
 
-#: lib/she_commands_web/live/coach_live/escalation_index.ex:81
+#: lib/she_commands_web/live/coach_live/escalation_index.ex:90
 #, elixir-autogen, elixir-format
 msgid "under 1 hour"
 msgstr ""
@@ -1915,4 +1914,114 @@ msgstr ""
 #: lib/she_commands_web/live/coach_live/escalation_show.html.heex:141
 #, elixir-autogen, elixir-format
 msgid "Your response"
+msgstr ""
+
+#: lib/she_commands_web/live/feedback_live/mid_plan.html.heex:13
+#: lib/she_commands_web/live/feedback_live/post_plan.html.heex:13
+#, elixir-autogen, elixir-format
+msgid "Already submitted"
+msgstr ""
+
+#: lib/she_commands_web/live/feedback_live/mid_plan.html.heex:48
+#, elixir-autogen, elixir-format
+msgid "Anything to add (optional)"
+msgstr ""
+
+#: lib/she_commands_web/live/feedback_live/mid_plan.html.heex:4
+#, elixir-autogen, elixir-format
+msgid "Check-in"
+msgstr ""
+
+#: lib/she_commands_web/live/feedback_live/post_plan.html.heex:7
+#, elixir-autogen, elixir-format
+msgid "How did your plan go?"
+msgstr ""
+
+#: lib/she_commands_web/live/feedback_live/mid_plan.ex:30
+#, elixir-autogen, elixir-format
+msgid "Mid-plan check-in"
+msgstr ""
+
+#: lib/she_commands_web/live/coach_live/escalation_index.html.heex:29
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Overdue"
+msgstr ""
+
+#: lib/she_commands_web/live/feedback_live/post_plan.ex:46
+#, elixir-autogen, elixir-format
+msgid "Please answer at least one question."
+msgstr ""
+
+#: lib/she_commands_web/live/feedback_live/mid_plan.ex:43
+#, elixir-autogen, elixir-format
+msgid "Please choose Yes, No, or Somewhat."
+msgstr ""
+
+#: lib/she_commands_web/live/feedback_live/post_plan.ex:22
+#, elixir-autogen, elixir-format
+msgid "Post-plan survey"
+msgstr ""
+
+#: lib/she_commands_web/live/feedback_live/mid_plan.html.heex:27
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Somewhat"
+msgstr ""
+
+#: lib/she_commands_web/live/feedback_live/mid_plan.html.heex:62
+#: lib/she_commands_web/live/feedback_live/post_plan.html.heex:81
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Submit"
+msgstr ""
+
+#: lib/she_commands_web/live/feedback_live/mid_plan.ex:60
+#, elixir-autogen, elixir-format
+msgid "Thanks for the check-in."
+msgstr ""
+
+#: lib/she_commands_web/live/feedback_live/post_plan.ex:54
+#, elixir-autogen, elixir-format
+msgid "Thanks for the feedback."
+msgstr ""
+
+#: lib/she_commands_web/live/feedback_live/mid_plan.ex:24
+#, elixir-autogen, elixir-format
+msgid "That feedback prompt is not yours."
+msgstr ""
+
+#: lib/she_commands_web/live/feedback_live/post_plan.ex:27
+#, elixir-autogen, elixir-format
+msgid "That survey is not yours."
+msgstr ""
+
+#: lib/she_commands_web/live/feedback_live/mid_plan.html.heex:7
+#, elixir-autogen, elixir-format
+msgid "Was this week doable?"
+msgstr ""
+
+#: lib/she_commands_web/live/feedback_live/post_plan.html.heex:16
+#: lib/she_commands_web/live/feedback_live/post_plan.html.heex:37
+#, elixir-autogen, elixir-format
+msgid "What changed?"
+msgstr ""
+
+#: lib/she_commands_web/live/feedback_live/post_plan.html.heex:18
+#: lib/she_commands_web/live/feedback_live/post_plan.html.heex:67
+#, elixir-autogen, elixir-format
+msgid "What do you want next?"
+msgstr ""
+
+#: lib/she_commands_web/live/feedback_live/post_plan.html.heex:17
+#: lib/she_commands_web/live/feedback_live/post_plan.html.heex:52
+#, elixir-autogen, elixir-format
+msgid "What was hardest?"
+msgstr ""
+
+#: lib/she_commands_web/live/feedback_live/post_plan.html.heex:4
+#, elixir-autogen, elixir-format
+msgid "Wrap-up"
+msgstr ""
+
+#: lib/she_commands_web/live/feedback_live/mid_plan.html.heex:23
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Your answer"
 msgstr ""

@@ -108,19 +108,19 @@ defmodule SheCommands.Accounts.UserNotifierTest do
     test "subject is 'How did your plan go?' and body lists three questions plus link" do
       member = user_fixture(%{})
 
-      prompt = %SheCommands.Feedback.FeedbackPrompt{
+      survey = %SheCommands.Feedback.FeedbackSurvey{
         id: 99,
-        prompt_type: :post_plan,
+        survey_type: :post_plan_review,
         plan_id: 1,
         user_id: member.id
       }
 
-      assert {:ok, email} = UserNotifier.deliver_post_plan_survey(member, prompt)
+      assert {:ok, email} = UserNotifier.deliver_post_plan_survey(member, survey)
       assert email.subject == "How did your plan go?"
       assert email.text_body =~ "1. What worked best"
       assert email.text_body =~ "2. What got in the way"
       assert email.text_body =~ "3. What would you change"
-      assert email.text_body =~ "/feedback/prompts/99"
+      assert email.text_body =~ "/feedback/surveys/99"
     end
   end
 
@@ -137,20 +137,6 @@ defmodule SheCommands.Accounts.UserNotifierTest do
 
       assert {:ok, email} = UserNotifier.deliver_feedback_prompt_email(member, prompt)
       assert email.subject == "Was this week doable?"
-    end
-
-    test "post_plan prompt routes to survey email" do
-      member = user_fixture(%{})
-
-      prompt = %SheCommands.Feedback.FeedbackPrompt{
-        id: 2,
-        prompt_type: :post_plan,
-        plan_id: 1,
-        user_id: member.id
-      }
-
-      assert {:ok, email} = UserNotifier.deliver_feedback_prompt_email(member, prompt)
-      assert email.subject == "How did your plan go?"
     end
   end
 

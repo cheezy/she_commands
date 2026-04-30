@@ -1,0 +1,86 @@
+<Layouts.app flash={@flash} current_scope={@current_scope}>
+  <div class="w-full max-w-2xl mx-auto py-12">
+    <p class="font-label text-xs uppercase tracking-[0.25em] text-base-content/50 mb-3">
+      {gettext("Wrap-up")}
+    </p>
+    <h1 class="text-3xl sm:text-4xl font-serif italic leading-[1.1] tracking-[-0.02em] text-base-content mb-6">
+      {gettext("How did your plan go?")}
+    </h1>
+
+    <%= if @survey.completed_at do %>
+      <div class="border border-base-300 bg-base-100 p-6 space-y-5">
+        <p class="font-label text-xs uppercase tracking-[0.25em] text-base-content/50">
+          {gettext("Already submitted")}
+        </p>
+        <%= for {key, label} <- [
+          {"what_changed", gettext("What changed?")},
+          {"what_was_hardest", gettext("What was hardest?")},
+          {"what_do_you_want_next", gettext("What do you want next?")}
+        ] do %>
+          <div>
+            <h2 class="font-label text-xs uppercase tracking-[0.15em] text-base-content/70 mb-2">
+              {label}
+            </h2>
+            <p class="text-sm text-base-content/80 leading-relaxed whitespace-pre-wrap">
+              {Map.get(@survey.responses || %{}, key, "—")}
+            </p>
+          </div>
+        <% end %>
+      </div>
+    <% else %>
+      <form phx-submit="submit" class="space-y-6 border border-base-300 bg-base-100 p-6">
+        <fieldset class="space-y-2">
+          <label
+            for="what-changed"
+            class="font-label text-xs uppercase tracking-[0.15em] text-base-content/70 block"
+          >
+            {gettext("What changed?")}
+          </label>
+          <textarea
+            id="what-changed"
+            name="what_changed"
+            rows="3"
+            class="w-full bg-base-100 border border-base-300 px-3 py-2 text-sm text-base-content focus:outline-none focus:border-base-content resize-none"
+          ></textarea>
+        </fieldset>
+
+        <fieldset class="space-y-2">
+          <label
+            for="what-hardest"
+            class="font-label text-xs uppercase tracking-[0.15em] text-base-content/70 block"
+          >
+            {gettext("What was hardest?")}
+          </label>
+          <textarea
+            id="what-hardest"
+            name="what_was_hardest"
+            rows="3"
+            class="w-full bg-base-100 border border-base-300 px-3 py-2 text-sm text-base-content focus:outline-none focus:border-base-content resize-none"
+          ></textarea>
+        </fieldset>
+
+        <fieldset class="space-y-2">
+          <label
+            for="what-next"
+            class="font-label text-xs uppercase tracking-[0.15em] text-base-content/70 block"
+          >
+            {gettext("What do you want next?")}
+          </label>
+          <textarea
+            id="what-next"
+            name="what_do_you_want_next"
+            rows="3"
+            class="w-full bg-base-100 border border-base-300 px-3 py-2 text-sm text-base-content focus:outline-none focus:border-base-content resize-none"
+          ></textarea>
+        </fieldset>
+
+        <button
+          type="submit"
+          class="py-3 px-8 bg-base-content text-base-100 text-xs font-label uppercase tracking-[0.2em] hover:bg-base-content/90 transition cursor-pointer"
+        >
+          {gettext("Submit")}
+        </button>
+      </form>
+    <% end %>
+  </div>
+</Layouts.app>
