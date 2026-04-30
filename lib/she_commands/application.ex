@@ -13,6 +13,7 @@ defmodule SheCommands.Application do
       {DNSCluster, query: Application.get_env(:she_commands, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: SheCommands.PubSub},
       {Task.Supervisor, name: SheCommands.TaskSupervisor},
+      {Oban, Application.fetch_env!(:she_commands, Oban)},
       # Start to serve requests, typically the last entry
       SheCommandsWeb.Endpoint
     ]

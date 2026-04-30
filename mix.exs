@@ -70,6 +70,7 @@ defmodule SheCommands.MixProject do
       {:dns_cluster, "~> 0.2.0"},
       {:bandit, "~> 1.5"},
       {:ecto_psql_extras, "~> 0.8"},
+      {:oban, "~> 2.19"},
       {:credo, "~> 1.7", only: [:dev, :test], runtime: false},
       {:mix_audit, "~> 2.1", only: [:dev, :test], runtime: false},
       {:usage_rules, "~> 1.0", only: [:dev]},

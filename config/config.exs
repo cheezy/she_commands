@@ -26,6 +26,14 @@ config :she_commands,
   coach_capacity: 10,
   escalation_capacity_cap: 50
 
+# Oban: background job processing.
+# The :feedback queue is used for scheduled mid-plan prompts and
+# post-plan survey delivery (see future workers under SheCommands.Workers).
+config :she_commands, Oban,
+  repo: SheCommands.Repo,
+  queues: [feedback: 5],
+  plugins: [Oban.Plugins.Pruner]
+
 # Configure the endpoint
 config :she_commands, SheCommandsWeb.Endpoint,
   url: [host: "localhost"],
