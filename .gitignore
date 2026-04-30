@@ -39,4 +39,9 @@ npm-debug.log
 
 .stride_auth.md
 .stride-env-cache
+.stride/
+.mcp.json
+
+.stride_auth.md
+.stride-env-cache
 .mcp.json
