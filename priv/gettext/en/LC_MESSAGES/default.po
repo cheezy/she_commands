@@ -1593,11 +1593,6 @@ msgstr ""
 msgid "Action"
 msgstr ""
 
-#: lib/she_commands_web/live/admin/goal_category_live/index.ex:27
-#, elixir-autogen, elixir-format
-msgid "Could not update visibility for %{name}"
-msgstr ""
-
 #: lib/she_commands_web/live/admin/goal_category_live/index.html.heex:49
 #, elixir-autogen, elixir-format
 msgid "Hidden"

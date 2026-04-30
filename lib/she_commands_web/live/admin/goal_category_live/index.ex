@@ -13,20 +13,12 @@ defmodule SheCommandsWeb.Admin.GoalCategoryLive.Index do
 
   @impl true
   def handle_event("toggle", %{"id" => id}, socket) do
-    category = Intake.get_goal_category!(id)
+    {:ok, _updated} =
+      id
+      |> Intake.get_goal_category!()
+      |> Intake.toggle_goal_category_visibility()
 
-    case Intake.toggle_goal_category_visibility(category) do
-      {:ok, _updated} ->
-        {:noreply, assign_categories(socket)}
-
-      {:error, _changeset} ->
-        {:noreply,
-         put_flash(
-           socket,
-           :error,
-           gettext("Could not update visibility for %{name}", name: category.name)
-         )}
-    end
+    {:noreply, assign_categories(socket)}
   end
 
   defp assign_categories(socket) do
