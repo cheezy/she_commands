@@ -61,6 +61,22 @@ defmodule SheCommands.Intake do
     |> Repo.insert()
   end
 
+  @doc """
+  Updates a goal category through the standard changeset.
+  """
+  def update_goal_category(%GoalCategory{} = goal_category, attrs) do
+    goal_category
+    |> GoalCategory.changeset(attrs)
+    |> Repo.update()
+  end
+
+  @doc """
+  Flips `visible_on_intake` on the given category.
+  """
+  def toggle_goal_category_visibility(%GoalCategory{} = goal_category) do
+    update_goal_category(goal_category, %{visible_on_intake: !goal_category.visible_on_intake})
+  end
+
   ## Intake Responses
 
   @doc """

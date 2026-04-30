@@ -83,6 +83,41 @@ defmodule SheCommands.IntakeTest do
       assert {:ok, category} = Intake.create_goal_category(attrs)
       assert category.visible_on_intake == false
     end
+
+    test "update_goal_category/2 updates name and visibility" do
+      category = goal_category_fixture(%{visible_on_intake: true})
+
+      assert {:ok, updated} =
+               Intake.update_goal_category(category, %{
+                 name: "Renamed",
+                 visible_on_intake: false
+               })
+
+      assert updated.name == "Renamed"
+      assert updated.visible_on_intake == false
+    end
+
+    test "update_goal_category/2 returns error changeset on slug collision" do
+      goal_category_fixture(%{slug: "collide-slug"})
+      target = goal_category_fixture(%{slug: "target-slug"})
+
+      assert {:error, changeset} = Intake.update_goal_category(target, %{slug: "collide-slug"})
+      assert errors_on(changeset).slug != []
+    end
+
+    test "toggle_goal_category_visibility/1 flips visible to hidden" do
+      category = goal_category_fixture(%{visible_on_intake: true})
+
+      assert {:ok, updated} = Intake.toggle_goal_category_visibility(category)
+      assert updated.visible_on_intake == false
+    end
+
+    test "toggle_goal_category_visibility/1 flips hidden to visible" do
+      category = goal_category_fixture(%{visible_on_intake: false})
+
+      assert {:ok, updated} = Intake.toggle_goal_category_visibility(category)
+      assert updated.visible_on_intake == true
+    end
   end
 
   describe "create_intake_response/1" do
