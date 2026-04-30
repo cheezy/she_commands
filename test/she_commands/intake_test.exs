@@ -42,6 +42,23 @@ defmodule SheCommands.IntakeTest do
 
       assert errors_on(changeset).slug != []
     end
+
+    test "create_goal_category/1 defaults visible_on_intake to true when omitted" do
+      attrs = %{name: "Default Visibility", slug: "default-visibility-#{System.unique_integer()}"}
+      assert {:ok, category} = Intake.create_goal_category(attrs)
+      assert category.visible_on_intake == true
+    end
+
+    test "create_goal_category/1 honors visible_on_intake when supplied" do
+      attrs = %{
+        name: "Hidden Category",
+        slug: "hidden-#{System.unique_integer()}",
+        visible_on_intake: false
+      }
+
+      assert {:ok, category} = Intake.create_goal_category(attrs)
+      assert category.visible_on_intake == false
+    end
   end
 
   describe "create_intake_response/1" do

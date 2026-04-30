@@ -19,6 +19,7 @@ defmodule SheCommands.Intake.GoalCategory do
     field :outcome_power_down, :string
     field :outcome_empower, :string
     field :position, :integer, default: 0
+    field :visible_on_intake, :boolean, default: true
 
     timestamps(type: :utc_datetime)
   end
@@ -33,7 +34,8 @@ defmodule SheCommands.Intake.GoalCategory do
       :outcome_power_through,
       :outcome_power_down,
       :outcome_empower,
-      :position
+      :position,
+      :visible_on_intake
     ])
     |> validate_required([:name, :slug])
     |> validate_length(:name, max: 200)
