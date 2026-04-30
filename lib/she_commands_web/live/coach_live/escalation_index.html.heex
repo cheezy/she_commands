@@ -1,0 +1,118 @@
+<Layouts.app flash={@flash} current_scope={@current_scope}>
+  <div class="w-full max-w-5xl mx-auto py-12">
+    <p class="font-label text-xs uppercase tracking-[0.25em] text-base-content/50 mb-3">
+      {gettext("Coach")}
+    </p>
+    <h1 class="text-3xl sm:text-4xl font-serif italic leading-[1.1] tracking-[-0.02em] text-base-content mb-2">
+      {gettext("Escalations queue")}
+    </h1>
+    <div class="flex flex-wrap gap-3 mb-8">
+      <div class="border border-base-300 bg-base-100 px-4 py-2">
+        <p class="font-label text-[10px] uppercase tracking-[0.15em] text-base-content/60">
+          {gettext("Pending")}
+        </p>
+        <p class="text-2xl font-serif text-base-content">{@metrics.pending}</p>
+      </div>
+      <div class="border border-base-300 bg-base-100 px-4 py-2">
+        <p class="font-label text-[10px] uppercase tracking-[0.15em] text-base-content/60">
+          {gettext("In review")}
+        </p>
+        <p class="text-2xl font-serif text-base-content">{@metrics.in_review}</p>
+      </div>
+      <div class={
+        "border px-4 py-2 " <>
+          if @metrics.overdue > 0,
+            do: "border-error/40 bg-error/5",
+            else: "border-base-300 bg-base-100"
+      }>
+        <p class="font-label text-[10px] uppercase tracking-[0.15em] text-base-content/60">
+          {gettext("Overdue")}
+        </p>
+        <p class={
+          "text-2xl font-serif " <>
+            if @metrics.overdue > 0, do: "text-error", else: "text-base-content"
+        }>
+          {@metrics.overdue}
+        </p>
+      </div>
+    </div>
+
+    <%= if @pending == [] do %>
+      <div class="border border-base-300 bg-base-100 p-12 text-center">
+        <p class="font-label text-xs uppercase tracking-[0.25em] text-base-content/50 mb-3">
+          {gettext("All clear")}
+        </p>
+        <p class="text-base-content/70">
+          {gettext("No pending escalations. Great work.")}
+        </p>
+      </div>
+    <% else %>
+      <ul class="space-y-3">
+        <li
+          :for={escalation <- @pending}
+          class="border border-base-300 bg-base-100 p-4"
+        >
+          <div class="flex items-start gap-4">
+            <div class={
+              "shrink-0 mt-1 size-3 rounded-full " <>
+                case escalation.urgency do
+                  :overdue -> "bg-error"
+                  :red -> "bg-error"
+                  :yellow -> "bg-warning"
+                  :green -> "bg-success"
+                end
+            }>
+            </div>
+
+            <div class="flex-1 min-w-0">
+              <p class="text-sm font-medium text-base-content">
+                {display_name(escalation.user)}
+              </p>
+              <p class="text-sm text-base-content/70 mt-1">
+                {subject_label(escalation.subject)}
+              </p>
+              <%= if escalation.user_note && escalation.user_note != "" do %>
+                <p class="text-sm text-base-content/60 mt-2 italic leading-relaxed">
+                  &ldquo;{escalation.user_note}&rdquo;
+                </p>
+              <% end %>
+              <div class="flex items-center gap-4 mt-3 text-xs">
+                <span class="font-label uppercase tracking-[0.15em] text-base-content/50">
+                  {time_since(escalation.inserted_at, DateTime.utc_now())}
+                </span>
+                <span class={
+                  "font-label uppercase tracking-[0.15em] " <>
+                    case escalation.urgency do
+                      :overdue -> "text-error font-semibold"
+                      :red -> "text-error"
+                      :yellow -> "text-warning"
+                      :green -> "text-success"
+                    end
+                }>
+                  <%= if escalation.urgency == :overdue do %>
+                    {gettext("SLA overdue")}
+                  <% else %>
+                    {gettext("SLA in %{remaining}",
+                      remaining:
+                        humanize_remaining(
+                          DateTime.diff(escalation.sla_deadline, DateTime.utc_now())
+                        )
+                    )}
+                  <% end %>
+                </span>
+              </div>
+            </div>
+
+            <button
+              phx-click="claim"
+              phx-value-id={escalation.id}
+              class="shrink-0 py-2 px-5 bg-base-content text-base-100 text-xs font-label uppercase tracking-[0.2em] hover:bg-base-content/90 transition cursor-pointer"
+            >
+              {gettext("Claim")}
+            </button>
+          </div>
+        </li>
+      </ul>
+    <% end %>
+  </div>
+</Layouts.app>

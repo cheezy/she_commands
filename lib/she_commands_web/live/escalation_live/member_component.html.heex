@@ -1,0 +1,118 @@
+<div id={@id} class="space-y-8">
+  <%!-- Flag form --%>
+  <div class="border border-base-300 bg-base-100 p-6">
+    <h2 class="text-2xl font-serif italic text-base-content mb-2">
+      {gettext("Request coach review")}
+    </h2>
+    <p class="text-sm text-base-content/60 mb-4 leading-relaxed">
+      {gettext(
+        "Coach support covers plan clarification, motivation, and event prioritization. For medical, nutritional, or fitness questions please consult a qualified professional."
+      )}
+    </p>
+
+    <%= if @flash_message do %>
+      <div
+        role="status"
+        class="border border-primary/30 bg-primary/5 text-primary px-4 py-3 mb-4 text-sm"
+      >
+        {@flash_message}
+      </div>
+    <% end %>
+
+    <form phx-submit="submit_escalation" phx-target={@myself} class="space-y-4">
+      <fieldset class="space-y-2">
+        <label
+          for={"#{@id}-subject"}
+          class="font-label text-xs uppercase tracking-[0.15em] text-base-content/70 block"
+        >
+          {gettext("Subject")}
+        </label>
+        <select
+          id={"#{@id}-subject"}
+          name="subject"
+          class="w-full bg-base-100 border border-base-300 px-3 py-2 text-sm text-base-content focus:outline-none focus:border-base-content"
+        >
+          <option value="">{gettext("Choose a subject...")}</option>
+          <option :for={s <- SheCommands.Escalations.Escalation.subjects()} value={s}>
+            {subject_label(s)}
+          </option>
+        </select>
+      </fieldset>
+
+      <fieldset class="space-y-2">
+        <label
+          for={"#{@id}-note"}
+          class="font-label text-xs uppercase tracking-[0.15em] text-base-content/70 block"
+        >
+          {gettext("Note (optional)")}
+        </label>
+        <textarea
+          id={"#{@id}-note"}
+          name="user_note"
+          rows="3"
+          class="w-full bg-base-100 border border-base-300 px-3 py-2 text-sm text-base-content focus:outline-none focus:border-base-content resize-none"
+          placeholder={gettext("Add any context that would help your coach...")}
+        ></textarea>
+      </fieldset>
+
+      <button
+        type="submit"
+        class="py-3 px-8 bg-base-content text-base-100 text-xs font-label uppercase tracking-[0.2em] hover:bg-base-content/90 transition cursor-pointer"
+      >
+        {gettext("Request coach review")}
+      </button>
+    </form>
+  </div>
+
+  <%!-- Status panel --%>
+  <div>
+    <h3 class="font-label text-xs uppercase tracking-[0.25em] text-base-content/50 mb-4">
+      {gettext("Your escalations")}
+    </h3>
+
+    <%= if @escalations == [] do %>
+      <p class="text-sm text-base-content/60 italic">
+        {gettext("You have not requested coach review yet.")}
+      </p>
+    <% else %>
+      <ul class="space-y-3">
+        <li
+          :for={escalation <- @escalations}
+          class="border border-base-300 bg-base-100 p-4"
+        >
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <p class="text-sm font-medium text-base-content">
+                {subject_label(escalation.subject)}
+              </p>
+              <%= if escalation.user_note && escalation.user_note != "" do %>
+                <p class="mt-1 text-sm text-base-content/70 leading-relaxed">
+                  {escalation.user_note}
+                </p>
+              <% end %>
+            </div>
+            <span class={
+              "shrink-0 inline-block px-2 py-1 text-xs font-label uppercase tracking-[0.1em] border " <>
+                if escalation.status == :responded,
+                  do: "bg-primary/10 text-primary border-primary/30",
+                  else: "bg-base-200 text-base-content/70 border-base-300"
+            }>
+              {status_label(escalation.status)}
+            </span>
+          </div>
+
+          <%= if escalation.status == :responded && escalation.coach_response do %>
+            <div class="mt-3 pt-3 border-t border-base-300">
+              <p class="font-label text-xs uppercase tracking-[0.15em] text-base-content/50 mb-2">
+                {gettext("Coach response")}
+              </p>
+              <p class="text-sm text-base-content/80 leading-relaxed whitespace-pre-wrap">
+                {escalation.coach_response}
+              </p>
+            </div>
+          <% end %>
+        </li>
+      </ul>
+    <% end %>
+  </div>
+</div>

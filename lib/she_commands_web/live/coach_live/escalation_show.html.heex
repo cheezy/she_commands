@@ -1,0 +1,161 @@
+<Layouts.app flash={@flash} current_scope={@current_scope}>
+  <div class="w-full max-w-4xl mx-auto py-12 space-y-10">
+    <div>
+      <.link
+        navigate={~p"/coach/escalations"}
+        class="text-xs font-label uppercase tracking-[0.15em] text-base-content/60 hover:text-base-content transition"
+      >
+        &larr; {gettext("Back to queue")}
+      </.link>
+
+      <div class="mt-4 flex items-start justify-between gap-4">
+        <div>
+          <p class="font-label text-xs uppercase tracking-[0.25em] text-base-content/50 mb-2">
+            {gettext("Escalation")}
+          </p>
+          <h1 class="text-3xl sm:text-4xl font-serif italic leading-[1.1] tracking-[-0.02em] text-base-content">
+            {subject_label(@escalation.subject)}
+          </h1>
+        </div>
+        <span class="shrink-0 inline-block px-2 py-1 text-xs font-label uppercase tracking-[0.1em] bg-base-200 text-base-content/70 border border-base-300">
+          {status_label(@escalation.status)}
+        </span>
+      </div>
+    </div>
+
+    <%!-- Member profile --%>
+    <section class="border border-base-300 bg-base-100 p-6">
+      <h2 class="font-label text-xs uppercase tracking-[0.25em] text-base-content/50 mb-4">
+        {gettext("Member")}
+      </h2>
+      <p class="text-lg font-medium text-base-content">
+        {display_name(@escalation.user)}
+      </p>
+      <%= if location(@escalation.user) != "" do %>
+        <p class="text-sm text-base-content/60 mt-1">{location(@escalation.user)}</p>
+      <% end %>
+    </section>
+
+    <%!-- Escalation metadata + user note --%>
+    <section class="border border-base-300 bg-base-100 p-6 space-y-4">
+      <h2 class="font-label text-xs uppercase tracking-[0.25em] text-base-content/50">
+        {gettext("Request details")}
+      </h2>
+
+      <dl class="grid grid-cols-2 gap-y-3 gap-x-6 text-sm">
+        <dt class="text-base-content/60">{gettext("Submitted")}</dt>
+        <dd class="text-base-content">
+          {Calendar.strftime(@escalation.inserted_at, "%b %-d, %Y at %-I:%M %p UTC")}
+        </dd>
+        <dt class="text-base-content/60">{gettext("SLA deadline")}</dt>
+        <dd class="text-base-content">
+          {Calendar.strftime(@escalation.sla_deadline, "%b %-d, %Y at %-I:%M %p UTC")}
+        </dd>
+      </dl>
+
+      <%= if @escalation.user_note && @escalation.user_note != "" do %>
+        <div>
+          <h3 class="font-label text-xs uppercase tracking-[0.15em] text-base-content/50 mb-2">
+            {gettext("Member note")}
+          </h3>
+          <p class="text-sm text-base-content/80 leading-relaxed whitespace-pre-wrap">
+            {@escalation.user_note}
+          </p>
+        </div>
+      <% end %>
+    </section>
+
+    <%!-- Plan summary --%>
+    <%= if @escalation.plan do %>
+      <section class="border border-base-300 bg-base-100 p-6 space-y-5">
+        <div class="flex items-center justify-between">
+          <h2 class="font-label text-xs uppercase tracking-[0.25em] text-base-content/50">
+            {gettext("Plan")}
+          </h2>
+          <span class="text-xs font-label uppercase tracking-[0.15em] text-base-content/60">
+            {@escalation.plan.plan_type}
+          </span>
+        </div>
+
+        <%= if @escalation.plan.goal_statement do %>
+          <p class="text-base-content/90 italic font-serif leading-relaxed">
+            &ldquo;{@escalation.plan.goal_statement}&rdquo;
+          </p>
+        <% end %>
+
+        <%= for pillar <- [:power_up, :power_through, :power_down, :empower] do %>
+          <%= if Map.has_key?(@modules_by_pillar, pillar) do %>
+            <div>
+              <h3 class="font-label text-xs uppercase tracking-[0.15em] text-base-content/50 mb-2">
+                {pillar_label(pillar)}
+              </h3>
+              <ul class="space-y-1">
+                <li
+                  :for={module <- Map.get(@modules_by_pillar, pillar, [])}
+                  class="text-sm text-base-content/80"
+                >
+                  {module.title}
+                </li>
+              </ul>
+            </div>
+          <% end %>
+        <% end %>
+      </section>
+    <% else %>
+      <section class="border border-base-300 bg-base-100 p-6">
+        <h2 class="font-label text-xs uppercase tracking-[0.25em] text-base-content/50 mb-2">
+          {gettext("Plan")}
+        </h2>
+        <p class="text-sm text-base-content/60 italic">
+          {gettext("No active plan attached to this escalation.")}
+        </p>
+      </section>
+    <% end %>
+
+    <%!-- Chat context --%>
+    <%= if @chat_context != [] do %>
+      <section class="border border-base-300 bg-base-100 p-6 space-y-3">
+        <h2 class="font-label text-xs uppercase tracking-[0.25em] text-base-content/50">
+          {gettext("Conversation context")}
+        </h2>
+        <div
+          :for={message <- @chat_context}
+          class={
+            "p-3 " <>
+              if message.role == :user,
+                do: "ml-8 bg-base-200",
+                else: "mr-8 bg-base-300"
+          }
+        >
+          <p class="text-xs font-label uppercase tracking-[0.15em] text-base-content/50 mb-1">
+            {if message.role == :user, do: gettext("Member"), else: gettext("Assistant")}
+          </p>
+          <p class="text-sm text-base-content/90 whitespace-pre-wrap">{message.content}</p>
+        </div>
+      </section>
+    <% end %>
+
+    <%!-- Response form --%>
+    <section class="border border-base-300 bg-base-100 p-6">
+      <h2 class="font-label text-xs uppercase tracking-[0.25em] text-base-content/50 mb-4">
+        {gettext("Your response")}
+      </h2>
+
+      <form phx-submit="submit_response" class="space-y-4">
+        <textarea
+          name="response"
+          rows="6"
+          class="w-full bg-base-100 border border-base-300 px-3 py-2 text-sm text-base-content focus:outline-none focus:border-base-content resize-none"
+          placeholder={gettext("Write a thoughtful response...")}
+        ><%= @response_text %></textarea>
+
+        <button
+          type="submit"
+          class="py-3 px-8 bg-base-content text-base-100 text-xs font-label uppercase tracking-[0.2em] hover:bg-base-content/90 transition cursor-pointer"
+        >
+          {gettext("Send response")}
+        </button>
+      </form>
+    </section>
+  </div>
+</Layouts.app>
