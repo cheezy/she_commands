@@ -21,7 +21,7 @@ defmodule SheCommands.Feedback.Workers.FeedbackDeliveryTest do
       assert reloaded.sent_at
 
       to = [{"", user.email}]
-      assert_received {:email, %{to: ^to, subject: "How is your plan going?"}}
+      assert_received {:email, %{to: ^to, subject: "Was this week doable?"}}
     end
 
     test "is idempotent — already-sent prompts are short-circuited" do
@@ -31,7 +31,7 @@ defmodule SheCommands.Feedback.Workers.FeedbackDeliveryTest do
 
       :ok = perform_job(FeedbackDelivery, %{prompt_id: prompt.id})
 
-      refute_email_sent(subject: "How is your plan going?")
+      refute_email_sent(subject: "Was this week doable?")
 
       reloaded = Feedback.get_feedback_prompt!(prompt.id)
       # sent_at is still the original timestamp from mark_prompt_sent, not reset
@@ -44,7 +44,7 @@ defmodule SheCommands.Feedback.Workers.FeedbackDeliveryTest do
 
       :ok = perform_job(FeedbackDelivery, %{prompt_id: prompt.id})
 
-      refute_email_sent(subject: "How is your plan going?")
+      refute_email_sent(subject: "Was this week doable?")
     end
   end
 end

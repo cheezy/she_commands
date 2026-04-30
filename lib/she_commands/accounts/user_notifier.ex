@@ -131,27 +131,75 @@ defmodule SheCommands.Accounts.UserNotifier do
 
   @doc """
   Delivers a mid-plan or post-plan feedback prompt to the member.
+
+  Dispatches to `deliver_mid_plan_prompt/2` or `deliver_post_plan_survey/2`
+  based on `prompt.prompt_type` so the FeedbackDelivery worker only has
+  to know one entry point.
   """
-  def deliver_feedback_prompt_email(member, prompt) do
-    deliver(member.email, "How is your plan going?", """
+  def deliver_feedback_prompt_email(member, %{prompt_type: :mid_plan} = prompt),
+    do: deliver_mid_plan_prompt(member, prompt)
+
+  def deliver_feedback_prompt_email(member, %{prompt_type: :post_plan} = prompt),
+    do: deliver_post_plan_survey(member, prompt)
+
+  @doc """
+  Delivers the mid-plan check-in prompt: "Was this week doable?" with a
+  link back to the in-app feedback form.
+  """
+  def deliver_mid_plan_prompt(member, prompt) do
+    greeting = greeting_name(member)
+    link = feedback_prompt_url(prompt)
+
+    deliver(member.email, "Was this week doable?", """
 
     ==============================
 
-    Hi #{member.email},
+    Hi #{greeting},
 
-    A quick check-in on your plan: #{prompt_question(prompt.prompt_type)}
+    Quick mid-plan check-in: was this week doable?
 
-    Reply to this email or open the app to share your feedback.
+    Reply directly or share your answer in the app:
+    #{link}
 
     ==============================
     """)
   end
 
-  defp prompt_question(:mid_plan),
-    do: "How is the plan working for you so far? What's clicking, what isn't?"
+  @doc """
+  Delivers the post-plan survey invitation with three review questions
+  and a link back to the in-app survey form.
+  """
+  def deliver_post_plan_survey(member, prompt) do
+    greeting = greeting_name(member)
+    link = feedback_prompt_url(prompt)
 
-  defp prompt_question(:post_plan),
-    do: "Now that your plan has wrapped, how did it go? Any results worth celebrating?"
+    deliver(member.email, "How did your plan go?", """
+
+    ==============================
+
+    Hi #{greeting},
+
+    Your plan has wrapped — three quick questions to close the loop:
+
+    1. What worked best for you?
+    2. What got in the way?
+    3. What would you change for the next plan?
+
+    Share your answers in the app:
+    #{link}
+
+    ==============================
+    """)
+  end
+
+  defp greeting_name(%{display_name: dn}) when is_binary(dn) and dn != "", do: dn
+  defp greeting_name(%{name: name}) when is_binary(name) and name != "", do: name
+  defp greeting_name(%{email: email}) when is_binary(email), do: email
+  defp greeting_name(_), do: "there"
+
+  defp feedback_prompt_url(prompt) do
+    SheCommandsWeb.Endpoint.url() <> "/feedback/prompts/#{prompt.id}"
+  end
 
   defp humanize_subject(:plan_clarification), do: "Plan clarification"
   defp humanize_subject(:motivation_support), do: "Motivation support"

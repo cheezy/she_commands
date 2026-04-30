@@ -67,6 +67,93 @@ defmodule SheCommands.Accounts.UserNotifierTest do
     end
   end
 
+  describe "deliver_mid_plan_prompt/2" do
+    test "subject is 'Was this week doable?' and body includes the in-app link" do
+      member =
+        user_fixture(%{})
+        |> Ecto.Changeset.change(%{display_name: "DN"})
+        |> SheCommands.Repo.update!()
+
+      prompt = %SheCommands.Feedback.FeedbackPrompt{
+        id: 42,
+        prompt_type: :mid_plan,
+        plan_id: 1,
+        user_id: member.id
+      }
+
+      assert {:ok, email} = UserNotifier.deliver_mid_plan_prompt(member, prompt)
+      assert email.subject == "Was this week doable?"
+      assert email.text_body =~ "Hi DN,"
+      assert email.text_body =~ "/feedback/prompts/42"
+      assert_email_sent(email)
+    end
+
+    test "falls back to email when display_name and name are blank" do
+      member = user_fixture(%{})
+
+      prompt = %SheCommands.Feedback.FeedbackPrompt{
+        id: 1,
+        prompt_type: :mid_plan,
+        plan_id: 1,
+        user_id: member.id
+      }
+
+      blank_member = %{member | name: nil, display_name: nil}
+      assert {:ok, email} = UserNotifier.deliver_mid_plan_prompt(blank_member, prompt)
+      assert email.text_body =~ "Hi #{blank_member.email}"
+    end
+  end
+
+  describe "deliver_post_plan_survey/2" do
+    test "subject is 'How did your plan go?' and body lists three questions plus link" do
+      member = user_fixture(%{})
+
+      prompt = %SheCommands.Feedback.FeedbackPrompt{
+        id: 99,
+        prompt_type: :post_plan,
+        plan_id: 1,
+        user_id: member.id
+      }
+
+      assert {:ok, email} = UserNotifier.deliver_post_plan_survey(member, prompt)
+      assert email.subject == "How did your plan go?"
+      assert email.text_body =~ "1. What worked best"
+      assert email.text_body =~ "2. What got in the way"
+      assert email.text_body =~ "3. What would you change"
+      assert email.text_body =~ "/feedback/prompts/99"
+    end
+  end
+
+  describe "deliver_feedback_prompt_email/2 dispatch" do
+    test "mid_plan prompt routes to mid-plan email" do
+      member = user_fixture(%{})
+
+      prompt = %SheCommands.Feedback.FeedbackPrompt{
+        id: 1,
+        prompt_type: :mid_plan,
+        plan_id: 1,
+        user_id: member.id
+      }
+
+      assert {:ok, email} = UserNotifier.deliver_feedback_prompt_email(member, prompt)
+      assert email.subject == "Was this week doable?"
+    end
+
+    test "post_plan prompt routes to survey email" do
+      member = user_fixture(%{})
+
+      prompt = %SheCommands.Feedback.FeedbackPrompt{
+        id: 2,
+        prompt_type: :post_plan,
+        plan_id: 1,
+        user_id: member.id
+      }
+
+      assert {:ok, email} = UserNotifier.deliver_feedback_prompt_email(member, prompt)
+      assert email.subject == "How did your plan go?"
+    end
+  end
+
   describe "create_escalation triggers" do
     test "sends a notification to every coach (excluding the member if they are a coach)" do
       coach_a = coach_fixture()
