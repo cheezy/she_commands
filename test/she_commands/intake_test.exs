@@ -178,6 +178,31 @@ defmodule SheCommands.IntakeTest do
 
       assert errors_on(changeset).days_per_week != []
     end
+
+    test "rejects days_per_week above 5" do
+      user = user_fixture()
+      {:ok, response} = Intake.create_intake_response(user)
+
+      {:error, changeset} =
+        Intake.update_intake_availability(response, %{days_per_week: 6})
+
+      assert errors_on(changeset).days_per_week != []
+    end
+
+    test "accepts days_per_week at boundary values 1 and 5" do
+      user = user_fixture()
+      {:ok, response} = Intake.create_intake_response(user)
+
+      assert {:ok, updated} =
+               Intake.update_intake_availability(response, %{days_per_week: 1})
+
+      assert updated.days_per_week == 1
+
+      assert {:ok, updated} =
+               Intake.update_intake_availability(updated, %{days_per_week: 5})
+
+      assert updated.days_per_week == 5
+    end
   end
 
   describe "update_intake_preferences/2" do

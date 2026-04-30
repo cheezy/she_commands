@@ -11,17 +11,12 @@ msgstr ""
 "Language: en\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: lib/she_commands_web/controllers/user_settings_html/edit.html.heex:4
-#, elixir-autogen, elixir-format
-msgid "Account Settings"
-msgstr ""
-
 #: lib/she_commands_web/components/core_components.ex:369
 #, elixir-autogen, elixir-format
 msgid "Actions"
 msgstr ""
 
-#: lib/she_commands_web/controllers/user_registration_html/new.html.heex:7
+#: lib/she_commands_web/controllers/user_registration_html/new.html.heex:14
 #, elixir-autogen, elixir-format
 msgid "Already registered?"
 msgstr ""
@@ -32,120 +27,107 @@ msgstr ""
 msgid "Attempting to reconnect"
 msgstr ""
 
-#: lib/she_commands_web/controllers/user_settings_html/edit.html.heex:91
-#: lib/she_commands_web/controllers/user_settings_html/edit_email.html.heex:4
-#: lib/she_commands_web/controllers/user_settings_html/edit_email.html.heex:24
+#: lib/she_commands_web/controllers/user_settings_html/edit.html.heex:133
+#: lib/she_commands_web/controllers/user_settings_html/edit_email.html.heex:10
+#: lib/she_commands_web/controllers/user_settings_html/edit_email.html.heex:41
 #, elixir-autogen, elixir-format
 msgid "Change Email"
 msgstr ""
 
-#: lib/she_commands_web/controllers/user_settings_html/edit_email.html.heex:23
-#: lib/she_commands_web/controllers/user_settings_html/edit_password.html.heex:28
+#: lib/she_commands_web/controllers/user_settings_html/edit_email.html.heex:39
+#: lib/she_commands_web/controllers/user_settings_html/edit_password.html.heex:48
 #, elixir-autogen, elixir-format
 msgid "Changing..."
 msgstr ""
 
-#: lib/she_commands_web/controllers/user_settings_html/edit_password.html.heex:23
+#: lib/she_commands_web/controllers/user_settings_html/edit_password.html.heex:36
 #, elixir-autogen, elixir-format
 msgid "Confirm new password"
 msgstr ""
 
-#: lib/she_commands_web/components/layouts/root.html.heex:66
+#: lib/she_commands_web/components/layouts/root.html.heex:71
 #, elixir-autogen, elixir-format
 msgid "Connect"
 msgstr ""
 
-#: lib/she_commands_web/controllers/user_registration_html/new.html.heex:44
+#: lib/she_commands_web/controllers/user_registration_html/new.html.heex:65
 #, elixir-autogen, elixir-format
 msgid "Create an account"
 msgstr ""
 
-#: lib/she_commands_web/controllers/user_registration_html/new.html.heex:43
+#: lib/she_commands_web/controllers/user_registration_html/new.html.heex:63
 #, elixir-autogen, elixir-format
 msgid "Creating account..."
 msgstr ""
 
-#: lib/she_commands_web/controllers/user_session_html/new.html.heex:10
+#: lib/she_commands_web/controllers/user_session_html/new.html.heex:19
 #, elixir-autogen, elixir-format
 msgid "Don't have an account?"
 msgstr ""
 
-#: lib/she_commands_web/controllers/user_registration_html/new.html.heex:29
-#: lib/she_commands_web/controllers/user_session_html/new.html.heex:25
+#: lib/she_commands_web/controllers/page_html/connect.html.heex:44
+#: lib/she_commands_web/controllers/user_registration_html/new.html.heex:42
+#: lib/she_commands_web/controllers/user_session_html/new.html.heex:38
 #, elixir-autogen, elixir-format
 msgid "Email"
 msgstr ""
 
-#: lib/she_commands_web/components/layouts/root.html.heex:93
-#: lib/she_commands_web/controllers/user_registration_html/new.html.heex:9
-#: lib/she_commands_web/controllers/user_session_html/new.html.heex:5
+#: lib/she_commands_web/components/layouts/root.html.heex:118
+#: lib/she_commands_web/controllers/user_registration_html/new.html.heex:19
 #, elixir-autogen, elixir-format
 msgid "Log in"
 msgstr ""
 
-#: lib/she_commands_web/controllers/user_session_html/new.html.heex:40
+#: lib/she_commands_web/controllers/user_session_html/new.html.heex:63
 #, elixir-autogen, elixir-format
 msgid "Log in and stay logged in"
 msgstr ""
 
-#: lib/she_commands_web/controllers/user_session_html/new.html.heex:43
+#: lib/she_commands_web/controllers/user_session_html/new.html.heex:69
 #, elixir-autogen, elixir-format
 msgid "Log in only this time"
 msgstr ""
 
-#: lib/she_commands_web/components/layouts/root.html.heex:80
+#: lib/she_commands_web/components/layouts/root.html.heex:102
 #, elixir-autogen, elixir-format
 msgid "Log out"
 msgstr ""
 
-#: lib/she_commands_web/components/layouts/root.html.heex:56
-#, elixir-autogen, elixir-format
-msgid "Mission"
-msgstr ""
-
-#: lib/she_commands_web/controllers/user_registration_html/new.html.heex:20
-#: lib/she_commands_web/controllers/user_settings_html/edit.html.heex:15
+#: lib/she_commands_web/controllers/page_html/connect.html.heex:15
+#: lib/she_commands_web/controllers/user_registration_html/new.html.heex:32
+#: lib/she_commands_web/controllers/user_settings_html/edit.html.heex:27
 #, elixir-autogen, elixir-format
 msgid "Name"
 msgstr ""
 
-#: lib/she_commands_web/controllers/user_settings_html/edit_password.html.heex:15
+#: lib/she_commands_web/controllers/user_settings_html/edit_password.html.heex:27
 #, elixir-autogen, elixir-format
 msgid "New password"
 msgstr ""
 
-#: lib/she_commands_web/controllers/user_registration_html/new.html.heex:37
-#: lib/she_commands_web/controllers/user_session_html/new.html.heex:34
+#: lib/she_commands_web/controllers/user_registration_html/new.html.heex:51
+#: lib/she_commands_web/controllers/user_session_html/new.html.heex:48
 #, elixir-autogen, elixir-format
 msgid "Password"
 msgstr ""
 
-#: lib/she_commands_web/components/layouts/root.html.heex:61
-#, elixir-autogen, elixir-format
-msgid "Pillars"
-msgstr ""
-
-#: lib/she_commands_web/components/layouts/root.html.heex:88
+#: lib/she_commands_web/components/layouts/root.html.heex:112
 #, elixir-autogen, elixir-format
 msgid "Register"
 msgstr ""
 
-#: lib/she_commands_web/controllers/user_registration_html/new.html.heex:5
-#, elixir-autogen, elixir-format
-msgid "Register for an account"
-msgstr ""
-
-#: lib/she_commands_web/controllers/user_settings_html/edit_password.html.heex:29
+#: lib/she_commands_web/controllers/user_settings_html/edit_password.html.heex:50
 #, elixir-autogen, elixir-format
 msgid "Save Password"
 msgstr ""
 
-#: lib/she_commands_web/components/layouts/root.html.heex:77
+#: lib/she_commands_web/components/layouts/root.html.heex:98
+#: lib/she_commands_web/controllers/user_settings_html/edit.html.heex:10
 #, elixir-autogen, elixir-format
 msgid "Settings"
 msgstr ""
 
-#: lib/she_commands_web/controllers/user_session_html/new.html.heex:14
+#: lib/she_commands_web/controllers/user_session_html/new.html.heex:24
 #, elixir-autogen, elixir-format
 msgid "Sign up"
 msgstr ""
@@ -160,7 +142,7 @@ msgstr ""
 msgid "We can't find the internet"
 msgstr ""
 
-#: lib/she_commands_web/controllers/user_session_html/new.html.heex:8
+#: lib/she_commands_web/controllers/user_session_html/new.html.heex:15
 #, elixir-autogen, elixir-format
 msgid "You need to reauthenticate to perform sensitive actions on your account."
 msgstr ""
@@ -170,526 +152,549 @@ msgstr ""
 msgid "close"
 msgstr ""
 
-#: lib/she_commands_web/controllers/user_session_html/new.html.heex:14
+#: lib/she_commands_web/controllers/user_session_html/new.html.heex:25
 #, elixir-autogen, elixir-format
 msgid "for an account now."
 msgstr ""
 
-#: lib/she_commands_web/controllers/user_registration_html/new.html.heex:11
+#: lib/she_commands_web/controllers/user_registration_html/new.html.heex:21
 #, elixir-autogen, elixir-format
 msgid "to your account now."
 msgstr ""
 
-#: lib/she_commands_web/live/intake_live/index.html.heex:120
+#: lib/she_commands_web/live/intake_live/index.html.heex:136
 #, elixir-autogen, elixir-format
 msgid "2 weeks or less"
 msgstr ""
 
-#: lib/she_commands_web/live/intake_live/index.html.heex:128
+#: lib/she_commands_web/live/intake_live/index.html.heex:144
 #, elixir-autogen, elixir-format
 msgid "3 to 6 weeks"
 msgstr ""
 
-#: lib/she_commands_web/live/intake_live/index.html.heex:211
+#: lib/she_commands_web/live/intake_live/index.html.heex:234
 #, elixir-autogen, elixir-format
 msgid "30 to 60 minutes"
 msgstr ""
 
-#: lib/she_commands_web/live/intake_live/index.html.heex:136
+#: lib/she_commands_web/live/intake_live/index.html.heex:152
 #, elixir-autogen, elixir-format
 msgid "7 weeks or more"
 msgstr ""
 
-#: lib/she_commands_web/controllers/user_settings_html/edit_email.html.heex:6
+#: lib/she_commands_web/controllers/user_settings_html/edit_email.html.heex:14
 #, elixir-autogen, elixir-format
 msgid "A confirmation link will be sent to your new email address."
 msgstr ""
 
-#: lib/she_commands_web/live/intake_live/index.html.heex:425
+#: lib/she_commands_web/live/intake_live/index.html.heex:495
 #, elixir-autogen, elixir-format
 msgid "A few final details to help us connect you with local events and the right community."
 msgstr ""
 
-#: lib/she_commands_web/live/intake_live/index.html.heex:367
-#: lib/she_commands_web/live/intake_live/index.html.heex:384
+#: lib/she_commands_web/live/intake_live/index.html.heex:425
+#: lib/she_commands_web/live/intake_live/index.html.heex:442
 #, elixir-autogen, elixir-format
 msgid "Active"
 msgstr ""
 
-#: lib/she_commands_web/live/intake_live/index.html.heex:422
+#: lib/she_commands_web/live/intake_live/index.html.heex:492
 #, elixir-autogen, elixir-format
 msgid "Almost there!"
 msgstr ""
 
-#: lib/she_commands_web/live/intake_live/index.html.heex:298
+#: lib/she_commands_web/live/intake_live/index.html.heex:333
 #, elixir-autogen, elixir-format
 msgid "Anything else we should know? (optional)"
 msgstr ""
 
-#: lib/she_commands_web/live/intake_live/index.html.heex:272
+#: lib/she_commands_web/live/intake_live/index.html.heex:307
 #, elixir-autogen, elixir-format
 msgid "Anything we should know?"
 msgstr ""
 
-#: lib/she_commands_web/controllers/user_settings_html/edit.html.heex:121
+#: lib/she_commands_web/controllers/user_settings_html/edit.html.heex:164
 #, elixir-autogen, elixir-format
 msgid "Are you sure you want to delete your account? This action cannot be undone."
 msgstr ""
 
-#: lib/she_commands_web/live/intake_live/index.html.heex:96
-#: lib/she_commands_web/live/intake_live/index.html.heex:146
-#: lib/she_commands_web/live/intake_live/index.html.heex:261
-#: lib/she_commands_web/live/intake_live/index.html.heex:303
-#: lib/she_commands_web/live/intake_live/index.html.heex:343
-#: lib/she_commands_web/live/intake_live/index.html.heex:411
-#: lib/she_commands_web/live/intake_live/index.html.heex:494
+#: lib/she_commands_web/live/intake_live/index.html.heex:108
+#: lib/she_commands_web/live/intake_live/index.html.heex:166
+#: lib/she_commands_web/live/intake_live/index.html.heex:288
+#: lib/she_commands_web/live/intake_live/index.html.heex:342
+#: lib/she_commands_web/live/intake_live/index.html.heex:394
+#: lib/she_commands_web/live/intake_live/index.html.heex:473
+#: lib/she_commands_web/live/intake_live/index.html.heex:568
 #, elixir-autogen, elixir-format
 msgid "Back"
 msgstr ""
 
-#: lib/she_commands_web/controllers/user_settings_html/edit_email.html.heex:33
-#: lib/she_commands_web/controllers/user_settings_html/edit_password.html.heex:38
+#: lib/she_commands_web/controllers/user_settings_html/edit_email.html.heex:51
+#: lib/she_commands_web/controllers/user_settings_html/edit_password.html.heex:60
 #, elixir-autogen, elixir-format
 msgid "Back to settings"
 msgstr ""
 
-#: lib/she_commands_web/controllers/user_settings_html/edit.html.heex:74
+#: lib/she_commands_web/controllers/user_settings_html/edit.html.heex:107
 #, elixir-autogen, elixir-format
 msgid "Bio"
 msgstr ""
 
-#: lib/she_commands_web/live/intake_live/index.html.heex:242
+#: lib/she_commands_web/live/intake_live/index.html.heex:265
 #, elixir-autogen, elixir-format
 msgid "Challenging but sustainable"
 msgstr ""
 
-#: lib/she_commands_web/controllers/user_settings_html/edit.html.heex:102
-#: lib/she_commands_web/controllers/user_settings_html/edit_password.html.heex:4
+#: lib/she_commands_web/controllers/user_settings_html/edit.html.heex:144
+#: lib/she_commands_web/controllers/user_settings_html/edit_password.html.heex:10
 #, elixir-autogen, elixir-format
 msgid "Change Password"
 msgstr ""
 
-#: lib/she_commands_web/controllers/user_settings_html/edit.html.heex:31
-#: lib/she_commands_web/live/intake_live/index.html.heex:443
+#: lib/she_commands_web/controllers/user_settings_html/edit.html.heex:43
+#: lib/she_commands_web/live/intake_live/index.html.heex:513
 #, elixir-autogen, elixir-format
 msgid "City"
 msgstr ""
 
-#: lib/she_commands_web/controllers/user_settings_html/edit.html.heex:57
+#: lib/she_commands_web/controllers/user_settings_html/edit.html.heex:79
 #, elixir-autogen, elixir-format
 msgid "Coach Profile"
 msgstr ""
 
-#: lib/she_commands_web/live/intake_live/index.html.heex:333
+#: lib/she_commands_web/live/intake_live/index.html.heex:380
 #, elixir-autogen, elixir-format
 msgid "Coach-guided"
 msgstr ""
 
-#: lib/she_commands_web/live/intake_live/index.html.heex:52
-#: lib/she_commands_web/live/intake_live/index.html.heex:102
-#: lib/she_commands_web/live/intake_live/index.html.heex:152
-#: lib/she_commands_web/live/intake_live/index.html.heex:263
-#: lib/she_commands_web/live/intake_live/index.html.heex:305
-#: lib/she_commands_web/live/intake_live/index.html.heex:345
-#: lib/she_commands_web/live/intake_live/index.html.heex:413
+#: lib/she_commands_web/live/intake_live/index.html.heex:59
+#: lib/she_commands_web/live/intake_live/index.html.heex:115
+#: lib/she_commands_web/live/intake_live/index.html.heex:173
+#: lib/she_commands_web/live/intake_live/index.html.heex:295
+#: lib/she_commands_web/live/intake_live/index.html.heex:348
+#: lib/she_commands_web/live/intake_live/index.html.heex:400
+#: lib/she_commands_web/live/intake_live/index.html.heex:479
 #, elixir-autogen, elixir-format
 msgid "Continue"
 msgstr ""
 
-#: lib/she_commands_web/controllers/user_settings_html/edit.html.heex:43
-#: lib/she_commands_web/live/intake_live/index.html.heex:467
+#: lib/she_commands_web/controllers/user_settings_html/edit.html.heex:55
+#: lib/she_commands_web/live/intake_live/index.html.heex:537
 #, elixir-autogen, elixir-format
 msgid "Country"
 msgstr ""
 
-#: lib/she_commands_web/controllers/user_settings_html/edit.html.heex:68
+#: lib/she_commands_web/controllers/user_settings_html/edit.html.heex:101
 #, elixir-autogen, elixir-format
 msgid "Credential"
 msgstr ""
 
-#: lib/she_commands_web/live/intake_live/index.html.heex:364
+#: lib/she_commands_web/live/intake_live/index.html.heex:422
 #, elixir-autogen, elixir-format
 msgid "Current fitness level"
 msgstr ""
 
-#: lib/she_commands_web/controllers/user_settings_html/edit.html.heex:112
+#: lib/she_commands_web/controllers/user_settings_html/edit.html.heex:155
 #, elixir-autogen, elixir-format
 msgid "Danger Zone"
 msgstr ""
 
-#: lib/she_commands_web/live/intake_live/index.html.heex:180
+#: lib/she_commands_web/live/intake_live/index.html.heex:204
 #, elixir-autogen, elixir-format
 msgid "Days per week you can commit"
 msgstr ""
 
-#: lib/she_commands_web/live/intake_live/index.html.heex:137
+#: lib/she_commands_web/live/intake_live/index.html.heex:153
 #, elixir-autogen, elixir-format
 msgid "Deep transformation — full progressions with add-ons"
 msgstr ""
 
-#: lib/she_commands_web/controllers/user_settings_html/edit.html.heex:125
+#: lib/she_commands_web/controllers/user_settings_html/edit.html.heex:170
 #, elixir-autogen, elixir-format
 msgid "Delete Account"
 msgstr ""
 
-#: lib/she_commands_web/controllers/user_settings_html/edit.html.heex:24
+#: lib/she_commands_web/controllers/user_settings_html/edit.html.heex:36
 #, elixir-autogen, elixir-format
 msgid "Display Name"
 msgstr ""
 
-#: lib/she_commands_web/live/intake_live/index.html.heex:497
+#: lib/she_commands_web/live/intake_live/index.html.heex:574
 #, elixir-autogen, elixir-format
 msgid "Generate My Plan"
 msgstr ""
 
-#: lib/she_commands_web/live/intake_live/index.html.heex:234
+#: lib/she_commands_web/live/intake_live/index.html.heex:257
 #, elixir-autogen, elixir-format
 msgid "Gentle pace, minimal physical demand"
 msgstr ""
 
-#: lib/she_commands_web/live/intake_live/index.html.heex:249
+#: lib/she_commands_web/live/intake_live/index.html.heex:272
 #, elixir-autogen, elixir-format
 msgid "High"
 msgstr ""
 
-#: lib/she_commands_web/live/intake_live/index.html.heex:314
+#: lib/she_commands_web/live/intake_live/index.html.heex:361
 #, elixir-autogen, elixir-format
 msgid "How do you like to work?"
 msgstr ""
 
-#: lib/she_commands_web/live/intake_live/index.html.heex:334
+#: lib/she_commands_web/live/intake_live/index.html.heex:381
 #, elixir-autogen, elixir-format
 msgid "I want access to human coach support alongside the plan"
 msgstr ""
 
-#: lib/she_commands_web/live/intake_live/index.html.heex:326
+#: lib/she_commands_web/live/intake_live/index.html.heex:373
 #, elixir-autogen, elixir-format
 msgid "I'll follow the plan on my own with AI support"
 msgstr ""
 
-#: lib/she_commands_web/live/intake_live/index.html.heex:486
+#: lib/she_commands_web/live/intake_live/index.html.heex:556
 #, elixir-autogen, elixir-format
 msgid "I'm interested in providing ongoing feedback to help improve the platform"
 msgstr ""
 
-#: lib/she_commands_web/live/intake_live/index.html.heex:204
+#: lib/she_commands_web/live/intake_live/index.html.heex:227
 #, elixir-autogen, elixir-format
 msgid "Less than 30 minutes"
 msgstr ""
 
-#: lib/she_commands_web/live/intake_live/index.html.heex:367
+#: lib/she_commands_web/live/intake_live/index.html.heex:425
 #, elixir-autogen, elixir-format
 msgid "Light"
 msgstr ""
 
-#: lib/she_commands_web/live/intake_live/index.html.heex:233
+#: lib/she_commands_web/live/intake_live/index.html.heex:256
 #, elixir-autogen, elixir-format
 msgid "Low"
 msgstr ""
 
-#: lib/she_commands_web/controllers/user_settings_html/edit.html.heex:5
+#: lib/she_commands_web/controllers/user_settings_html/edit.html.heex:14
 #, elixir-autogen, elixir-format
 msgid "Manage your profile, email address and password settings"
 msgstr ""
 
-#: lib/she_commands_web/live/intake_live/index.html.heex:241
-#: lib/she_commands_web/live/intake_live/index.html.heex:367
+#: lib/she_commands_web/live/intake_live/index.html.heex:264
+#: lib/she_commands_web/live/intake_live/index.html.heex:425
 #, elixir-autogen, elixir-format
 msgid "Moderate"
 msgstr ""
 
-#: lib/she_commands_web/live/intake_live/index.html.heex:218
+#: lib/she_commands_web/live/intake_live/index.html.heex:241
 #, elixir-autogen, elixir-format
 msgid "More than 60 minutes"
 msgstr ""
 
-#: lib/she_commands_web/controllers/user_settings_html/edit_email.html.heex:17
+#: lib/she_commands_web/controllers/user_settings_html/edit_email.html.heex:27
 #, elixir-autogen, elixir-format
 msgid "New email"
 msgstr ""
 
-#: lib/she_commands_web/live/intake_live/index.html.heex:357
+#: lib/she_commands_web/live/intake_live/index.html.heex:415
 #, elixir-autogen, elixir-format
 msgid "No judgment — we just want to meet you where you are."
 msgstr ""
 
-#: lib/she_commands_web/live/intake_live/index.html.heex:367
-#: lib/she_commands_web/live/intake_live/index.html.heex:384
+#: lib/she_commands_web/live/intake_live/index.html.heex:425
+#: lib/she_commands_web/live/intake_live/index.html.heex:442
 #, elixir-autogen, elixir-format
 msgid "None"
 msgstr ""
 
-#: lib/she_commands_web/controllers/user_settings_html/edit.html.heex:114
+#: lib/she_commands_web/controllers/user_settings_html/edit.html.heex:157
 #, elixir-autogen, elixir-format
 msgid "Once you delete your account, there is no going back. Please be certain."
 msgstr ""
 
-#: lib/she_commands_web/live/intake_live/index.html.heex:381
+#: lib/she_commands_web/live/intake_live/index.html.heex:439
 #, elixir-autogen, elixir-format
 msgid "Personal development practice"
 msgstr ""
 
-#: lib/she_commands_web/live/intake_live/index.ex:73
-#, elixir-autogen, elixir-format
-msgid "Please complete all required fields before finishing."
-msgstr ""
-
-#: lib/she_commands_web/live/intake_live/index.html.heex:229
+#: lib/she_commands_web/live/intake_live/index.html.heex:252
 #, elixir-autogen, elixir-format
 msgid "Preferred intensity"
 msgstr ""
 
-#: lib/she_commands_web/controllers/user_settings_html/edit.html.heex:37
-#: lib/she_commands_web/live/intake_live/index.html.heex:455
+#: lib/she_commands_web/controllers/user_settings_html/edit.html.heex:49
+#: lib/she_commands_web/live/intake_live/index.html.heex:525
 #, elixir-autogen, elixir-format
 msgid "Province / State"
 msgstr ""
 
-#: lib/she_commands_web/live/intake_live/index.html.heex:250
+#: lib/she_commands_web/live/intake_live/index.html.heex:273
 #, elixir-autogen, elixir-format
 msgid "Push your limits"
 msgstr ""
 
-#: lib/she_commands_web/live/intake_live/index.html.heex:121
+#: lib/she_commands_web/live/intake_live/index.html.heex:137
 #, elixir-autogen, elixir-format
 msgid "Quick impact — focused, high-intensity protocols"
 msgstr ""
 
-#: lib/she_commands_web/live/intake_live/index.html.heex:515
+#: lib/she_commands_web/live/intake_live/index.html.heex:598
 #, elixir-autogen, elixir-format
 msgid "Return Home"
 msgstr ""
 
-#: lib/she_commands_web/controllers/user_settings_html/edit.html.heex:46
-#: lib/she_commands_web/controllers/user_settings_html/edit.html.heex:77
+#: lib/she_commands_web/controllers/user_settings_html/edit.html.heex:64
+#: lib/she_commands_web/controllers/user_settings_html/edit.html.heex:116
 #, elixir-autogen, elixir-format
 msgid "Saving..."
 msgstr ""
 
-#: lib/she_commands_web/live/intake_live/index.html.heex:275
+#: lib/she_commands_web/live/intake_live/index.html.heex:310
 #, elixir-autogen, elixir-format
 msgid "Select any that apply. This helps us tailor protocols to work for your body and life."
 msgstr ""
 
-#: lib/she_commands_web/live/intake_live/index.html.heex:65
-#, elixir-autogen, elixir-format
-msgid "Select the category that best fits your goal. This helps us match you with the right experts and protocols."
-msgstr ""
-
-#: lib/she_commands_web/live/intake_live/index.html.heex:325
+#: lib/she_commands_web/live/intake_live/index.html.heex:372
 #, elixir-autogen, elixir-format
 msgid "Self-directed"
 msgstr ""
 
-#: lib/she_commands_web/live/intake_live/index.html.heex:384
+#: lib/she_commands_web/live/intake_live/index.html.heex:442
 #, elixir-autogen, elixir-format
 msgid "Some"
 msgstr ""
 
-#: lib/she_commands_web/controllers/user_settings_html/edit.html.heex:62
+#: lib/she_commands_web/controllers/user_settings_html/edit.html.heex:95
 #, elixir-autogen, elixir-format
 msgid "Specialty"
 msgstr ""
 
-#: lib/she_commands_web/live/intake_live/index.html.heex:129
+#: lib/she_commands_web/live/intake_live/index.html.heex:145
 #, elixir-autogen, elixir-format
 msgid "Steady build — progression-based with room to grow"
 msgstr ""
 
-#: lib/she_commands_web/live/intake_live/index.html.heex:8
+#: lib/she_commands_web/live/intake_live/index.html.heex:9
 #, elixir-autogen, elixir-format
 msgid "Step %{current} of %{total}"
 msgstr ""
 
-#: lib/she_commands_web/live/intake_live/index.html.heex:33
-#, elixir-autogen, elixir-format
-msgid "Tell us what you want to achieve. This helps us build a plan that's truly yours."
-msgstr ""
-
-#: lib/she_commands_web/live/intake_live/index.html.heex:74
+#: lib/she_commands_web/live/intake_live/index.ex:34
 #, elixir-autogen, elixir-format
 msgid "That's a meaningful goal — here's how we'll approach it."
 msgstr ""
 
-#: lib/she_commands_web/live/intake_live/index.html.heex:317
+#: lib/she_commands_web/live/intake_live/index.html.heex:364
 #, elixir-autogen, elixir-format
 msgid "This helps us decide how much coaching support to build into your plan."
 msgstr ""
 
-#: lib/she_commands_web/live/intake_live/index.html.heex:200
+#: lib/she_commands_web/live/intake_live/index.ex:214
+#: lib/she_commands_web/live/intake_live/index.html.heex:223
 #, elixir-autogen, elixir-format
 msgid "Time per session"
 msgstr ""
 
-#: lib/she_commands_web/controllers/user_settings_html/edit.html.heex:78
+#: lib/she_commands_web/controllers/user_settings_html/edit.html.heex:118
 #, elixir-autogen, elixir-format
 msgid "Update Coach Profile"
 msgstr ""
 
-#: lib/she_commands_web/controllers/user_settings_html/edit.html.heex:47
+#: lib/she_commands_web/controllers/user_settings_html/edit.html.heex:66
 #, elixir-autogen, elixir-format
 msgid "Update Profile"
 msgstr ""
 
-#: lib/she_commands_web/controllers/user_settings_html/edit_password.html.heex:5
+#: lib/she_commands_web/controllers/user_settings_html/edit_password.html.heex:14
 #, elixir-autogen, elixir-format
 msgid "Update your account password."
 msgstr ""
 
-#: lib/she_commands_web/controllers/user_settings_html/edit.html.heex:103
+#: lib/she_commands_web/controllers/user_settings_html/edit.html.heex:145
 #, elixir-autogen, elixir-format
 msgid "Update your password"
 msgstr ""
 
-#: lib/she_commands_web/live/intake_live/index.html.heex:164
+#: lib/she_commands_web/live/intake_live/index.html.heex:188
 #, elixir-autogen, elixir-format
 msgid "We'll build your plan around the time you actually have — no guilt, no guessing."
 msgstr ""
 
-#: lib/she_commands_web/live/intake_live/index.html.heex:161
+#: lib/she_commands_web/live/intake_live/index.html.heex:185
 #, elixir-autogen, elixir-format
 msgid "What does your schedule look like?"
 msgstr ""
 
-#: lib/she_commands_web/live/intake_live/index.html.heex:30
+#: lib/she_commands_web/live/intake_live/index.html.heex:34
 #, elixir-autogen, elixir-format
 msgid "What's your goal?"
 msgstr ""
 
-#: lib/she_commands_web/live/intake_live/index.html.heex:111
+#: lib/she_commands_web/live/intake_live/index.html.heex:127
 #, elixir-autogen, elixir-format
 msgid "When do you need to be ready?"
 msgstr ""
 
-#: lib/she_commands_web/live/intake_live/index.html.heex:354
+#: lib/she_commands_web/live/intake_live/index.html.heex:412
 #, elixir-autogen, elixir-format
 msgid "Where are you starting from?"
 msgstr ""
 
-#: lib/she_commands_web/live/intake_live/index.html.heex:62
+#: lib/she_commands_web/live/intake_live/index.html.heex:72
 #, elixir-autogen, elixir-format
 msgid "Which area resonates most?"
 msgstr ""
 
-#: lib/she_commands_web/live/intake_live/index.html.heex:507
+#: lib/she_commands_web/live/intake_live/index.html.heex:586
 #, elixir-autogen, elixir-format
 msgid "You're all set."
 msgstr ""
 
-#: lib/she_commands_web/live/intake_live/index.html.heex:173
+#: lib/she_commands_web/live/intake_live/index.html.heex:197
 #, elixir-autogen, elixir-format
 msgid "You're halfway there. The plan is already taking shape."
 msgstr ""
 
-#: lib/she_commands_web/live/intake_live/index.html.heex:434
+#: lib/she_commands_web/live/intake_live/index.html.heex:504
 #, elixir-autogen, elixir-format
 msgid "You've shown real clarity about what you want. Your plan is going to reflect that."
 msgstr ""
 
-#: lib/she_commands_web/live/intake_live/index.ex:20
+#: lib/she_commands_web/live/intake_live/index.ex:29
 #, elixir-autogen, elixir-format
 msgid "Your Personal Plan"
 msgstr ""
 
-#: lib/she_commands_web/live/intake_live/index.ex:66
-#, elixir-autogen, elixir-format
-msgid "Your intake is complete! Your plan is being generated."
-msgstr ""
-
-#: lib/she_commands_web/live/intake_live/index.html.heex:510
+#: lib/she_commands_web/live/intake_live/index.html.heex:589
 #, elixir-autogen, elixir-format
 msgid "Your personalized Command Centre plan is being assembled by our expert team. We'll notify you when it's ready."
 msgstr ""
 
-#: lib/she_commands_web/live/intake_live/index.html.heex:114
+#: lib/she_commands_web/live/intake_live/index.html.heex:130
 #, elixir-autogen, elixir-format
 msgid "Your timeline shapes the pace and structure of your plan."
 msgstr ""
 
-#: lib/she_commands_web/live/intake_live/index.html.heex:45
+#: lib/she_commands_web/live/intake_live/index.html.heex:49
 #, elixir-autogen, elixir-format
 msgid "e.g., I want to command any room I walk into with confidence..."
 msgstr ""
 
+#: lib/she_commands_web/controllers/page_html/brand.html.heex:30
 #: lib/she_commands_web/controllers/page_html/home.html.heex:30
+#: lib/she_commands_web/controllers/page_html/the_journal.html.heex:24
 #, elixir-autogen, elixir-format
 msgid "Don't hesitate"
 msgstr ""
 
-#: lib/she_commands_web/controllers/page_html/home.html.heex:135
+#: lib/she_commands_web/controllers/page_html/brand.html.heex:189
+#: lib/she_commands_web/controllers/page_html/goal_execution.html.heex:108
+#: lib/she_commands_web/controllers/page_html/home.html.heex:156
+#: lib/she_commands_web/live/plan_live/show.ex:209
 #, elixir-autogen, elixir-format
 msgid "Empower"
 msgstr ""
 
-#: lib/she_commands_web/controllers/page_html/home.html.heex:99
+#: lib/she_commands_web/controllers/page_html/brand.html.heex:137
+#: lib/she_commands_web/controllers/page_html/goal_execution.html.heex:47
+#: lib/she_commands_web/controllers/page_html/home.html.heex:109
 #, elixir-autogen, elixir-format
 msgid "Every plan is modular, measurable, and built for real life using She Commands' proprietary Power Pillar™ framework:"
 msgstr ""
 
-#: lib/she_commands_web/controllers/page_html/home.html.heex:207
+#: lib/she_commands_web/controllers/page_html/brand.html.heex:247
+#: lib/she_commands_web/controllers/page_html/connect.html.heex:138
+#: lib/she_commands_web/controllers/page_html/experiences.html.heex:37
+#: lib/she_commands_web/controllers/page_html/goal_execution.html.heex:133
+#: lib/she_commands_web/controllers/page_html/home.html.heex:235
+#: lib/she_commands_web/controllers/page_html/the_journal.html.heex:65
 #, elixir-autogen, elixir-format
 msgid "Exclusive events. Expert coaches. Exceptional network."
 msgstr ""
 
+#: lib/she_commands_web/controllers/page_html/brand.html.heex:22
 #: lib/she_commands_web/controllers/page_html/home.html.heex:32
+#: lib/she_commands_web/controllers/page_html/the_journal.html.heex:20
 #, elixir-autogen, elixir-format
 msgid "Execute relentlessly"
 msgstr ""
 
-#: lib/she_commands_web/controllers/page_html/home.html.heex:68
+#: lib/she_commands_web/components/layouts/root.html.heex:59
+#: lib/she_commands_web/controllers/page_html/goal_execution.html.heex:11
+#: lib/she_commands_web/controllers/page_html/goal_execution.html.heex:18
 #: lib/she_commands_web/controllers/page_html/home.html.heex:77
+#: lib/she_commands_web/controllers/page_html/home.html.heex:86
 #, elixir-autogen, elixir-format
 msgid "Goal Execution"
 msgstr ""
 
-#: lib/she_commands_web/controllers/page_html/home.html.heex:204
+#: lib/she_commands_web/controllers/page_html/brand.html.heex:244
+#: lib/she_commands_web/controllers/page_html/connect.html.heex:135
+#: lib/she_commands_web/controllers/page_html/experiences.html.heex:34
+#: lib/she_commands_web/controllers/page_html/goal_execution.html.heex:130
+#: lib/she_commands_web/controllers/page_html/home.html.heex:232
+#: lib/she_commands_web/controllers/page_html/the_journal.html.heex:62
 #, elixir-autogen, elixir-format
 msgid "Join our mailing list for what's coming."
 msgstr ""
 
-#: lib/she_commands_web/controllers/page_html/home.html.heex:220
+#: lib/she_commands_web/controllers/page_html/brand.html.heex:260
+#: lib/she_commands_web/controllers/page_html/connect.html.heex:151
+#: lib/she_commands_web/controllers/page_html/experiences.html.heex:50
+#: lib/she_commands_web/controllers/page_html/goal_execution.html.heex:146
+#: lib/she_commands_web/controllers/page_html/home.html.heex:248
+#: lib/she_commands_web/controllers/page_html/the_journal.html.heex:78
 #, elixir-autogen, elixir-format
 msgid "Join the Community"
 msgstr ""
 
-#: lib/she_commands_web/controllers/page_html/home.html.heex:50
-#: lib/she_commands_web/controllers/page_html/home.html.heex:87
-#: lib/she_commands_web/controllers/page_html/home.html.heex:179
+#: lib/she_commands_web/controllers/page_html/home.html.heex:53
+#: lib/she_commands_web/controllers/page_html/home.html.heex:96
+#: lib/she_commands_web/controllers/page_html/home.html.heex:207
 #, elixir-autogen, elixir-format
 msgid "Learn More"
 msgstr ""
 
+#: lib/she_commands_web/controllers/page_html/brand.html.heex:26
 #: lib/she_commands_web/controllers/page_html/home.html.heex:28
+#: lib/she_commands_web/controllers/page_html/the_journal.html.heex:22
 #, elixir-autogen, elixir-format
 msgid "Live your potential"
 msgstr ""
 
-#: lib/she_commands_web/controllers/page_html/home.html.heex:40
-#: lib/she_commands_web/controllers/page_html/home.html.heex:56
+#: lib/she_commands_web/controllers/page_html/brand.html.heex:109
+#: lib/she_commands_web/controllers/page_html/home.html.heex:42
+#: lib/she_commands_web/controllers/page_html/home.html.heex:59
 #, elixir-autogen, elixir-format, fuzzy
 msgid "Our Mission"
 msgstr ""
 
-#: lib/she_commands_web/controllers/page_html/home.html.heex:126
+#: lib/she_commands_web/controllers/page_html/brand.html.heex:176
+#: lib/she_commands_web/controllers/page_html/goal_execution.html.heex:94
+#: lib/she_commands_web/controllers/page_html/home.html.heex:146
+#: lib/she_commands_web/live/plan_live/show.ex:208
 #, elixir-autogen, elixir-format
 msgid "Power Down"
 msgstr ""
 
-#: lib/she_commands_web/controllers/page_html/home.html.heex:96
+#: lib/she_commands_web/controllers/page_html/brand.html.heex:134
+#: lib/she_commands_web/controllers/page_html/goal_execution.html.heex:59
+#: lib/she_commands_web/controllers/page_html/home.html.heex:106
 #, elixir-autogen, elixir-format
 msgid "Power Pillar™ Framework"
 msgstr ""
 
-#: lib/she_commands_web/controllers/page_html/home.html.heex:117
+#: lib/she_commands_web/controllers/page_html/brand.html.heex:163
+#: lib/she_commands_web/controllers/page_html/goal_execution.html.heex:80
+#: lib/she_commands_web/controllers/page_html/home.html.heex:132
+#: lib/she_commands_web/live/plan_live/show.ex:207
 #, elixir-autogen, elixir-format
 msgid "Power Through"
 msgstr ""
 
-#: lib/she_commands_web/controllers/page_html/home.html.heex:108
+#: lib/she_commands_web/controllers/page_html/brand.html.heex:150
+#: lib/she_commands_web/controllers/page_html/goal_execution.html.heex:66
+#: lib/she_commands_web/controllers/page_html/home.html.heex:118
+#: lib/she_commands_web/live/plan_live/show.ex:206
 #, elixir-autogen, elixir-format
 msgid "Power Up"
 msgstr ""
 
+#: lib/she_commands_web/controllers/page_html/brand.html.heex:20
 #: lib/she_commands_web/controllers/page_html/home.html.heex:27
 #: lib/she_commands_web/controllers/page_html/home.html.heex:29
 #: lib/she_commands_web/controllers/page_html/home.html.heex:31
@@ -697,22 +702,33 @@ msgstr ""
 msgid "Power starts here"
 msgstr ""
 
-#: lib/she_commands_web/controllers/page_html/home.html.heex:228
+#: lib/she_commands_web/controllers/page_html/brand.html.heex:282
+#: lib/she_commands_web/controllers/page_html/connect.html.heex:173
+#: lib/she_commands_web/controllers/page_html/experiences.html.heex:72
+#: lib/she_commands_web/controllers/page_html/goal_execution.html.heex:168
+#: lib/she_commands_web/controllers/page_html/home.html.heex:274
+#: lib/she_commands_web/controllers/page_html/the_journal.html.heex:100
 #, elixir-autogen, elixir-format
 msgid "Privacy Policy"
 msgstr ""
 
 #: lib/she_commands_web/controllers/page_html/home.html.heex:8
+#: lib/she_commands_web/controllers/plan_html/print.html.heex:140
 #, elixir-autogen, elixir-format
 msgid "She Commands"
 msgstr ""
 
-#: lib/she_commands_web/controllers/page_html/home.html.heex:254
+#: lib/she_commands_web/controllers/page_html/brand.html.heex:309
+#: lib/she_commands_web/controllers/page_html/connect.html.heex:200
+#: lib/she_commands_web/controllers/page_html/experiences.html.heex:99
+#: lib/she_commands_web/controllers/page_html/goal_execution.html.heex:195
+#: lib/she_commands_web/controllers/page_html/home.html.heex:307
+#: lib/she_commands_web/controllers/page_html/the_journal.html.heex:127
 #, elixir-autogen, elixir-format
 msgid "She Commands Inc. All rights reserved."
 msgstr ""
 
-#: lib/she_commands_web/controllers/page_html/home.html.heex:151
+#: lib/she_commands_web/controllers/page_html/home.html.heex:173
 #, elixir-autogen, elixir-format
 msgid "She Commands experience"
 msgstr ""
@@ -727,68 +743,909 @@ msgstr ""
 msgid "She Doesn't Ask."
 msgstr ""
 
-#: lib/she_commands_web/controllers/page_html/home.html.heex:79
+#: lib/she_commands_web/controllers/page_html/home.html.heex:88
 #, elixir-autogen, elixir-format
 msgid "The core of She Commands is a goal execution engine — curated daily and weekly plans that blend fitness, nutrition, mindset, habits, and leadership into a single mission-ready system to maximize readiness for the most important moments in your life."
 msgstr ""
 
-#: lib/she_commands_web/controllers/page_html/home.html.heex:157
-#: lib/she_commands_web/controllers/page_html/home.html.heex:160
+#: lib/she_commands_web/controllers/page_html/experiences.html.heex:8
+#: lib/she_commands_web/controllers/page_html/experiences.html.heex:15
+#: lib/she_commands_web/controllers/page_html/home.html.heex:181
 #, elixir-autogen, elixir-format
 msgid "Upcoming Experiences"
 msgstr ""
 
-#: lib/she_commands_web/controllers/page_html/home.html.heex:184
+#: lib/she_commands_web/controllers/page_html/home.html.heex:212
 #, elixir-autogen, elixir-format
 msgid "Be one of the first to experience the She Commands Power Pillar framework in action."
 msgstr ""
 
-#: lib/she_commands_web/controllers/page_html/home.html.heex:119
+#: lib/she_commands_web/controllers/page_html/brand.html.heex:165
+#: lib/she_commands_web/controllers/page_html/goal_execution.html.heex:82
+#: lib/she_commands_web/controllers/page_html/home.html.heex:134
 #, elixir-autogen, elixir-format, fuzzy
 msgid "Build mental resilience and physical strength and endurance"
 msgstr ""
 
-#: lib/she_commands_web/controllers/page_html/home.html.heex:137
+#: lib/she_commands_web/controllers/page_html/brand.html.heex:191
+#: lib/she_commands_web/controllers/page_html/goal_execution.html.heex:110
+#: lib/she_commands_web/controllers/page_html/home.html.heex:158
 #, elixir-autogen, elixir-format, fuzzy
 msgid "Elevate leadership presence, personal brand and execution strategies"
 msgstr ""
 
-#: lib/she_commands_web/controllers/page_html/home.html.heex:213
+#: lib/she_commands_web/controllers/page_html/brand.html.heex:253
+#: lib/she_commands_web/controllers/page_html/connect.html.heex:144
+#: lib/she_commands_web/controllers/page_html/experiences.html.heex:43
+#: lib/she_commands_web/controllers/page_html/goal_execution.html.heex:139
+#: lib/she_commands_web/controllers/page_html/home.html.heex:241
+#: lib/she_commands_web/controllers/page_html/the_journal.html.heex:71
 #, elixir-autogen, elixir-format
 msgid "Email Address"
 msgstr ""
 
-#: lib/she_commands_web/controllers/page_html/home.html.heex:170
+#: lib/she_commands_web/controllers/page_html/home.html.heex:198
 #, elixir-autogen, elixir-format, fuzzy
 msgid "From Capable to Commanding — March 28, 2026 (FULL)"
 msgstr ""
 
-#: lib/she_commands_web/controllers/page_html/home.html.heex:110
+#: lib/she_commands_web/controllers/page_html/brand.html.heex:152
+#: lib/she_commands_web/controllers/page_html/goal_execution.html.heex:68
+#: lib/she_commands_web/controllers/page_html/home.html.heex:120
 #, elixir-autogen, elixir-format, fuzzy
 msgid "Fuel your mind and body for high performance"
 msgstr ""
 
-#: lib/she_commands_web/controllers/page_html/home.html.heex:128
+#: lib/she_commands_web/controllers/page_html/brand.html.heex:178
+#: lib/she_commands_web/controllers/page_html/goal_execution.html.heex:96
+#: lib/she_commands_web/controllers/page_html/home.html.heex:148
 #, elixir-autogen, elixir-format, fuzzy
 msgid "Kill the noise and reset your focus without slowing momentum"
 msgstr ""
 
-#: lib/she_commands_web/controllers/page_html/home.html.heex:42
+#: lib/she_commands_web/controllers/page_html/home.html.heex:45
 #, elixir-autogen, elixir-format, fuzzy
 msgid "Our mission is to elevate women's mental resilience, physical readiness and executive clarity so they can show up for both work and life's biggest moments with maximum confidence and impact."
 msgstr ""
 
-#: lib/she_commands_web/controllers/page_html/home.html.heex:189
+#: lib/she_commands_web/controllers/page_html/home.html.heex:217
 #, elixir-autogen, elixir-format
 msgid "This one-day retreat will bring together a curated circle of ambitious women to build habits that fuel long-term change, overcome preconceived personal and professional performance limits and connect in a real and unfiltered environment. You'll work directly with our fitness, nutrition and leadership experts to push your physical and mental limits and you'll expand your network in a space that's raw, grounded, and energizing."
 msgstr ""
 
-#: lib/she_commands_web/controllers/page_html/home.html.heex:173
+#: lib/she_commands_web/controllers/page_html/home.html.heex:201
 #, elixir-autogen, elixir-format
 msgid "Toronto"
 msgstr ""
 
-#: lib/she_commands_web/controllers/page_html/home.html.heex:72
+#: lib/she_commands_web/controllers/page_html/home.html.heex:81
 #, elixir-autogen, elixir-format
 msgid "those big ambitions that can't wait. You can and you will."
+msgstr ""
+
+#: lib/she_commands_web/live/admin/module_live/index.html.heex:150
+#, elixir-autogen, elixir-format
+msgid "%{count} field missing"
+msgid_plural "%{count} fields missing"
+msgstr[0] ""
+msgstr[1] ""
+
+#: lib/she_commands_web/live/admin/module_live/show.html.heex:110
+#, elixir-autogen, elixir-format
+msgid "%{count} min"
+msgid_plural "%{count} mins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: lib/she_commands_web/live/plan_live/show.html.heex:56
+#, elixir-autogen, elixir-format
+msgid "%{count} module"
+msgid_plural "%{count} modules"
+msgstr[0] ""
+msgstr[1] ""
+
+#: lib/she_commands_web/live/admin/module_live/index.html.heex:12
+#, elixir-autogen, elixir-format
+msgid "%{count} modules"
+msgstr ""
+
+#: lib/she_commands_web/live/intake_live/index.ex:37
+#, elixir-autogen, elixir-format
+msgid "A goal worth pursuing — let's set the foundation."
+msgstr ""
+
+#: lib/she_commands_web/live/plan_live/chat_panel_component.ex:123
+#, elixir-autogen, elixir-format
+msgid "AI responses are for guidance only and do not constitute professional advice. Consult a qualified professional for medical, nutritional, or fitness decisions."
+msgstr ""
+
+#: lib/she_commands_web/controllers/user_settings_html/edit_email.html.heex:7
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Account"
+msgstr ""
+
+#: lib/she_commands_web/live/admin/module_live/index.html.heex:6
+#, elixir-autogen, elixir-format
+msgid "Administration"
+msgstr ""
+
+#: lib/she_commands_web/live/admin/module_live/index.html.heex:27
+#: lib/she_commands_web/live/admin/module_live/index.html.heex:44
+#: lib/she_commands_web/live/admin/module_live/index.html.heex:64
+#: lib/she_commands_web/live/admin/module_live/index.html.heex:81
+#, elixir-autogen, elixir-format
+msgid "All"
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/brand.html.heex:50
+#, elixir-autogen, elixir-format
+msgid "Applicable to work and life. Not compartmentalized self-help."
+msgstr ""
+
+#: lib/she_commands_web/live/plan_live/chat_panel_component.ex:104
+#, elixir-autogen, elixir-format
+msgid "Ask about your plan..."
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/brand.html.heex:97
+#, elixir-autogen, elixir-format
+msgid "At the heart of She Commands are four strategic pillars — Power Up, Power Through, Power Down and Empower — each representing a critical element in the journey toward becoming a woman who feels in command when it matters the most."
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/goal_execution.html.heex:28
+#, elixir-autogen, elixir-format
+msgid "At the heart of She Commands is a tactical goal execution engine. Each client journey begins with clarity on what matters most to you. Then we arm you with a curated plan of action. Our multi-disciplinary goal execution plans include protocols (activities/challenges) that incorporate:"
+msgstr ""
+
+#: lib/she_commands_web/live/intake_live/index.html.heex:182
+#, elixir-autogen, elixir-format
+msgid "Availability"
+msgstr ""
+
+#: lib/she_commands_web/live/admin/module_live/show.html.heex:9
+#, elixir-autogen, elixir-format
+msgid "Back to modules"
+msgstr ""
+
+#: lib/she_commands_web/live/intake_live/index.ex:35
+#, elixir-autogen, elixir-format
+msgid "Beautiful clarity. Let's design a plan that honours it."
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/brand.html.heex:203
+#, elixir-autogen, elixir-format
+msgid "Boss Energy | Bench Strength"
+msgstr ""
+
+#: lib/she_commands_web/live/plan_live/show.ex:213
+#, elixir-autogen, elixir-format
+msgid "Build strength and endurance"
+msgstr ""
+
+#: lib/she_commands_web/live/plan_live/chat_panel_component.ex:26
+#, elixir-autogen, elixir-format
+msgid "Chat"
+msgstr ""
+
+#: lib/she_commands_web/live/admin/module_live/index.html.heex:98
+#, elixir-autogen, elixir-format
+msgid "Clear filters"
+msgstr ""
+
+#: lib/she_commands_web/live/intake_live/index.ex:43
+#, elixir-autogen, elixir-format
+msgid "Clear intent, clear next step. Let's get to work."
+msgstr ""
+
+#: lib/she_commands_web/live/plan_live/chat_panel_component.ex:31
+#: lib/she_commands_web/live/plan_live/chat_panel_component.ex:135
+#, elixir-autogen, elixir-format
+msgid "Close chat"
+msgstr ""
+
+#: lib/she_commands_web/live/admin/module_live/show.html.heex:260
+#, elixir-autogen, elixir-format
+msgid "Coach Tip"
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/connect.html.heex:85
+#, elixir-autogen, elixir-format
+msgid "Collaboration"
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/goal_execution.html.heex:121
+#, elixir-autogen, elixir-format
+msgid "Coming Soon"
+msgstr ""
+
+#: lib/she_commands_web/live/intake_live/index.html.heex:583
+#, elixir-autogen, elixir-format
+msgid "Complete"
+msgstr ""
+
+#: lib/she_commands_web/live/plan_live/show.ex:27
+#, elixir-autogen, elixir-format
+msgid "Complete your intake to generate a plan."
+msgstr ""
+
+#: lib/she_commands_web/live/admin/module_live/show.html.heex:25
+#, elixir-autogen, elixir-format
+msgid "Completeness:"
+msgstr ""
+
+#: lib/she_commands_web/live/intake_live/index.html.heex:304
+#, elixir-autogen, elixir-format
+msgid "Considerations"
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/connect.html.heex:123
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Contact"
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/connect.html.heex:5
+#, elixir-autogen, elixir-format
+msgid "Contact Us"
+msgstr ""
+
+#: lib/she_commands_web/live/admin/module_live/index.html.heex:58
+#, elixir-autogen, elixir-format
+msgid "Contributor"
+msgstr ""
+
+#: lib/she_commands_web/live/admin/module_live/show.html.heex:54
+#, elixir-autogen, elixir-format
+msgid "Core Concepts"
+msgstr ""
+
+#: lib/she_commands_web/controllers/user_registration_html/new.html.heex:10
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Create Account"
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/brand.html.heex:49
+#, elixir-autogen, elixir-format
+msgid "Curated for your goals. Not generic content."
+msgstr ""
+
+#: lib/she_commands_web/live/admin/module_live/show.html.heex:107
+#, elixir-autogen, elixir-format
+msgid "Daily Time"
+msgstr ""
+
+#: lib/she_commands_web/live/intake_live/index.ex:213
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Days per week"
+msgstr ""
+
+#: lib/she_commands_web/live/admin/module_live/show.html.heex:234
+#, elixir-autogen, elixir-format
+msgid "Expected Outcome"
+msgstr ""
+
+#: lib/she_commands_web/controllers/plan_html/print.html.heex:66
+#: lib/she_commands_web/live/plan_live/show.html.heex:29
+#, elixir-autogen, elixir-format
+msgid "Expected Outcomes"
+msgstr ""
+
+#: lib/she_commands_web/live/admin/module_live/show.html.heex:127
+#, elixir-autogen, elixir-format
+msgid "Experience Level"
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/experiences.html.heex:24
+#, elixir-autogen, elixir-format
+msgid "Experience listings coming soon."
+msgstr ""
+
+#: lib/she_commands_web/components/layouts/root.html.heex:65
+#, elixir-autogen, elixir-format
+msgid "Experiences"
+msgstr ""
+
+#: lib/she_commands_web/live/plan_live/chat_panel_component.ex:146
+#, elixir-autogen, elixir-format
+msgid "Explain my Power Up modules"
+msgstr ""
+
+#: lib/she_commands_web/live/plan_live/show.ex:175
+#, elixir-autogen, elixir-format
+msgid "Failed to send message."
+msgstr ""
+
+#: lib/she_commands_web/live/intake_live/index.html.heex:489
+#, elixir-autogen, elixir-format
+msgid "Final Details"
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/connect.html.heex:19
+#, elixir-autogen, elixir-format
+msgid "First Name"
+msgstr ""
+
+#: lib/she_commands_web/live/intake_live/index.html.heex:69
+#, elixir-autogen, elixir-format
+msgid "Focus Area"
+msgstr ""
+
+#: lib/she_commands_web/live/intake_live/index.ex:211
+#, elixir-autogen, elixir-format
+msgid "Focus area"
+msgstr ""
+
+#: lib/she_commands_web/live/plan_live/show.ex:212
+#, elixir-autogen, elixir-format
+msgid "Fuel your body and mind"
+msgstr ""
+
+#: lib/she_commands_web/controllers/user_registration_html/new.html.heex:7
+#, elixir-autogen, elixir-format
+msgid "Get Started"
+msgstr ""
+
+#: lib/she_commands_web/live/intake_live/index.ex:210
+#, elixir-autogen, elixir-format
+msgid "Goal"
+msgstr ""
+
+#: lib/she_commands_web/live/admin/module_live/show.html.heex:163
+#, elixir-autogen, elixir-format
+msgid "Goal Categories"
+msgstr ""
+
+#: lib/she_commands_web/live/admin/module_live/index.html.heex:38
+#, elixir-autogen, elixir-format
+msgid "Goal Category"
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/goal_execution.html.heex:36
+#, elixir-autogen, elixir-format
+msgid "Habit systems for consistency"
+msgstr ""
+
+#: lib/she_commands_web/live/plan_live/chat_panel_component.ex:46
+#, elixir-autogen, elixir-format
+msgid "Hi! I'm your plan assistant. Ask me anything about your plan."
+msgstr ""
+
+#: lib/she_commands_web/live/plan_live/chat_panel_component.ex:147
+#, elixir-autogen, elixir-format
+msgid "How do I modify exercises for my level?"
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/brand.html.heex:70
+#, elixir-autogen, elixir-format
+msgid "In She Commands, the \"O\" isn't just a letter — it's our symbol of everything the brand stands for. The circle has been a consistent symbol across human history to represent unity, renewal and wholeness: from ancient goddess symbols to the phases of the moon. For us, the \"O\" is also a target for Objectives set and Outcomes achieved. It reminds us that progress is not always linear. It's feminine. It's functional. It's yours."
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/brand.html.heex:47
+#, elixir-autogen, elixir-format
+msgid "Instruction. Not inspiration."
+msgstr ""
+
+#: lib/she_commands_web/components/layouts/root.html.heex:90
+#, elixir-autogen, elixir-format
+msgid "Intake"
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/brand.html.heex:51
+#, elixir-autogen, elixir-format
+msgid "Integrated strategy. Not one-dimensional advice."
+msgstr ""
+
+#: lib/she_commands_web/live/admin/module_live/show.html.heex:82
+#: lib/she_commands_web/live/intake_live/index.ex:215
+#, elixir-autogen, elixir-format
+msgid "Intensity"
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/connect.html.heex:67
+#, elixir-autogen, elixir-format
+msgid "Interested in"
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/the_journal.html.heex:37
+#, elixir-autogen, elixir-format
+msgid "Journal entry"
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/connect.html.heex:30
+#, elixir-autogen, elixir-format
+msgid "Last Name"
+msgstr ""
+
+#: lib/she_commands_web/live/admin/module_live/show.html.heex:98
+#, elixir-autogen, elixir-format
+msgid "Lead Time Fit"
+msgstr ""
+
+#: lib/she_commands_web/live/plan_live/show.ex:215
+#, elixir-autogen, elixir-format
+msgid "Lead, influence, and grow"
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/goal_execution.html.heex:38
+#, elixir-autogen, elixir-format
+msgid "Leadership development to strengthen presence and decision-making"
+msgstr ""
+
+#: lib/she_commands_web/controllers/user_session_html/new.html.heex:10
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Log In"
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/connect.html.heex:94
+#, elixir-autogen, elixir-format
+msgid "Media"
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/connect.html.heex:56
+#, elixir-autogen, elixir-format
+msgid "Message"
+msgstr ""
+
+#: lib/she_commands_web/live/plan_live/show.ex:78
+#, elixir-autogen, elixir-format
+msgid "Message is too long. Please keep it under %{max} characters."
+msgstr ""
+
+#: lib/she_commands_web/live/admin/module_live/show.html.heex:65
+#, elixir-autogen, elixir-format
+msgid "Metadata"
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/goal_execution.html.heex:35
+#, elixir-autogen, elixir-format
+msgid "Mindset drills to sharpen execution"
+msgstr ""
+
+#: lib/she_commands_web/live/admin/module_live/show.html.heex:289
+#, elixir-autogen, elixir-format
+msgid "Missing Fields"
+msgstr ""
+
+#: lib/she_commands_web/live/admin/module_live/show.html.heex:32
+#, elixir-autogen, elixir-format
+msgid "Missing: %{fields}"
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/brand.html.heex:28
+#: lib/she_commands_web/controllers/page_html/the_journal.html.heex:23
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Mission-ready"
+msgstr ""
+
+#: lib/she_commands_web/controllers/plan_html/print.html.heex:130
+#: lib/she_commands_web/live/admin/module_live/show.html.heex:250
+#: lib/she_commands_web/live/plan_live/show.html.heex:182
+#, elixir-autogen, elixir-format
+msgid "Modifications"
+msgstr ""
+
+#: lib/she_commands_web/live/admin/module_live/index.ex:14
+#: lib/she_commands_web/live/admin/module_live/index.html.heex:9
+#, elixir-autogen, elixir-format
+msgid "Module Library"
+msgstr ""
+
+#: lib/she_commands_web/live/admin/module_live/index.html.heex:75
+#: lib/she_commands_web/live/admin/module_live/show.html.heex:90
+#, elixir-autogen, elixir-format
+msgid "Module Type"
+msgstr ""
+
+#: lib/she_commands_web/components/layouts/root.html.heex:84
+#: lib/she_commands_web/live/plan_live/show.ex:17
+#, elixir-autogen, elixir-format
+msgid "My Plan"
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/brand.html.heex:231
+#, elixir-autogen, elixir-format
+msgid "Myra Reisler"
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/brand.html.heex:206
+#, elixir-autogen, elixir-format
+msgid "Myra Reisler is the woman at the helm of She Commands. With over 20 years in leadership roles across communications, public relations, corporate strategy and transformation, and banking operations — and a lifelong passion for pushing physical limits whether in the gym, on a dancefloor or hanging from a trapeze — Myra knows what it feels like to chase high standards in every domain of life. She also knows what it feels like to juggle all of it while trying not to drop the ball at work, at home, or on the training floor."
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/brand.html.heex:221
+#, elixir-autogen, elixir-format
+msgid "Myra is raising two daughters while pushing her limits in the gym, in business, and in life — and she knows many of you are doing the same. That's why She Commands exists."
+msgstr ""
+
+#: lib/she_commands_web/live/admin/module_live/show.html.heex:145
+#: lib/she_commands_web/live/admin/module_live/show.html.heex:153
+#, elixir-autogen, elixir-format, fuzzy
+msgid "No"
+msgstr ""
+
+#: lib/she_commands_web/live/admin/module_live/index.html.heex:166
+#, elixir-autogen, elixir-format
+msgid "No modules match your filters."
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/goal_execution.html.heex:34
+#, elixir-autogen, elixir-format
+msgid "Nutritional guidance for power and focus"
+msgstr ""
+
+#: lib/she_commands_web/live/plan_live/chat_panel_component.ex:135
+#, elixir-autogen, elixir-format
+msgid "Open chat"
+msgstr ""
+
+#: lib/she_commands_web/live/admin/module_live/show.html.heex:191
+#, elixir-autogen, elixir-format
+msgid "Outcome Keywords"
+msgstr ""
+
+#: lib/she_commands_web/live/admin/module_live/show.html.heex:179
+#, elixir-autogen, elixir-format
+msgid "Outcomes"
+msgstr ""
+
+#: lib/she_commands_web/live/admin/module_live/show.html.heex:44
+#, elixir-autogen, elixir-format
+msgid "Overview"
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/goal_execution.html.heex:33
+#, elixir-autogen, elixir-format
+msgid "Physical training for vitality and resilience"
+msgstr ""
+
+#: lib/she_commands_web/controllers/plan_html/print.html.heex:60
+#: lib/she_commands_web/live/plan_live/show.html.heex:21
+#, elixir-autogen, elixir-format
+msgid "Plan"
+msgstr ""
+
+#: lib/she_commands_web/live/intake_live/index.ex:207
+#, elixir-autogen, elixir-format
+msgid "Please complete the following before continuing: %{fields}"
+msgstr ""
+
+#: lib/she_commands_web/live/admin/module_live/index.html.heex:21
+#: lib/she_commands_web/live/admin/module_live/show.html.heex:70
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Power Pillar"
+msgstr ""
+
+#: lib/she_commands_web/live/plan_live/show.html.heex:46
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Power Pillars"
+msgstr ""
+
+#: lib/she_commands_web/live/intake_live/index.ex:40
+#, elixir-autogen, elixir-format
+msgid "Powerful direction. Now let's translate it into protocols."
+msgstr ""
+
+#: lib/she_commands_web/live/admin/module_live/show.html.heex:227
+#, elixir-autogen, elixir-format
+msgid "Prescription"
+msgstr ""
+
+#: lib/she_commands_web/live/plan_live/show.html.heex:14
+#, elixir-autogen, elixir-format
+msgid "Print / PDF"
+msgstr ""
+
+#: lib/she_commands_web/controllers/user_settings_html/edit.html.heex:76
+#, elixir-autogen, elixir-format
+msgid "Professional"
+msgstr ""
+
+#: lib/she_commands_web/controllers/plan_html/print.html.heex:111
+#: lib/she_commands_web/live/admin/module_live/show.html.heex:213
+#: lib/she_commands_web/live/plan_live/show.html.heex:150
+#, elixir-autogen, elixir-format
+msgid "Protocol %{num}"
+msgstr ""
+
+#: lib/she_commands_web/live/admin/module_live/show.html.heex:207
+#, elixir-autogen, elixir-format
+msgid "Protocols"
+msgstr ""
+
+#: lib/she_commands_web/live/plan_live/show.html.heex:92
+#, elixir-autogen, elixir-format
+msgid "Rest day"
+msgstr ""
+
+#: lib/she_commands_web/live/plan_live/show.ex:214
+#, elixir-autogen, elixir-format
+msgid "Rest, recover, and reset"
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/brand.html.heex:24
+#: lib/she_commands_web/controllers/page_html/the_journal.html.heex:21
+#, elixir-autogen, elixir-format
+msgid "Results not rhetoric"
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/connect.html.heex:76
+#, elixir-autogen, elixir-format
+msgid "Retreat"
+msgstr ""
+
+#: lib/she_commands_web/live/plan_live/chat_panel_component.ex:91
+#, elixir-autogen, elixir-format
+msgid "Retry"
+msgstr ""
+
+#: lib/she_commands_web/live/admin/module_live/show.html.heex:150
+#, elixir-autogen, elixir-format
+msgid "Reward Eligible"
+msgstr ""
+
+#: lib/she_commands_web/controllers/user_settings_html/edit_password.html.heex:7
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Security"
+msgstr ""
+
+#: lib/she_commands_web/live/intake_live/index.html.heex:75
+#, elixir-autogen, elixir-format
+msgid "Select the category that best fits. This helps us determine which habit-building protocols will most directly support you in achieving your goal."
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/connect.html.heex:113
+#: lib/she_commands_web/live/plan_live/chat_panel_component.ex:114
+#, elixir-autogen, elixir-format
+msgid "Send"
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/brand.html.heex:112
+#, elixir-autogen, elixir-format
+msgid "She Commands is a women's leadership and lifestyle company that helps growth-minded women take clear and consistent action toward their personal and professional goals."
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/brand.html.heex:42
+#, elixir-autogen, elixir-format
+msgid "She Commands is an identity — a declaration that you're done waiting, doubting yourself and being overwhelmed by your own high expectations. Built for women who are wired for action, She Commands fuses fitness, nutrition, mindfulness and leadership into one system."
+msgstr ""
+
+#: lib/she_commands_web/controllers/plan_html/print.html.heex:140
+#, elixir-autogen, elixir-format, fuzzy
+msgid "She Doesn't Ask. She Commands."
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/brand.html.heex:216
+#, elixir-autogen, elixir-format
+msgid "She believes that big wins come from setting bold goals, being crystal clear on what success looks like and having people around you who will hold you accountable to what you've promised yourself. She believes that curiosity fuels progress, failure is full of learnings and words are powerful."
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/brand.html.heex:211
+#, elixir-autogen, elixir-format
+msgid "She created She Commands not because she had it all figured out, but because she didn't. She wanted to stop having to piece together fitness apps, habit trackers, productivity hacks, and personal development books to determine which activities to prioritize today and how she'd measure their success tomorrow. She wanted a system that matched her ambition and a community of women who weren't afraid of high standards — just tired of being unsupported in meeting them."
+msgstr ""
+
+#: lib/she_commands_web/live/plan_live/chat_panel_component.ex:85
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Something went wrong. Please try again."
+msgstr ""
+
+#: lib/she_commands_web/live/admin/module_live/show.html.heex:279
+#, elixir-autogen, elixir-format
+msgid "Sources"
+msgstr ""
+
+#: lib/she_commands_web/live/intake_live/index.html.heex:409
+#, elixir-autogen, elixir-format
+msgid "Starting Point"
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/connect.html.heex:103
+#, elixir-autogen, elixir-format
+msgid "Staying in touch"
+msgstr ""
+
+#: lib/she_commands_web/live/admin/module_live/show.html.heex:219
+#, elixir-autogen, elixir-format
+msgid "Steps"
+msgstr ""
+
+#: lib/she_commands_web/live/intake_live/index.html.heex:358
+#, elixir-autogen, elixir-format
+msgid "Support Style"
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/brand.html.heex:48
+#, elixir-autogen, elixir-format
+msgid "Tactical execution. Not vague empowerment."
+msgstr ""
+
+#: lib/she_commands_web/live/intake_live/index.html.heex:37
+#, elixir-autogen, elixir-format
+msgid "Tell us what you want to achieve. This helps us build a plan that's truly yours. We are currently in BETA mode, supporting leadership goals centred around presence, confidence, decision making, impact & influence."
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/brand.html.heex:285
+#: lib/she_commands_web/controllers/page_html/connect.html.heex:176
+#: lib/she_commands_web/controllers/page_html/experiences.html.heex:75
+#: lib/she_commands_web/controllers/page_html/goal_execution.html.heex:171
+#: lib/she_commands_web/controllers/page_html/home.html.heex:280
+#: lib/she_commands_web/controllers/page_html/the_journal.html.heex:103
+#, elixir-autogen, elixir-format
+msgid "Terms of Service"
+msgstr ""
+
+#: lib/she_commands_web/live/intake_live/index.ex:42
+#, elixir-autogen, elixir-format
+msgid "That goal deserves a thoughtful approach — here's ours."
+msgstr ""
+
+#: lib/she_commands_web/live/intake_live/index.ex:36
+#, elixir-autogen, elixir-format
+msgid "That intention matters. We'll build the path that gets you there."
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/the_journal.html.heex:45
+#, elixir-autogen, elixir-format
+msgid "That next time you think, \"I know I can…,\" you actually will."
+msgstr ""
+
+#: lib/she_commands_web/live/intake_live/index.ex:39
+#, elixir-autogen, elixir-format
+msgid "That's the kind of goal that changes a life — let's start."
+msgstr ""
+
+#: lib/she_commands_web/components/layouts/root.html.heex:53
+#: lib/she_commands_web/controllers/page_html/brand.html.heex:7
+#: lib/she_commands_web/controllers/page_html/brand.html.heex:12
+#, elixir-autogen, elixir-format
+msgid "The Brand"
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/brand.html.heex:202
+#, elixir-autogen, elixir-format
+msgid "The Founder"
+msgstr ""
+
+#: lib/she_commands_web/components/layouts/root.html.heex:77
+#: lib/she_commands_web/controllers/page_html/the_journal.html.heex:7
+#: lib/she_commands_web/controllers/page_html/the_journal.html.heex:12
+#, elixir-autogen, elixir-format
+msgid "The Journal"
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/the_journal.html.heex:48
+#, elixir-autogen, elixir-format
+msgid "This is not a brand built on becoming someone else. It's built on helping you to fully realize all that you already are."
+msgstr ""
+
+#: lib/she_commands_web/live/admin/module_live/show.html.heex:135
+#, elixir-autogen, elixir-format
+msgid "Time to Result"
+msgstr ""
+
+#: lib/she_commands_web/live/intake_live/index.ex:212
+#: lib/she_commands_web/live/intake_live/index.html.heex:124
+#, elixir-autogen, elixir-format
+msgid "Timeline"
+msgstr ""
+
+#: lib/she_commands_web/live/plan_live/show.html.heex:81
+#, elixir-autogen, elixir-format
+msgid "Today"
+msgstr ""
+
+#: lib/she_commands_web/live/admin/module_live/show.html.heex:142
+#, elixir-autogen, elixir-format
+msgid "Video"
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/brand.html.heex:122
+#, elixir-autogen, elixir-format
+msgid "We don't have a predisposition for what your goals should be. Whether you want to ace a pitch to a new investor or achieve a personal record in your next race, our goal execution engine will meet you where you are so you show up for both work and life's biggest moments with maximum confidence and impact. This is your operating system for life."
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/brand.html.heex:117
+#, elixir-autogen, elixir-format
+msgid "We know you are already bursting with ambition, knowledge and potential. We trust that you've already invested in doing the work to understand what a healthy diet looks like, the latest fitness trends and the professional leadership competencies required of your role. She Commands is here to lessen the burden of the mental exercise that is prioritizing what you need to care about today based on what you want to accomplish tomorrow."
+msgstr ""
+
+#: lib/she_commands_web/live/admin/module_live/show.html.heex:119
+#, elixir-autogen, elixir-format
+msgid "Weekly Freq"
+msgstr ""
+
+#: lib/she_commands_web/controllers/user_session_html/new.html.heex:7
+#, elixir-autogen, elixir-format
+msgid "Welcome Back"
+msgstr ""
+
+#: lib/she_commands_web/live/plan_live/chat_panel_component.ex:145
+#, elixir-autogen, elixir-format
+msgid "What should I focus on today?"
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/goal_execution.html.heex:42
+#, elixir-autogen, elixir-format
+msgid "Whatever you aspire to — building strength, mastering discipline or leading with greater impact — you already know that you can. She Commands provides the tools to help ensure that you will."
+msgstr ""
+
+#: lib/she_commands_web/live/admin/module_live/show.html.heex:145
+#: lib/she_commands_web/live/admin/module_live/show.html.heex:153
+#, elixir-autogen, elixir-format
+msgid "Yes"
+msgstr ""
+
+#: lib/she_commands_web/controllers/plan_controller.ex:12
+#, elixir-autogen, elixir-format
+msgid "You are not authorized to view this plan."
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/brand.html.heex:54
+#, elixir-autogen, elixir-format
+msgid "You will always know what you're going to get with She Commands. We value clarity and precision. Our vision is to become a global movement with digital tools, community touchpoints, and retreat experiences that help women command their routines, careers, and identities."
+msgstr ""
+
+#: lib/she_commands_web/live/intake_live/index.ex:38
+#, elixir-autogen, elixir-format
+msgid "You're choosing growth. We'll meet you with a plan that fits."
+msgstr ""
+
+#: lib/she_commands_web/live/plan_live/show.ex:86
+#, elixir-autogen, elixir-format
+msgid "You're sending messages too quickly. Please wait a moment."
+msgstr ""
+
+#: lib/she_commands_web/live/intake_live/index.ex:41
+#, elixir-autogen, elixir-format
+msgid "You've named what matters. The plan will reflect that."
+msgstr ""
+
+#: lib/she_commands_web/controllers/user_settings_html/edit.html.heex:7
+#, elixir-autogen, elixir-format
+msgid "Your Account"
+msgstr ""
+
+#: lib/she_commands_web/controllers/plan_html/print.html.heex:78
+#: lib/she_commands_web/live/plan_live/show.html.heex:124
+#, elixir-autogen, elixir-format
+msgid "Your Modules"
+msgstr ""
+
+#: lib/she_commands_web/controllers/plan_html/print.html.heex:57
+#: lib/she_commands_web/live/plan_live/show.html.heex:7
+#, elixir-autogen, elixir-format
+msgid "Your Plan"
+msgstr ""
+
+#: lib/she_commands_web/live/intake_live/index.html.heex:31
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Your Vision"
+msgstr ""
+
+#: lib/she_commands_web/live/plan_live/show.html.heex:71
+#, elixir-autogen, elixir-format
+msgid "Your Weekly Schedule"
+msgstr ""
+
+#: lib/she_commands_web/live/intake_live/index.ex:291
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Your intake is complete! Your plan is being assembled by our expert team."
+msgstr ""
+
+#: lib/she_commands_web/live/intake_live/index.ex:285
+#, elixir-autogen, elixir-format
+msgid "Your plan has been generated!"
+msgstr ""
+
+#: lib/she_commands_web/live/plan_live/show.html.heex:87
+#: lib/she_commands_web/live/plan_live/show.html.heex:107
+#, elixir-autogen, elixir-format
+msgid "min"
+msgstr ""
+
+#: lib/she_commands_web/controllers/page_html/connect.html.heex:20
+#: lib/she_commands_web/controllers/page_html/connect.html.heex:31
+#: lib/she_commands_web/controllers/page_html/connect.html.heex:45
+#: lib/she_commands_web/controllers/page_html/connect.html.heex:57
+#, elixir-autogen, elixir-format
+msgid "required"
 msgstr ""

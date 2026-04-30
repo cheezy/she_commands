@@ -113,7 +113,7 @@ defmodule SheCommands.Intake.IntakeResponse do
   def availability_changeset(intake_response, attrs) do
     intake_response
     |> cast(attrs, [:lead_time, :days_per_week, :hours_per_day, :intensity])
-    |> validate_number(:days_per_week, greater_than_or_equal_to: 1, less_than_or_equal_to: 7)
+    |> validate_number(:days_per_week, greater_than_or_equal_to: 1, less_than_or_equal_to: 5)
   end
 
   @doc """
