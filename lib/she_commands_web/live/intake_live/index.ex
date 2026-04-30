@@ -305,6 +305,8 @@ defmodule SheCommandsWeb.IntakeLive.Index do
     value in (limitations || [])
   end
 
+  defp format_limitation("menopause"), do: "Menopause/Peri-menopause"
+
   defp format_limitation(limitation) do
     limitation
     |> String.replace("_", " ")

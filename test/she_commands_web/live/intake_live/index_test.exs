@@ -279,7 +279,7 @@ defmodule SheCommandsWeb.IntakeLive.IndexTest do
       html = render_click(view, "toggle_limitation", %{"option" => "menopause"})
 
       refute html =~
-               "border-base-content bg-base-content/5\"><span class=\"text-sm text-base-content\">Menopause"
+               "border-base-content bg-base-content/5\"><span class=\"text-sm text-base-content\">Menopause/Peri-menopause"
     end
   end
 
