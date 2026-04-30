@@ -1627,3 +1627,105 @@ msgstr ""
 #, elixir-autogen, elixir-format
 msgid "Visible"
 msgstr ""
+
+#: lib/she_commands_web/live/escalation_live/member_component.html.heex:54
+#, elixir-autogen, elixir-format
+msgid "Add any context that would help your coach..."
+msgstr ""
+
+#: lib/she_commands_web/live/escalation_live/member_component.html.heex:35
+#, elixir-autogen, elixir-format
+msgid "Choose a subject..."
+msgstr ""
+
+#: lib/she_commands_web/live/escalation_live/member_component.ex:85
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Closed"
+msgstr ""
+
+#: lib/she_commands_web/live/escalation_live/member_component.html.heex:107
+#, elixir-autogen, elixir-format
+msgid "Coach response"
+msgstr ""
+
+#: lib/she_commands_web/live/escalation_live/member_index.ex:18
+#: lib/she_commands_web/live/escalation_live/member_index.ex:30
+#, elixir-autogen, elixir-format
+msgid "Coach review"
+msgstr ""
+
+#: lib/she_commands_web/live/escalation_live/member_component.html.heex:8
+#, elixir-autogen, elixir-format
+msgid "Coach support covers plan clarification, motivation, and event prioritization. For medical, nutritional, or fitness questions please consult a qualified professional."
+msgstr ""
+
+#: lib/she_commands_web/live/escalation_live/member_component.ex:80
+#, elixir-autogen, elixir-format
+msgid "Event prioritization"
+msgstr ""
+
+#: lib/she_commands_web/live/escalation_live/member_component.ex:83
+#, elixir-autogen, elixir-format
+msgid "In review"
+msgstr ""
+
+#: lib/she_commands_web/live/escalation_live/member_component.ex:79
+#, elixir-autogen, elixir-format
+msgid "Motivation support"
+msgstr ""
+
+#: lib/she_commands_web/live/escalation_live/member_component.html.heex:47
+#, elixir-autogen, elixir-format
+msgid "Note (optional)"
+msgstr ""
+
+#: lib/she_commands_web/live/escalation_live/member_component.ex:82
+#, elixir-autogen, elixir-format
+msgid "Pending"
+msgstr ""
+
+#: lib/she_commands_web/live/escalation_live/member_component.ex:78
+#, elixir-autogen, elixir-format
+msgid "Plan clarification"
+msgstr ""
+
+#: lib/she_commands_web/live/escalation_live/member_component.ex:69
+#, elixir-autogen, elixir-format
+msgid "Please choose a subject before submitting."
+msgstr ""
+
+#: lib/she_commands_web/live/escalation_live/member_component.html.heex:5
+#: lib/she_commands_web/live/escalation_live/member_component.html.heex:62
+#, elixir-autogen, elixir-format
+msgid "Request coach review"
+msgstr ""
+
+#: lib/she_commands_web/live/escalation_live/member_component.ex:84
+#, elixir-autogen, elixir-format
+msgid "Responded"
+msgstr ""
+
+#: lib/she_commands_web/live/escalation_live/member_component.html.heex:28
+#, elixir-autogen, elixir-format
+msgid "Subject"
+msgstr ""
+
+#: lib/she_commands_web/live/escalation_live/member_index.ex:27
+#, elixir-autogen, elixir-format
+msgid "Support"
+msgstr ""
+
+#: lib/she_commands_web/live/escalation_live/member_component.html.heex:75
+#, elixir-autogen, elixir-format
+msgid "You have not requested coach review yet."
+msgstr ""
+
+#: lib/she_commands_web/live/escalation_live/member_component.html.heex:70
+#, elixir-autogen, elixir-format
+msgid "Your escalations"
+msgstr ""
+
+#: lib/she_commands_web/live/escalation_live/member_component.ex:61
+#, elixir-autogen, elixir-format
+msgid "Your request has been sent to a coach."
+msgstr ""
