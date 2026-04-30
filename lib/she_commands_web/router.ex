@@ -97,6 +97,7 @@ defmodule SheCommandsWeb.Router do
       on_mount: [{SheCommandsWeb.UserAuth, :ensure_admin}] do
       live "/modules", Admin.ModuleLive.Index, :index
       live "/modules/:id", Admin.ModuleLive.Show, :show
+      live "/goal-categories", Admin.GoalCategoryLive.Index, :index
     end
   end
 

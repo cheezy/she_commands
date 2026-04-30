@@ -96,6 +96,7 @@ msgstr ""
 #: lib/she_commands_web/controllers/page_html/connect.html.heex:15
 #: lib/she_commands_web/controllers/user_registration_html/new.html.heex:32
 #: lib/she_commands_web/controllers/user_settings_html/edit.html.heex:27
+#: lib/she_commands_web/live/admin/goal_category_live/index.html.heex:23
 #, elixir-autogen, elixir-format
 msgid "Name"
 msgstr ""
@@ -788,6 +789,7 @@ msgstr ""
 msgid "Account"
 msgstr ""
 
+#: lib/she_commands_web/live/admin/goal_category_live/index.html.heex:5
 #: lib/she_commands_web/live/admin/module_live/index.html.heex:6
 #, elixir-autogen, elixir-format
 msgid "Administration"
@@ -1008,6 +1010,8 @@ msgstr ""
 msgid "Goal"
 msgstr ""
 
+#: lib/she_commands_web/live/admin/goal_category_live/index.ex:10
+#: lib/she_commands_web/live/admin/goal_category_live/index.html.heex:8
 #: lib/she_commands_web/live/admin/module_live/show.html.heex:163
 #, elixir-autogen, elixir-format
 msgid "Goal Categories"
@@ -1577,4 +1581,54 @@ msgstr ""
 #: lib/she_commands_web/live/intake_live/index.html.heex:241
 #, elixir-autogen, elixir-format
 msgid "More than 30 min"
+msgstr ""
+
+#: lib/she_commands_web/live/admin/goal_category_live/index.html.heex:11
+#, elixir-autogen, elixir-format
+msgid "%{count} categories"
+msgstr ""
+
+#: lib/she_commands_web/live/admin/goal_category_live/index.html.heex:32
+#, elixir-autogen, elixir-format
+msgid "Action"
+msgstr ""
+
+#: lib/she_commands_web/live/admin/goal_category_live/index.ex:27
+#, elixir-autogen, elixir-format
+msgid "Could not update visibility for %{name}"
+msgstr ""
+
+#: lib/she_commands_web/live/admin/goal_category_live/index.html.heex:49
+#, elixir-autogen, elixir-format
+msgid "Hidden"
+msgstr ""
+
+#: lib/she_commands_web/live/admin/goal_category_live/index.html.heex:60
+#, elixir-autogen, elixir-format
+msgid "Hide"
+msgstr ""
+
+#: lib/she_commands_web/live/admin/goal_category_live/index.html.heex:20
+#, elixir-autogen, elixir-format
+msgid "Position"
+msgstr ""
+
+#: lib/she_commands_web/live/admin/goal_category_live/index.html.heex:62
+#, elixir-autogen, elixir-format
+msgid "Show"
+msgstr ""
+
+#: lib/she_commands_web/live/admin/goal_category_live/index.html.heex:26
+#, elixir-autogen, elixir-format
+msgid "Slug"
+msgstr ""
+
+#: lib/she_commands_web/live/admin/goal_category_live/index.html.heex:29
+#, elixir-autogen, elixir-format
+msgid "Status"
+msgstr ""
+
+#: lib/she_commands_web/live/admin/goal_category_live/index.html.heex:45
+#, elixir-autogen, elixir-format
+msgid "Visible"
 msgstr ""
