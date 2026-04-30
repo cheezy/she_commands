@@ -476,25 +476,35 @@
             </div>
           <% _ -> %>
             <%!-- Completion State --%>
-            <div class="text-center space-y-8 py-16">
-              <p class="font-label text-xs uppercase tracking-[0.25em] text-base-content/50">
-                {gettext("Complete")}
-              </p>
-              <h2 class="text-4xl sm:text-5xl font-serif italic leading-[1.1] tracking-[-0.02em] text-base-content">
-                {gettext("You're all set.")}
-              </h2>
-              <p class="text-sm text-base-content/60 leading-relaxed max-w-sm mx-auto">
-                {gettext(
-                  "Your personalized Command Centre plan is being assembled by our expert team. We'll notify you when it's ready."
-                )}
-              </p>
-              <div class="pt-4">
-                <.link
-                  navigate={~p"/"}
-                  class="inline-block py-4 px-12 bg-base-content text-base-100 text-xs font-label uppercase tracking-[0.2em] hover:bg-base-content/90 transition"
+            <div class="space-y-8 py-16">
+              <div>
+                <button
+                  phx-click="back"
+                  class="text-xs font-label uppercase tracking-[0.15em] text-base-content/60 hover:text-base-content transition cursor-pointer"
                 >
-                  {gettext("Return Home")}
-                </.link>
+                  &larr; {gettext("Back")}
+                </button>
+              </div>
+              <div class="text-center space-y-8">
+                <p class="font-label text-xs uppercase tracking-[0.25em] text-base-content/50">
+                  {gettext("Complete")}
+                </p>
+                <h2 class="text-4xl sm:text-5xl font-serif italic leading-[1.1] tracking-[-0.02em] text-base-content">
+                  {gettext("You're all set.")}
+                </h2>
+                <p class="text-sm text-base-content/60 leading-relaxed max-w-sm mx-auto">
+                  {gettext(
+                    "Your personalized Command Centre plan is being assembled by our expert team. We'll notify you when it's ready."
+                  )}
+                </p>
+                <div class="pt-4">
+                  <.link
+                    navigate={~p"/"}
+                    class="inline-block py-4 px-12 bg-base-content text-base-100 text-xs font-label uppercase tracking-[0.2em] hover:bg-base-content/90 transition"
+                  >
+                    {gettext("Return Home")}
+                  </.link>
+                </div>
               </div>
             </div>
         <% end %>
