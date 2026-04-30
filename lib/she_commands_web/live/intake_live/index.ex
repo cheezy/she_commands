@@ -17,7 +17,7 @@ defmodule SheCommandsWeb.IntakeLive.Index do
   def mount(_params, _session, socket) do
     user = socket.assigns.current_scope.user
     {:ok, response} = Intake.get_or_create_active_intake_response(user)
-    goal_categories = Intake.list_goal_categories()
+    goal_categories = Intake.list_visible_goal_categories()
 
     {:ok,
      socket

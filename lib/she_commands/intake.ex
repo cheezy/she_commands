@@ -23,6 +23,19 @@ defmodule SheCommands.Intake do
   end
 
   @doc """
+  Returns the goal categories the intake should display, ordered by position.
+
+  Categories with `visible_on_intake: false` are excluded so admins can hide
+  experimental or retired categories without deleting them.
+  """
+  def list_visible_goal_categories do
+    GoalCategory
+    |> where([c], c.visible_on_intake == true)
+    |> order_by(:position)
+    |> Repo.all()
+  end
+
+  @doc """
   Gets a single goal category by id.
   """
   def get_goal_category(id), do: Repo.get(GoalCategory, id)

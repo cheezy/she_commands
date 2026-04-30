@@ -17,6 +17,30 @@ defmodule SheCommands.IntakeTest do
       assert second.id == cat1.id
     end
 
+    test "list_visible_goal_categories/0 excludes hidden categories" do
+      visible = goal_category_fixture(%{position: 1, visible_on_intake: true})
+      _hidden = goal_category_fixture(%{position: 2, visible_on_intake: false})
+
+      ids = Intake.list_visible_goal_categories() |> Enum.map(& &1.id)
+      assert ids == [visible.id]
+    end
+
+    test "list_visible_goal_categories/0 preserves position ordering" do
+      late = goal_category_fixture(%{position: 5, visible_on_intake: true})
+      early = goal_category_fixture(%{position: 1, visible_on_intake: true})
+
+      result = Intake.list_visible_goal_categories()
+      assert Enum.map(result, & &1.id) == [early.id, late.id]
+    end
+
+    test "list_goal_categories/0 still returns hidden categories (admin contract)" do
+      visible = goal_category_fixture(%{position: 1, visible_on_intake: true})
+      hidden = goal_category_fixture(%{position: 2, visible_on_intake: false})
+
+      ids = Intake.list_goal_categories() |> Enum.map(& &1.id) |> Enum.sort()
+      assert Enum.sort([visible.id, hidden.id]) == ids
+    end
+
     test "get_goal_category/1 returns the category" do
       category = goal_category_fixture()
       assert Intake.get_goal_category(category.id).id == category.id
