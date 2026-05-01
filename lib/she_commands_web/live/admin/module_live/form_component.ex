@@ -18,7 +18,10 @@ defmodule SheCommandsWeb.Admin.ModuleLive.FormComponent do
   @impl true
   def update(%{record: record} = assigns, socket) do
     available_categories = Map.get(assigns, :goal_categories) || Intake.list_goal_categories()
-    record_categories = if Ecto.assoc_loaded?(record.goal_categories), do: record.goal_categories, else: []
+
+    record_categories =
+      if Ecto.assoc_loaded?(record.goal_categories), do: record.goal_categories, else: []
+
     selected_ids = Enum.map(record_categories, & &1.id)
 
     changeset = Modules.change_module(record, %{})
@@ -48,7 +51,9 @@ defmodule SheCommandsWeb.Admin.ModuleLive.FormComponent do
   @impl true
   def handle_event("save", %{"module" => params}, socket) do
     selected_ids = parse_category_ids(params)
-    selected_categories = Enum.filter(socket.assigns.available_categories, &(&1.id in selected_ids))
+
+    selected_categories =
+      Enum.filter(socket.assigns.available_categories, &(&1.id in selected_ids))
 
     save(socket, socket.assigns.record, params, selected_categories)
   end
@@ -104,7 +109,8 @@ defmodule SheCommandsWeb.Admin.ModuleLive.FormComponent do
 
   defp pillar_options do
     Enum.map(SheCommands.Modules.Module.power_pillars(), fn p ->
-      {p |> Atom.to_string() |> String.replace("_", " ") |> String.capitalize(), Atom.to_string(p)}
+      {p |> Atom.to_string() |> String.replace("_", " ") |> String.capitalize(),
+       Atom.to_string(p)}
     end)
   end
 
@@ -167,7 +173,12 @@ defmodule SheCommandsWeb.Admin.ModuleLive.FormComponent do
             <.input field={f[:title]} type="text" label={gettext("Title")} required />
             <.input field={f[:contributor]} type="text" label={gettext("Contributor")} required />
             <.input field={f[:overview]} type="textarea" label={gettext("Overview")} rows="2" />
-            <.input field={f[:core_concepts]} type="textarea" label={gettext("Core concepts")} rows="2" />
+            <.input
+              field={f[:core_concepts]}
+              type="textarea"
+              label={gettext("Core concepts")}
+              rows="2"
+            />
           </section>
 
           <section class="space-y-3">
@@ -251,7 +262,12 @@ defmodule SheCommandsWeb.Admin.ModuleLive.FormComponent do
               label={gettext("Protocol sequencing")}
               rows="2"
             />
-            <.input field={f[:modifications]} type="textarea" label={gettext("Modifications")} rows="2" />
+            <.input
+              field={f[:modifications]}
+              type="textarea"
+              label={gettext("Modifications")}
+              rows="2"
+            />
             <.input field={f[:time_to_result]} type="text" label={gettext("Time to result")} />
           </section>
 
