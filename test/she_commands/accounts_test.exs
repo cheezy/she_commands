@@ -354,6 +354,43 @@ defmodule SheCommands.AccountsTest do
     end
   end
 
+  describe "disabled-user authentication gate" do
+    test "get_user_by_email_and_password/2 returns nil for a disabled user even with the correct password" do
+      actor = admin_fixture()
+      user = user_fixture()
+      {:ok, _} = Accounts.disable_user(actor, user)
+
+      refute Accounts.get_user_by_email_and_password(user.email, valid_user_password())
+    end
+
+    test "get_user_by_email_and_password/2 still returns enabled users with the right password" do
+      user = user_fixture()
+
+      assert %User{id: id} =
+               Accounts.get_user_by_email_and_password(user.email, valid_user_password())
+
+      assert id == user.id
+    end
+
+    test "get_user_by_session_token/1 returns nil when the user is disabled" do
+      actor = admin_fixture()
+      user = user_fixture()
+      token = Accounts.generate_user_session_token(user)
+
+      {:ok, _} = Accounts.disable_user(actor, user)
+
+      assert Accounts.get_user_by_session_token(token) == nil
+    end
+
+    test "get_user_by_session_token/1 still returns enabled users" do
+      user = user_fixture()
+      token = Accounts.generate_user_session_token(user)
+
+      assert {%User{id: id}, _inserted_at} = Accounts.get_user_by_session_token(token)
+      assert id == user.id
+    end
+  end
+
   describe "delete_user/1" do
     test "deletes the user" do
       user = user_fixture()

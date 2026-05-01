@@ -158,6 +158,24 @@ defmodule SheCommandsWeb.UserAuthTest do
       refute conn.assigns.current_scope
     end
 
+    test "does not authenticate a disabled user even with a valid token", %{
+      conn: conn,
+      user: user
+    } do
+      token = Accounts.generate_user_session_token(user)
+
+      # Disable after the token was issued
+      actor = SheCommands.AccountsFixtures.admin_fixture()
+      {:ok, _} = Accounts.disable_user(actor, user)
+
+      conn =
+        conn
+        |> put_session(:user_token, token)
+        |> UserAuth.fetch_current_scope_for_user([])
+
+      refute conn.assigns.current_scope
+    end
+
     test "reissues a new token after a few days and refreshes cookie", %{conn: conn, user: user} do
       logged_in_conn =
         conn |> fetch_cookies() |> UserAuth.log_in_user(user, %{"remember_me" => "true"})

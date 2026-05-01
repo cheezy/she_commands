@@ -43,7 +43,12 @@ defmodule SheCommands.Accounts do
   def get_user_by_email_and_password(email, password)
       when is_binary(email) and is_binary(password) do
     user = Repo.get_by(User, email: email)
-    if User.valid_password?(user, password), do: user
+
+    cond do
+      not User.valid_password?(user, password) -> nil
+      user.disabled -> nil
+      true -> user
+    end
   end
 
   @doc """
@@ -301,7 +306,11 @@ defmodule SheCommands.Accounts do
   """
   def get_user_by_session_token(token) do
     {:ok, query} = UserToken.verify_session_token_query(token)
-    Repo.one(query)
+
+    case Repo.one(query) do
+      {%User{disabled: true}, _inserted_at} -> nil
+      result -> result
+    end
   end
 
   @doc ~S"""
