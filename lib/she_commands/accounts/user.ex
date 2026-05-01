@@ -24,6 +24,9 @@ defmodule SheCommands.Accounts.User do
     field :specialty, :string
     field :credential, :string
 
+    # Account state
+    field :disabled, :boolean, default: false
+
     timestamps(type: :utc_datetime)
   end
 
@@ -66,6 +69,17 @@ defmodule SheCommands.Accounts.User do
     |> cast(attrs, [:role])
     |> validate_required([:role])
     |> validate_inclusion(:role, @roles)
+  end
+
+  @doc """
+  A user changeset that only casts `:disabled`. Used by
+  `Accounts.disable_user/2` and `Accounts.enable_user/1` so no other
+  caller can flip account state through a different changeset.
+  """
+  def disabled_changeset(user, attrs) do
+    user
+    |> cast(attrs, [:disabled])
+    |> validate_required([:disabled])
   end
 
   @doc """

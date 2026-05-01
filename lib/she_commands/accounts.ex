@@ -146,6 +146,42 @@ defmodule SheCommands.Accounts do
   end
 
   @doc """
+  Returns every user, ordered by id. Used by the admin user
+  management page.
+  """
+  def list_users do
+    User
+    |> order_by([u], asc: u.id)
+    |> Repo.all()
+  end
+
+  @doc """
+  Disables a user. Refuses with `{:error, :cannot_disable_self}` when
+  the actor is the same user as the target so an admin cannot lock
+  themselves out.
+  """
+  def disable_user(%User{} = actor, %User{} = target) do
+    cond do
+      actor.id == target.id -> {:error, :cannot_disable_self}
+      target.disabled -> {:ok, target}
+      true -> set_disabled(target, true)
+    end
+  end
+
+  @doc """
+  Enables a previously-disabled user. Idempotent — calling on an
+  already-enabled user returns `{:ok, user}` without a write.
+  """
+  def enable_user(%User{disabled: false} = user), do: {:ok, user}
+  def enable_user(%User{} = user), do: set_disabled(user, false)
+
+  defp set_disabled(%User{} = user, value) do
+    user
+    |> User.disabled_changeset(%{disabled: value})
+    |> Repo.update()
+  end
+
+  @doc """
   Returns true if the user has the given role.
   """
   def has_role?(%User{role: role}, role), do: true

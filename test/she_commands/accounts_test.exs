@@ -270,6 +270,90 @@ defmodule SheCommands.AccountsTest do
     end
   end
 
+  describe "list_users/0" do
+    test "returns every user ordered by id" do
+      _u1 = user_fixture()
+      _u2 = admin_fixture()
+      _u3 = coach_fixture()
+
+      ids = Accounts.list_users() |> Enum.map(& &1.id)
+      assert length(ids) == 3
+      assert ids == Enum.sort(ids)
+    end
+  end
+
+  describe "disable_user/2 and enable_user/1" do
+    test "new users default to enabled" do
+      user = user_fixture()
+      assert user.disabled == false
+    end
+
+    test "disable_user/2 sets disabled = true on the target" do
+      actor = admin_fixture()
+      target = user_fixture()
+
+      assert {:ok, disabled} = Accounts.disable_user(actor, target)
+      assert disabled.disabled == true
+    end
+
+    test "disable_user/2 returns :cannot_disable_self when actor == target" do
+      admin = admin_fixture()
+      assert {:error, :cannot_disable_self} = Accounts.disable_user(admin, admin)
+
+      reloaded = Accounts.get_user!(admin.id)
+      assert reloaded.disabled == false
+    end
+
+    test "disable_user/2 is idempotent on an already-disabled user" do
+      actor = admin_fixture()
+      target = user_fixture()
+      {:ok, target} = Accounts.disable_user(actor, target)
+
+      assert {:ok, again} = Accounts.disable_user(actor, target)
+      assert again.disabled == true
+    end
+
+    test "enable_user/1 flips disabled back to false" do
+      actor = admin_fixture()
+      target = user_fixture()
+      {:ok, disabled} = Accounts.disable_user(actor, target)
+
+      assert {:ok, enabled} = Accounts.enable_user(disabled)
+      assert enabled.disabled == false
+    end
+
+    test "enable_user/1 is idempotent on an already-enabled user" do
+      user = user_fixture()
+      assert {:ok, same} = Accounts.enable_user(user)
+      assert same.disabled == false
+    end
+  end
+
+  describe "User.disabled_changeset/2" do
+    test "casts only :disabled and ignores other fields" do
+      user = user_fixture()
+
+      changeset =
+        User.disabled_changeset(user, %{
+          disabled: true,
+          role: :admin,
+          email: "leak@example.com"
+        })
+
+      assert changeset.valid?
+      assert Ecto.Changeset.get_change(changeset, :disabled) == true
+      assert Ecto.Changeset.get_change(changeset, :role) == nil
+      assert Ecto.Changeset.get_change(changeset, :email) == nil
+    end
+
+    test "rejects an explicit nil :disabled" do
+      user = user_fixture()
+      changeset = User.disabled_changeset(user, %{disabled: nil})
+      refute changeset.valid?
+      assert errors_on(changeset).disabled != []
+    end
+  end
+
   describe "delete_user/1" do
     test "deletes the user" do
       user = user_fixture()
