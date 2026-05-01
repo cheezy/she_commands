@@ -373,5 +373,33 @@ defmodule SheCommandsWeb.Admin.GoalCategoryLive.IndexTest do
 
       assert html =~ "has already been taken"
     end
+
+    test "phx-change validate surfaces inline errors live", %{conn: conn} do
+      {:ok, view, _html} = live(conn, ~p"/admin/goal-categories/new")
+
+      html =
+        view
+        |> form("#goal-category-form-form", goal_category: %{name: "", slug: ""})
+        |> render_change()
+
+      assert html =~ "can&#39;t be blank"
+    end
+
+    test "edit save with blank name re-renders the form with errors", %{conn: conn} do
+      cat =
+        goal_category_fixture(%{
+          name: "Original",
+          slug: "orig-#{System.unique_integer([:positive])}"
+        })
+
+      {:ok, view, _html} = live(conn, ~p"/admin/goal-categories/#{cat.id}/edit")
+
+      html =
+        view
+        |> form("#goal-category-form-form", goal_category: %{name: "", slug: cat.slug})
+        |> render_submit()
+
+      assert html =~ "can&#39;t be blank"
+    end
   end
 end

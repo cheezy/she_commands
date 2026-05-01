@@ -181,6 +181,39 @@ defmodule SheCommandsWeb.Admin.ModuleLive.IndexTest do
 
       assert html =~ "can&#39;t be blank"
     end
+
+    test "phx-change validate surfaces inline errors live", %{conn: conn} do
+      {:ok, view, _html} = live(conn, ~p"/admin/modules/new")
+
+      html =
+        view
+        |> form("#module-form-form", %{
+          module: %{module_id: "", title: "", contributor: ""}
+        })
+        |> render_change()
+
+      assert html =~ "can&#39;t be blank"
+    end
+
+    test "validate accepts goal_category_ids selection without crashing", %{conn: conn} do
+      cat = goal_category_fixture(%{name: "ValidCat"})
+
+      {:ok, view, _html} = live(conn, ~p"/admin/modules/new")
+
+      html =
+        view
+        |> form("#module-form-form", %{
+          module: %{
+            module_id: "live-validate",
+            title: "Live",
+            contributor: "X",
+            goal_category_ids: [Integer.to_string(cat.id)]
+          }
+        })
+        |> render_change()
+
+      assert html =~ ~s|value="#{cat.id}" selected|
+    end
   end
 
   describe "delete action" do
@@ -389,6 +422,25 @@ defmodule SheCommandsWeb.Admin.ModuleLive.IndexTest do
         |> SheCommands.Repo.preload(:goal_categories)
 
       assert reloaded.goal_categories == []
+    end
+
+    test "edit submit with blank required field re-renders with errors", %{conn: conn} do
+      module = module_fixture(%{title: "EditFail"})
+
+      {:ok, view, _html} = live(conn, ~p"/admin/modules/#{module.id}/edit")
+
+      html =
+        view
+        |> form("#module-form-form", %{
+          module: %{
+            module_id: "",
+            title: "",
+            contributor: ""
+          }
+        })
+        |> render_submit()
+
+      assert html =~ "can&#39;t be blank"
     end
 
     test "Cancel link returns to /admin/modules without saving", %{conn: conn} do

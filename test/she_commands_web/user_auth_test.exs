@@ -369,4 +369,62 @@ defmodule SheCommandsWeb.UserAuthTest do
       assert redirected_socket.redirected
     end
   end
+
+  describe "on_mount/4 :mount_current_scope" do
+    setup do
+      socket = %Phoenix.LiveView.Socket{
+        endpoint: SheCommandsWeb.Endpoint,
+        assigns: %{__changed__: %{}, flash: %{}}
+      }
+
+      %{socket: socket}
+    end
+
+    test "always continues and assigns scope when token is valid", %{socket: socket} do
+      user = user_fixture()
+      token = Accounts.generate_user_session_token(user)
+
+      assert {:cont, mounted} =
+               UserAuth.on_mount(
+                 :mount_current_scope,
+                 %{},
+                 %{"user_token" => token},
+                 socket
+               )
+
+      assert mounted.assigns.current_scope.user.id == user.id
+    end
+
+    test "continues with nil current_scope when no token is present", %{socket: socket} do
+      assert {:cont, mounted} =
+               UserAuth.on_mount(:mount_current_scope, %{}, %{}, socket)
+
+      assert is_nil(mounted.assigns.current_scope)
+    end
+
+    test "continues with nil current_scope when token is unknown", %{socket: socket} do
+      assert {:cont, mounted} =
+               UserAuth.on_mount(
+                 :mount_current_scope,
+                 %{},
+                 %{"user_token" => "not-a-real-token"},
+                 socket
+               )
+
+      assert is_nil(mounted.assigns.current_scope)
+    end
+  end
+
+  describe "log_out_user/1 broadcast path" do
+    test "broadcasts disconnect on the live_socket_id when one is set", %{conn: conn} do
+      live_socket_id = "users_sessions:#{Base.encode64(:crypto.strong_rand_bytes(8))}"
+
+      conn = put_session(conn, :live_socket_id, live_socket_id)
+      SheCommandsWeb.Endpoint.subscribe(live_socket_id)
+
+      _ = UserAuth.log_out_user(conn)
+
+      assert_receive %Phoenix.Socket.Broadcast{event: "disconnect", topic: ^live_socket_id}
+    end
+  end
 end

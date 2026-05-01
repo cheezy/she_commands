@@ -148,6 +148,42 @@ defmodule SheCommands.Chat.ClaudeClientTest do
       messages = [%{role: "user", content: "Hello"}]
       assert {:error, :timeout} = ClaudeClient.send_message(messages)
     end
+
+    test "omits system field when system prompt is empty string" do
+      Req.Test.stub(ClaudeClient, fn conn ->
+        {:ok, body, _conn} = Plug.Conn.read_body(conn)
+        decoded = Jason.decode!(body)
+
+        refute Map.has_key?(decoded, "system")
+
+        Req.Test.json(conn, %{"content" => [%{"type" => "text", "text" => "Response"}]})
+      end)
+
+      messages = [%{role: "user", content: "Hi"}]
+      assert {:ok, "Response"} = ClaudeClient.send_message(messages, system: "")
+    end
+
+    test "returns {:error, message} on non-timeout transport error" do
+      Req.Test.stub(ClaudeClient, fn conn ->
+        Req.Test.transport_error(conn, :econnrefused)
+      end)
+
+      messages = [%{role: "user", content: "Hello"}]
+      assert {:error, msg} = ClaudeClient.send_message(messages)
+      assert is_binary(msg)
+      assert msg =~ "connection refused" or msg =~ "econnrefused"
+    end
+
+    test "returns {:error, message} for unexpected non-error status (3xx)" do
+      Req.Test.stub(ClaudeClient, fn conn ->
+        conn
+        |> Plug.Conn.put_status(302)
+        |> Req.Test.json(%{})
+      end)
+
+      messages = [%{role: "user", content: "Hello"}]
+      assert {:error, "Unexpected status: 302"} = ClaudeClient.send_message(messages)
+    end
   end
 
   describe "format_messages/1" do
