@@ -8,16 +8,24 @@
         &larr; {gettext("Back to Admin")}
       </.link>
     </div>
-    <div class="mb-10">
-      <p class="font-label text-xs uppercase tracking-[0.25em] text-base-content/50 mb-4">
-        {gettext("Administration")}
-      </p>
-      <h1 class="text-3xl sm:text-4xl font-serif italic leading-[1.1] tracking-[-0.02em] text-base-content">
-        {gettext("Goal Categories")}
-      </h1>
-      <p class="mt-4 text-sm text-base-content/60">
-        {gettext("%{count} categories", count: length(@categories))}
-      </p>
+    <div class="mb-10 flex items-end justify-between gap-4">
+      <div>
+        <p class="font-label text-xs uppercase tracking-[0.25em] text-base-content/50 mb-4">
+          {gettext("Administration")}
+        </p>
+        <h1 class="text-3xl sm:text-4xl font-serif italic leading-[1.1] tracking-[-0.02em] text-base-content">
+          {gettext("Goal Categories")}
+        </h1>
+        <p class="mt-4 text-sm text-base-content/60">
+          {gettext("%{count} categories", count: length(@categories))}
+        </p>
+      </div>
+      <.link
+        patch={~p"/admin/goal-categories/new"}
+        class="shrink-0 py-3 px-8 bg-base-content text-base-100 text-xs font-label uppercase tracking-[0.2em] hover:bg-base-content/90 transition cursor-pointer"
+      >
+        {gettext("New category")}
+      </.link>
     </div>
 
     <div class="border border-base-300 bg-base-100">
@@ -87,7 +95,7 @@
   </div>
 
   <.live_component
-    :if={@live_action == :edit}
+    :if={@live_action in [:edit, :new]}
     module={SheCommandsWeb.Admin.GoalCategoryLive.FormComponent}
     id="goal-category-form"
     category={@editing_category}

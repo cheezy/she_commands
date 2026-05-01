@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 
 #: lib/she_commands_web/components/core_components.ex:369
-#: lib/she_commands_web/live/admin/goal_category_live/index.html.heex:40
+#: lib/she_commands_web/live/admin/goal_category_live/index.html.heex:48
 #, elixir-autogen, elixir-format
 msgid "Actions"
 msgstr ""
@@ -98,7 +98,7 @@ msgstr ""
 #: lib/she_commands_web/controllers/user_registration_html/new.html.heex:32
 #: lib/she_commands_web/controllers/user_settings_html/edit.html.heex:27
 #: lib/she_commands_web/live/admin/goal_category_live/form_component.ex:107
-#: lib/she_commands_web/live/admin/goal_category_live/index.html.heex:31
+#: lib/she_commands_web/live/admin/goal_category_live/index.html.heex:39
 #, elixir-autogen, elixir-format
 msgid "Name"
 msgstr ""
@@ -796,7 +796,7 @@ msgid "Account"
 msgstr ""
 
 #: lib/she_commands_web/live/admin/dashboard_live/index.html.heex:12
-#: lib/she_commands_web/live/admin/goal_category_live/index.html.heex:13
+#: lib/she_commands_web/live/admin/goal_category_live/index.html.heex:14
 #: lib/she_commands_web/live/admin/metrics_live/index.html.heex:12
 #: lib/she_commands_web/live/admin/module_live/index.html.heex:14
 #, elixir-autogen, elixir-format
@@ -1019,7 +1019,7 @@ msgid "Goal"
 msgstr ""
 
 #: lib/she_commands_web/live/admin/goal_category_live/index.ex:11
-#: lib/she_commands_web/live/admin/goal_category_live/index.html.heex:16
+#: lib/she_commands_web/live/admin/goal_category_live/index.html.heex:17
 #: lib/she_commands_web/live/admin/module_live/show.html.heex:163
 #, elixir-autogen, elixir-format
 msgid "Goal Categories"
@@ -1595,44 +1595,44 @@ msgstr ""
 msgid "More than 30 min"
 msgstr ""
 
-#: lib/she_commands_web/live/admin/goal_category_live/index.html.heex:19
+#: lib/she_commands_web/live/admin/goal_category_live/index.html.heex:20
 #, elixir-autogen, elixir-format
 msgid "%{count} categories"
 msgstr ""
 
-#: lib/she_commands_web/live/admin/goal_category_live/index.html.heex:57
+#: lib/she_commands_web/live/admin/goal_category_live/index.html.heex:65
 #, elixir-autogen, elixir-format
 msgid "Hidden"
 msgstr ""
 
-#: lib/she_commands_web/live/admin/goal_category_live/index.html.heex:75
+#: lib/she_commands_web/live/admin/goal_category_live/index.html.heex:83
 #, elixir-autogen, elixir-format
 msgid "Hide"
 msgstr ""
 
 #: lib/she_commands_web/live/admin/goal_category_live/form_component.ex:110
-#: lib/she_commands_web/live/admin/goal_category_live/index.html.heex:28
+#: lib/she_commands_web/live/admin/goal_category_live/index.html.heex:36
 #, elixir-autogen, elixir-format
 msgid "Position"
 msgstr ""
 
-#: lib/she_commands_web/live/admin/goal_category_live/index.html.heex:77
+#: lib/she_commands_web/live/admin/goal_category_live/index.html.heex:85
 #, elixir-autogen, elixir-format
 msgid "Show"
 msgstr ""
 
 #: lib/she_commands_web/live/admin/goal_category_live/form_component.ex:108
-#: lib/she_commands_web/live/admin/goal_category_live/index.html.heex:34
+#: lib/she_commands_web/live/admin/goal_category_live/index.html.heex:42
 #, elixir-autogen, elixir-format
 msgid "Slug"
 msgstr ""
 
-#: lib/she_commands_web/live/admin/goal_category_live/index.html.heex:37
+#: lib/she_commands_web/live/admin/goal_category_live/index.html.heex:45
 #, elixir-autogen, elixir-format
 msgid "Status"
 msgstr ""
 
-#: lib/she_commands_web/live/admin/goal_category_live/index.html.heex:53
+#: lib/she_commands_web/live/admin/goal_category_live/index.html.heex:61
 #, elixir-autogen, elixir-format
 msgid "Visible"
 msgstr ""
@@ -2143,7 +2143,7 @@ msgstr ""
 msgid "Description"
 msgstr ""
 
-#: lib/she_commands_web/live/admin/goal_category_live/index.html.heex:67
+#: lib/she_commands_web/live/admin/goal_category_live/index.html.heex:75
 #, elixir-autogen, elixir-format
 msgid "Edit"
 msgstr ""
@@ -2186,4 +2186,9 @@ msgstr ""
 #: lib/she_commands_web/live/admin/goal_category_live/form_component.ex:142
 #, elixir-autogen, elixir-format
 msgid "Visible on intake"
+msgstr ""
+
+#: lib/she_commands_web/live/admin/goal_category_live/index.html.heex:27
+#, elixir-autogen, elixir-format
+msgid "New category"
 msgstr ""

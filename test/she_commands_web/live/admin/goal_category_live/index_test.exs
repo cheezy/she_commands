@@ -298,4 +298,80 @@ defmodule SheCommandsWeb.Admin.GoalCategoryLive.IndexTest do
       assert reloaded.visible_on_intake == false
     end
   end
+
+  describe "new action" do
+    setup %{user: user} do
+      user
+      |> Ecto.Changeset.change(%{role: :admin})
+      |> SheCommands.Repo.update!()
+
+      :ok
+    end
+
+    test "non-admin redirected from /admin/goal-categories/new" do
+      member = SheCommands.AccountsFixtures.user_fixture()
+      member_conn = Phoenix.ConnTest.build_conn() |> log_in_user(member)
+
+      assert {:error, {:redirect, %{to: "/"}}} =
+               live(member_conn, ~p"/admin/goal-categories/new")
+    end
+
+    test "New category button is rendered on the index", %{conn: conn} do
+      {:ok, _view, html} = live(conn, ~p"/admin/goal-categories")
+      assert html =~ "New category"
+      assert html =~ ~s|href="/admin/goal-categories/new"|
+    end
+
+    test "navigating to /admin/goal-categories/new opens the empty form", %{conn: conn} do
+      {:ok, _view, html} = live(conn, ~p"/admin/goal-categories/new")
+      assert html =~ "New goal category"
+    end
+
+    test "valid create persists and patches back to the index", %{conn: conn} do
+      slug = "fresh-cat-#{System.unique_integer([:positive])}"
+
+      {:ok, view, _html} = live(conn, ~p"/admin/goal-categories")
+
+      view |> element(~s|a[href="/admin/goal-categories/new"]|) |> render_click()
+      assert_patch(view, ~p"/admin/goal-categories/new")
+
+      view
+      |> form("#goal-category-form-form",
+        goal_category: %{name: "Fresh Category", slug: slug}
+      )
+      |> render_submit()
+
+      assert_patch(view, ~p"/admin/goal-categories")
+      assert render(view) =~ "Fresh Category"
+
+      created = SheCommands.Repo.get_by!(SheCommands.Intake.GoalCategory, slug: slug)
+      assert created.name == "Fresh Category"
+    end
+
+    test "create with no name surfaces a required-field error", %{conn: conn} do
+      {:ok, view, _html} = live(conn, ~p"/admin/goal-categories/new")
+
+      html =
+        view
+        |> form("#goal-category-form-form", goal_category: %{name: "", slug: "anything"})
+        |> render_submit()
+
+      assert html =~ "can&#39;t be blank"
+    end
+
+    test "create with a duplicate slug rejects", %{conn: conn} do
+      goal_category_fixture(%{slug: "already-here"})
+
+      {:ok, view, _html} = live(conn, ~p"/admin/goal-categories/new")
+
+      html =
+        view
+        |> form("#goal-category-form-form",
+          goal_category: %{name: "Doomed", slug: "already-here"}
+        )
+        |> render_submit()
+
+      assert html =~ "has already been taken"
+    end
+  end
 end

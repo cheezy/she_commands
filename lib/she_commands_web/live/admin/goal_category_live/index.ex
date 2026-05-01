@@ -22,6 +22,11 @@ defmodule SheCommandsWeb.Admin.GoalCategoryLive.Index do
     |> assign(:editing_category, Intake.get_goal_category!(id))
   end
 
+  defp apply_action(socket, :new, _params) do
+    socket
+    |> assign(:editing_category, blank_category())
+  end
+
   defp apply_action(socket, :index, _params) do
     socket
     |> assign(:editing_category, nil)
