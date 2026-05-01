@@ -1,5 +1,13 @@
 <Layouts.app flash={@flash} current_scope={@current_scope}>
   <div class="w-full max-w-4xl mx-auto py-12">
+    <div class="mb-6">
+      <.link
+        navigate={~p"/"}
+        class="text-xs font-label uppercase tracking-[0.15em] text-base-content/60 hover:text-base-content transition"
+      >
+        &larr; {gettext("Back to Home")}
+      </.link>
+    </div>
     <p class="font-label text-xs uppercase tracking-[0.25em] text-base-content/50 mb-3">
       {gettext("Administration")}
     </p>
