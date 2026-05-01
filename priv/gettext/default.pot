@@ -13,6 +13,7 @@ msgstr ""
 
 #: lib/she_commands_web/components/core_components.ex:369
 #: lib/she_commands_web/live/admin/goal_category_live/index.html.heex:48
+#: lib/she_commands_web/live/admin/user_live/index.html.heex:40
 #, elixir-autogen, elixir-format
 msgid "Actions"
 msgstr ""
@@ -69,6 +70,7 @@ msgstr ""
 #: lib/she_commands_web/controllers/page_html/connect.html.heex:44
 #: lib/she_commands_web/controllers/user_registration_html/new.html.heex:42
 #: lib/she_commands_web/controllers/user_session_html/new.html.heex:38
+#: lib/she_commands_web/live/admin/user_live/index.html.heex:31
 #, elixir-autogen, elixir-format
 msgid "Email"
 msgstr ""
@@ -99,6 +101,7 @@ msgstr ""
 #: lib/she_commands_web/controllers/user_settings_html/edit.html.heex:27
 #: lib/she_commands_web/live/admin/goal_category_live/form_component.ex:107
 #: lib/she_commands_web/live/admin/goal_category_live/index.html.heex:39
+#: lib/she_commands_web/live/admin/user_live/index.html.heex:28
 #, elixir-autogen, elixir-format
 msgid "Name"
 msgstr ""
@@ -185,6 +188,7 @@ msgstr ""
 msgid "A confirmation link will be sent to your new email address."
 msgstr ""
 
+#: lib/she_commands_web/live/admin/user_live/index.html.heex:79
 #: lib/she_commands_web/live/intake_live/index.html.heex:367
 #: lib/she_commands_web/live/intake_live/index.html.heex:384
 #, elixir-autogen, elixir-format
@@ -799,6 +803,7 @@ msgstr ""
 #: lib/she_commands_web/live/admin/goal_category_live/index.html.heex:14
 #: lib/she_commands_web/live/admin/metrics_live/index.html.heex:12
 #: lib/she_commands_web/live/admin/module_live/index.html.heex:14
+#: lib/she_commands_web/live/admin/user_live/index.html.heex:13
 #, elixir-autogen, elixir-format
 msgid "Administration"
 msgstr ""
@@ -1628,6 +1633,7 @@ msgid "Slug"
 msgstr ""
 
 #: lib/she_commands_web/live/admin/goal_category_live/index.html.heex:45
+#: lib/she_commands_web/live/admin/user_live/index.html.heex:37
 #, elixir-autogen, elixir-format
 msgid "Status"
 msgstr ""
@@ -2119,6 +2125,7 @@ msgstr ""
 #: lib/she_commands_web/live/admin/goal_category_live/index.html.heex:8
 #: lib/she_commands_web/live/admin/metrics_live/index.html.heex:8
 #: lib/she_commands_web/live/admin/module_live/index.html.heex:8
+#: lib/she_commands_web/live/admin/user_live/index.html.heex:8
 #, elixir-autogen, elixir-format
 msgid "Back to Admin"
 msgstr ""
@@ -2191,4 +2198,65 @@ msgstr ""
 #: lib/she_commands_web/live/admin/goal_category_live/index.html.heex:27
 #, elixir-autogen, elixir-format
 msgid "New category"
+msgstr ""
+
+#: lib/she_commands_web/live/admin/user_live/index.html.heex:19
+#, elixir-autogen, elixir-format
+msgid "%{count} users"
+msgstr ""
+
+#: lib/she_commands_web/live/admin/user_live/index.html.heex:86
+#, elixir-autogen, elixir-format
+msgid "(you)"
+msgstr ""
+
+#: lib/she_commands_web/live/admin/user_live/index.ex:35
+#, elixir-autogen, elixir-format
+msgid "Could not update role."
+msgstr ""
+
+#: lib/she_commands_web/live/admin/user_live/index.html.heex:97
+#, elixir-autogen, elixir-format
+msgid "Disable"
+msgstr ""
+
+#: lib/she_commands_web/live/admin/user_live/index.html.heex:75
+#, elixir-autogen, elixir-format
+msgid "Disabled"
+msgstr ""
+
+#: lib/she_commands_web/live/admin/user_live/index.html.heex:95
+#, elixir-autogen, elixir-format
+msgid "Enable"
+msgstr ""
+
+#: lib/she_commands_web/live/admin/user_live/index.html.heex:34
+#, elixir-autogen, elixir-format
+msgid "Role"
+msgstr ""
+
+#: lib/she_commands_web/live/admin/user_live/index.ex:31
+#, elixir-autogen, elixir-format
+msgid "Role updated."
+msgstr ""
+
+#: lib/she_commands_web/live/admin/user_live/index.ex:50
+#, elixir-autogen, elixir-format
+msgid "User disabled."
+msgstr ""
+
+#: lib/she_commands_web/live/admin/user_live/index.ex:46
+#, elixir-autogen, elixir-format
+msgid "User enabled."
+msgstr ""
+
+#: lib/she_commands_web/live/admin/user_live/index.ex:18
+#: lib/she_commands_web/live/admin/user_live/index.html.heex:16
+#, elixir-autogen, elixir-format
+msgid "Users"
+msgstr ""
+
+#: lib/she_commands_web/live/admin/user_live/index.ex:53
+#, elixir-autogen, elixir-format
+msgid "You cannot disable your own account."
 msgstr ""

@@ -111,6 +111,7 @@ defmodule SheCommandsWeb.Router do
       live "/goal-categories/new", Admin.GoalCategoryLive.Index, :new
       live "/goal-categories/:id/edit", Admin.GoalCategoryLive.Index, :edit
       live "/metrics", Admin.MetricsLive.Index, :index
+      live "/users", Admin.UserLive.Index, :index
     end
   end
 
