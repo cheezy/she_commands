@@ -37,7 +37,7 @@
               {gettext("Status")}
             </th>
             <th class="text-right font-label text-xs uppercase tracking-[0.15em] px-4 py-3">
-              {gettext("Action")}
+              {gettext("Actions")}
             </th>
           </tr>
         </thead>
@@ -59,17 +59,25 @@
                 <% end %>
               </td>
               <td class="px-4 py-3 text-right">
-                <button
-                  phx-click="toggle"
-                  phx-value-id={category.id}
-                  class="text-xs font-label uppercase tracking-[0.15em] text-primary hover:opacity-70 transition cursor-pointer"
-                >
-                  <%= if category.visible_on_intake do %>
-                    {gettext("Hide")}
-                  <% else %>
-                    {gettext("Show")}
-                  <% end %>
-                </button>
+                <div class="flex justify-end gap-3">
+                  <.link
+                    patch={~p"/admin/goal-categories/#{category.id}/edit"}
+                    class="text-xs font-label uppercase tracking-[0.15em] text-primary hover:opacity-70 transition cursor-pointer"
+                  >
+                    {gettext("Edit")}
+                  </.link>
+                  <button
+                    phx-click="toggle"
+                    phx-value-id={category.id}
+                    class="text-xs font-label uppercase tracking-[0.15em] text-primary hover:opacity-70 transition cursor-pointer"
+                  >
+                    <%= if category.visible_on_intake do %>
+                      {gettext("Hide")}
+                    <% else %>
+                      {gettext("Show")}
+                    <% end %>
+                  </button>
+                </div>
               </td>
             </tr>
           <% end %>
@@ -77,4 +85,11 @@
       </table>
     </div>
   </div>
+
+  <.live_component
+    :if={@live_action == :edit}
+    module={SheCommandsWeb.Admin.GoalCategoryLive.FormComponent}
+    id="goal-category-form"
+    category={@editing_category}
+  />
 </Layouts.app>

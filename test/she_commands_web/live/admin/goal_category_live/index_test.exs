@@ -160,4 +160,142 @@ defmodule SheCommandsWeb.Admin.GoalCategoryLive.IndexTest do
       assert html_after =~ "Show"
     end
   end
+
+  describe "edit action" do
+    setup %{user: user} do
+      user
+      |> Ecto.Changeset.change(%{role: :admin})
+      |> SheCommands.Repo.update!()
+
+      :ok
+    end
+
+    test "non-admin redirected from /admin/goal-categories/:id/edit" do
+      # Use a freshly registered member (the describe-block setup promoted
+      # the conn user to admin; we need a clean member-only session here).
+      member = SheCommands.AccountsFixtures.user_fixture()
+      member_conn = Phoenix.ConnTest.build_conn() |> log_in_user(member)
+      category = goal_category_fixture(%{name: "Anything"})
+
+      assert {:error, {:redirect, %{to: "/"}}} =
+               live(member_conn, ~p"/admin/goal-categories/#{category.id}/edit")
+    end
+
+    test "navigating to the edit route renders the form pre-filled", %{conn: conn} do
+      category =
+        goal_category_fixture(%{
+          name: "Editable",
+          slug: "editable-cat",
+          description: "Old description"
+        })
+
+      {:ok, _view, html} = live(conn, ~p"/admin/goal-categories/#{category.id}/edit")
+
+      assert html =~ "Edit goal category"
+      assert html =~ ~s|value="Editable"|
+      assert html =~ ~s|value="editable-cat"|
+      assert html =~ "Old description"
+    end
+
+    test "valid edit persists and patches back to the index", %{conn: conn} do
+      category = goal_category_fixture(%{name: "Old Name", slug: "old-slug"})
+
+      {:ok, view, _html} = live(conn, ~p"/admin/goal-categories")
+
+      view |> element(~s|a[href="/admin/goal-categories/#{category.id}/edit"]|) |> render_click()
+
+      assert_patch(view, ~p"/admin/goal-categories/#{category.id}/edit")
+
+      view
+      |> form("#goal-category-form-form",
+        goal_category: %{name: "New Name", slug: "old-slug"}
+      )
+      |> render_submit()
+
+      assert_patch(view, ~p"/admin/goal-categories")
+
+      assert render(view) =~ "New Name"
+
+      reloaded = SheCommands.Repo.get!(SheCommands.Intake.GoalCategory, category.id)
+      assert reloaded.name == "New Name"
+    end
+
+    test "edit with invalid attrs surfaces an inline error", %{conn: conn} do
+      category = goal_category_fixture(%{name: "Existing"})
+
+      {:ok, view, _html} = live(conn, ~p"/admin/goal-categories/#{category.id}/edit")
+
+      html =
+        view
+        |> form("#goal-category-form-form",
+          goal_category: %{name: "", slug: ""}
+        )
+        |> render_submit()
+
+      assert html =~ "can&#39;t be blank"
+    end
+
+    test "edit with name longer than 200 chars rejects", %{conn: conn} do
+      category = goal_category_fixture(%{})
+      long_name = String.duplicate("a", 201)
+
+      {:ok, view, _html} = live(conn, ~p"/admin/goal-categories/#{category.id}/edit")
+
+      html =
+        view
+        |> form("#goal-category-form-form",
+          goal_category: %{name: long_name, slug: category.slug}
+        )
+        |> render_submit()
+
+      assert html =~ "should be at most 200"
+    end
+
+    test "edit with a colliding slug rejects", %{conn: conn} do
+      _other = goal_category_fixture(%{slug: "taken-slug"})
+      target = goal_category_fixture(%{slug: "mine-slug"})
+
+      {:ok, view, _html} = live(conn, ~p"/admin/goal-categories/#{target.id}/edit")
+
+      html =
+        view
+        |> form("#goal-category-form-form",
+          goal_category: %{name: target.name, slug: "taken-slug"}
+        )
+        |> render_submit()
+
+      assert html =~ "has already been taken"
+    end
+
+    test "Cancel link patches back to the index without saving", %{conn: conn} do
+      category = goal_category_fixture(%{name: "Untouched"})
+
+      {:ok, view, _html} = live(conn, ~p"/admin/goal-categories/#{category.id}/edit")
+
+      view |> element("a", "Cancel") |> render_click()
+      assert_patch(view, ~p"/admin/goal-categories")
+
+      reloaded = SheCommands.Repo.get!(SheCommands.Intake.GoalCategory, category.id)
+      assert reloaded.name == "Untouched"
+    end
+
+    test "visible_on_intake checkbox change persists", %{conn: conn} do
+      category = goal_category_fixture(%{visible_on_intake: true})
+
+      {:ok, view, _html} = live(conn, ~p"/admin/goal-categories/#{category.id}/edit")
+
+      view
+      |> form("#goal-category-form-form",
+        goal_category: %{
+          name: category.name,
+          slug: category.slug,
+          visible_on_intake: "false"
+        }
+      )
+      |> render_submit()
+
+      reloaded = SheCommands.Repo.get!(SheCommands.Intake.GoalCategory, category.id)
+      assert reloaded.visible_on_intake == false
+    end
+  end
 end
