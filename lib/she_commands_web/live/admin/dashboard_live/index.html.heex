@@ -1,0 +1,69 @@
+<Layouts.app flash={@flash} current_scope={@current_scope}>
+  <div class="w-full max-w-4xl mx-auto py-12">
+    <p class="font-label text-xs uppercase tracking-[0.25em] text-base-content/50 mb-3">
+      {gettext("Administration")}
+    </p>
+    <h1 class="text-3xl sm:text-4xl font-serif italic leading-[1.1] tracking-[-0.02em] text-base-content mb-2">
+      {gettext("Admin")}
+    </h1>
+    <p class="text-sm text-base-content/60 mb-10">
+      {gettext("Manage the module library, goal categories, and platform metrics.")}
+    </p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <.link
+        navigate={~p"/admin/modules"}
+        class="group block border border-base-300 bg-base-100 p-6 hover:border-base-content transition"
+      >
+        <div class="flex items-center gap-3 mb-3">
+          <.icon
+            name="hero-rectangle-stack"
+            class="size-6 text-base-content/70 group-hover:text-base-content transition"
+          />
+          <h2 class="text-lg font-serif italic text-base-content">
+            {gettext("Module library")}
+          </h2>
+        </div>
+        <p class="text-sm text-base-content/60 leading-relaxed">
+          {gettext("Browse and review the protocols and modules available to plans.")}
+        </p>
+      </.link>
+
+      <.link
+        navigate={~p"/admin/goal-categories"}
+        class="group block border border-base-300 bg-base-100 p-6 hover:border-base-content transition"
+      >
+        <div class="flex items-center gap-3 mb-3">
+          <.icon
+            name="hero-tag"
+            class="size-6 text-base-content/70 group-hover:text-base-content transition"
+          />
+          <h2 class="text-lg font-serif italic text-base-content">
+            {gettext("Goal categories")}
+          </h2>
+        </div>
+        <p class="text-sm text-base-content/60 leading-relaxed">
+          {gettext("Toggle which goal categories appear on the intake form.")}
+        </p>
+      </.link>
+
+      <.link
+        navigate={~p"/admin/metrics"}
+        class="group block border border-base-300 bg-base-100 p-6 hover:border-base-content transition"
+      >
+        <div class="flex items-center gap-3 mb-3">
+          <.icon
+            name="hero-chart-bar"
+            class="size-6 text-base-content/70 group-hover:text-base-content transition"
+          />
+          <h2 class="text-lg font-serif italic text-base-content">
+            {gettext("Success metrics")}
+          </h2>
+        </div>
+        <p class="text-sm text-base-content/60 leading-relaxed">
+          {gettext("Track onboarding, engagement, completion, and escalation rates.")}
+        </p>
+      </.link>
+    </div>
+  </div>
+</Layouts.app>

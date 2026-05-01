@@ -89,6 +89,14 @@
               >
                 {gettext("Intake")}
               </a>
+              <%= if @current_scope.user.role == :admin do %>
+                <a
+                  href="/admin"
+                  class={"hover:opacity-70 transition #{if String.starts_with?(@conn.request_path, "/admin"), do: "border-b border-current pb-1"}"}
+                >
+                  {gettext("Admin")}
+                </a>
+              <% end %>
               <details class="dropdown dropdown-end relative">
                 <summary class="cursor-pointer hover:opacity-70 transition">
                   {@current_scope.user.name || @current_scope.user.email}

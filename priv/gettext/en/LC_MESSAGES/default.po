@@ -72,7 +72,7 @@ msgstr ""
 msgid "Email"
 msgstr ""
 
-#: lib/she_commands_web/components/layouts/root.html.heex:118
+#: lib/she_commands_web/components/layouts/root.html.heex:126
 #: lib/she_commands_web/controllers/user_registration_html/new.html.heex:19
 #, elixir-autogen, elixir-format
 msgid "Log in"
@@ -88,7 +88,7 @@ msgstr ""
 msgid "Log in only this time"
 msgstr ""
 
-#: lib/she_commands_web/components/layouts/root.html.heex:102
+#: lib/she_commands_web/components/layouts/root.html.heex:110
 #, elixir-autogen, elixir-format
 msgid "Log out"
 msgstr ""
@@ -112,7 +112,7 @@ msgstr ""
 msgid "Password"
 msgstr ""
 
-#: lib/she_commands_web/components/layouts/root.html.heex:112
+#: lib/she_commands_web/components/layouts/root.html.heex:120
 #, elixir-autogen, elixir-format
 msgid "Register"
 msgstr ""
@@ -122,7 +122,7 @@ msgstr ""
 msgid "Save Password"
 msgstr ""
 
-#: lib/she_commands_web/components/layouts/root.html.heex:98
+#: lib/she_commands_web/components/layouts/root.html.heex:106
 #: lib/she_commands_web/controllers/user_settings_html/edit.html.heex:10
 #, elixir-autogen, elixir-format
 msgid "Settings"
@@ -793,6 +793,7 @@ msgstr ""
 msgid "Account"
 msgstr ""
 
+#: lib/she_commands_web/live/admin/dashboard_live/index.html.heex:4
 #: lib/she_commands_web/live/admin/goal_category_live/index.html.heex:5
 #: lib/she_commands_web/live/admin/metrics_live/index.html.heex:4
 #: lib/she_commands_web/live/admin/module_live/index.html.heex:6
@@ -2062,6 +2063,7 @@ msgstr ""
 msgid "Post-plan survey completion"
 msgstr ""
 
+#: lib/she_commands_web/live/admin/dashboard_live/index.html.heex:60
 #: lib/she_commands_web/live/admin/metrics_live/index.ex:19
 #: lib/she_commands_web/live/admin/metrics_live/index.html.heex:7
 #, elixir-autogen, elixir-format
@@ -2076,4 +2078,41 @@ msgstr ""
 #: lib/she_commands_web/live/admin/metrics_live/index.html.heex:36
 #, elixir-autogen, elixir-format
 msgid "target ≥ %{pct}"
+msgstr ""
+
+#: lib/she_commands_web/components/layouts/root.html.heex:97
+#: lib/she_commands_web/live/admin/dashboard_live/index.ex:14
+#: lib/she_commands_web/live/admin/dashboard_live/index.html.heex:7
+#, elixir-autogen, elixir-format
+msgid "Admin"
+msgstr ""
+
+#: lib/she_commands_web/live/admin/dashboard_live/index.html.heex:28
+#, elixir-autogen, elixir-format
+msgid "Browse and review the protocols and modules available to plans."
+msgstr ""
+
+#: lib/she_commands_web/live/admin/dashboard_live/index.html.heex:42
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Goal categories"
+msgstr ""
+
+#: lib/she_commands_web/live/admin/dashboard_live/index.html.heex:10
+#, elixir-autogen, elixir-format
+msgid "Manage the module library, goal categories, and platform metrics."
+msgstr ""
+
+#: lib/she_commands_web/live/admin/dashboard_live/index.html.heex:24
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Module library"
+msgstr ""
+
+#: lib/she_commands_web/live/admin/dashboard_live/index.html.heex:46
+#, elixir-autogen, elixir-format
+msgid "Toggle which goal categories appear on the intake form."
+msgstr ""
+
+#: lib/she_commands_web/live/admin/dashboard_live/index.html.heex:64
+#, elixir-autogen, elixir-format
+msgid "Track onboarding, engagement, completion, and escalation rates."
 msgstr ""

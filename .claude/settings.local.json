@@ -8,7 +8,8 @@
       "mcp__stitch__list_projects",
       "mcp__Tidewave-Web__browser_eval",
       "mcp__playwright__browser_take_screenshot",
-      "mcp__Tidewave__execute_sql_query"
+      "mcp__Tidewave__execute_sql_query",
+      "Bash(PGPASSWORD=postgres psql -h localhost -U postgres -d she_commands_dev -c \"SELECT id, email, role, confirmed_at FROM users ORDER BY id;\")"
     ]
   },
   "enableAllProjectMcpServers": true,
