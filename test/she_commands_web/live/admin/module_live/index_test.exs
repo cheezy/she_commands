@@ -183,6 +183,107 @@ defmodule SheCommandsWeb.Admin.ModuleLive.IndexTest do
     end
   end
 
+  describe "delete action" do
+    setup %{user: user} do
+      user
+      |> Ecto.Changeset.change(%{role: :admin})
+      |> SheCommands.Repo.update!()
+
+      :ok
+    end
+
+    test "Delete button visible per row", %{conn: conn} do
+      module = module_fixture(%{title: "Deletable Mod"})
+
+      {:ok, _view, html} = live(conn, ~p"/admin/modules")
+
+      assert html =~ "Deletable Mod"
+      assert html =~ ~s|phx-click="delete_request"|
+      assert html =~ ~s|phx-value-id="#{module.id}"|
+    end
+
+    test "first click reveals Confirm/Yes/Cancel without deleting", %{conn: conn} do
+      module = module_fixture(%{title: "Still Here"})
+
+      {:ok, view, _html} = live(conn, ~p"/admin/modules")
+
+      html =
+        view
+        |> element(~s|button[phx-click="delete_request"][phx-value-id="#{module.id}"]|)
+        |> render_click()
+
+      assert html =~ "Confirm delete?"
+      assert html =~ "Yes"
+      assert html =~ "Cancel"
+
+      assert SheCommands.Repo.get(SheCommands.Modules.Module, module.id) != nil
+    end
+
+    test "Cancel restores the Delete button without deleting", %{conn: conn} do
+      module = module_fixture(%{title: "Cancelable"})
+
+      {:ok, view, _html} = live(conn, ~p"/admin/modules")
+
+      view
+      |> element(~s|button[phx-click="delete_request"][phx-value-id="#{module.id}"]|)
+      |> render_click()
+
+      html =
+        view
+        |> element(~s|button[phx-click="delete_cancel"]|)
+        |> render_click()
+
+      refute html =~ "Confirm delete?"
+      assert html =~ ~s|phx-click="delete_request"|
+      assert SheCommands.Repo.get(SheCommands.Modules.Module, module.id) != nil
+    end
+
+    test "Yes deletes the module and removes it from the list", %{conn: conn} do
+      module = module_fixture(%{title: "GoneSoon"})
+
+      {:ok, view, _html} = live(conn, ~p"/admin/modules")
+
+      view
+      |> element(~s|button[phx-click="delete_request"][phx-value-id="#{module.id}"]|)
+      |> render_click()
+
+      html =
+        view
+        |> element(~s|button[phx-click="delete_confirm"][phx-value-id="#{module.id}"]|)
+        |> render_click()
+
+      refute html =~ "GoneSoon"
+      assert SheCommands.Repo.get(SheCommands.Modules.Module, module.id) == nil
+    end
+
+    test "FK violation surfaces a friendly flash without crashing", %{conn: conn} do
+      module = module_fixture(%{title: "InUseMod"})
+      plan = SheCommands.PlansFixtures.plan_fixture()
+      _pm = SheCommands.PlansFixtures.plan_module_fixture(plan, %{module: module})
+
+      {:ok, view, _html} = live(conn, ~p"/admin/modules")
+
+      view
+      |> element(~s|button[phx-click="delete_request"][phx-value-id="#{module.id}"]|)
+      |> render_click()
+
+      html =
+        view
+        |> element(~s|button[phx-click="delete_confirm"][phx-value-id="#{module.id}"]|)
+        |> render_click()
+
+      assert html =~ "in use and cannot be deleted"
+      assert SheCommands.Repo.get(SheCommands.Modules.Module, module.id) != nil
+    end
+
+    test "non-admin redirected from /admin/modules" do
+      member = SheCommands.AccountsFixtures.user_fixture()
+      member_conn = Phoenix.ConnTest.build_conn() |> log_in_user(member)
+
+      assert {:error, {:redirect, %{to: "/"}}} = live(member_conn, ~p"/admin/modules")
+    end
+  end
+
   describe "edit action" do
     setup %{user: user} do
       user

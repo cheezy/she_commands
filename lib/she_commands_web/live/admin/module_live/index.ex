@@ -15,6 +15,7 @@ defmodule SheCommandsWeb.Admin.ModuleLive.Index do
      |> assign(:goal_categories, goal_categories)
      |> assign(:contributors, contributors)
      |> assign(:filters, %{})
+     |> assign(:confirming_delete, nil)
      |> assign_modules(%{})}
   end
 
@@ -57,6 +58,44 @@ defmodule SheCommandsWeb.Admin.ModuleLive.Index do
      socket
      |> assign(:filters, %{})
      |> assign_modules(%{})}
+  end
+
+  @impl true
+  def handle_event("delete_request", %{"id" => id}, socket) do
+    {:noreply, assign(socket, :confirming_delete, String.to_integer(id))}
+  end
+
+  @impl true
+  def handle_event("delete_cancel", _params, socket) do
+    {:noreply, assign(socket, :confirming_delete, nil)}
+  end
+
+  @impl true
+  def handle_event("delete_confirm", %{"id" => id}, socket) do
+    module = id |> String.to_integer() |> Modules.get_module!()
+
+    try do
+      case Modules.delete_module(module) do
+        {:ok, _module} ->
+          {:noreply,
+           socket
+           |> assign(:confirming_delete, nil)
+           |> assign_modules(socket.assigns.filters)
+           |> put_flash(:info, gettext("Module deleted."))}
+
+        {:error, %Ecto.Changeset{}} ->
+          {:noreply,
+           socket
+           |> assign(:confirming_delete, nil)
+           |> put_flash(:error, gettext("This module is in use and cannot be deleted."))}
+      end
+    rescue
+      Ecto.ConstraintError ->
+        {:noreply,
+         socket
+         |> assign(:confirming_delete, nil)
+         |> put_flash(:error, gettext("This module is in use and cannot be deleted."))}
+    end
   end
 
   @impl true

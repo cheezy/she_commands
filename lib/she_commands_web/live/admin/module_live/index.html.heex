@@ -178,6 +178,35 @@
             >
               {gettext("Edit")}
             </.link>
+            <%= if @confirming_delete == module.id do %>
+              <span class="text-xs text-base-content/70">
+                {gettext("Confirm delete?")}
+              </span>
+              <button
+                type="button"
+                phx-click="delete_confirm"
+                phx-value-id={module.id}
+                class="text-xs font-label uppercase tracking-[0.15em] text-error hover:opacity-70 transition cursor-pointer"
+              >
+                {gettext("Yes")}
+              </button>
+              <button
+                type="button"
+                phx-click="delete_cancel"
+                class="text-xs font-label uppercase tracking-[0.15em] text-base-content/60 hover:text-base-content transition cursor-pointer"
+              >
+                {gettext("Cancel")}
+              </button>
+            <% else %>
+              <button
+                type="button"
+                phx-click="delete_request"
+                phx-value-id={module.id}
+                class="text-xs font-label uppercase tracking-[0.15em] text-error hover:opacity-70 transition cursor-pointer"
+              >
+                {gettext("Delete")}
+              </button>
+            <% end %>
           </div>
         </div>
       <% end %>
