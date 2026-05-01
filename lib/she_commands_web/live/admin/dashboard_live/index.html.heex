@@ -72,6 +72,24 @@
           {gettext("Track onboarding, engagement, completion, and escalation rates.")}
         </p>
       </.link>
+
+      <.link
+        navigate={~p"/admin/users"}
+        class="group block border border-base-300 bg-base-100 p-6 hover:border-base-content transition"
+      >
+        <div class="flex items-center gap-3 mb-3">
+          <.icon
+            name="hero-users"
+            class="size-6 text-base-content/70 group-hover:text-base-content transition"
+          />
+          <h2 class="text-lg font-serif italic text-base-content">
+            {gettext("Users")}
+          </h2>
+        </div>
+        <p class="text-sm text-base-content/60 leading-relaxed">
+          {gettext("Manage roles and disable accounts.")}
+        </p>
+      </.link>
     </div>
   </div>
 </Layouts.app>

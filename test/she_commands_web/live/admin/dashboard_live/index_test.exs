@@ -23,16 +23,18 @@ defmodule SheCommandsWeb.Admin.DashboardLive.IndexTest do
       assert html =~ "Admin"
     end
 
-    test "renders three navigation cards with the correct destinations", %{conn: conn} do
+    test "renders four navigation cards with the correct destinations", %{conn: conn} do
       {:ok, _view, html} = live(conn, ~p"/admin")
 
       assert html =~ "Module library"
       assert html =~ "Goal categories"
       assert html =~ "Success metrics"
+      assert html =~ "Users"
 
       assert html =~ ~s|href="/admin/modules"|
       assert html =~ ~s|href="/admin/goal-categories"|
       assert html =~ ~s|href="/admin/metrics"|
+      assert html =~ ~s|href="/admin/users"|
     end
 
     test "renders an icon on each card", %{conn: conn} do
@@ -40,6 +42,7 @@ defmodule SheCommandsWeb.Admin.DashboardLive.IndexTest do
       assert html =~ "hero-rectangle-stack"
       assert html =~ "hero-tag"
       assert html =~ "hero-chart-bar"
+      assert html =~ "hero-users"
     end
   end
 end

@@ -2250,6 +2250,7 @@ msgstr ""
 msgid "User enabled."
 msgstr ""
 
+#: lib/she_commands_web/live/admin/dashboard_live/index.html.heex:86
 #: lib/she_commands_web/live/admin/user_live/index.ex:18
 #: lib/she_commands_web/live/admin/user_live/index.html.heex:16
 #, elixir-autogen, elixir-format
@@ -2259,4 +2260,9 @@ msgstr ""
 #: lib/she_commands_web/live/admin/user_live/index.ex:53
 #, elixir-autogen, elixir-format
 msgid "You cannot disable your own account."
+msgstr ""
+
+#: lib/she_commands_web/live/admin/dashboard_live/index.html.heex:90
+#, elixir-autogen, elixir-format
+msgid "Manage roles and disable accounts."
 msgstr ""
