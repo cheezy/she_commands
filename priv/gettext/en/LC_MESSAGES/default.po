@@ -758,7 +758,7 @@ msgstr ""
 msgid "those big ambitions that can't wait. You can and you will."
 msgstr ""
 
-#: lib/she_commands_web/live/admin/module_live/index.html.heex:158
+#: lib/she_commands_web/live/admin/module_live/index.html.heex:166
 #, elixir-autogen, elixir-format
 msgid "%{count} field missing"
 msgid_plural "%{count} fields missing"
@@ -779,7 +779,7 @@ msgid_plural "%{count} modules"
 msgstr[0] ""
 msgstr[1] ""
 
-#: lib/she_commands_web/live/admin/module_live/index.html.heex:20
+#: lib/she_commands_web/live/admin/module_live/index.html.heex:21
 #, elixir-autogen, elixir-format
 msgid "%{count} modules"
 msgstr ""
@@ -802,16 +802,16 @@ msgstr ""
 #: lib/she_commands_web/live/admin/dashboard_live/index.html.heex:12
 #: lib/she_commands_web/live/admin/goal_category_live/index.html.heex:14
 #: lib/she_commands_web/live/admin/metrics_live/index.html.heex:12
-#: lib/she_commands_web/live/admin/module_live/index.html.heex:14
+#: lib/she_commands_web/live/admin/module_live/index.html.heex:15
 #: lib/she_commands_web/live/admin/user_live/index.html.heex:13
 #, elixir-autogen, elixir-format
 msgid "Administration"
 msgstr ""
 
-#: lib/she_commands_web/live/admin/module_live/index.html.heex:35
-#: lib/she_commands_web/live/admin/module_live/index.html.heex:52
-#: lib/she_commands_web/live/admin/module_live/index.html.heex:72
-#: lib/she_commands_web/live/admin/module_live/index.html.heex:89
+#: lib/she_commands_web/live/admin/module_live/index.html.heex:43
+#: lib/she_commands_web/live/admin/module_live/index.html.heex:60
+#: lib/she_commands_web/live/admin/module_live/index.html.heex:80
+#: lib/she_commands_web/live/admin/module_live/index.html.heex:97
 #, elixir-autogen, elixir-format
 msgid "All"
 msgstr ""
@@ -866,7 +866,7 @@ msgstr ""
 msgid "Chat"
 msgstr ""
 
-#: lib/she_commands_web/live/admin/module_live/index.html.heex:106
+#: lib/she_commands_web/live/admin/module_live/index.html.heex:114
 #, elixir-autogen, elixir-format
 msgid "Clear filters"
 msgstr ""
@@ -927,7 +927,8 @@ msgstr ""
 msgid "Contact Us"
 msgstr ""
 
-#: lib/she_commands_web/live/admin/module_live/index.html.heex:66
+#: lib/she_commands_web/live/admin/module_live/form_component.ex:169
+#: lib/she_commands_web/live/admin/module_live/index.html.heex:74
 #, elixir-autogen, elixir-format
 msgid "Contributor"
 msgstr ""
@@ -1030,7 +1031,7 @@ msgstr ""
 msgid "Goal Categories"
 msgstr ""
 
-#: lib/she_commands_web/live/admin/module_live/index.html.heex:46
+#: lib/she_commands_web/live/admin/module_live/index.html.heex:54
 #, elixir-autogen, elixir-format
 msgid "Goal Category"
 msgstr ""
@@ -1070,6 +1071,7 @@ msgstr ""
 msgid "Integrated strategy. Not one-dimensional advice."
 msgstr ""
 
+#: lib/she_commands_web/live/admin/module_live/form_component.ex:202
 #: lib/she_commands_web/live/admin/module_live/show.html.heex:82
 #: lib/she_commands_web/live/intake_live/index.ex:212
 #, elixir-autogen, elixir-format
@@ -1153,19 +1155,20 @@ msgid "Mission-ready"
 msgstr ""
 
 #: lib/she_commands_web/controllers/plan_html/print.html.heex:130
+#: lib/she_commands_web/live/admin/module_live/form_component.ex:255
 #: lib/she_commands_web/live/admin/module_live/show.html.heex:250
 #: lib/she_commands_web/live/plan_live/show.html.heex:182
 #, elixir-autogen, elixir-format
 msgid "Modifications"
 msgstr ""
 
-#: lib/she_commands_web/live/admin/module_live/index.ex:14
-#: lib/she_commands_web/live/admin/module_live/index.html.heex:17
+#: lib/she_commands_web/live/admin/module_live/index.ex:15
+#: lib/she_commands_web/live/admin/module_live/index.html.heex:18
 #, elixir-autogen, elixir-format
 msgid "Module Library"
 msgstr ""
 
-#: lib/she_commands_web/live/admin/module_live/index.html.heex:83
+#: lib/she_commands_web/live/admin/module_live/index.html.heex:91
 #: lib/she_commands_web/live/admin/module_live/show.html.heex:90
 #, elixir-autogen, elixir-format
 msgid "Module Type"
@@ -1199,7 +1202,7 @@ msgstr ""
 msgid "No"
 msgstr ""
 
-#: lib/she_commands_web/live/admin/module_live/index.html.heex:174
+#: lib/she_commands_web/live/admin/module_live/index.html.heex:187
 #, elixir-autogen, elixir-format
 msgid "No modules match your filters."
 msgstr ""
@@ -1219,11 +1222,13 @@ msgstr ""
 msgid "Outcome Keywords"
 msgstr ""
 
+#: lib/she_commands_web/live/admin/module_live/form_component.ex:248
 #: lib/she_commands_web/live/admin/module_live/show.html.heex:179
 #, elixir-autogen, elixir-format
 msgid "Outcomes"
 msgstr ""
 
+#: lib/she_commands_web/live/admin/module_live/form_component.ex:170
 #: lib/she_commands_web/live/admin/module_live/show.html.heex:44
 #, elixir-autogen, elixir-format
 msgid "Overview"
@@ -1247,7 +1252,7 @@ msgstr ""
 msgid "Please complete the following before continuing: %{fields}"
 msgstr ""
 
-#: lib/she_commands_web/live/admin/module_live/index.html.heex:29
+#: lib/she_commands_web/live/admin/module_live/index.html.heex:37
 #: lib/she_commands_web/live/admin/module_live/show.html.heex:70
 #, elixir-autogen, elixir-format, fuzzy
 msgid "Power Pillar"
@@ -1367,6 +1372,7 @@ msgstr ""
 msgid "Something went wrong. Please try again."
 msgstr ""
 
+#: lib/she_commands_web/live/admin/module_live/form_component.ex:286
 #: lib/she_commands_web/live/admin/module_live/show.html.heex:279
 #, elixir-autogen, elixir-format
 msgid "Sources"
@@ -2098,6 +2104,7 @@ msgid "Browse and review the protocols and modules available to plans."
 msgstr ""
 
 #: lib/she_commands_web/live/admin/dashboard_live/index.html.heex:50
+#: lib/she_commands_web/live/admin/module_live/form_component.ex:223
 #, elixir-autogen, elixir-format, fuzzy
 msgid "Goal categories"
 msgstr ""
@@ -2136,11 +2143,13 @@ msgid "Back to Home"
 msgstr ""
 
 #: lib/she_commands_web/live/admin/goal_category_live/form_component.ex:150
+#: lib/she_commands_web/live/admin/module_live/form_component.ex:298
 #, elixir-autogen, elixir-format
 msgid "Cancel"
 msgstr ""
 
 #: lib/she_commands_web/live/admin/goal_category_live/form_component.ex:91
+#: lib/she_commands_web/live/admin/module_live/form_component.ex:147
 #, elixir-autogen, elixir-format, fuzzy
 msgid "Close"
 msgstr ""
@@ -2151,6 +2160,7 @@ msgid "Description"
 msgstr ""
 
 #: lib/she_commands_web/live/admin/goal_category_live/index.html.heex:75
+#: lib/she_commands_web/live/admin/module_live/index.html.heex:179
 #, elixir-autogen, elixir-format
 msgid "Edit"
 msgstr ""
@@ -2186,6 +2196,7 @@ msgid "Power Up outcomes"
 msgstr ""
 
 #: lib/she_commands_web/live/admin/goal_category_live/form_component.ex:156
+#: lib/she_commands_web/live/admin/module_live/form_component.ex:304
 #, elixir-autogen, elixir-format
 msgid "Save"
 msgstr ""
@@ -2265,4 +2276,141 @@ msgstr ""
 #: lib/she_commands_web/live/admin/dashboard_live/index.html.heex:90
 #, elixir-autogen, elixir-format
 msgid "Manage roles and disable accounts."
+msgstr ""
+
+#: lib/she_commands_web/live/admin/module_live/form_component.ex:191
+#, elixir-autogen, elixir-format
+msgid "(optional)"
+msgstr ""
+
+#: lib/she_commands_web/live/admin/module_live/form_component.ex:176
+#, elixir-autogen, elixir-format
+msgid "Categorization"
+msgstr ""
+
+#: lib/she_commands_web/live/admin/module_live/form_component.ex:272
+#: lib/she_commands_web/live/admin/module_live/form_component.ex:274
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Coach tip"
+msgstr ""
+
+#: lib/she_commands_web/live/admin/module_live/form_component.ex:278
+#, elixir-autogen, elixir-format
+msgid "Coach tip attribution"
+msgstr ""
+
+#: lib/she_commands_web/live/admin/module_live/form_component.ex:171
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Core concepts"
+msgstr ""
+
+#: lib/she_commands_web/live/admin/module_live/form_component.ex:266
+#, elixir-autogen, elixir-format
+msgid "Daily frequency"
+msgstr ""
+
+#: lib/she_commands_web/live/admin/module_live/form_component.ex:264
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Daily time (min)"
+msgstr ""
+
+#: lib/she_commands_web/live/admin/module_live/form_component.ex:141
+#, elixir-autogen, elixir-format
+msgid "Edit module"
+msgstr ""
+
+#: lib/she_commands_web/live/admin/module_live/form_component.ex:214
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Experience level"
+msgstr ""
+
+#: lib/she_commands_web/live/admin/module_live/form_component.ex:239
+#, elixir-autogen, elixir-format
+msgid "Hold Cmd/Ctrl to select multiple."
+msgstr ""
+
+#: lib/she_commands_web/live/admin/module_live/form_component.ex:165
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Identity"
+msgstr ""
+
+#: lib/she_commands_web/live/admin/module_live/form_component.ex:208
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Lead time fit"
+msgstr ""
+
+#: lib/she_commands_web/live/admin/module_live/form_component.ex:167
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Module ID"
+msgstr ""
+
+#: lib/she_commands_web/live/admin/module_live/form_component.ex:196
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Module type"
+msgstr ""
+
+#: lib/she_commands_web/live/admin/module_live/form_component.ex:139
+#: lib/she_commands_web/live/admin/module_live/index.html.heex:28
+#, elixir-autogen, elixir-format
+msgid "New module"
+msgstr ""
+
+#: lib/she_commands_web/live/admin/module_live/form_component.ex:246
+#, elixir-autogen, elixir-format
+msgid "Outcomes & sequencing"
+msgstr ""
+
+#: lib/she_commands_web/live/admin/module_live/form_component.ex:182
+#, elixir-autogen, elixir-format
+msgid "Primary pillar"
+msgstr ""
+
+#: lib/she_commands_web/live/admin/module_live/form_component.ex:252
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Protocol sequencing"
+msgstr ""
+
+#: lib/she_commands_web/live/admin/module_live/form_component.ex:289
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Reward eligible"
+msgstr ""
+
+#: lib/she_commands_web/live/admin/module_live/form_component.ex:189
+#, elixir-autogen, elixir-format
+msgid "Secondary pillar"
+msgstr ""
+
+#: lib/she_commands_web/live/admin/module_live/form_component.ex:184
+#, elixir-autogen, elixir-format
+msgid "Select a pillar..."
+msgstr ""
+
+#: lib/she_commands_web/live/admin/module_live/form_component.ex:284
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Sources & flags"
+msgstr ""
+
+#: lib/she_commands_web/live/admin/module_live/form_component.ex:261
+#, elixir-autogen, elixir-format
+msgid "Time & frequency"
+msgstr ""
+
+#: lib/she_commands_web/live/admin/module_live/form_component.ex:256
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Time to result"
+msgstr ""
+
+#: lib/she_commands_web/live/admin/module_live/form_component.ex:168
+#, elixir-autogen, elixir-format
+msgid "Title"
+msgstr ""
+
+#: lib/she_commands_web/live/admin/module_live/form_component.ex:288
+#, elixir-autogen, elixir-format
+msgid "Video available"
+msgstr ""
+
+#: lib/she_commands_web/live/admin/module_live/form_component.ex:265
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Weekly frequency"
 msgstr ""

@@ -9,16 +9,24 @@
       </.link>
     </div>
     <%!-- Header --%>
-    <div class="mb-10">
-      <p class="font-label text-xs uppercase tracking-[0.25em] text-base-content/50 mb-4">
-        {gettext("Administration")}
-      </p>
-      <h1 class="text-3xl sm:text-4xl font-serif italic leading-[1.1] tracking-[-0.02em] text-base-content">
-        {gettext("Module Library")}
-      </h1>
-      <p class="mt-4 text-sm text-base-content/60">
-        {gettext("%{count} modules", count: length(@modules))}
-      </p>
+    <div class="mb-10 flex items-end justify-between gap-4">
+      <div>
+        <p class="font-label text-xs uppercase tracking-[0.25em] text-base-content/50 mb-4">
+          {gettext("Administration")}
+        </p>
+        <h1 class="text-3xl sm:text-4xl font-serif italic leading-[1.1] tracking-[-0.02em] text-base-content">
+          {gettext("Module Library")}
+        </h1>
+        <p class="mt-4 text-sm text-base-content/60">
+          {gettext("%{count} modules", count: length(@modules))}
+        </p>
+      </div>
+      <.link
+        patch={~p"/admin/modules/new"}
+        class="shrink-0 py-3 px-8 bg-base-content text-base-100 text-xs font-label uppercase tracking-[0.2em] hover:bg-base-content/90 transition cursor-pointer"
+      >
+        {gettext("New module")}
+      </.link>
     </div>
 
     <%!-- Filters --%>
@@ -112,11 +120,11 @@
     <%!-- Module List --%>
     <div class="space-y-0">
       <%= for %{module: module, completeness: pct, missing_fields: missing} <- @modules do %>
-        <.link
-          navigate={~p"/admin/modules/#{module.id}"}
-          class="flex items-center justify-between py-5 border-b border-base-content/10 hover:bg-base-content/[0.02] transition group"
-        >
-          <div class="flex-1 min-w-0">
+        <div class="flex items-center justify-between py-5 border-b border-base-content/10 hover:bg-base-content/[0.02] transition group">
+          <.link
+            navigate={~p"/admin/modules/#{module.id}"}
+            class="flex-1 min-w-0 block"
+          >
             <div class="flex items-center gap-3">
               <p class="text-sm font-semibold text-base-content truncate">
                 {module.title}
@@ -149,7 +157,7 @@
                 <% end %>
               </div>
             <% end %>
-          </div>
+          </.link>
           <div class="flex items-center gap-4 ml-4 shrink-0">
             <div class="text-right">
               <span class={"text-xs font-semibold #{completeness_color(pct)}"}>{pct}%</span>
@@ -164,9 +172,14 @@
                 </p>
               <% end %>
             </div>
-            <span class="hero-chevron-right size-4 text-base-content/30 group-hover:text-base-content/60 transition" />
+            <.link
+              patch={~p"/admin/modules/#{module.id}/edit"}
+              class="text-xs font-label uppercase tracking-[0.15em] text-primary hover:opacity-70 transition cursor-pointer"
+            >
+              {gettext("Edit")}
+            </.link>
           </div>
-        </.link>
+        </div>
       <% end %>
 
       <%= if @modules == [] do %>
@@ -176,4 +189,12 @@
       <% end %>
     </div>
   </div>
+
+  <.live_component
+    :if={@live_action in [:new, :edit]}
+    module={SheCommandsWeb.Admin.ModuleLive.FormComponent}
+    id="module-form"
+    record={@editing_module}
+    goal_categories={@goal_categories}
+  />
 </Layouts.app>

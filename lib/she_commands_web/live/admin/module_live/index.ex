@@ -19,6 +19,24 @@ defmodule SheCommandsWeb.Admin.ModuleLive.Index do
   end
 
   @impl true
+  def handle_params(params, _url, socket) do
+    {:noreply, apply_action(socket, socket.assigns.live_action, params)}
+  end
+
+  defp apply_action(socket, :new, _params) do
+    assign(socket, :editing_module, %SheCommands.Modules.Module{goal_categories: []})
+  end
+
+  defp apply_action(socket, :edit, %{"id" => id}) do
+    module = Modules.get_module!(id)
+    assign(socket, :editing_module, module)
+  end
+
+  defp apply_action(socket, :index, _params) do
+    assign(socket, :editing_module, nil)
+  end
+
+  @impl true
   def handle_event("filter", params, socket) do
     filters =
       %{}
@@ -39,6 +57,14 @@ defmodule SheCommandsWeb.Admin.ModuleLive.Index do
      socket
      |> assign(:filters, %{})
      |> assign_modules(%{})}
+  end
+
+  @impl true
+  def handle_info({:saved, _module}, socket) do
+    {:noreply,
+     socket
+     |> assign_modules(socket.assigns.filters)
+     |> push_patch(to: ~p"/admin/modules")}
   end
 
   defp assign_modules(socket, filters) do

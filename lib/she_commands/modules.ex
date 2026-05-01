@@ -78,6 +78,19 @@ defmodule SheCommands.Modules do
   end
 
   @doc """
+  Updates a module and replaces its goal_categories association in
+  one go. Pass the GoalCategory structs (not ids) — preload happens at
+  the call site.
+  """
+  def update_module_with_categories(%Module{} = module, attrs, goal_categories) do
+    module
+    |> Repo.preload(:goal_categories)
+    |> Module.changeset(attrs)
+    |> Ecto.Changeset.put_assoc(:goal_categories, goal_categories)
+    |> Repo.update()
+  end
+
+  @doc """
   Deletes a module.
   """
   def delete_module(%Module{} = module) do
